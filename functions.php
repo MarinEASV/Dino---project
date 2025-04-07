@@ -34,14 +34,6 @@ add_action("wp_enqueue_scripts", "dino_theme");
 add_action('wp_enqueue_scripts', 'enqueue_aos_scripts'); 
 
 
-function valmar_metal_remove_gutenberg() {
-    remove_post_type_support("post", "editor");
-    remove_post_type_support("page", "editor");
-}
-add_action("init", "dino_theme_remove_gutenberg");
-
-add_filter("use_block_editor_for_post", "__return_false");
-add_filter("use_block_editor_for_page", "__return_false");
 
 
 
