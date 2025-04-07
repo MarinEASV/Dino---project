@@ -34,11 +34,6 @@ add_action("wp_enqueue_scripts", "dino_theme");
 add_action('wp_enqueue_scripts', 'enqueue_aos_scripts'); 
 
 
-
-
-
-
-
 function custom_theme_scripts() {
     // Enqueue Bootstrap (if needed)
     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true);
@@ -51,3 +46,10 @@ function custom_theme_scripts() {
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/script.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'custom_theme_scripts');
+
+
+function dino_theme_remove_gutenberg() {
+    add_filter('use_block_editor_for_post', '__return_false', 10);
+    add_filter('use_block_editor_for_post_type', '__return_false', 10);
+}
+add_action('init', 'dino_theme_remove_gutenberg');
