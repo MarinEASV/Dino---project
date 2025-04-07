@@ -1,5 +1,5 @@
 <?php
-function valmar_metal() {
+function Dino-theme() {
     // Enqueue Styles
     wp_enqueue_style("bootstrap", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css");
     wp_enqueue_style("theme-style", get_template_directory_uri() . "/style.css");
@@ -25,7 +25,7 @@ function valmar_metal() {
     wp_enqueue_script("local-script", get_template_directory_uri() . "/script.js", array("jquery"), null, true);
 
 }
-add_action("wp_enqueue_scripts", "valmar_metal");
+add_action("wp_enqueue_scripts", "Dino-theme");
 
  function enqueue_aos_scripts() {
     wp_enqueue_style('aos-css', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', array(), '2.3.4');
@@ -34,11 +34,11 @@ add_action("wp_enqueue_scripts", "valmar_metal");
 add_action('wp_enqueue_scripts', 'enqueue_aos_scripts'); 
 
 
-function valmar_metal_remove_gutenberg() {
+function Dino-theme_remove_gutenberg() {
     remove_post_type_support("post", "editor");
     remove_post_type_support("page", "editor");
 }
-add_action("init", "valmar_metal_remove_gutenberg");
+add_action("init", "Dino-theme_remove_gutenberg");
 
 add_filter("use_block_editor_for_post", "__return_false");
 add_filter("use_block_editor_for_page", "__return_false");
