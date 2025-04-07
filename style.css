@@ -1,0 +1,482 @@
+/*
+Theme Name: Dino-theme
+Authors: Marin Vujica, Kristijan Horvat and Camille Sulcova
+*/
+
+/* Fonts*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Marck+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Variables */
+:root {
+    --c-dark: #2c2d31;
+    --c-light: #FFFBF1;
+    --c-green: #feb800;
+    --c-steel: #71797E;
+    --c-bg-light: #FFFBF1;
+    --h-font: 'Red_Hat_Display', serif ;
+    --p-font: 'Poppins', serif ;
+}
+
+/* Global style */
+body {
+    font-family: var(--p-font);
+    background-color: var(--c-light);
+    color: var(--c-dark);
+    overflow-x: hidden;
+}
+
+
+
+/* main titles */
+h1, .h1 {
+    font-family: var(--h-font);
+    font-size: 48px;
+    line-height: 38px;
+    font-weight: 500;
+}
+
+h2, .h2 {
+    font-family: var(--h-font);
+    font-size: 48px;
+    line-height: 64px;
+}
+
+h3, .h3 {
+    font-family: var(--p-font);
+    font-size: 32px;
+    line-height: 40px;
+}
+
+h4, h4 {
+    font-family: var(--p-font);
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .hero-video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.4); /* adjust for lighter/darker filter */
+  }
+  
+
+/* Logo */
+.logo {
+    max-height: 50px;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background:var(--c-light);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--c-dark);
+    font-size: 16px;
+}
+
+/* Target the navigation links */
+nav a {
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+  }
+  
+  /* Apply hover effect */
+  nav a:hover {
+    transform: scale(1.1); /* Slightly enlarge the text */
+    color: var(--c-green);
+  }
+  
+.logo {
+    max-height: 90px;
+}
+
+/* Mobile Menu */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background: var(--c-light);
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 190px;
+    z-index: 1050;
+}
+
+/* Style for links inside the mobile menu */
+.mobile-nav a {
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    text-decoration: none; /* Remove underline */
+    color:var(--c-dark);
+    font-size: 18px; /* Set base font size */
+    margin: 15px 0; /* Add spacing between links */
+}
+
+/* Hover effect */
+.mobile-nav a:hover {
+    transform: scale(1.1); /* Slightly enlarge the text */
+    color: var(--c-green);
+}
+
+.mobile-nav.show {
+    right: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .menu-btn {
+        display: block;
+    }
+     /* Increase size for mobile navigation links */
+     .mobile-nav a {
+        font-size: 20px; /* Larger font size for mobile */
+    }
+}
+
+
+
+
+
+
+/* Manufacturing */
+
+.manufacturing-img {
+    border-radius: 0px;
+    overflow: hidden;
+    max-width: 100%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.manufacturing-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px var(--c-dark);
+}
+
+.manufacturing-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.manufacturing-ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 20px;
+    position: relative;
+    font-size: 1rem;
+    color: var(--c-dark);
+    line-height: 1.5;
+}
+
+.manufacturing-ul li::before {
+    content: "✔";
+    color: var(--c-dark);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.manufacturing-subtitle {
+    font-size: 1.2rem;
+    color: var(--c-dark);
+    margin-bottom: 1rem;
+}
+
+.manufacturing-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--c-dark);
+}
+
+
+
+
+
+/* Footer */
+.footer {
+    background-color: var(--c-light);
+    color: var(--c-dark);
+    padding: 40px 20px;
+    text-align: center;
+    font-family: var(--p-font);
+}
+
+.footer .row {
+    min-height: 350px; /* Adjust the height as needed */
+    display: flex;
+    align-items: center; /* Ensures items align properly */
+}
+
+/* Ensure the footer-item is centered and logo is centered within it */
+.footer .footer-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center */
+    align-items: center; /* Horizontally center */
+    text-align: center; /* Ensure text is centered */
+}
+
+/* Center the logo inside the anchor tag */
+.footer .footer-item a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Take up full width to ensure centering */
+}
+
+/* Make sure logo has proper margin and centering */
+.footer .footer-item img {
+    margin: 0 auto; /* Auto margins on both sides to center */
+}
+
+/* Additional responsiveness for smaller screens */
+@media (max-width: 767px) {
+    .footer .row {
+        flex-direction: column; /* Stack columns vertically */
+        text-align: center; /* Center all text */
+    }
+
+    .footer .footer-item {
+        text-align: center; /* Ensure footer items are centered */
+    }
+}
+
+
+
+.footer .footer-item {
+    text-align: left; /* Align text to the left */
+    justify-content: flex-start; /* Align items to the start of the container */
+}
+
+/* Align the social media icons in the center */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjust links and paragraphs */
+.footer .footer-item a,
+.footer .footer-item p {
+    color: var(--c-dark);
+    line-height: 35px;
+    transition: letter-spacing 0.5s ease, color 0.5s ease;
+    text-align: left;
+}
+
+
+.footer .footer-item a:hover {
+    letter-spacing: 2px;
+    color: var(--c-green);
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    background-color: var(--c-light);
+    text-align: center; /* Center-align the text */
+    padding: 10px 0; /* Add some spacing */
+    font-size: 14px; /* Slightly smaller font */
+    color: var(--c-dark);
+}
+
+
+/* Links */
+.link-fancy {
+    color: var(--c-steel);
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.link-fancy:hover {
+    text-decoration: underline;
+    color: var(--c-dark);
+}
+
+
+/* Nav-tabs */
+.nav-tabs .nav-link {
+    font-family: var(--p-font);
+    font-size: 1.1rem;
+    color: var(--c-dark);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 !important;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: var(--c-green);
+    color: var(--c-light);
+}
+
+.nav-tabs {
+    border-bottom: none;
+    padding-bottom: 30px;
+    
+}
+
+
+
+
+/* Buttons */
+.btn-custom {
+    background: var(--c-dark);
+    color: var(--c-light);
+    font-family: var(--p-font);
+    font-size: 16px;
+    padding: 12px 25px;
+    border-radius: 0px;
+}
+
+.btn-custom:hover {
+    background: var(--c-steel);
+    transform: scale(1.05);
+    color: var(--c-dark);
+}
+
+.btn-book-appointment {
+    background: var(--c-green);
+    color: var(--c-light);
+    font-family: var(--p-font);
+    font-size: 16px;
+    padding: 12px 25px;
+    border-radius: 0px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-book-appointment:hover {
+    background: var(--c-dark);
+    color: var(--c-light);
+    transform: scale(1.05);
+}
+
+.btn-contact-me {
+    background: var(--c-green);
+    color: var(--c-light);
+    font-family: var(--p-font);
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 !important;
+    transition: all 0.2s ease;
+}
+
+.btn-contact-me:hover {
+   background: var(--c-dark);
+    color: var(--c-light);
+    transform: scale(1.05);
+}
+
+.man-btn {
+    background: var(--c-green);
+    color: var(--c-light);
+    font-family: var(--p-font);
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 !important;
+    transition: all 0.2s ease;
+    display: inline-block; /* Ensures proper spacing */
+    text-align: center; /* Centers text inside */
+    cursor: pointer; /* Ensures it looks clickable */
+}
+
+.man-btn:hover {
+    background: var(--c-dark);
+    color: var(--c-light);
+    transform: scale(1.05);
+}
+
+
+
+
+/* Medias Queries */
+@media (max-width: 768px) {
+    .manufacturing-title {
+        font-size: 1.5rem;
+    }
+
+    .manufacturing-subtitle {
+        font-size: 1rem;
+    }
+
+    .nav-tabs .nav-link {
+        font-size: 1rem;
+    }
+
+    .manufacturing-img {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .appointment-form {
+        padding: 20px;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 20px 10px;
+    }
+}
+
+
+
+
+
