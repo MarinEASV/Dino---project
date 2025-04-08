@@ -22,10 +22,9 @@
 
         <!-- Desktop Menu -->
         <nav class="nav-links">
-            <a href="/">NASLOVNA</a>
-            <a href="#about">O NAMA</a>
-            <a href="#manufacturing">NAŠE USLUGE</a>
-            <a href="#footer">KONTAKT</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#footer">Contact</a>
             <div id="weglot_here"></div> <!-- Weglot button -->
         </nav>
 
@@ -37,9 +36,8 @@
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="mobile-nav">
     <button id="closeMenu" class="close-btn">&times;</button>
-    <a href="/">NASLOVNA</a>
-    <a href="#about">O NAMA</a>
-    <a href="#manufacturing">NAŠE USLUGE</a>
-    <a href="#footer">KONTAKT</a>
+            <a href="#about">About</a>
+            <a href="#manufacturing">Menu</a>
+            <a href="#footer">Contact</a>
     <div id="weglot_here"></div> <!-- Weglot button for mobile -->
 </div>
