@@ -22,7 +22,7 @@ Author: Marin Vujica, Kristijan Horvat and Camille Sulcova
 /* Global style */
 body {
     font-family: var(--p-font);
-    background-color: var(--c-light);
+    background-color: var(--c-dark);
     color: var(--c-dark);
     overflow-x: hidden;
 }
