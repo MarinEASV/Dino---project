@@ -53,7 +53,7 @@
 
    <!-- Footer Bottom Section -->
    <div class="footer-bottom text-center py-3">
-      <p>Sva prava zadržana © 2025 Valmar Metal</p>
+      <p>All rights reserved © 2025 Dino restaurant</p>
     </div>
 
 </section>
