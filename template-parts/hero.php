@@ -14,6 +14,6 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
   <?php endif; ?>
 
   <!-- Overlay Filter -->
-  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4); z-index:1;"></div>
+  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
 </section>
