@@ -7,13 +7,11 @@
           <div class="footer-item d-flex flex-column">
             
             <a href="/" style="d-flex justify-content-center align-items-center">             
-            <img src="<?php echo get_template_directory_uri()  ?>/assets/Dino-logo.svg" alt="logo" width="280" height="auto">
+            <img src="<?php echo get_template_directory_uri()  ?>/assets/Dino-logo.svg" alt="logo" width="230" height="auto">
             </a>
             
            
-            <div class="social-icons d-flex justify-content-center align-items-center mt-4">
-            <p class="lead" style="color: var(--c-dark); font-weight: bold;">Kvaliteta koja traje.</p>
-            </div>
+         
 
           </div>
         </div>
