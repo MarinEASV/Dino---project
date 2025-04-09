@@ -30,19 +30,3 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const navbar = document.querySelector(".navbar");
-  
-    function handleScroll() {
-      if (window.scrollY > 0) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    }
-  
-    // Trigger it on load and on scroll
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-  });
-  
