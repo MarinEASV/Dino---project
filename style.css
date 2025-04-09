@@ -73,7 +73,8 @@ h3, .h3 {
     position: sticky;
     top: 0;
     width: 100%;
-    background:var(--c-light);
+    background:transparent;
+    backdrop-filter: blur(8px); /* Optional: adds a soft blur effect */
     padding: 10px 20px;
     display: flex;
     align-items: center;
