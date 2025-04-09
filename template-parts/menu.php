@@ -12,7 +12,7 @@
             <?php
             $isFirst = true;
             $menu_query = new WP_Query(array(
-              'post_type' => 'manufacturing',
+              'post_type' => 'menu',
               'posts_per_page' => -1,
             ));
 
@@ -45,7 +45,7 @@
           <?php
           $isFirst = true;
           $menu_query = new WP_Query(array(
-            'post_type' => 'manufacturing',
+            'post_type' => 'menu',
             'posts_per_page' => -1,
           ));
 
@@ -67,7 +67,7 @@
                     <p><?php echo $menu_description; ?></p>
                     
                     <!-- Button Below Text -->
-                    <button type="button" class="btn btn-lg btn-primary man-btn" data-toggle="modal" data-target="#bookAppointmentModal">
+                    <button type="button" class="btn btn-lg man-btn" data-toggle="modal" data-target="#bookAppointmentModal">
                       <?php echo $man_btn ? $man_btn : ''; ?>
                     </button>
                   </div>

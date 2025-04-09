@@ -12,10 +12,10 @@
     <!-- Video Section -->
 
      <!--manufacturing-->
-     <?php get_template_part ("template-parts/manufacturing");?>
+     <?php get_template_part ("template-parts/menu");?>
     <!--manufacturing-->
 
-    
+    -
      
         <?php endwhile ?>
     <?php endif ?>

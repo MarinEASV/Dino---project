@@ -3,31 +3,29 @@ Theme Name: Dino-theme
 Author: Marin Vujica, Kristijan Horvat and Camille Sulcova
 */
 
-/* Fonts*/
 
+/* Fonts*/
 
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Marck+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* Variables */
 :root {
-    --c-dark: #2c2d31;
-    --c-light: #FFFBF1;
-    --c-green: #feb800;
-    --c-steel: #71797E;
-    --c-bg-light: #FFFBF1;
-    --h-font: 'Red_Hat_Display', serif ;
-    --p-font: 'Poppins', serif ;
+    --c-dark: #1A1A1A;
+    --c-light: #ffffff;
+    --c-red: #8C1C13; 
+    --c-gray: #C4C4C4; 
+    --h-font: "DM Serif Display", serif;
+    --p-font: 'Red_Hat_Display', serif ;
 }
 
 /* Global style */
 body {
     font-family: var(--p-font);
-    background-color: var(--c-dark);
+    font-size: 16px;
+    background-color: var(--c-light);
     color: var(--c-dark);
     overflow-x: hidden;
 }
-
-
 
 /* main titles */
 h1, .h1 {
@@ -39,20 +37,14 @@ h1, .h1 {
 
 h2, .h2 {
     font-family: var(--h-font);
-    font-size: 48px;
+    font-size: 32px;
     line-height: 64px;
 }
 
 h3, .h3 {
-    font-family: var(--p-font);
-    font-size: 32px;
-    line-height: 40px;
-}
-
-h4, h4 {
-    font-family: var(--p-font);
+    font-family: var(--h-font);
     font-size: 24px;
-    line-height: 32px;
+    line-height: 40px;
 }
 
 .hero-section {
@@ -111,7 +103,7 @@ nav a {
   /* Apply hover effect */
   nav a:hover {
     transform: scale(1.1); /* Slightly enlarge the text */
-    color: var(--c-green);
+    color: var(--c-red);
   }
   
 .logo {
@@ -146,7 +138,7 @@ nav a {
 /* Hover effect */
 .mobile-nav a:hover {
     transform: scale(1.1); /* Slightly enlarge the text */
-    color: var(--c-green);
+    color: var(--c-red);
 }
 
 .mobile-nav.show {
@@ -293,18 +285,9 @@ nav a {
     }
 }
 
-
-
 .footer .footer-item {
     text-align: left; /* Align text to the left */
     justify-content: flex-start; /* Align items to the start of the container */
-}
-
-/* Align the social media icons in the center */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* Adjust links and paragraphs */
@@ -319,7 +302,7 @@ nav a {
 
 .footer .footer-item a:hover {
     letter-spacing: 2px;
-    color: var(--c-green);
+    color: var(--c-red);
 }
 
 /* Footer Bottom Section */
@@ -334,7 +317,7 @@ nav a {
 
 /* Links */
 .link-fancy {
-    color: var(--c-steel);
+    color: var(--c-red);
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -357,7 +340,7 @@ nav a {
 }
 
 .nav-tabs .nav-link.active {
-    background-color: var(--c-green);
+    background-color: var(--c-red);
     color: var(--c-light);
 }
 
@@ -366,81 +349,6 @@ nav a {
     padding-bottom: 30px;
     
 }
-
-
-
-
-/* Buttons */
-.btn-custom {
-    background: var(--c-dark);
-    color: var(--c-light);
-    font-family: var(--p-font);
-    font-size: 16px;
-    padding: 12px 25px;
-    border-radius: 0px;
-}
-
-.btn-custom:hover {
-    background: var(--c-steel);
-    transform: scale(1.05);
-    color: var(--c-dark);
-}
-
-.btn-book-appointment {
-    background: var(--c-green);
-    color: var(--c-light);
-    font-family: var(--p-font);
-    font-size: 16px;
-    padding: 12px 25px;
-    border-radius: 0px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-book-appointment:hover {
-    background: var(--c-dark);
-    color: var(--c-light);
-    transform: scale(1.05);
-}
-
-.btn-contact-me {
-    background: var(--c-green);
-    color: var(--c-light);
-    font-family: var(--p-font);
-    font-size: 18px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 0 !important;
-    transition: all 0.2s ease;
-}
-
-.btn-contact-me:hover {
-   background: var(--c-dark);
-    color: var(--c-light);
-    transform: scale(1.05);
-}
-
-.man-btn {
-    background: var(--c-green);
-    color: var(--c-light);
-    font-family: var(--p-font);
-    font-size: 18px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 0 !important;
-    transition: all 0.2s ease;
-    display: inline-block; /* Ensures proper spacing */
-    text-align: center; /* Centers text inside */
-    cursor: pointer; /* Ensures it looks clickable */
-}
-
-.man-btn:hover {
-    background: var(--c-dark);
-    color: var(--c-light);
-    transform: scale(1.05);
-}
-
-
-
 
 /* Medias Queries */
 @media (max-width: 768px) {
@@ -462,10 +370,7 @@ nav a {
 }
 
 @media (max-width: 576px) {
-    .appointment-form {
-        padding: 20px;
-    }
-
+   
     .nav-tabs .nav-link {
         padding: 8px 12px;
         font-size: 1rem;
