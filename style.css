@@ -141,7 +141,7 @@ nav a {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
+    width: 60%;
     height: 100%;
     background: rgba(255, 255, 255, 0.8); /* semi-transparent */
     backdrop-filter: blur(8px); /* Apply blur */
@@ -159,7 +159,7 @@ nav a {
     text-decoration: none; /* Remove underline */
     color:var(--c-dark);
     font-size: 30px; /* Set base font size */
-    margin: 15px 0; /* Add spacing between links */
+    margin: 10px 0; /* Add spacing between links */
 }
 
 .mobile-nav.show {
