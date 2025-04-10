@@ -50,27 +50,23 @@ h3, .h3 {
 
 /* Hero */
 .hero-section {
-    position: relative;
-    height: 100vh;
+    position: fixed; /* Make hero section fixed */
+    top: 0;
+    left: 0;
     width: 100%;
-    overflow: hidden;
-    z-index: 1; /* Ensure hero section stays behind the navbar */
-
-  }
-  
-  .hero-video {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Ensure the video stays behind the navbar */
+    height: 100vh; /* Ensure it covers the full screen */
+    z-index: -1; /* Keeps it behind other elements */
 
   }
   
   .hero-overlay {
-    background: rgba(0, 0, 0, 0.4); /* adjust for lighter/darker filter */
-    z-index: 0; /* Ensure the overlay stays behind the navbar */
-    pointer-events: none; /* Prevent overlay from blocking interactions */
-  }
+    background: rgba(0, 0, 0, 0.4); /* Adjust for overlay effect */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
   
 
 
