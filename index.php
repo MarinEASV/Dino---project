@@ -6,16 +6,15 @@
     <?php get_template_part("template-parts/hero"); ?>
     <!--hero-->
 
-  
-    <!-- Video Section -->
-    <?php get_template_part("template-parts/video"); ?>
-    <!-- Video Section -->
-
-     <!--manufacturing-->
+    <!--manufacturing-->
      <?php get_template_part ("template-parts/menu");?>
     <!--manufacturing-->
 
-    -
+    <!-- Video Section -->
+     <?php get_template_part("template-parts/video"); ?>
+    <!-- Video Section -->
+
+    
      
         <?php endwhile ?>
     <?php endif ?>
