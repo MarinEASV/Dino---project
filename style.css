@@ -103,7 +103,7 @@ h3, .h3 {
 
 .nav-links {
     display: flex;
-    align-items: right;
+    align-items: center;
     gap: 20px;
     font-size: 20px;
 }
@@ -118,7 +118,7 @@ h3, .h3 {
 /* Desktop navbar spacing */
 @media (min-width: 768px) {
     .nav-links a {
-      margin: 0 40px; /* Adjust spacing as needed */
+        margin-left: 40px;
     }
   }
 
