@@ -55,7 +55,7 @@ h3, .h3 {
     width: 100%;
     overflow: hidden;
     z-index: 1; /* Ensure hero section stays behind the navbar */
-    top: 0; /* Ensure it's at the very top of the page */
+    top: 0 !important;
   }
   
   .hero-video {
