@@ -73,21 +73,11 @@ h3, .h3 {
     position: sticky;
     top: 0;
     width: 100%;
-    background:transparent;
     padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    transition: background 0.3s ease, backdrop-filter 0.3s ease;
-
-}
-
-/* When user scrolls down */
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.7); /* Or any light color that fits your theme */
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Optional shadow for depth */
 }
 
 .nav-links {
@@ -107,7 +97,7 @@ h3, .h3 {
 .nav-links a {
     text-decoration: none;
     color: var(--c-dark);
-    font-size: 16px;
+    font-size: 20px;
 }
 
 /* Target the navigation links */
