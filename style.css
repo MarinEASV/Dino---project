@@ -145,7 +145,7 @@ nav a {
     width: 60%;
     height: 100%;
     background: rgba(255, 255, 255, 0.8); /* semi-transparent */
-    backdrop-filter: blur(8px); /* Apply blur */
+    backdrop-filter: blur(5px); /* Apply blur */
     transition: right 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -169,12 +169,8 @@ nav a {
 
 /* Hover effect */
 .mobile-nav a:hover {
-    transform: scale(1.2); /* Slightly enlarge the text */
+    transform: scale(1.5); /* Slightly enlarge the text */
     color: var(--c-red);
-}
-
-.mobile-nav.show {
-    right: 0;
 }
 
 .close-btn {
@@ -204,10 +200,7 @@ nav a {
     .menu-btn {
         display: block;
     }
-     /* Increase size for mobile navigation links */
-     .mobile-nav a {
-       
-    }
+
 }
 
 
