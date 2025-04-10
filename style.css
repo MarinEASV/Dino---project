@@ -20,7 +20,7 @@ Author: Marin Vujica, Kristijan Horvat and Camille Sulcova
 
 /* Global style */
 body {
-    font-family: var(--p-font);
+    font-family: var(--p-font); 
     font-size: 16px;
     background-color: var(--c-light);
     color: var(--c-dark);
@@ -106,6 +106,8 @@ h3, .h3 {
     align-items: center;
     gap: 20px;
     font-size: 20px;
+    font-family: var(--h-font);
+
 }
 
 
@@ -159,7 +161,7 @@ nav a {
     transition: all 0.3s ease; /* Smooth transition for all properties */
     text-decoration: none; /* Remove underline */
     color:var(--c-dark);
-    font-size: 80px; /* Set base font size */
+    font-size: 60px; /* Set base font size */
     margin: 10px 0; /* Add spacing between links */
 }
 
@@ -268,6 +270,7 @@ nav a {
     padding: 40px 20px;
     text-align: center;
     font-family: var(--p-font);
+    font-size: 20px;
 }
 
 #footer a {
@@ -344,7 +347,7 @@ nav a {
     background-color: var(--c-light);
     text-align: center; /* Center-align the text */
     padding: 10px 0; /* Add some spacing */
-    font-size: 14px; /* Slightly smaller font */
+    font-size: 25px; /* Slightly smaller font */
     color: var(--c-dark);
 }
 

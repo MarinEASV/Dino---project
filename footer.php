@@ -7,7 +7,7 @@
           <div class="footer-item d-flex flex-column">
             
             <a href="/" style="d-flex justify-content-center align-items-center">             
-            <img src="<?php echo get_template_directory_uri()  ?>/assets/Dino-logo.svg" alt="logo" width="150" height="auto">
+            <img src="<?php echo get_template_directory_uri()  ?>/assets/Dino-logo.svg" alt="logo" width="200" height="auto">
             </a>
             
            
