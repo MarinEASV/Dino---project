@@ -110,6 +110,13 @@ h3, .h3 {
 
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Optional: adds even spacing */
+}
+
+
 /* Desktop navbar spacing */
 @media (min-width: 768px) {
     .nav-links a {
