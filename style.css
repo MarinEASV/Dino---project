@@ -25,6 +25,9 @@ body {
     background-color: var(--c-light);
     color: var(--c-dark);
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 /* main titles */
@@ -55,6 +58,9 @@ h3, .h3 {
     width: 100%;
     overflow: hidden;
     z-index: 1; /* Ensure hero section stays behind the navbar */
+    top: 0;
+    margin: 0;
+    padding: 0;
   }
   
   .hero-video {
