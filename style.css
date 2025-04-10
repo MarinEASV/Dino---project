@@ -115,7 +115,12 @@ h3, .h3 {
 }
 
 
-
+/* Desktop navbar spacing */
+@media (min-width: 768px) {
+    .nav-links a {
+      margin: 0 40px; /* Adjust spacing as needed */
+    }
+  }
 
 .nav-links a {
     text-decoration: none;
