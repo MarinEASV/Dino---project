@@ -59,10 +59,9 @@ add_action('wp_enqueue_scripts', 'custom_theme_scripts');
 
 
 function dino_enqueue_scripts() {
-    // Load main CSS (optional if already done)
-    wp_enqueue_style('dino-style', get_stylesheet_uri());
+    wp_enqueue_style('main-style', get_stylesheet_uri());
 
-    // Load your custom JS file
-    wp_enqueue_script('dino-scripts', get_template_directory_uri() . '/script.js', array(), false, true);
+    // Add this line if it's not already present
+    wp_enqueue_script('dino-script', get_template_directory_uri() . '/script.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'dino_enqueue_scripts');
