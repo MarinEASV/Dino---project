@@ -270,6 +270,15 @@ nav a {
     font-family: var(--p-font);
 }
 
+#footer a {
+    text-decoration: none; /* Remove underline from footer links */
+}
+
+#footer a:hover {
+    text-decoration: none; /* Ensure the underline is still removed on hover */
+}
+
+
 .footer .row {
     min-height: 350px; /* Adjust the height as needed */
     display: flex;
