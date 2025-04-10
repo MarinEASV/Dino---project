@@ -90,7 +90,7 @@ h3, .h3 {
 
 .navbar.scrolled {
     background: var(--c-light);  /* Set the background when scrolled */
-    backdrop-filter: blur(5px); /* Add the blur effect */
+    backdrop-filter: blur(10px); /* Add the blur effect */
 }
 
 .nav-links {
