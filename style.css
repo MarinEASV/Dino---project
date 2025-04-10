@@ -93,7 +93,7 @@ h3, .h3 {
     justify-content: space-between;
     z-index: 1000;
     background: transparent; /* Start with transparent background */
-    transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition for background */
+    transition: background 0.4s ease, backdrop-filter 0.4s ease; /* Smooth transition for background */
 }
 
 .navbar.scrolled {
@@ -143,8 +143,9 @@ nav a {
     right: -100%;
     width: 70%;
     height: 100%;
-    background: var(--c-light);
-    transition: right 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.8); /* semi-transparent */
+    backdrop-filter: blur(8px); /* Apply blur */
+    transition: right 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,6 +160,10 @@ nav a {
     color:var(--c-dark);
     font-size: 18px; /* Set base font size */
     margin: 15px 0; /* Add spacing between links */
+}
+
+.mobile-nav.show {
+    right: 0;
 }
 
 /* Hover effect */
