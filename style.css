@@ -158,7 +158,7 @@ nav a {
     transition: all 0.3s ease; /* Smooth transition for all properties */
     text-decoration: none; /* Remove underline */
     color:var(--c-dark);
-    font-size: 18px; /* Set base font size */
+    font-size: 30px; /* Set base font size */
     margin: 15px 0; /* Add spacing between links */
 }
 
@@ -168,7 +168,7 @@ nav a {
 
 /* Hover effect */
 .mobile-nav a:hover {
-    transform: scale(1.1); /* Slightly enlarge the text */
+    transform: scale(1.2); /* Slightly enlarge the text */
     color: var(--c-red);
 }
 
