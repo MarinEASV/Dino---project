@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const mobileMenu = document.getElementById("mobileMenu");
     const menuToggle = document.getElementById("menuToggle");
@@ -29,4 +27,14 @@ document.addEventListener("DOMContentLoaded", function () {
    
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.navbar');
 
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 10) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+});
