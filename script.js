@@ -27,15 +27,22 @@ document.addEventListener("DOMContentLoaded", function () {
    
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const navbar = document.querySelector('.navbar');
+console.log("Script loaded");
 
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 10) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".navbar");
+
+  if (!navbar) {
+    console.warn("Navbar not found!");
+    return;
+  }
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 10) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  });
 });
 
