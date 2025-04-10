@@ -119,7 +119,7 @@ h3, .h3 {
 .nav-links a {
     text-decoration: none;
     color: var(--c-dark);
-    font-size: 20px;
+    font-size: 25px;
 }
 
 /* Target the navigation links */
@@ -129,7 +129,7 @@ nav a {
   
   /* Apply hover effect */
   nav a:hover {
-    transform: scale(1.5); /* Slightly enlarge the text */
+    transform: scale(1.2); /* Slightly enlarge the text */
     color: var(--c-red);
   }
   
@@ -159,7 +159,7 @@ nav a {
     transition: all 0.3s ease; /* Smooth transition for all properties */
     text-decoration: none; /* Remove underline */
     color:var(--c-dark);
-    font-size: 40px; /* Set base font size */
+    font-size: 80px; /* Set base font size */
     margin: 10px 0; /* Add spacing between links */
 }
 
@@ -169,7 +169,7 @@ nav a {
 
 /* Hover effect */
 .mobile-nav a:hover {
-    transform: scale(1.5); /* Slightly enlarge the text */
+    transform: scale(1.2); /* Slightly enlarge the text */
     color: var(--c-red);
 }
 
