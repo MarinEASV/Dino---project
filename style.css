@@ -106,7 +106,8 @@ h3, .h3 {
     align-items: center;
     gap: 20px;
     font-size: 20px;
-    font-family: var(--h-font);
+    font-family: var(--p-font);
+    color: var(--c-light);
 
 }
 
@@ -161,7 +162,7 @@ nav a {
     transition: all 0.3s ease; /* Smooth transition for all properties */
     text-decoration: none; /* Remove underline */
     color:var(--c-dark);
-    font-size: 60px; /* Set base font size */
+    font-size: 30px; /* Set base font size */
     margin: 10px 0; /* Add spacing between links */
 }
 
@@ -347,7 +348,7 @@ nav a {
     background-color: var(--c-light);
     text-align: center; /* Center-align the text */
     padding: 10px 0; /* Add some spacing */
-    font-size: 25px; /* Slightly smaller font */
+    font-size: 20px; /* Slightly smaller font */
     color: var(--c-dark);
 }
 
@@ -367,9 +368,9 @@ nav a {
 
 /* Nav-tabs */
 .nav-tabs .nav-link {
-    font-family: var(--p-font);
-    font-size: 1.1rem;
-    color: var(--c-dark);
+    font-family: var(--h-font);
+    font-size: 20px;
+    color: var(--c-light);
     padding: 10px 20px;
     border: none;
     border-radius: 0 !important;
