@@ -366,9 +366,9 @@ nav a {
 
 /* Nav-tabs */
 .nav-tabs .nav-link {
-    font-family: var(--h-font);
+    font-family: var(--p-font);
     font-size: 20px;
-    color: var(--c-light);
+    color: var(--c-dark);
     padding: 10px 20px;
     border: none;
     border-radius: 0 !important;
