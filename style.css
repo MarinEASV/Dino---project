@@ -121,6 +121,7 @@ h3, .h3 {
     font-size: 25px;
     font-family: var(--p-font);
     color: var(--c-light);
+    font-weight: 300;
 }
 
 /* Target the navigation links */
