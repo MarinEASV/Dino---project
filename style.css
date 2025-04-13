@@ -106,9 +106,6 @@ h3, .h3 {
     align-items: center;
     gap: 20px;
     font-size: 20px;
-    font-family: var(--p-font);
-    color: var(--c-light);
-
 }
 
 
@@ -121,8 +118,9 @@ h3, .h3 {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--c-dark);
     font-size: 25px;
+    font-family: var(--p-font);
+    color: var(--c-light);
 }
 
 /* Target the navigation links */
