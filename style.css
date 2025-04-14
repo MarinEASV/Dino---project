@@ -623,38 +623,50 @@ nav a {
     text-align: left;
   }
   
-  /* Animation States */
-  .bottle-clicked.left .left {
+  .bottle-clicked-left .rakija-bottle.left {
     transform: translateX(-100%);
     opacity: 0;
   }
   
-  .bottle-clicked.left .right {
+  .bottle-clicked-left .rakija-bottle.right {
     opacity: 0;
   }
   
-  .bottle-clicked.left .left-text {
+  .bottle-clicked-left .rakija-text.left-text {
     opacity: 1;
   }
   
-  .bottle-clicked.right .right {
+  .bottle-clicked-right .rakija-bottle.right {
     transform: translateX(100%);
     opacity: 0;
   }
   
-  .bottle-clicked.right .left {
+  .bottle-clicked-right .rakija-bottle.left {
     opacity: 0;
   }
   
-  .bottle-clicked.right .right-text {
+  .bottle-clicked-right .rakija-text.right-text {
     opacity: 1;
   }
   
-  /* Custom Cursor */
+  .rakija-text {
+    opacity: 0;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    z-index: 2;
+    background-color: var(--c-light);
+    padding: 2rem;
+  }
+  
+  /* =============== CUSTOM CURSOR =============== */
+  
   .rakija-cursor {
     position: fixed;
     pointer-events: none;
-    z-index: 10;
+    z-index: 1000;
     background: var(--c-red);
     color: var(--c-light);
     padding: 0.4rem 1rem;
