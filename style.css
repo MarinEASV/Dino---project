@@ -663,7 +663,7 @@ nav a {
 
   
   /* Custom cursor base */
-.custom-cursor {
+  .custom-cursor {
     position: fixed;
     top: 0;
     left: 0;
@@ -682,17 +682,20 @@ nav a {
     mix-blend-mode: difference;
   }
   
-  .cursor-text {
-    font-size: 12px;
-    color: white;
-    text-align: center;
-    pointer-events: none;
-    font-family: 'Helvetica Neue', sans-serif;
-  }
-  
-  /* Optional: hide system cursor when over bottles */
+  /* Hide default cursor and show custom one on desktop */
   .bottle-container {
     cursor: none;
+  }
+  
+  /* HIDE custom cursor completely on small screens */
+  @media screen and (max-width: 768px) {
+    .custom-cursor {
+      display: none !important;
+    }
+  
+    .bottle-container {
+      cursor: default;
+    }
   }
   
   
