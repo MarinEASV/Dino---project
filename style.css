@@ -15,7 +15,7 @@ Author: Marin Vujica, Kristijan Horvat and Camille Sulcova
     --c-red: #8C1C13; 
     --c-gray: #C4C4C4; 
     --h-font: "DM Serif Display", serif;
-    --p-font: 'Red Hat Display', serif ;
+    --p-font: 'Red Hat Display', sans-serif ;
 }
 
 /* Global style */
