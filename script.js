@@ -38,28 +38,41 @@ document.addEventListener('scroll', function () {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM loaded ✅");
+  
     const container = document.querySelector(".rakija-container");
     const bottles = document.querySelectorAll(".rakija-bottle");
     const cursor = document.querySelector(".rakija-cursor");
   
-    // Hover cursor effect
+    if (!container || bottles.length === 0 || !cursor) {
+      console.log("Elements missing ❌");
+      return;
+    }
+  
+    console.log("Elements found ✅");
+  
     bottles.forEach(bottle => {
       bottle.addEventListener("mouseenter", () => {
         cursor.style.opacity = 1;
+        console.log("Hover IN");
       });
+  
       bottle.addEventListener("mouseleave", () => {
         cursor.style.opacity = 0;
+        console.log("Hover OUT");
       });
+  
       bottle.addEventListener("mousemove", e => {
         cursor.style.left = e.pageX + 15 + "px";
         cursor.style.top = e.pageY + 15 + "px";
       });
   
       bottle.addEventListener("click", () => {
-        const side = bottle.dataset.bottle;
+        const side = bottle.dataset.bottle; // 'left' or 'right'
+        console.log("Bottle clicked:", side);
+  
         container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
         container.classList.add("bottle-clicked", `bottle-clicked-${side}`);
-    });
+      });
     });
   });
-  

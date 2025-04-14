@@ -14,13 +14,15 @@
     <?php get_template_part ("template-parts/about");?>
     <!--about-->
 
+    <!-- Bottles Section -->
+    <?php get_template_part("template-parts/bottles"); ?>
+    <!-- Bottles Section -->
+
     <!-- Video Section -->
      <?php get_template_part("template-parts/video"); ?>
     <!-- Video Section -->
 
-     <!-- Bottles Section -->
-     <?php get_template_part("template-parts/bottles"); ?>
-    <!-- Bottles Section -->
+     
 
     
      
