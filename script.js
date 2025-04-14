@@ -44,8 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const rightText = document.querySelector(".rakija-text.right-text");
     const cursor = document.querySelector(".rakija-cursor");
   
+    console.log("JS Loaded ✅");
+    console.log("Container found:", !!container);
+    console.log("Left text:", !!leftText, "Right text:", !!rightText);
+  
     if (!container || bottles.length === 0) {
-      console.warn("Bottle layout not found");
+      console.warn("Missing required elements");
       return;
     }
   
@@ -54,34 +58,52 @@ document.addEventListener("DOMContentLoaded", () => {
   
       // Hover tooltip
       bottle.addEventListener("mouseenter", () => {
-        if (cursor) cursor.style.opacity = 1;
+        if (cursor) {
+          cursor.style.opacity = 1;
+          console.log("Cursor visible");
+        }
       });
   
       bottle.addEventListener("mouseleave", () => {
-        if (cursor) cursor.style.opacity = 0;
+        if (cursor) {
+          cursor.style.opacity = 0;
+          console.log("Cursor hidden");
+        }
       });
   
       bottle.addEventListener("mousemove", e => {
         if (cursor) {
-          cursor.style.left = e.pageX + 15 + "px";
-          cursor.style.top = e.pageY + 15 + "px";
+          cursor.style.left = `${e.pageX + 15}px`;
+          cursor.style.top = `${e.pageY + 15}px`;
         }
       });
   
-      // On click
+      // Click logic
       bottle.addEventListener("click", () => {
+        console.log("Bottle clicked:", side);
+  
         container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
   
-        // Hide both text blocks first
-        if (leftText) leftText.style.opacity = 1;
-        if (rightText) rightText.style.opacity = 1;
+        // Reset both text blocks
+        if (leftText) leftText.style.opacity = 0;
+        if (rightText) rightText.style.opacity = 0;
   
         if (side === "left") {
           container.classList.add("bottle-clicked-left");
-          if (leftText) leftText.style.opacity = 1;
-        } else if (side === "right") {
+          if (leftText) {
+            leftText.style.opacity = 1;
+            leftText.style.zIndex = 2;
+            console.log("Left text shown");
+          }
+        }
+  
+        if (side === "right") {
           container.classList.add("bottle-clicked-right");
-          if (rightText) rightText.style.opacity = 1;
+          if (rightText) {
+            rightText.style.opacity = 1;
+            rightText.style.zIndex = 2;
+            console.log("Right text shown");
+          }
         }
       });
     });
