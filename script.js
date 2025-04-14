@@ -38,68 +38,52 @@ document.addEventListener('scroll', function () {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    const container = document.querySelector(".rakija-container");
-    const bottles = document.querySelectorAll(".rakija-bottle");
-    const customCursor = document.querySelector(".custom-cursor");
+    var bottleLeft = document.getElementById("bottle-left");
+    var bottleRight = document.getElementById("bottle-right");
+    var expandedBottle = null; // tracks which bottle is expanded: "left" or "right"
   
-    if (!container || bottles.length === 0 || !customCursor) {
-      console.warn("Missing required elements.");
-      return;
+    function resetBottles() {
+      bottleLeft.classList.remove("slide-left-out", "show-text");
+      bottleRight.classList.remove("slide-right-out", "show-text");
+      expandedBottle = null;
     }
   
-    // Ensure custom cursor is directly within <body>
-    if (!document.body.contains(customCursor)) {
-      document.body.appendChild(customCursor);
-    }
-  
-    // Custom cursor follows the mouse pointer
-    document.addEventListener("mousemove", function(e) {
-      customCursor.style.left = e.pageX + "px";
-      customCursor.style.top = e.pageY + "px";
+    bottleLeft.addEventListener("click", function() {
+      // If this bottle is already expanded, reset the state
+      if (expandedBottle === "left") {
+        resetBottles();
+      } else {
+        resetBottles(); // reset any previous state
+        bottleRight.classList.add("slide-right-out");
+        bottleLeft.classList.add("show-text");
+        expandedBottle = "left";
+      }
+    });
+    
+    bottleRight.addEventListener("click", function() {
+      if (expandedBottle === "right") {
+        resetBottles();
+      } else {
+        resetBottles();
+        bottleLeft.classList.add("slide-left-out");
+        bottleRight.classList.add("show-text");
+        expandedBottle = "right";
+      }
     });
   
-    // Helper to set cursor text
-    function setCursorText(text) {
-      customCursor.textContent = text;
-    }
-  
-    // Add event listeners for bottles
+    // Update the cursor on hover
+    var bottles = document.querySelectorAll(".bottle");
     bottles.forEach(function(bottle) {
-      const side = bottle.dataset.bottle;
-      
       bottle.addEventListener("mouseenter", function() {
-        // Show "Close" if any side is active, otherwise show "Discover"
-        if (container.classList.contains("left-active") || container.classList.contains("right-active")) {
-          setCursorText("Close");
+        // If this bottle is the one that is expanded, use the "close" cursor
+        if (expandedBottle === bottle.id.replace("bottle-", "")) {
+          bottle.style.cursor = "url('close-icon.png'), pointer"; // replace with your close icon file
         } else {
-          setCursorText("Discover");
+          bottle.style.cursor = "pointer";
         }
-        customCursor.style.opacity = 1;
       });
-      
       bottle.addEventListener("mouseleave", function() {
-        customCursor.style.opacity = 0;
-      });
-      
-      bottle.addEventListener("click", function() {
-        const currentActive = container.dataset.activeSide;
-        if (currentActive === side) {
-          // If the same bottle is active, toggle off the state
-          container.classList.remove("left-active", "right-active");
-          container.dataset.activeSide = "";
-          setCursorText("Discover");
-        } else {
-          // Remove previous state and activate new one
-          container.classList.remove("left-active", "right-active");
-          container.dataset.activeSide = side;
-          if (side === "left") {
-            container.classList.add("left-active");
-          } else if (side === "right") {
-            container.classList.add("right-active");
-          }
-          setCursorText("Close");
-        }
+        bottle.style.cursor = "default";
       });
     });
   });
-  
