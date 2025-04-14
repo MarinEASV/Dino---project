@@ -36,3 +36,30 @@ document.addEventListener('scroll', function () {
     }
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".rakija-container");
+    const bottles = document.querySelectorAll(".rakija-bottle");
+    const cursor = document.querySelector(".rakija-cursor");
+  
+    // Hover cursor effect
+    bottles.forEach(bottle => {
+      bottle.addEventListener("mouseenter", () => {
+        cursor.style.opacity = 1;
+      });
+      bottle.addEventListener("mouseleave", () => {
+        cursor.style.opacity = 0;
+      });
+      bottle.addEventListener("mousemove", e => {
+        cursor.style.left = e.pageX + 15 + "px";
+        cursor.style.top = e.pageY + 15 + "px";
+      });
+  
+      bottle.addEventListener("click", () => {
+        const side = bottle.dataset.bottle;
+        container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
+        container.classList.add(`bottle-clicked ${side}`);
+      });
+    });
+  });
+  

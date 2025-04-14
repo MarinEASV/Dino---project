@@ -439,7 +439,7 @@ nav a {
     }
 
     .about-title {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
 
     .about-title,
@@ -555,6 +555,116 @@ nav a {
         padding: 20px 10px;
     }
 }
+
+/* BOTTLES PART STYLE */
+
+.rakija-section {
+    position: relative;
+    background: var(--c-light);
+    padding: 5rem 2rem;
+    overflow: hidden;
+  }
+  
+  .rakija-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .rakija-bottle {
+    position: relative;
+    width: 45%;
+    cursor: pointer;
+    transition: all 0.8s ease;
+    z-index: 3;
+  }
+  
+  .rakija-bottle img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .rakija-text {
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.8s ease;
+    z-index: 2;
+    padding: 2rem;
+    background: var(--c-light);
+  }
+  
+  .rakija-text h2 {
+    font-family: var(--h-font);
+    color: var(--c-red);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .rakija-text p {
+    font-family: var(--p-font);
+    color: var(--c-dark);
+    line-height: 1.6;
+  }
+  
+  .left-text {
+    left: 0;
+    text-align: left;
+  }
+  
+  .right-text {
+    right: 0;
+    text-align: left;
+  }
+  
+  /* Animation States */
+  .bottle-clicked.left .left {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  
+  .bottle-clicked.left .right {
+    opacity: 0;
+  }
+  
+  .bottle-clicked.left .left-text {
+    opacity: 1;
+  }
+  
+  .bottle-clicked.right .right {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  
+  .bottle-clicked.right .left {
+    opacity: 0;
+  }
+  
+  .bottle-clicked.right .right-text {
+    opacity: 1;
+  }
+  
+  /* Custom Cursor */
+  .rakija-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10;
+    background: var(--c-red);
+    color: var(--c-light);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: var(--p-font);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
 
 
 
