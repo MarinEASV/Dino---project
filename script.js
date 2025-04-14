@@ -36,6 +36,61 @@ document.addEventListener("DOMContentLoaded", function () {
       section.classList.add("opened");
     }
   });
+  const customCursor = document.querySelector(".custom-cursor");
+  const cursorText = document.querySelector(".cursor-text");
+
+  // Update position
+  document.addEventListener("mousemove", (e) => {
+    customCursor.style.top = `${e.clientY}px`;
+    customCursor.style.left = `${e.clientX}px`;
+  });
+
+  // Watch for state changes
+  function updateCursorText() {
+    const leftActive = leftBottle.classList.contains("clicked");
+    const rightActive = rightBottle.classList.contains("clicked");
+
+    if (leftActive || rightActive) {
+      cursorText.textContent = "Close";
+    } else {
+      cursorText.textContent = "Click to see more";
+    }
+  }
+
+  // Modify your existing click handlers to include:
+  leftBottle.addEventListener("click", function () {
+    const isActive = leftBottle.classList.contains("clicked");
+    resetAll();
+    if (!isActive) {
+      leftBottle.classList.add("clicked");
+      rightBottle.classList.add("hide");
+      leftText.classList.add("show");
+      section.classList.add("opened");
+    }
+    updateCursorText();
+  });
+
+  rightBottle.addEventListener("click", function () {
+    const isActive = rightBottle.classList.contains("clicked");
+    resetAll();
+    if (!isActive) {
+      rightBottle.classList.add("clicked");
+      leftBottle.classList.add("hide");
+      rightText.classList.add("show");
+      section.classList.add("opened");
+    }
+    updateCursorText();
+  });
+
+  // Also run on reset
+  function resetAll() {
+    leftBottle.classList.remove("clicked", "hide");
+    rightBottle.classList.remove("clicked", "hide");
+    leftText.classList.remove("show");
+    rightText.classList.remove("show");
+    section.classList.remove("opened");
+    updateCursorText();
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
