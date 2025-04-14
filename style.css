@@ -559,115 +559,114 @@ nav a {
 /* BOTTLES PART STYLE */
 
 .rakija-section {
-    position: relative;
-    background-color: var(--c-light);
-    padding: 5rem 2rem;
-    overflow: hidden;
-  }
-  
-  .rakija-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: default; /* ensure default cursor is visible */
-  }
-  
-  /* Bottle image container */
-  .rakija-bottle {
-    position: relative;
-    width: 45%;
-    cursor: pointer;
-    transition: transform 0.8s ease, opacity 0.8s ease;
-    z-index: 3;
-  }
-  
-  .rakija-bottle img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* Text panels: initially hidden */
-  .rakija-text {
-    opacity: 0;
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50%;
-    z-index: 0;
-    background-color: var(--c-light);
-    padding: 2rem;
-    pointer-events: none;
-  }
-  
-  .rakija-text h2 {
-    font-family: var(--h-font);
-    font-size: 2rem;
-    color: var(--c-red);
-    margin-bottom: 1rem;
-  }
-  
-  .rakija-text p {
-    font-family: var(--p-font);
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--c-dark);
-  }
-  
-  .left-text {
-    left: 0;
-    text-align: left;
-  }
-  
-  .right-text {
-    right: 0;
-    text-align: left;
-  }
-  
-  /* =====================
-     Animations / Active States
-  ===================== */
-  
-  /* Left bottle clicked: right bottle slides right and fades, left text fades in */
-  .bottle-clicked-left .rakija-bottle.right {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  
-  .bottle-clicked-left .rakija-text.left-text {
-    opacity: 1;
-    z-index: 2;
-  }
-  
-  /* Right bottle clicked: left bottle slides left and fades, right text fades in */
-  .bottle-clicked-right .rakija-bottle.left {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  
-  .bottle-clicked-right .rakija-text.right-text {
-    opacity: 1;
-    z-index: 2;
-  }
-  
-  /* =====================
-     Custom Cursor Tooltip
-  ===================== */
-  .rakija-cursor {
-    position: fixed;
-    pointer-events: none;
-    z-index: 1000;
-    background: var(--c-red);
-    color: var(--c-light);
-    padding: 0.4rem 1rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-family: var(--p-font);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
+  position: relative;
+  background-color: var(--c-light);
+  padding: 5rem 2rem;
+  overflow: hidden;
+}
+
+.rakija-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default; /* ensure default cursor is visible */
+}
+
+/* Bottle image container */
+.rakija-bottle {
+  position: relative;
+  width: 45%;
+  cursor: pointer;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  z-index: 3;
+}
+
+.rakija-bottle img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text panels: initially hidden */
+.rakija-text {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  z-index: 0;
+  background-color: var(--c-light);
+  padding: 2rem;
+  pointer-events: none;
+}
+
+.rakija-text h2 {
+  font-family: var(--h-font);
+  font-size: 2rem;
+  color: var(--c-red);
+  margin-bottom: 1rem;
+}
+
+.rakija-text p {
+  font-family: var(--p-font);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--c-dark);
+}
+
+.left-text {
+  left: 0;
+  text-align: left;
+}
+
+.right-text {
+  right: 0;
+  text-align: left;
+}
+
+/* =====================
+   Animations / Active States
+===================== */
+
+/* Left bottle clicked: right bottle slides right and fades, left text fades in */
+.bottle-clicked-left .rakija-bottle.right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.bottle-clicked-left .rakija-text.left-text {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Right bottle clicked: left bottle slides left and fades, right text fades in */
+.bottle-clicked-right .rakija-bottle.left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.bottle-clicked-right .rakija-text.right-text {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* =====================
+   Custom Cursor Tooltip
+===================== */
+.rakija-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+  background: var(--c-red);
+  color: var(--c-light);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: var(--p-font);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
