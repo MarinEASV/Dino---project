@@ -1,4 +1,4 @@
-<<?php
+<?php
 /**
  * Template part: About Section
  */
@@ -29,5 +29,3 @@ $about_text = get_field('about_text');
     </div>
   </div>
 </section>
-
-
