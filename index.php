@@ -6,9 +6,13 @@
     <?php get_template_part("template-parts/hero"); ?>
     <!--hero-->
 
-    <!--manufacturing-->
+    <!--menu-->
      <?php get_template_part ("template-parts/menu");?>
-    <!--manufacturing-->
+    <!--menu-->
+
+    <!--about-->
+    <?php get_template_part ("template-parts/about");?>
+    <!--about-->
 
     <!-- Video Section -->
      <?php get_template_part("template-parts/video"); ?>
