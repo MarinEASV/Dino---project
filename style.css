@@ -40,6 +40,7 @@ h2, .h2 {
     font-family: var(--h-font);
     font-size: 32px;
     line-height: 64px;
+    font-weight: bold;
 }
 
 h3, .h3 {
@@ -362,11 +363,21 @@ nav a {
     margin: 0 auto; /* Auto margins on both sides to center */
 }
 
-/*About section */
+/*ABOUT SECTION */
 
 
+/* Horizontal line */
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--c-gray);
+    margin: 0 auto 3rem auto;
+    width: 90%;
+}
+
+/* Section container */
 .about-section {
     padding: 4rem 1.5rem;
+    background-color: var(--c-light);
     color: var(--c-dark);
 }
 
@@ -379,54 +390,64 @@ nav a {
     gap: 2rem;
 }
 
+/* Image styling */
 .about-image {
-    flex: 1 1 300px;
+    flex: 1 1 50%;
     min-width: 280px;
 }
 
 .about-image img {
     width: 100%;
     height: auto;
-    border-radius: 0px;
     object-fit: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    border-radius: 0px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.06);
 }
 
+/* Text content */
 .about-content {
-    flex: 1 1 400px;
+    flex: 1 1 50%;
     min-width: 280px;
+    text-align: center;
+    padding: 1rem;
 }
 
 .about-title {
     font-family: var(--h-font);
-    font-size: 32px;
-    line-height: 48px;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--c-dark);
+    text-align: center;
 }
 
 .about-text {
     font-family: var(--p-font);
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.8;
     color: var(--c-dark);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
 }
 
-/* Mobile layout for about section */
+/* Responsive tweaks */
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
-    }
-
-    .about-title {
-        font-size: 28px;
-        line-height: 1.4;
+        text-align: center;
     }
 
     .about-text {
+        text-align: center;
         font-size: 0.95rem;
+        padding: 0 0.5rem;
+    }
+
+    .about-title {
+        font-size: 1.5rem;
     }
 }
+
 
 /* Additional responsiveness for smaller screens */
 @media (max-width: 767px) {
