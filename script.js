@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
       bottle.addEventListener("click", () => {
         const side = bottle.dataset.bottle;
         container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
-        container.classList.add(`bottle-clicked ${side}`);
-      });
+        container.classList.add("bottle-clicked", `bottle-clicked-${side}`);
+    });
     });
   });
   
