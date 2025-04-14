@@ -560,7 +560,6 @@ nav a {
 
 .rakija-section {
     position: relative;
-    background-color: var(--c-light);
     padding: 5rem 2rem;
     overflow: hidden;
   }
@@ -572,13 +571,15 @@ nav a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: default; /* Ensure default cursor for clickable areas */
   }
-
+  
+  /* Bottle Images */
   .rakija-bottle {
     position: relative;
     width: 45%;
     cursor: pointer;
-    transition: all 0.8s ease;
+    transition: transform 0.8s ease, opacity 0.8s ease;
     z-index: 3;
   }
   
@@ -588,17 +589,18 @@ nav a {
     display: block;
   }
   
-
+  /* Text Panels (Initially Hidden) */
   .rakija-text {
-    opacity: 1;
-    transition: all 0.8s ease;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 50%;
-    z-index: 2;
     background-color: var(--c-light);
     padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    z-index: 0;
+    pointer-events: none;
   }
   
   .rakija-text h2 {
@@ -609,7 +611,6 @@ nav a {
   }
   
   .rakija-text p {
-    font-family: var(--p-font);
     font-size: 1rem;
     line-height: 1.8;
     color: var(--c-dark);
@@ -625,52 +626,40 @@ nav a {
     text-align: left;
   }
   
-  /* =====================
-     Animations
-  ===================== */
-  
-  /* Left bottle clicked: right bottle slides right, left text fades in */
-  .bottle-clicked-left .rakija-bottle.right {
+  /* Active State: When left bottle is active */
+  .rakija-container.left-active .rakija-bottle.right {
     transform: translateX(100%);
     opacity: 0;
-    z-index: 0;
   }
   
-  .bottle-clicked-left .rakija-text.left-text {
+  .rakija-container.left-active .rakija-text.left-text {
     opacity: 1;
     z-index: 2;
   }
   
-  /* Right bottle clicked: left bottle slides left, right text fades in */
-  .bottle-clicked-right .rakija-bottle.left {
+  /* Active State: When right bottle is active */
+  .rakija-container.right-active .rakija-bottle.left {
     transform: translateX(-100%);
     opacity: 0;
-    z-index: 0;
   }
   
-  .bottle-clicked-right .rakija-text.right-text {
+  .rakija-container.right-active .rakija-text.right-text {
     opacity: 1;
     z-index: 2;
   }
   
-  /* =====================
-     Custom Cursor Tooltip
-  ===================== */
-  
-  .rakija-cursor {
+  /* Custom Cursor */
+  .custom-cursor {
     position: fixed;
     pointer-events: none;
-    z-index: 1000;
-    background: var(--c-red);
-    color: var(--c-light);
-    padding: 0.4rem 1rem;
+    z-index: 9999;
+    background: rgba(231, 76, 60, 0.8);
+    color: #fff;
+    padding: 8px 12px;
     border-radius: 4px;
-    font-size: 0.9rem;
     font-family: var(--p-font);
+    font-size: 14px;
     opacity: 0;
     transition: opacity 0.3s ease;
+    transform: translate(-50%, -50%);
   }
-  
-  
-
-

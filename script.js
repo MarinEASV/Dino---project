@@ -37,68 +37,69 @@ document.addEventListener('scroll', function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".rakija-container");
-  const bottles = document.querySelectorAll(".rakija-bottle");
-  let cursor = document.querySelector(".rakija-cursor");
-
-  console.log("JS Loaded ✅");
-  if (!container || bottles.length === 0 || !cursor) {
-    console.warn("Missing one or more required elements");
-    return;
-  }
-
-  // Append cursor to body if not already a direct child
-  if (!document.body.contains(cursor)) {
-    document.body.appendChild(cursor);
-    console.log("Cursor moved to body for visibility");
-  }
-
-  bottles.forEach(bottle => {
-    const side = bottle.dataset.bottle;
-
-    // Hover: update custom cursor tooltip text and visibility
-    bottle.addEventListener("mouseenter", () => {
-      if (container.classList.contains("bottle-clicked-left") || container.classList.contains("bottle-clicked-right")) {
-        cursor.textContent = "Close";
-      } else {
-        cursor.textContent = "Click to see more";
-      }
-      cursor.style.opacity = 1;
-      console.log(`Mouse entered ${side} bottle`);
+document.addEventListener("DOMContentLoaded", function() {
+    const container = document.querySelector(".rakija-container");
+    const bottles = document.querySelectorAll(".rakija-bottle");
+    const customCursor = document.querySelector(".custom-cursor");
+  
+    if (!container || bottles.length === 0 || !customCursor) {
+      console.warn("Missing required elements.");
+      return;
+    }
+  
+    // Ensure custom cursor is directly within <body>
+    if (!document.body.contains(customCursor)) {
+      document.body.appendChild(customCursor);
+    }
+  
+    // Custom cursor follows the mouse pointer
+    document.addEventListener("mousemove", function(e) {
+      customCursor.style.left = e.pageX + "px";
+      customCursor.style.top = e.pageY + "px";
     });
-
-    bottle.addEventListener("mouseleave", () => {
-      cursor.style.opacity = 0;
-      console.log(`Mouse left ${side} bottle`);
-    });
-
-    bottle.addEventListener("mousemove", e => {
-      cursor.style.left = `${e.pageX + 15}px`;
-      cursor.style.top = `${e.pageY + 15}px`;
-    });
-
-    // Click logic: toggle states and debug logs
-    bottle.addEventListener("click", () => {
-      console.log("Bottle clicked:", side);
-
-      // Toggle: if this bottle’s state is already active, remove active states
-      if ((side === "left" && container.classList.contains("bottle-clicked-left")) ||
-          (side === "right" && container.classList.contains("bottle-clicked-right"))) {
-        container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
-        console.log("Toggled off active state");
-        return;
-      }
-
-      // Remove both active states then add the new one
-      container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
-      if (side === "left") {
-        container.classList.add("bottle-clicked-left");
-        console.log("Activated left state");
-      } else if (side === "right") {
-        container.classList.add("bottle-clicked-right");
-        console.log("Activated right state");
-      }
+  
+    // Helper to set cursor text
+    function setCursorText(text) {
+      customCursor.textContent = text;
+    }
+  
+    // Add event listeners for bottles
+    bottles.forEach(function(bottle) {
+      const side = bottle.dataset.bottle;
+      
+      bottle.addEventListener("mouseenter", function() {
+        // Show "Close" if any side is active, otherwise show "Discover"
+        if (container.classList.contains("left-active") || container.classList.contains("right-active")) {
+          setCursorText("Close");
+        } else {
+          setCursorText("Discover");
+        }
+        customCursor.style.opacity = 1;
+      });
+      
+      bottle.addEventListener("mouseleave", function() {
+        customCursor.style.opacity = 0;
+      });
+      
+      bottle.addEventListener("click", function() {
+        const currentActive = container.dataset.activeSide;
+        if (currentActive === side) {
+          // If the same bottle is active, toggle off the state
+          container.classList.remove("left-active", "right-active");
+          container.dataset.activeSide = "";
+          setCursorText("Discover");
+        } else {
+          // Remove previous state and activate new one
+          container.classList.remove("left-active", "right-active");
+          container.dataset.activeSide = side;
+          if (side === "left") {
+            container.classList.add("left-active");
+          } else if (side === "right") {
+            container.classList.add("right-active");
+          }
+          setCursorText("Close");
+        }
+      });
     });
   });
-});
+  
