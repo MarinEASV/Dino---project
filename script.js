@@ -1,51 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
   const leftBottle = document.querySelector(".left-bottle");
   const rightBottle = document.querySelector(".right-bottle");
-  const section = document.querySelector(".bottle-section");
   const leftText = document.querySelector(".left-text");
   const rightText = document.querySelector(".right-text");
+  const section = document.querySelector(".bottle-section");
 
+  const customCursor = document.querySelector(".custom-cursor");
+  const cursorText = document.querySelector(".cursor-text");
+
+  // Move custom cursor with mouse
+  document.addEventListener("mousemove", (e) => {
+    customCursor.style.top = `${e.clientY}px`;
+    customCursor.style.left = `${e.clientX}px`;
+  });
+
+  // Reset everything
   function resetAll() {
     leftBottle.classList.remove("clicked", "hide");
     rightBottle.classList.remove("clicked", "hide");
     leftText.classList.remove("show");
     rightText.classList.remove("show");
     section.classList.remove("opened");
+    updateCursorText();
   }
 
-  leftBottle.addEventListener("click", function () {
-    const isActive = leftBottle.classList.contains("clicked");
-    resetAll();
-
-    if (!isActive) {
-      leftBottle.classList.add("clicked");
-      rightBottle.classList.add("hide"); // hide right
-      leftText.classList.add("show");
-      section.classList.add("opened");
-    }
-  });
-
-  rightBottle.addEventListener("click", function () {
-    const isActive = rightBottle.classList.contains("clicked");
-    resetAll();
-
-    if (!isActive) {
-      rightBottle.classList.add("clicked");
-      leftBottle.classList.add("hide"); // hide left
-      rightText.classList.add("show");
-      section.classList.add("opened");
-    }
-  });
-  const customCursor = document.querySelector(".custom-cursor");
-  const cursorText = document.querySelector(".cursor-text");
-
-  // Update position
-  document.addEventListener("mousemove", (e) => {
-    customCursor.style.top = `${e.clientY}px`;
-    customCursor.style.left = `${e.clientX}px`;
-  });
-
-  // Watch for state changes
+  // Update cursor text based on state
   function updateCursorText() {
     const leftActive = leftBottle.classList.contains("clicked");
     const rightActive = rightBottle.classList.contains("clicked");
@@ -57,40 +36,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Modify your existing click handlers to include:
+  // Handle left bottle click
   leftBottle.addEventListener("click", function () {
     const isActive = leftBottle.classList.contains("clicked");
     resetAll();
+
     if (!isActive) {
       leftBottle.classList.add("clicked");
       rightBottle.classList.add("hide");
       leftText.classList.add("show");
       section.classList.add("opened");
     }
+
     updateCursorText();
   });
 
+  // Handle right bottle click
   rightBottle.addEventListener("click", function () {
     const isActive = rightBottle.classList.contains("clicked");
     resetAll();
+
     if (!isActive) {
       rightBottle.classList.add("clicked");
       leftBottle.classList.add("hide");
       rightText.classList.add("show");
       section.classList.add("opened");
     }
+
     updateCursorText();
   });
-
-  // Also run on reset
-  function resetAll() {
-    leftBottle.classList.remove("clicked", "hide");
-    rightBottle.classList.remove("clicked", "hide");
-    leftText.classList.remove("show");
-    rightText.classList.remove("show");
-    section.classList.remove("opened");
-    updateCursorText();
-  }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
