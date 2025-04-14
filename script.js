@@ -40,48 +40,60 @@ document.addEventListener('scroll', function () {
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".rakija-container");
     const bottles = document.querySelectorAll(".rakija-bottle");
-    const leftText = document.querySelector(".rakija-text.left-text");
-    const rightText = document.querySelector(".rakija-text.right-text");
     const cursor = document.querySelector(".rakija-cursor");
   
-    // Attach events to each bottle
-    bottles.forEach(bottle => {
-      const side = bottle.dataset.bottle; // should be "left" or "right"
+    if (!container || bottles.length === 0) {
+      console.warn("Missing required elements");
+      return;
+    }
   
-      // Cursor tooltip interactions
+    bottles.forEach(bottle => {
+      const side = bottle.dataset.bottle;
+  
+      // Update custom cursor on hover
       bottle.addEventListener("mouseenter", () => {
-        if (cursor) cursor.style.opacity = "1";
+        if (cursor) {
+          // Update tooltip text based on container active state
+          if (container.classList.contains("bottle-clicked-left") || container.classList.contains("bottle-clicked-right")) {
+            cursor.textContent = "Close";
+          } else {
+            cursor.textContent = "Click to see more";
+          }
+          cursor.style.opacity = 1;
+        }
       });
+  
       bottle.addEventListener("mouseleave", () => {
-        if (cursor) cursor.style.opacity = "0";
+        if (cursor) {
+          cursor.style.opacity = 0;
+        }
       });
+  
       bottle.addEventListener("mousemove", e => {
         if (cursor) {
-          cursor.style.left = e.pageX + 15 + "px";
-          cursor.style.top = e.pageY + 15 + "px";
+          cursor.style.left = `${e.pageX + 15}px`;
+          cursor.style.top = `${e.pageY + 15}px`;
         }
       });
-      
-      // Click action for bottle
+  
+      // Click logic with toggling
       bottle.addEventListener("click", () => {
-        // First, remove any active classes
-        container.classList.remove("bottle-active-left", "bottle-active-right");
-  
-        // Reset both text blocks (in case they were visible)
-        if (leftText) leftText.style.opacity = "0";
-        if (rightText) rightText.style.opacity = "0";
-  
-        // Apply active state based on which bottle was clicked
-        if (side === "left") {
-          container.classList.add("bottle-active-left");
-          if (leftText) leftText.style.opacity = "1";
-        } else if (side === "right") {
-          container.classList.add("bottle-active-right");
-          if (rightText) rightText.style.opacity = "1";
+        // If clicking the same active bottle, toggle back to the initial state
+        if ((side === "left" && container.classList.contains("bottle-clicked-left")) ||
+            (side === "right" && container.classList.contains("bottle-clicked-right"))) {
+          container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
+          return;
         }
         
-        // Hide the custom cursor after click
-        if (cursor) cursor.style.opacity = "0";
+        // Remove any previous active classes
+        container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
+        
+        // Add the corresponding class based on which bottle was clicked
+        if (side === "left") {
+          container.classList.add("bottle-clicked-left");
+        } else if (side === "right") {
+          container.classList.add("bottle-clicked-right");
+        }
       });
     });
   });
