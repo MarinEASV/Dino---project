@@ -581,6 +581,22 @@ nav a {
     cursor: pointer;
     z-index: 2;
   }
+
+  .bottle-inner {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .bottle-inner img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+  }
+  
   
   .bottle img {
     width: 100%;
@@ -710,27 +726,6 @@ nav a {
     .bottle-container {
       cursor: default;
     }
-
-    .bottle-container {
-        flex-direction: column;
-      }
-    
-      .bottle {
-        width: 100%;
-      }
-    
-      .bottle-text {
-        position: static;
-        transform: none;
-        opacity: 1 !important;
-        padding: 1rem;
-        text-align: center;
-        background: none;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.6s ease, transform 0.6s ease;
-        transform: translateY(20px);
-      }
     
       .bottle-text.show {
         opacity: 1;
