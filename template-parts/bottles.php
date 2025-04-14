@@ -6,7 +6,6 @@
 $left_image = get_field('left_bottle_image');
 $left_title = get_field('left_bottle_title');
 $left_text = get_field('left_bottle_description');
-
 $right_image = get_field('right_bottle_image');
 $right_title = get_field('right_bottle_title');
 $right_text = get_field('right_bottle_description');
