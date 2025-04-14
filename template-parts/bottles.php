@@ -13,35 +13,31 @@ $right_text = get_field('right_bottle_description');
 ?>
 
 <section class="rakija-section">
-  <hr class="section-divider">
   <div class="rakija-container">
 
     <!-- Left Bottle -->
-    <?php if ($left_image): ?>
-      <div class="rakija-bottle left" data-bottle="left">
-        <img src="<?php echo esc_url($left_image['url']); ?>" alt="<?php echo esc_attr($left_image['alt']); ?>">
-      </div>
-    <?php endif; ?>
+    <div class="rakija-bottle left" data-bottle="left">
+      <img src="<?php the_field('left_bottle_image'); ?>" alt="Left Bottle">
+    </div>
 
     <!-- Right Bottle -->
-    <?php if ($right_image): ?>
-      <div class="rakija-bottle right" data-bottle="right">
-        <img src="<?php echo esc_url($right_image['url']); ?>" alt="<?php echo esc_attr($right_image['alt']); ?>">
-      </div>
-    <?php endif; ?>
+    <div class="rakija-bottle right" data-bottle="right">
+      <img src="<?php the_field('right_bottle_image'); ?>" alt="Right Bottle">
+    </div>
 
     <!-- Left Text -->
     <div class="rakija-text left-text">
-      <h2><?php echo esc_html($left_title); ?></h2>
-      <?php echo wp_kses_post($left_text); ?>
+      <h2><?php the_field('left_bottle_title'); ?></h2>
+      <p><?php the_field('left_bottle_description'); ?></p>
     </div>
 
     <!-- Right Text -->
     <div class="rakija-text right-text">
-      <h2><?php echo esc_html($right_title); ?></h2>
-      <?php echo wp_kses_post($right_text); ?>
+      <h2><?php the_field('right_bottle_title'); ?></h2>
+      <p><?php the_field('right_bottle_description'); ?></p>
     </div>
 
+    <!-- Cursor Tooltip -->
     <div class="rakija-cursor">Click to see more</div>
   </div>
 </section>

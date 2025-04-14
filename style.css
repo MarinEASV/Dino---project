@@ -572,8 +572,7 @@ nav a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Ensure default browser cursor appears where expected */
-    cursor: default;
+    cursor: default; /* ensure default cursor is visible */
   }
   
   /* Bottle image container */
@@ -593,7 +592,7 @@ nav a {
   
   /* Text panels: initially hidden */
   .rakija-text {
-    opacity: 1 !important;
+    opacity: 0;
     transition: opacity 0.8s ease, transform 0.8s ease;
     position: absolute;
     top: 50%;
@@ -633,7 +632,7 @@ nav a {
      Animations / Active States
   ===================== */
   
-  /* Left bottle clicked: right bottle slides right and fades out, left text fades in */
+  /* Left bottle clicked: right bottle slides right and fades, left text fades in */
   .bottle-clicked-left .rakija-bottle.right {
     transform: translateX(100%);
     opacity: 0;
@@ -644,7 +643,7 @@ nav a {
     z-index: 2;
   }
   
-  /* Right bottle clicked: left bottle slides left and fades out, right text fades in */
+  /* Right bottle clicked: left bottle slides left and fades, right text fades in */
   .bottle-clicked-right .rakija-bottle.left {
     transform: translateX(-100%);
     opacity: 0;
