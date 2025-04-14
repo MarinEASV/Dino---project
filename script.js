@@ -1,19 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const bottles = document.querySelectorAll(".bottle");
+  const leftBottle = document.querySelector(".left-bottle");
+  const rightBottle = document.querySelector(".right-bottle");
   const section = document.querySelector(".bottle-section");
 
-  bottles.forEach((bottle) => {
-    bottle.addEventListener("click", function () {
-      const isActive = this.classList.contains("active");
+  function reset() {
+    leftBottle.classList.remove("clicked");
+    rightBottle.classList.remove("clicked");
+    section.classList.remove("opened");
+  }
 
-      bottles.forEach((b) => b.classList.remove("active"));
-      section.classList.remove("opened");
+  leftBottle.addEventListener("click", function () {
+    const isClicked = this.classList.contains("clicked");
+    reset();
+    if (!isClicked) {
+      this.classList.add("clicked");
+      section.classList.add("opened");
+    }
+  });
 
-      if (!isActive) {
-        this.classList.add("active");
-        section.classList.add("opened");
-      }
-    });
+  rightBottle.addEventListener("click", function () {
+    const isClicked = this.classList.contains("clicked");
+    reset();
+    if (!isClicked) {
+      this.classList.add("clicked");
+      section.classList.add("opened");
+    }
   });
 });
 
