@@ -80,6 +80,57 @@ h3, .h3 {
     height: 100%;
   }
   
+/* infinite scroll */
+/* Scrolling Text Container */
+.scrolling-text-container {
+    bottom: 40px;
+    text-align: center;
+    z-index: 2;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    padding: 0 1rem;
+  }
+  
+  /* The Animated Text */
+  .scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 20s linear infinite;
+    font-size: 2rem;
+    color: white;
+    font-weight: 300;
+    text-shadow: 0 0 10px rgba(0,0,0,0.6);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .scrolling-text {
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .scrolling-text {
+      font-size: 1.1rem;
+    }
+  
+    .scrolling-text-container {
+      bottom: 20px;
+    }
+  }
+  
+  /* Scroll Animation */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+
 
 
 /* Navbar */
