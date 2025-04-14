@@ -627,7 +627,7 @@ nav a {
   .bottle.right-bottle.clicked ~ .left-bottle {
     transform: translateX(-100%);
     opacity: 0;
-    pointer-events: none;
+    pointer-events: none;  
   }
   
   .bottle.right-bottle.clicked ~ .right-text {
@@ -639,4 +639,26 @@ nav a {
   .bottle-section.opened .bottle {
     cursor: url('close-icon.svg'), auto;
   }
+
+  .bottle.hide {
+    transform: translateX(100%); /* Right goes right */
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .left-bottle.hide {
+    transform: translateX(-100%); /* Left goes left */
+  }
+  
+  .bottle-text {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  
+  .bottle-text.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
   

@@ -2,32 +2,41 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftBottle = document.querySelector(".left-bottle");
   const rightBottle = document.querySelector(".right-bottle");
   const section = document.querySelector(".bottle-section");
+  const leftText = document.querySelector(".left-text");
+  const rightText = document.querySelector(".right-text");
 
-  function reset() {
-    leftBottle.classList.remove("clicked");
-    rightBottle.classList.remove("clicked");
+  function resetAll() {
+    leftBottle.classList.remove("clicked", "hide");
+    rightBottle.classList.remove("clicked", "hide");
+    leftText.classList.remove("show");
+    rightText.classList.remove("show");
     section.classList.remove("opened");
   }
 
   leftBottle.addEventListener("click", function () {
-    const isClicked = this.classList.contains("clicked");
-    reset();
-    if (!isClicked) {
-      this.classList.add("clicked");
+    const isActive = leftBottle.classList.contains("clicked");
+    resetAll();
+
+    if (!isActive) {
+      leftBottle.classList.add("clicked");
+      rightBottle.classList.add("hide"); // hide right
+      leftText.classList.add("show");
       section.classList.add("opened");
     }
   });
 
   rightBottle.addEventListener("click", function () {
-    const isClicked = this.classList.contains("clicked");
-    reset();
-    if (!isClicked) {
-      this.classList.add("clicked");
+    const isActive = rightBottle.classList.contains("clicked");
+    resetAll();
+
+    if (!isActive) {
+      rightBottle.classList.add("clicked");
+      leftBottle.classList.add("hide"); // hide left
+      rightText.classList.add("show");
       section.classList.add("opened");
     }
   });
 });
-
 
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
