@@ -577,7 +577,7 @@ nav a {
   .bottle {
     width: 50%;
     position: relative;
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
     cursor: pointer;
     z-index: 2;
   }
@@ -670,7 +670,7 @@ nav a {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.9); 
     backdrop-filter: blur(5px);
     pointer-events: none;
     transform: translate(-50%, -50%);
@@ -680,7 +680,22 @@ nav a {
     justify-content: center;
     z-index: 9999;
     mix-blend-mode: difference;
+    opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
   }
+
+  .cursor-text {
+    font-size: 14px;
+    color: black;
+    font-family: 'Red Hat Display', sans-serif;
+  }
+
+  .bottle:hover ~ .custom-cursor,
+.bottle-container:hover ~ .custom-cursor {
+  opacity: 1;
+  visibility: visible;
+}
   
   /* Hide default cursor and show custom one on desktop */
   .bottle-container {
@@ -696,6 +711,32 @@ nav a {
     .bottle-container {
       cursor: default;
     }
+
+    .bottle-container {
+        flex-direction: column;
+      }
+    
+      .bottle {
+        width: 100%;
+      }
+    
+      .bottle-text {
+        position: static;
+        transform: none;
+        opacity: 1 !important;
+        padding: 1rem;
+        text-align: center;
+        background: none;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        transform: translateY(20px);
+      }
+    
+      .bottle-text.show {
+        opacity: 1;
+  transform: translateY(0);
+      }
   }
   
   

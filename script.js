@@ -8,13 +8,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const customCursor = document.querySelector(".custom-cursor");
   const cursorText = document.querySelector(".cursor-text");
 
-  // Move custom cursor with mouse
-  document.addEventListener("mousemove", (e) => {
-    customCursor.style.top = `${e.clientY}px`;
-    customCursor.style.left = `${e.clientX}px`;
-  });
+  const isMobile = window.innerWidth <= 768;
 
-  // Reset everything
+  // Move the custom cursor (desktop only)
+  if (!isMobile) {
+    document.addEventListener("mousemove", (e) => {
+      customCursor.style.top = `${e.clientY}px`;
+      customCursor.style.left = `${e.clientX}px`;
+    });
+
+    // Show/hide cursor on bottle hover
+    const bottles = document.querySelectorAll(".bottle");
+    bottles.forEach((bottle) => {
+      bottle.addEventListener("mouseenter", () => {
+        customCursor.style.opacity = "1";
+        customCursor.style.visibility = "visible";
+      });
+
+      bottle.addEventListener("mouseleave", () => {
+        customCursor.style.opacity = "0";
+        customCursor.style.visibility = "hidden";
+      });
+    });
+  }
+
+  // Reset logic
   function resetAll() {
     leftBottle.classList.remove("clicked", "hide");
     rightBottle.classList.remove("clicked", "hide");
@@ -24,19 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCursorText();
   }
 
-  // Update cursor text based on state
+  // Update cursor text
   function updateCursorText() {
-    const leftActive = leftBottle.classList.contains("clicked");
-    const rightActive = rightBottle.classList.contains("clicked");
-
-    if (leftActive || rightActive) {
-      cursorText.textContent = "Close";
-    } else {
-      cursorText.textContent = "Click to see more";
-    }
+    const isActive = leftBottle.classList.contains("clicked") || rightBottle.classList.contains("clicked");
+    cursorText.textContent = isActive ? "Close" : "Click to see more";
   }
 
-  // Handle left bottle click
+  // Bottle click handlers
   leftBottle.addEventListener("click", function () {
     const isActive = leftBottle.classList.contains("clicked");
     resetAll();
@@ -51,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCursorText();
   });
 
-  // Handle right bottle click
   rightBottle.addEventListener("click", function () {
     const isActive = rightBottle.classList.contains("clicked");
     resetAll();
