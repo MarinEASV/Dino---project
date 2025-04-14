@@ -21,10 +21,10 @@ $right_bottle_description = get_field('right_bottle_description');
     </div>
 
     <div class="bottle right-bottle" data-side="right">
-      <img src="<?php the_field('right_bottle_img'); ?>" alt="Right Bottle">
+    <img src="<?php echo esc_url($right_bottle_img['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>">
       <div class="bottle-text right-text">
-      <img src="<?php echo esc_url($right_bottle_img['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>">
-      <p><?php the_field('right_bottle_description'); ?></p>
+        <h2><?php the_field('right_bottle_title'); ?></h2>
+        <p><?php the_field('right_bottle_description'); ?></p>
       </div>
     </div>
   </div>
