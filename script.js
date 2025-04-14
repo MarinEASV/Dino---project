@@ -20,17 +20,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show/hide cursor on bottle hover
     const bottleInners = document.querySelectorAll(".bottle-inner");
 
-bottleInners.forEach((bottle) => {
-  bottle.addEventListener("mouseenter", () => {
-    customCursor.style.opacity = "1";
-    customCursor.style.visibility = "visible";
-  });
+    const bottles = document.querySelectorAll(".bottle");
 
-  bottle.addEventListener("mouseleave", () => {
-    customCursor.style.opacity = "0";
-    customCursor.style.visibility = "hidden";
-  });
-});
+    bottles.forEach((bottle) => {
+      bottle.addEventListener("mouseenter", () => {
+        customCursor.style.opacity = "1";
+        customCursor.style.visibility = "visible";
+      });
+    
+      bottle.addEventListener("mouseleave", () => {
+        customCursor.style.opacity = "0";
+        customCursor.style.visibility = "hidden";
+      });
+    });
+    
   }
 
   // Reset logic
