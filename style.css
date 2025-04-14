@@ -691,8 +691,7 @@ nav a {
     font-family: 'Red Hat Display', sans-serif;
   }
 
-  .bottle:hover ~ .custom-cursor,
-.bottle-container:hover ~ .custom-cursor {
+  .bottle:hover ~ .custom-cursor {
   opacity: 1;
   visibility: visible;
 }
