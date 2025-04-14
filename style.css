@@ -414,6 +414,8 @@ nav a {
     text-align: left;
     margin-bottom: 1.5rem;
     color: var(--c-dark);
+    justify-content: center;
+    display: flex
 }
 
 .about-text {
@@ -434,6 +436,10 @@ nav a {
 
     .about-content {
         padding: 1rem;
+    }
+
+    .about-title {
+        font-size: 2rem;
     }
 
     .about-title,
