@@ -1,3 +1,22 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const bottles = document.querySelectorAll(".bottle");
+  const section = document.querySelector(".bottle-section");
+
+  bottles.forEach((bottle) => {
+    bottle.addEventListener("click", function () {
+      const isActive = this.classList.contains("active");
+
+      bottles.forEach((b) => b.classList.remove("active"));
+      section.classList.remove("opened");
+
+      if (!isActive) {
+        this.classList.add("active");
+        section.classList.add("opened");
+      }
+    });
+  });
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
