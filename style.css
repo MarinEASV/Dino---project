@@ -560,7 +560,7 @@ nav a {
 
 .rakija-section {
     position: relative;
-    background: var(--c-light);
+    background-color: var(--c-light);
     padding: 5rem 2rem;
     overflow: hidden;
   }
@@ -573,7 +573,7 @@ nav a {
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .rakija-bottle {
     position: relative;
     width: 45%;
@@ -588,29 +588,31 @@ nav a {
     display: block;
   }
   
+
   .rakija-text {
-    position: absolute;
-    top: 50%;
-    width: 50%;
-    transform: translateY(-50%);
     opacity: 0;
     transition: all 0.8s ease;
-    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    z-index: 1;
+    background-color: var(--c-light);
     padding: 2rem;
-    background: var(--c-light);
   }
   
   .rakija-text h2 {
     font-family: var(--h-font);
-    color: var(--c-red);
     font-size: 2rem;
+    color: var(--c-red);
     margin-bottom: 1rem;
   }
   
   .rakija-text p {
     font-family: var(--p-font);
+    font-size: 1rem;
+    line-height: 1.8;
     color: var(--c-dark);
-    line-height: 1.6;
   }
   
   .left-text {
@@ -623,45 +625,37 @@ nav a {
     text-align: left;
   }
   
-  .bottle-clicked-left .rakija-bottle.left {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
+  /* =====================
+     Animations
+  ===================== */
   
+  /* Left bottle clicked: right bottle slides right, left text fades in */
   .bottle-clicked-left .rakija-bottle.right {
+    transform: translateX(100%);
     opacity: 0;
+    z-index: 0;
   }
   
   .bottle-clicked-left .rakija-text.left-text {
     opacity: 1;
+    z-index: 2;
   }
   
-  .bottle-clicked-right .rakija-bottle.right {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  
+  /* Right bottle clicked: left bottle slides left, right text fades in */
   .bottle-clicked-right .rakija-bottle.left {
+    transform: translateX(-100%);
     opacity: 0;
+    z-index: 0;
   }
   
   .bottle-clicked-right .rakija-text.right-text {
     opacity: 1;
-  }
-  
-  .rakija-text {
-    opacity: 0;
-    transition: all 0.8s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50%;
     z-index: 2;
-    background-color: var(--c-light);
-    padding: 2rem;
   }
   
-  /* =============== CUSTOM CURSOR =============== */
+  /* =====================
+     Custom Cursor Tooltip
+  ===================== */
   
   .rakija-cursor {
     position: fixed;
@@ -677,8 +671,6 @@ nav a {
     transition: opacity 0.3s ease;
   }
   
-
-
-
+  
 
 
