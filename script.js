@@ -38,41 +38,46 @@ document.addEventListener('scroll', function () {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM loaded ✅");
-  
     const container = document.querySelector(".rakija-container");
     const bottles = document.querySelectorAll(".rakija-bottle");
     const cursor = document.querySelector(".rakija-cursor");
   
-    if (!container || bottles.length === 0 || !cursor) {
-      console.log("Elements missing ❌");
+    if (!container || bottles.length === 0) {
+      console.log("Bottles section not found.");
       return;
     }
   
-    console.log("Elements found ✅");
-  
     bottles.forEach(bottle => {
+      const side = bottle.dataset.bottle;
+  
+      // Hover effect for cursor
       bottle.addEventListener("mouseenter", () => {
-        cursor.style.opacity = 1;
-        console.log("Hover IN");
+        if (cursor) cursor.style.opacity = 1;
       });
   
       bottle.addEventListener("mouseleave", () => {
-        cursor.style.opacity = 0;
-        console.log("Hover OUT");
+        if (cursor) cursor.style.opacity = 0;
       });
   
       bottle.addEventListener("mousemove", e => {
-        cursor.style.left = e.pageX + 15 + "px";
-        cursor.style.top = e.pageY + 15 + "px";
+        if (cursor) {
+          cursor.style.left = e.pageX + 15 + "px";
+          cursor.style.top = e.pageY + 15 + "px";
+        }
       });
   
+      // Click to animate
       bottle.addEventListener("click", () => {
-        const side = bottle.dataset.bottle; // 'left' or 'right'
-        console.log("Bottle clicked:", side);
+        console.log(`Clicked bottle: ${side}`);
   
         container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
-        container.classList.add("bottle-clicked", `bottle-clicked-${side}`);
+  
+        if (side === "left") {
+          container.classList.add("bottle-clicked-left");
+        } else if (side === "right") {
+          container.classList.add("bottle-clicked-right");
+        }
       });
     });
   });
+  
