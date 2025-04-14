@@ -40,17 +40,19 @@ document.addEventListener('scroll', function () {
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".rakija-container");
     const bottles = document.querySelectorAll(".rakija-bottle");
+    const leftText = document.querySelector(".rakija-text.left-text");
+    const rightText = document.querySelector(".rakija-text.right-text");
     const cursor = document.querySelector(".rakija-cursor");
   
     if (!container || bottles.length === 0) {
-      console.log("Bottles section not found.");
+      console.warn("Bottle layout not found");
       return;
     }
   
     bottles.forEach(bottle => {
       const side = bottle.dataset.bottle;
   
-      // Hover effect for cursor
+      // Hover tooltip
       bottle.addEventListener("mouseenter", () => {
         if (cursor) cursor.style.opacity = 1;
       });
@@ -66,16 +68,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
   
-      // Click to animate
+      // On click
       bottle.addEventListener("click", () => {
-        console.log(`Clicked bottle: ${side}`);
-  
         container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
+  
+        // Hide both text blocks first
+        if (leftText) leftText.style.opacity = 0;
+        if (rightText) rightText.style.opacity = 0;
   
         if (side === "left") {
           container.classList.add("bottle-clicked-left");
+          if (leftText) leftText.style.opacity = 1;
         } else if (side === "right") {
           container.classList.add("bottle-clicked-right");
+          if (rightText) rightText.style.opacity = 1;
         }
       });
     });
