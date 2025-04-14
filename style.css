@@ -97,8 +97,8 @@ h3, .h3 {
     display: inline-block;
     white-space: nowrap;
     animation: scroll-left 20s linear infinite;
-    font-size: 2rem;
-    color: white;
+    font-size: 48px;
+    color: var(--c-light);
     font-weight: 300;
     text-shadow: 0 0 10px rgba(0,0,0,0.6);
   }
