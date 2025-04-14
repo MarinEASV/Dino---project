@@ -22,8 +22,8 @@
 
         <!-- Desktop Menu -->
         <nav class="nav-links">
-            <a href="#about">About</a>
             <a href="#menu">Menu</a>
+            <a href="#about">About</a>
             <a href="#footer">Contact</a>
             <div id="weglot_here"></div> <!-- Weglot button -->
         </nav>
