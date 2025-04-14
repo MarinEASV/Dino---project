@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
         container.classList.remove("bottle-clicked-left", "bottle-clicked-right");
   
         // Hide both text blocks first
-        if (leftText) leftText.style.opacity = 0;
-        if (rightText) rightText.style.opacity = 0;
+        if (leftText) leftText.style.opacity = 1;
+        if (rightText) rightText.style.opacity = 1;
   
         if (side === "left") {
           container.classList.add("bottle-clicked-left");
