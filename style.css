@@ -860,4 +860,14 @@ nav a {
     color: white;
   }
 
+  .bottle-section.left-opened .left-bottle,
+.bottle-section.left-opened .right-bottle {
+  background-color: #B64A42 !important;
+}
+
+.bottle-section.right-opened .left-bottle,
+.bottle-section.right-opened .right-bottle {
+  background-color: #5F120D !important;
+}
+
   
