@@ -892,9 +892,11 @@ nav a {
   .left-bottle.returning {
     transform: translateX(0%);
     opacity: 1;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
   }
   
   .right-bottle.returning {
     transform: translateX(0%);
     opacity: 1;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
   }

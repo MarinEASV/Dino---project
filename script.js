@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // --- BOTTLE LOGIC ---
   const leftBottle = document.querySelector(".left-bottle");
   const rightBottle = document.querySelector(".right-bottle");
   const leftText = document.querySelector(".left-text");
@@ -11,26 +10,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const isMobile = window.innerWidth <= 768;
 
-  function resetAll() {
-    // Remove clicked + hide
-    leftBottle.classList.remove("clicked", "hide");
-    rightBottle.classList.remove("clicked", "hide");
-    leftText.classList.remove("show");
-    rightText.classList.remove("show");
-
-    // Add "returning" animation class
+  function smoothClose() {
+    // Add return animations
     leftBottle.classList.add("returning");
     rightBottle.classList.add("returning");
 
-    // Delay removing color & opened state until slide back is done
-    setTimeout(() => {
-      section.classList.remove("opened", "left-opened", "right-opened");
+    // Hide text immediately
+    leftText.classList.remove("show");
+    rightText.classList.remove("show");
 
-      // Clean up returning animation class
-      leftBottle.classList.remove("returning");
-      rightBottle.classList.remove("returning");
-    }, 800); // Matches the CSS transition time
-    updateCursorText();
+    // Wait for animations to complete
+    setTimeout(() => {
+      leftBottle.classList.remove("clicked", "hide", "returning");
+      rightBottle.classList.remove("clicked", "hide", "returning");
+      section.classList.remove("opened", "left-opened", "right-opened");
+    }, 800);
   }
 
   function updateCursorText() {
@@ -44,29 +38,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
   leftBottle.addEventListener("click", function () {
     const isActive = leftBottle.classList.contains("clicked");
-    resetAll();
-    if (!isActive) {
+    if (isActive) {
+      smoothClose();
+    } else {
+      // Instantly apply
       leftBottle.classList.add("clicked");
       rightBottle.classList.add("hide");
       leftText.classList.add("show");
       section.classList.add("opened", "left-opened");
+
+      // Ensure no delay
+      leftBottle.classList.remove("returning");
+      rightBottle.classList.remove("returning");
     }
     updateCursorText();
   });
 
   rightBottle.addEventListener("click", function () {
     const isActive = rightBottle.classList.contains("clicked");
-    resetAll();
-    if (!isActive) {
+    if (isActive) {
+      smoothClose();
+    } else {
       rightBottle.classList.add("clicked");
       leftBottle.classList.add("hide");
       rightText.classList.add("show");
       section.classList.add("opened", "right-opened");
+
+      leftBottle.classList.remove("returning");
+      rightBottle.classList.remove("returning");
     }
     updateCursorText();
   });
 
-  // --- CUSTOM CURSOR LOGIC ---
+  // --- CUSTOM CURSOR ---
   if (!isMobile && customCursor) {
     document.addEventListener("mousemove", (e) => {
       customCursor.style.top = `${e.clientY}px`;
@@ -91,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     AOS.init({ duration: 1200 });
   }
 
-  // --- MOBILE MENU TOGGLE ---
+  // --- MOBILE MENU ---
   const mobileMenu = document.getElementById("mobileMenu");
   const menuToggle = document.getElementById("menuToggle");
   const closeMenu = document.getElementById("closeMenu");
@@ -116,11 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector('.navbar');
   if (navbar) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 0) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
+      navbar.classList.toggle("scrolled", window.scrollY > 0);
     });
   }
 });
