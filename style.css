@@ -806,22 +806,6 @@ nav a {
   transform: translateY(0);
       }
   }
-  
-  .side {
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.left-side {
-  background-color: #B64A42; /* Lighter red */
-}
-
-.right-side {
-  background-color: #5F120D; /* Darker red */
-}
 
 .bottle-section.left-opened {
     background-color: #B64A42 !important;
@@ -889,19 +873,17 @@ nav a {
     width: 100%;
     background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
     transition: background 0.8s ease-in-out;
-    z-index: 0; /* stays behind everything */
+    z-index: 0;
     pointer-events: none;
   }
   
-  
   .bottle-section.left-opened::before {
-    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, #5F120D 50%, #5F120D 100%);
+    background: #B64A42;
   }
   
   .bottle-section.right-opened::before {
-    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #FFFFFF 50%, #FFFFFF 100%);
+    background: #5F120D;
   }
-  
   .bottle-section:not(.left-opened):not(.right-opened)::before {
     background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
   }
