@@ -20,7 +20,7 @@ $right_bottle_description = get_field('right_bottle_description');
         <h2><?php echo esc_html($left_bottle_title); ?></h2>
         <p><?php echo esc_html($left_bottle_description); ?></p>
       </div>
-      <p class="tap-instruction">Tap to see more</p>
+      <p class="tap-instruction mobile-only">Tap to see more</p>
     </div>
 
     <!-- Right Bottle -->
@@ -30,7 +30,7 @@ $right_bottle_description = get_field('right_bottle_description');
         <h2><?php echo esc_html($right_bottle_title); ?></h2>
         <p><?php echo esc_html($right_bottle_description); ?></p>
       </div>
-      <p class="tap-instruction">Tap to see more</p>
+      <p class="tap-instruction mobile-only">Tap to see more</p>
     </div>
 
   </div>

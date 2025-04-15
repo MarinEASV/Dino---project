@@ -898,22 +898,29 @@ nav a {
   
     .bottle {
       width: 100%;
-      padding: 1rem;
+      padding: 2rem 1rem;
     }
+
+    .bottle img {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        display: block;
+      }
   
-    .bottle-text {
-      position: static;
-      width: 100%;
-      transform: none;
-      padding: 1rem;
-      background-color: transparent;
-      color: inherit;
-      text-align: center;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.4s ease;
-    }
+      .bottle-text {
+        position: static;
+        transform: none;
+        opacity: 1 !important;
+        pointer-events: auto;
+        padding: 1.5rem;
+      }
+      .tap-instruction {
+        color: white;
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 1rem;
+      }
   
     .bottle-text.show {
       opacity: 1;
