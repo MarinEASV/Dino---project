@@ -819,19 +819,4 @@ nav a {
     );
   }
 
-  .left-side {
-    background-color: #B64A42;
-    transition: background-color 0.6s ease-in-out;
-  }
-  .right-side {
-    background-color: #5F120D;
-    transition: background-color 0.6s ease-in-out;
-  }
-  
-  .bottle-section.right-opened .left-side {
-    background-color: #FFFFFF;
-  }
-  .bottle-section.left-opened .right-side {
-    background-color: #FFFFFF;
-  }
   
