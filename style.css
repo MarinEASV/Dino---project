@@ -600,9 +600,36 @@ nav a {
     align-items: center;
     overflow: hidden;
     height: 100vh;
-    background: #fff;
+    background: linear-gradient(
+    to right,
+    #B64A42 0%,
+    #B64A42 50%,
+    #5F120D 50%,
+    #5F120D 100%
+  );
   }
   
+  .bottle-section.left-opened {
+    background: linear-gradient(
+      to right,
+      #B64A42 0%,
+      #B64A42 50%,
+      #FFFFFF 50%,
+      #FFFFFF 100%
+    );
+  }
+  
+  /* When right bottle is active, left side becomes white */
+  .bottle-section.right-opened {
+    background: linear-gradient(
+      to right,
+      #FFFFFF 0%,
+      #FFFFFF 50%,
+      #5F120D 50%,
+      #5F120D 100%
+    );
+  }
+
   .bottle-container {
     display: flex;
     width: 100%;
