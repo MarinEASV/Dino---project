@@ -12,11 +12,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const isMobile = window.innerWidth <= 768;
 
   function resetAll() {
+    // Remove clicked + hide
     leftBottle.classList.remove("clicked", "hide");
     rightBottle.classList.remove("clicked", "hide");
     leftText.classList.remove("show");
     rightText.classList.remove("show");
-    section.classList.remove("opened", "left-opened", "right-opened");
+
+    // Add "returning" animation class
+    leftBottle.classList.add("returning");
+    rightBottle.classList.add("returning");
+
+    // Delay removing color & opened state until slide back is done
+    setTimeout(() => {
+      section.classList.remove("opened", "left-opened", "right-opened");
+
+      // Clean up returning animation class
+      leftBottle.classList.remove("returning");
+      rightBottle.classList.remove("returning");
+    }, 800); // Matches the CSS transition time
     updateCursorText();
   }
 
