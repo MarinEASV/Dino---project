@@ -652,7 +652,7 @@ nav a {
     height: auto;
     display: block;
   }
-  
+
   /* Text blocks — initially hidden */
   .bottle-text {
     position: absolute;
@@ -712,7 +712,20 @@ nav a {
   }
   
   .left-bottle.hide {
-    transform: translateX(-100%); /* Left goes left */
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.right-bottle.hide {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .bottle-text.show {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .left-bottle {

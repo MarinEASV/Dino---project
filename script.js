@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // --- BOTTLE LOGIC ---
+document.addEventListener("DOMContentLoaded", function () {document.addEventListener("DOMContentLoaded", function () {
   const leftBottle = document.querySelector(".left-bottle");
   const rightBottle = document.querySelector(".right-bottle");
   const leftText = document.querySelector(".left-text");
@@ -12,16 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const isMobile = window.innerWidth <= 768;
 
   function resetAll() {
-    leftBottle.classList.remove("clicked", "hide");
-    rightBottle.classList.remove("clicked", "hide");
+    leftBottle.classList.remove("clicked");
+    rightBottle.classList.remove("clicked");
+    leftBottle.classList.remove("hide");
+    rightBottle.classList.remove("hide");
     leftText.classList.remove("show");
     rightText.classList.remove("show");
-    section.classList.remove("opened");
+    section.classList.remove("opened", "left-opened", "right-opened");
     updateCursorText();
   }
 
   function updateCursorText() {
-    const isActive = leftBottle.classList.contains("clicked") || rightBottle.classList.contains("clicked");
+    const isActive =
+      leftBottle.classList.contains("clicked") ||
+      rightBottle.classList.contains("clicked");
     cursorText.textContent = isActive ? "Close" : "Click to see more";
   }
 
@@ -32,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       leftBottle.classList.add("clicked");
       rightBottle.classList.add("hide");
       leftText.classList.add("show");
-      section.classList.add("opened");
+      section.classList.add("opened", "left-opened");
     }
     updateCursorText();
   });
@@ -44,10 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
       rightBottle.classList.add("clicked");
       leftBottle.classList.add("hide");
       rightText.classList.add("show");
-      section.classList.add("opened");
+      section.classList.add("opened", "right-opened");
     }
     updateCursorText();
   });
+});
 
   // --- CUSTOM CURSOR LOGIC ---
   if (!isMobile) {
