@@ -84,7 +84,7 @@ h3, .h3 {
 /* infinite scroll */
 /* Scrolling Text Container */
 .scrolling-text-container {
-    bottom: 60px;
+    bottom: 80px;
     text-align: center;
     z-index: 2;
     overflow: hidden;
@@ -141,7 +141,7 @@ h3, .h3 {
   }
   
   .hero-subtext .dash {
-    width: 80%;
+    width: 200px;
     height: 2px;
     background: linear-gradient(to right, white, rgba(255,255,255,0.3));
     margin: 0 auto 10px auto;
