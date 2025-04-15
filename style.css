@@ -853,4 +853,20 @@ nav a {
   background-color: #5F120D !important;
 }
 
+
+.bottle-section.left-opened .left-text,
+.bottle-section.left-opened .right-text,
+.bottle-section.left-opened .left-bottle,
+.bottle-section.left-opened .right-bottle {
+  background-color: #B64A42 !important;
+  color: white;
+}
+
+.bottle-section.right-opened .left-text,
+.bottle-section.right-opened .right-text,
+.bottle-section.right-opened .left-bottle,
+.bottle-section.right-opened .right-bottle {
+  background-color: #5F120D !important;
+  color: white;
+}
   
