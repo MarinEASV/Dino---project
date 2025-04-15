@@ -606,7 +606,7 @@ nav a {
 
 
   .bottle-section.left-opened::before {
-    background: linear-gradient(to right, #fff 0%, #fff 50%, #FFFFFF 50%, #FFFFFF 100%);
+    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #FFFFFF 50%, #FFFFFF 100%);
     opacity: 1;
   }
   
@@ -634,7 +634,7 @@ nav a {
   }
   
   .left-side {
-    background-color: #fff;
+    background-color: #B64A42;
   }
   
   .right-side {
@@ -671,7 +671,7 @@ nav a {
   }
   
   .left-text {
-    background-color: #fff;
+    background-color: #B64A42;
     color: white;
     right: 0;
     text-align: left;
@@ -723,7 +723,7 @@ nav a {
   }
 
   .left-bottle {
-    background-color: #fff; /* Lighter red */
+    background-color: #B64A42; /* Lighter red */
   }
   
   .right-bottle {
@@ -821,7 +821,7 @@ nav a {
 }
 
 .left-side {
-  background-color: #fff; /* Lighter red */
+  background-color: #B64A42; /* Lighter red */
 }
 
 .right-side {
@@ -829,12 +829,12 @@ nav a {
 }
 
 .bottle-section.left-opened {
-    background-color: #fff !important;
+    background-color: #B64A42 !important;
   }
 
   .bottle-section.left-opened .left-text,
 .bottle-section.left-opened .right-text {
-  background-color: #fff;
+  background-color: #B64A42;
   color: white;
 }
   
@@ -849,7 +849,7 @@ nav a {
 }
 
   .bottle-section.left-opened .left-text {
-    background-color: #fff;
+    background-color: #B64A42;
     color: white;
   }
   
@@ -860,7 +860,7 @@ nav a {
 
   .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
-  background-color: #fff !important;
+  background-color: #B64A42 !important;
 }
 
 .bottle-section.right-opened .left-bottle,
@@ -873,7 +873,7 @@ nav a {
 .bottle-section.left-opened .right-text,
 .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
-  background-color: #fff !important;
+  background-color: #B64A42 !important;
   color: white;
 }
 
