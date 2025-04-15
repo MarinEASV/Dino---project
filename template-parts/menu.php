@@ -74,8 +74,8 @@
                         <h5 class="menu-dish"><?php echo esc_html($name); ?></h5>
                         <p class="menu-desc mb-1"><?php echo esc_html($desc); ?></p>
                       </div>
-                      <div class="menu-price text-end"><?php echo esc_html($price); ?>,-</div>
-                    </li>
+                      <div class="menu-price text-end fw-bold pe-lg-5"><?php echo esc_html($price); ?>,-</div>
+                      </li>
                     <?php endfor; ?>
                   </ul>
                 </div>
