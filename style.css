@@ -600,13 +600,15 @@ nav a {
     align-items: center;
     overflow: hidden;
     height: 100vh;
+    width: 100vw;
     background: linear-gradient(
-    to right,
-    #B64A42 0%,
-    #B64A42 50%,
-    #5F120D 50%,
-    #5F120D 100%
-  );
+      to right,
+      #B64A42 0%,
+      #B64A42 50%,
+      #5F120D 50%,
+      #5F120D 100%
+    );
+    transition: background 0.8s ease-in-out;
   }
   
   .bottle-container {
@@ -796,3 +798,23 @@ nav a {
 .right-side {
   background-color: #5F120D; /* Darker red */
 }
+
+.bottle-section.left-opened {
+    background: linear-gradient(
+      to right,
+      #B64A42 0%,
+      #B64A42 50%,
+      #FFFFFF 50%,
+      #FFFFFF 100%
+    );
+  }
+  
+  .bottle-section.right-opened {
+    background: linear-gradient(
+      to right,
+      #FFFFFF 0%,
+      #FFFFFF 50%,
+      #5F120D 50%,
+      #5F120D 100%
+    );
+  }
