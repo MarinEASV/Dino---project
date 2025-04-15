@@ -36,8 +36,8 @@
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="mobile-nav">
     <button id="closeMenu" class="close-btn">&times;</button>
-            <a href="#about">About</a>
             <a href="#manufacturing">Menu</a>
+            <a href="#about">About</a>
             <a href="#footer">Contact</a>
     <div id="weglot_here"></div> <!-- Weglot button for mobile -->
 </div>

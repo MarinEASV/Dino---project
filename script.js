@@ -1,11 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // --- BOTTLE LOGIC ---
   const leftBottle = document.querySelector(".left-bottle");
   const rightBottle = document.querySelector(".right-bottle");
   const leftText = document.querySelector(".left-text");
   const rightText = document.querySelector(".right-text");
   const section = document.querySelector(".bottle-section");
-
   const customCursor = document.querySelector(".custom-cursor");
   const cursorText = document.querySelector(".cursor-text");
 
@@ -30,30 +28,37 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   leftBottle.addEventListener("click", function () {
-    const isActive = leftBottle.classList.contains("clicked");
-    resetAll();
-    if (!isActive) {
-      leftBottle.classList.add("clicked");
-      rightBottle.classList.add("hide");
-      leftText.classList.add("show");
-      section.classList.add("opened", "left-opened");
+    if (isMobile) {
+      leftText.classList.toggle("show");
+    } else {
+      const isActive = leftBottle.classList.contains("clicked");
+      resetAll();
+      if (!isActive) {
+        leftBottle.classList.add("clicked");
+        rightBottle.classList.add("hide");
+        leftText.classList.add("show");
+        section.classList.add("opened", "left-opened");
+      }
+      updateCursorText();
     }
-    updateCursorText();
   });
 
   rightBottle.addEventListener("click", function () {
-    const isActive = rightBottle.classList.contains("clicked");
-    resetAll();
-    if (!isActive) {
-      rightBottle.classList.add("clicked");
-      leftBottle.classList.add("hide");
-      rightText.classList.add("show");
-      section.classList.add("opened", "right-opened");
+    if (isMobile) {
+      rightText.classList.toggle("show");
+    } else {
+      const isActive = rightBottle.classList.contains("clicked");
+      resetAll();
+      if (!isActive) {
+        rightBottle.classList.add("clicked");
+        leftBottle.classList.add("hide");
+        rightText.classList.add("show");
+        section.classList.add("opened", "right-opened");
+      }
+      updateCursorText();
     }
-    updateCursorText();
   });
 
-  // --- CUSTOM CURSOR LOGIC ---
   if (!isMobile && customCursor) {
     document.addEventListener("mousemove", (e) => {
       customCursor.style.top = `${e.clientY}px`;
@@ -73,12 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- AOS INIT ---
   if (typeof AOS !== "undefined") {
     AOS.init({ duration: 1200 });
   }
 
-  // --- MOBILE MENU TOGGLE ---
   const mobileMenu = document.getElementById("mobileMenu");
   const menuToggle = document.getElementById("menuToggle");
   const closeMenu = document.getElementById("closeMenu");
@@ -99,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- NAVBAR SCROLL EFFECT ---
   const navbar = document.querySelector('.navbar');
   if (navbar) {
     window.addEventListener("scroll", () => {
