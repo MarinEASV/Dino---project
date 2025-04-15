@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // --- BOTTLE LOGIC ---
   const leftBottle = document.querySelector(".left-bottle");
   const rightBottle = document.querySelector(".right-bottle");
   const leftText = document.querySelector(".left-text");
@@ -10,21 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const isMobile = window.innerWidth <= 768;
 
-  function smoothClose() {
-    // Add return animations
-    leftBottle.classList.add("returning");
-    rightBottle.classList.add("returning");
-
-    // Hide text immediately
+  function resetAll() {
+    leftBottle.classList.remove("clicked", "hide");
+    rightBottle.classList.remove("clicked", "hide");
     leftText.classList.remove("show");
     rightText.classList.remove("show");
-
-    // Wait for animations to complete
-    setTimeout(() => {
-      leftBottle.classList.remove("clicked", "hide", "returning");
-      rightBottle.classList.remove("clicked", "hide", "returning");
-      section.classList.remove("opened", "left-opened", "right-opened");
-    }, 800);
+    section.classList.remove("opened", "left-opened", "right-opened");
+    updateCursorText();
   }
 
   function updateCursorText() {
@@ -38,39 +31,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   leftBottle.addEventListener("click", function () {
     const isActive = leftBottle.classList.contains("clicked");
-    if (isActive) {
-      smoothClose();
-    } else {
-      // Instantly apply
+    resetAll();
+    if (!isActive) {
       leftBottle.classList.add("clicked");
       rightBottle.classList.add("hide");
       leftText.classList.add("show");
       section.classList.add("opened", "left-opened");
-
-      // Ensure no delay
-      leftBottle.classList.remove("returning");
-      rightBottle.classList.remove("returning");
     }
     updateCursorText();
   });
 
   rightBottle.addEventListener("click", function () {
     const isActive = rightBottle.classList.contains("clicked");
-    if (isActive) {
-      smoothClose();
-    } else {
+    resetAll();
+    if (!isActive) {
       rightBottle.classList.add("clicked");
       leftBottle.classList.add("hide");
       rightText.classList.add("show");
       section.classList.add("opened", "right-opened");
-
-      leftBottle.classList.remove("returning");
-      rightBottle.classList.remove("returning");
     }
     updateCursorText();
   });
 
-  // --- CUSTOM CURSOR ---
+  // --- CUSTOM CURSOR LOGIC ---
   if (!isMobile && customCursor) {
     document.addEventListener("mousemove", (e) => {
       customCursor.style.top = `${e.clientY}px`;
@@ -95,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     AOS.init({ duration: 1200 });
   }
 
-  // --- MOBILE MENU ---
+  // --- MOBILE MENU TOGGLE ---
   const mobileMenu = document.getElementById("mobileMenu");
   const menuToggle = document.getElementById("menuToggle");
   const closeMenu = document.getElementById("closeMenu");
@@ -120,7 +103,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector('.navbar');
   if (navbar) {
     window.addEventListener("scroll", () => {
-      navbar.classList.toggle("scrolled", window.scrollY > 0);
+      if (window.scrollY > 0) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
     });
   }
 });

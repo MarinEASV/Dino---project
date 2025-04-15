@@ -889,14 +889,3 @@ nav a {
     background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
   }
   
-  .left-bottle.returning {
-    transform: translateX(0%);
-    opacity: 1;
-    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
-  }
-  
-  .right-bottle.returning {
-    transform: translateX(0%);
-    opacity: 1;
-    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
-  }
