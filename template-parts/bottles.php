@@ -27,7 +27,7 @@ $right_bottle_description = get_field('right_bottle_description');
 
     <div class="bottle-text right-text">
       <h2><?php the_field('right_bottle_title'); ?></h2>
-      <p><?php the_field('right_bottle_description'); ?></p>
+      <p><?php the_field('left_bottle_description'); ?></p>
     </div>
   </div>
 </section>

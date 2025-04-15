@@ -831,7 +831,7 @@ nav a {
 }
 
 .bottle-section.left-opened {
-    background-color: #B64A42;
+    background-color: #B64A42 !important;
   }
 
   .bottle-section.left-opened .left-text,
@@ -841,7 +841,7 @@ nav a {
 }
   
   .bottle-section.right-opened {
-    background-color: #5F120D;
+    background-color: #5F120D !important;
   }
 
   .bottle-section.right-opened .left-text,
