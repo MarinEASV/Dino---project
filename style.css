@@ -685,6 +685,14 @@ nav a {
   .left-bottle.hide {
     transform: translateX(-100%); /* Left goes left */
   }
+
+  .left-bottle {
+    background-color: #B64A42; /* Lighter red */
+  }
+  
+  .right-bottle {
+    background-color: #5F120D; /* Darker red */
+  }
   
   .bottle-text {
     opacity: 0;
