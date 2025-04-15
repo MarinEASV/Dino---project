@@ -811,9 +811,9 @@ nav a {
 }
 
 .left-side {
-  background-color: #B64A42; /* Lighter red */
-}
-
-.right-side {
-  background-color: #5F120D; /* Darker red */
-}
+    background-color: transparent; 
+  }
+  
+  .right-side {
+    background-color: transparent;
+  }
