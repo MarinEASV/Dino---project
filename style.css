@@ -686,13 +686,7 @@ nav a {
     transform: translateX(-100%); /* Left goes left */
   }
 
-  .left-bottle {
-    background-color: #B64A42; /* Lighter red */
-  }
-  
-  .right-bottle {
-    background-color: #5F120D; /* Darker red */
-  }
+
   
   .bottle-text {
     opacity: 0;
@@ -775,4 +769,19 @@ nav a {
       }
   }
   
+  .side {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left-side {
+    background-color: #B64A42; /* Lighter red */
+  }
+  
+  .right-side {
+    background-color: #5F120D; /* Darker red */
+  }
   
