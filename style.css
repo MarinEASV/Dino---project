@@ -97,10 +97,10 @@ h3, .h3 {
   .scrolling-text {
     display: inline-block;
     white-space: nowrap;
-    animation: scroll-left 40s linear infinite;
+    animation: scroll-left 60s linear infinite;
     font-size: 80px;
     color: var(--c-light);
-    font-weight: 300;
+    font-weight: 200;
     font-family: var(--p-font); 
     text-shadow: 0 0 10px rgba(0,0,0,0.6);
   }
@@ -134,7 +134,7 @@ h3, .h3 {
   
   .hero-subtext {
     position: absolute;
-    bottom: 40px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
