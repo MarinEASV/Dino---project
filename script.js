@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // --- CUSTOM CURSOR LOGIC ---
   if (!isMobile && customCursor) {
     document.addEventListener("mousemove", (e) => {
-      customCursor.style.top = ${e.clientY}px;
-      customCursor.style.left = ${e.clientX}px;
+      customCursor.style.top = `${e.clientY}px`;
+      customCursor.style.left = `${e.clientX}px`;
     });
 
     const bottles = document.querySelectorAll(".bottle");
