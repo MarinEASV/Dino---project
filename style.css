@@ -661,23 +661,29 @@ nav a {
     position: absolute;
     width: 50%;
     top: 50%;
+    transform: translateY(-50%);
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.6s ease;
     z-index: 1;
     padding: 2rem;
     background: white;
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  transform: translateY(20px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
   }
   
   .left-text {
+    background-color: #B64A42;
     right: 0;
     text-align: left;
+    color: white;
   }
   
   .right-text {
+    background-color: #5F120D;
     left: 0;
     text-align: right;
+    color: white;
   }
   
   /* Active logic */
@@ -825,23 +831,21 @@ nav a {
 }
 
 .bottle-section.left-opened {
-    background: linear-gradient(
-      to right,
-      #B64A42 0%,
-      #B64A42 50%,
-      #FFFFFF 50%,
-      #FFFFFF 100%
-    );
+    background-color: #B64A42;
   }
   
   .bottle-section.right-opened {
-    background: linear-gradient(
-      to right,
-      #FFFFFF 0%,
-      #FFFFFF 50%,
-      #5F120D 50%,
-      #5F120D 100%
-    );
+    background-color: #5F120D;
+  }
+
+  .bottle-section.left-opened .left-text {
+    background-color: #B64A42;
+    color: white;
+  }
+  
+  .bottle-section.right-opened .right-text {
+    background-color: #5F120D;
+    color: white;
   }
 
   
