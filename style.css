@@ -889,3 +889,50 @@ nav a {
     background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
   }
   
+
+  @media screen and (max-width: 768px) {
+    .bottle-container {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .bottle {
+      width: 100%;
+      padding: 1rem;
+    }
+  
+    .bottle-text {
+      position: static;
+      width: 100%;
+      transform: none;
+      padding: 1rem;
+      background-color: transparent;
+      color: inherit;
+      text-align: center;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+  
+    .bottle-text.show {
+      opacity: 1;
+      max-height: 500px; /* Adjust if needed */
+    }
+  
+    .bottle img {
+      max-width: 200px;
+      margin: 0 auto;
+      display: block;
+    }
+  
+    .bottle-section {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .bottle-section::before {
+      display: none !important;
+    }
+  }
+  
