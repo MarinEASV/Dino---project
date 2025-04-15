@@ -19,9 +19,9 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
    <!-- Infinite Scroll Keywords -->
    <div class="scrolling-text-container position-absolute w-100">
     <div class="scrolling-text">
-      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local &nbsp;</span>
-      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local &nbsp;</span>
-      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local &nbsp;</span>
+      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · &nbsp;</span>
+      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
+      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · &nbsp;</span>
     </div>
   </div>
   
