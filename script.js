@@ -1,22 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const bottles = document.querySelectorAll(".bottle");
+  // --- BOTTLE LOGIC ---
+  const leftBottle = document.querySelector(".left-bottle");
+  const rightBottle = document.querySelector(".right-bottle");
+  const leftText = document.querySelector(".left-text");
+  const rightText = document.querySelector(".right-text");
   const section = document.querySelector(".bottle-section");
 
-  bottles.forEach((bottle) => {
-    bottle.addEventListener("click", function () {
-      const isActive = this.classList.contains("active");
+  const customCursor = document.querySelector(".custom-cursor");
+  const cursorText = document.querySelector(".cursor-text");
 
-      bottles.forEach((b) => b.classList.remove("active"));
-      section.classList.remove("opened");
+  const isMobile = window.innerWidth <= 768;
 
-      if (!isActive) {
-        this.classList.add("active");
-        section.classList.add("opened");
-      }
-    });
-  });
+  function resetAll() {
+  leftBottle.classList.remove("clicked", "hide");
+  rightBottle.classList.remove("clicked", "hide");
+  leftText.classList.remove("show");
+  rightText.classList.remove("show");
+  section.classList.remove("opened", "left-opened", "right-opened");
+  updateCursorText();
+}
+
+leftBottle.addEventListener("click", function () {
+  const isActive = leftBottle.classList.contains("clicked");
+  resetAll();
+
+  if (!isActive) {
+    leftBottle.classList.add("clicked");
+    rightBottle.classList.add("hide");
+    leftText.classList.add("show");
+    section.classList.add("opened", "left-opened");
+  }
+
+  updateCursorText();
 });
 
+rightBottle.addEventListener("click", function () {
+  const isActive = rightBottle.classList.contains("clicked");
+  resetAll();
+
+  if (!isActive) {
+    rightBottle.classList.add("clicked");
+    leftBottle.classList.add("hide");
+    rightText.classList.add("show");
+    section.classList.add("opened", "right-opened");
+  }
+
+  updateCursorText();
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
@@ -105,4 +135,6 @@ document.addEventListener("DOMContentLoaded", function() {
         bottle.style.cursor = "default";
       });
     });
-  });
+  }
+);
+  
