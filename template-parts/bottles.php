@@ -32,7 +32,5 @@ $right_bottle_description = get_field('right_bottle_description');
   </div>
 </section>
 
-<div class="custom-cursor">
-  <span class="cursor-text">Click to see more</span>
-</div>
+
 
