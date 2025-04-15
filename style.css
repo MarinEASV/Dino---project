@@ -601,28 +601,11 @@ nav a {
     overflow: hidden;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(
-      to right,
-      #B64A42 0%,
-      #B64A42 50%,
-      #5F120D 50%,
-      #5F120D 100%
-    );
-    transition: background 0.8s ease-in-out;
+    background-color: #B64A42; /* default (coral) */
+    transition: background-color 0.8s ease-in-out;
+    position: relative; /* needed for ::before positioning if you still use it */
   }
 
-  .bottle-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 1s ease;
-    pointer-events: none;
-  }
 
   .bottle-section.left-opened::before {
     background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #FFFFFF 50%, #FFFFFF 100%);
