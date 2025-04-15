@@ -100,7 +100,7 @@ h3, .h3 {
     animation: scroll-left 60s linear infinite;
     font-size: 80px;
     color: var(--c-light);
-    font-weight: 200;
+    font-weight: 100;
     font-family: var(--p-font); 
     text-shadow: 0 0 10px rgba(0,0,0,0.6);
   }
@@ -141,7 +141,7 @@ h3, .h3 {
   }
   
   .hero-subtext .dash {
-    width: 1000px;
+    width: 1200px;
     height: 2px;
     background: linear-gradient(to right, white, rgba(255,255,255,0.3));
     margin: 0 auto 10px auto;
@@ -153,6 +153,7 @@ h3, .h3 {
     font-size: 20px;
     opacity: 0.85;
     font-family: var(--p-font);
+    font-weight: 100;
     margin: 0;
   }
   
