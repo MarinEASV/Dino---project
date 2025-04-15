@@ -45,8 +45,9 @@
           $menu_query = new WP_Query(array('post_type' => 'menu', 'posts_per_page' => -1));
           if ($menu_query->have_posts()):
             while ($menu_query->have_posts()): $menu_query->the_post();
-              $card_image = get_field("card_image");
-              $dishes_group = get_field("dish_1_group");
+            $card_image_1 = get_field("card_image_1");
+            $card_image_2 = get_field("card_image_2");
+            $dishes_group = get_field("dish_1_group");
           ?>
           <div class="tab-pane fade <?php echo $isFirst ? 'show active' : ''; ?>" 
             id="nav-menu<?php echo $tab_index; ?>" 
@@ -69,20 +70,27 @@
                         <h5 class="menu-dish"><?php echo esc_html($name); ?></h5>
                         <p class="menu-desc mb-1"><?php echo esc_html($desc); ?></p>
                       </div>
-                      <div class="menu-price text-end"><?php echo esc_html($price); ?>,-</div>
+                      <div class="menu-price text-end fw-bold pe-lg-5"><?php echo esc_html($price); ?>,-</div>
                     </li>
                     <?php endfor; ?>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-4 text-center d-none d-lg-block">
-                <?php if ($card_image): ?>
-                  <img src="<?php echo esc_url($card_image['sizes']['large']); ?>" 
-                    alt="Menu Image" 
-                    class="menu-photo img-fluid">
+              <div class="d-flex flex-column align-items-center gap-4 ps-4">
+                <?php if ($card_image_1): ?>
+                  <img src="<?php echo esc_url($card_image_1['sizes']['medium_large']); ?>" 
+                    alt="Menu Image 1" 
+                    class="img-fluid rounded shadow-sm" style="max-width: 100%; height: auto;">
+                <?php endif; ?>
+                <?php if ($card_image_2): ?>
+                  <img src="<?php echo esc_url($card_image_2['sizes']['medium_large']); ?>" 
+                    alt="Menu Image 2" 
+                    class="img-fluid rounded shadow-sm" style="max-width: 100%; height: auto;">
                 <?php endif; ?>
               </div>
             </div>
+
           </div>
           <?php
             $isFirst = false;
