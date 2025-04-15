@@ -1,13 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // --- BOTTLE LOGIC ---
   const leftBottle = document.querySelector(".left-bottle");
   const rightBottle = document.querySelector(".right-bottle");
   const leftText = document.querySelector(".left-text");
   const rightText = document.querySelector(".right-text");
   const section = document.querySelector(".bottle-section");
+
   const customCursor = document.querySelector(".custom-cursor");
   const cursorText = document.querySelector(".cursor-text");
 
   const isMobile = window.innerWidth <= 768;
+
+  function resetAll() {
+    // Add the 'closing' class to trigger reverse transitions
+    section.classList.add("closing");
+
+    // Delay full reset to let the transition play out
+    setTimeout(() => {
+      leftBottle.classList.remove("clicked", "hide");
+      rightBottle.classList.remove("clicked", "hide");
+      leftText.classList.remove("show");
+      rightText.classList.remove("show");
+      section.classList.remove("opened", "left-opened", "right-opened", "closing");
+
+      updateCursorText();
+    }, 600); // Adjust to match your transition duration
+  }
 
   function updateCursorText() {
     const isActive =
@@ -18,48 +36,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function closeWithTransition() {
-    // Delay removing color classes for smoother effect
-    leftBottle.classList.remove("clicked", "hide");
-    rightBottle.classList.remove("clicked", "hide");
-    leftText.classList.remove("show");
-    rightText.classList.remove("show");
-
-    // Let background color stay for 600ms during slide-back
-    setTimeout(() => {
-      section.classList.remove("opened", "left-opened", "right-opened");
-    }, 600); // match the CSS transition (e.g. 0.6s)
-  }
-
   leftBottle.addEventListener("click", function () {
     const isActive = leftBottle.classList.contains("clicked");
     if (isActive) {
-      closeWithTransition();
+      resetAll();
     } else {
-      section.classList.remove("right-opened");
-      leftBottle.classList.add("clicked");
-      rightBottle.classList.add("hide");
-      leftText.classList.add("show");
-      section.classList.add("opened", "left-opened");
+      resetAll();
+      setTimeout(() => {
+        leftBottle.classList.add("clicked");
+        rightBottle.classList.add("hide");
+        leftText.classList.add("show");
+        section.classList.add("opened", "left-opened");
+        updateCursorText();
+      }, 10);
     }
-    updateCursorText();
   });
 
   rightBottle.addEventListener("click", function () {
     const isActive = rightBottle.classList.contains("clicked");
     if (isActive) {
-      closeWithTransition();
+      resetAll();
     } else {
-      section.classList.remove("left-opened");
-      rightBottle.classList.add("clicked");
-      leftBottle.classList.add("hide");
-      rightText.classList.add("show");
-      section.classList.add("opened", "right-opened");
+      resetAll();
+      setTimeout(() => {
+        rightBottle.classList.add("clicked");
+        leftBottle.classList.add("hide");
+        rightText.classList.add("show");
+        section.classList.add("opened", "right-opened");
+        updateCursorText();
+      }, 10);
     }
-    updateCursorText();
   });
 
-  // --- Custom Cursor ---
+  // --- CUSTOM CURSOR LOGIC ---
   if (!isMobile && customCursor) {
     document.addEventListener("mousemove", (e) => {
       customCursor.style.top = `${e.clientY}px`;
@@ -79,12 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- AOS Init ---
+  // --- AOS INIT ---
   if (typeof AOS !== "undefined") {
     AOS.init({ duration: 1200 });
   }
 
-  // --- Mobile Menu Toggle ---
+  // --- MOBILE MENU TOGGLE ---
   const mobileMenu = document.getElementById("mobileMenu");
   const menuToggle = document.getElementById("menuToggle");
   const closeMenu = document.getElementById("closeMenu");
@@ -105,8 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- Navbar Scroll Effect ---
-  const navbar = document.querySelector(".navbar");
+  // --- NAVBAR SCROLL EFFECT ---
+  const navbar = document.querySelector('.navbar');
   if (navbar) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
