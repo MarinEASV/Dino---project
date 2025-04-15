@@ -23,5 +23,12 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
       <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
     </div>
   </div>
+
+    <!-- Dash and Subtext -->
+    <div class="hero-subtext text-center text-light">
+    <div class="dash"></div>
+    <p class="subtext">Authentic Balkan & Danish Cuisine on Fanø</p>
+  </div>
+
   
 </section>

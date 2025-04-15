@@ -132,7 +132,30 @@ h3, .h3 {
     }
   }
   
-
+  .hero-subtext {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+  
+  .hero-subtext .dash {
+    width: 80px;
+    height: 2px;
+    background-color: var(--c-light);
+    margin: 0 auto 10px auto;
+    opacity: 0.7;
+  }
+  
+  .hero-subtext .subtext {
+    color: var(--c-light);
+    font-size: 1rem;
+    opacity: 0.85;
+    font-family: var(--p-font);
+    margin: 0;
+  }
+  
 
 
 /* Navbar */
