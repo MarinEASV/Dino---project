@@ -595,15 +595,13 @@ nav a {
 /* BOTTLES PART STYLE */
 
 .bottle-section {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     height: 100vh;
     width: 100vw;
-    background-color: #B64A42; /* default (coral) */
-    transition: background-color 0.8s ease-in-out;
-    position: relative; /* needed for ::before positioning if you still use it */
+    overflow: hidden;
   }
 
 
@@ -621,8 +619,26 @@ nav a {
   .bottle-container {
     display: flex;
     width: 100%;
-    max-width: 1200px;
+    height: 100vh;
     position: relative;
+    z-index: 1;
+  }
+
+  .side {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.6s ease-in-out;
+  }
+  
+  .left-side {
+    background-color: #B64A42;
+  }
+  
+  .right-side {
+    background-color: #5F120D;
   }
   
   .bottle {
