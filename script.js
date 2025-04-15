@@ -30,42 +30,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   leftBottle.addEventListener("click", function () {
-    if (isMobile) {
-      leftText.classList.toggle("show");
-    } else {
-      const isActive = leftBottle.classList.contains("clicked");
-      resetAll();
-      if (!isActive) {
-        leftBottle.classList.add("clicked");
-        rightBottle.classList.add("hide");
-        leftText.classList.add("show");
-        section.classList.add("opened", "left-opened");
-      }
-      updateCursorText();
+    const isActive = leftBottle.classList.contains("clicked");
+    resetAll();
+    if (!isActive) {
+      leftBottle.classList.add("clicked");
+      rightBottle.classList.add("hide");
+      leftText.classList.add("show");
+      section.classList.add("opened", "left-opened");
     }
+    updateCursorText();
   });
 
   rightBottle.addEventListener("click", function () {
-    if (isMobile) {
-      rightText.classList.toggle("show");
-    } else {
-      const isActive = rightBottle.classList.contains("clicked");
-      resetAll();
-      if (!isActive) {
-        rightBottle.classList.add("clicked");
-        leftBottle.classList.add("hide");
-        rightText.classList.add("show");
-        section.classList.add("opened", "right-opened");
-      }
-      updateCursorText();
+    const isActive = rightBottle.classList.contains("clicked");
+    resetAll();
+    if (!isActive) {
+      rightBottle.classList.add("clicked");
+      leftBottle.classList.add("hide");
+      rightText.classList.add("show");
+      section.classList.add("opened", "right-opened");
     }
+    updateCursorText();
   });
 
   // --- CUSTOM CURSOR LOGIC ---
   if (!isMobile && customCursor) {
     document.addEventListener("mousemove", (e) => {
-      customCursor.style.top = `${e.clientY}px`;
-      customCursor.style.left = `${e.clientX}px`;
+      customCursor.style.top = ${e.clientY}px;
+      customCursor.style.left = ${e.clientX}px;
     });
 
     const bottles = document.querySelectorAll(".bottle");
