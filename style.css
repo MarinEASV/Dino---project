@@ -660,8 +660,7 @@ nav a {
     position: absolute;
     width: 50%;
     top: 50%;
-    transform: translateY(-50%);
-    opacity: 0;
+    transform: translateY(-50%) scale(0.98);    opacity: 0;
     pointer-events: none;
     transition: background-color 0.6s ease, color 0.6s ease, opacity 0.8s ease, transform 0.8s ease;
     z-index: 1;
@@ -739,8 +738,8 @@ nav a {
   .bottle-text.show {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
-  }
+    transform: translateY(-50%) scale(1);
+}
 
   
   /* Custom cursor base */
@@ -884,4 +883,27 @@ nav a {
   background-color: #5F120D !important;
   color: white;
 }
+  
+.bottle-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out;
+    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
+    opacity: 1; /* ← stays constant unless overridden */
+  }
+  
+  .bottle-section.left-opened::before {
+    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, #5F120D 50%, #5F120D 100%);
+  }
+  
+  .bottle-section.right-opened::before {
+    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #FFFFFF 50%, #FFFFFF 100%);
+  }
+  
+  .bottle-section:not(.left-opened):not(.right-opened)::before {
+    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
+  }
   
