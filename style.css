@@ -141,7 +141,7 @@ h3, .h3 {
   }
   
   .hero-subtext .dash {
-    width: 600px;
+    width: 1000px;
     height: 2px;
     background: linear-gradient(to right, white, rgba(255,255,255,0.3));
     margin: 0 auto 10px auto;
