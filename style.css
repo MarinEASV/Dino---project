@@ -609,27 +609,6 @@ nav a {
   );
   }
   
-  .bottle-section.left-opened {
-    background: linear-gradient(
-      to right,
-      #B64A42 0%,
-      #B64A42 50%,
-      #FFFFFF 50%,
-      #FFFFFF 100%
-    );
-  }
-  
-  /* When right bottle is active, left side becomes white */
-  .bottle-section.right-opened {
-    background: linear-gradient(
-      to right,
-      #FFFFFF 0%,
-      #FFFFFF 50%,
-      #5F120D 50%,
-      #5F120D 100%
-    );
-  }
-
   .bottle-container {
     display: flex;
     width: 100%;
@@ -646,13 +625,11 @@ nav a {
   }
   
   .bottle img {
-    width: auto;
-    max-width: 100%;
-    max-height: 90vh;
+    width: 100%;
     height: auto;
     display: block;
   }
-
+  
   /* Text blocks — initially hidden */
   .bottle-text {
     position: absolute;
@@ -712,20 +689,7 @@ nav a {
   }
   
   .left-bottle.hide {
-  transform: translateX(-100%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.right-bottle.hide {
-    transform: translateX(100%);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .bottle-text.show {
-    opacity: 1;
-    pointer-events: auto;
+    transform: translateX(-100%); /* Left goes left */
   }
 
   .left-bottle {
@@ -826,9 +790,9 @@ nav a {
 }
 
 .left-side {
-    background-color: transparent; 
-  }
-  
-  .right-side {
-    background-color: transparent;
-  }
+  background-color: #B64A42; /* Lighter red */
+}
+
+.right-side {
+  background-color: #5F120D; /* Darker red */
+}

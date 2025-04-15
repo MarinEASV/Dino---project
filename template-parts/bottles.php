@@ -32,5 +32,3 @@ $right_bottle_description = get_field('right_bottle_description');
   </div>
 </section>
 
-
-
