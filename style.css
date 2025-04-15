@@ -865,28 +865,27 @@ nav a {
 }
   
 .bottle-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
-    transition: background 0.8s ease-in-out;
-    z-index: 0;
-    pointer-events: none;
-  }
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
+  transition: background 0.8s ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
   
   .bottle-section.left-opened::before {
-    background: #B64A42;
+    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, #5F120D 50%, #5F120D 100%);
   }
   
   .bottle-section.right-opened::before {
-    background: #5F120D;
+    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #FFFFFF 50%, #FFFFFF 100%);
   }
+  
   .bottle-section:not(.left-opened):not(.right-opened)::before {
     background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
   }
-  
-
   
