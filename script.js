@@ -12,12 +12,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const isMobile = window.innerWidth <= 768;
 
   function resetAll() {
-    leftBottle.classList.remove("clicked", "hide");
-    rightBottle.classList.remove("clicked", "hide");
-    leftText.classList.remove("show");
-    rightText.classList.remove("show");
-    section.classList.remove("opened", "left-opened", "right-opened");
-    updateCursorText();
+    // Add the 'closing' class to trigger reverse transitions
+    section.classList.add("closing");
+
+    // Delay full reset to let the transition play out
+    setTimeout(() => {
+      leftBottle.classList.remove("clicked", "hide");
+      rightBottle.classList.remove("clicked", "hide");
+      leftText.classList.remove("show");
+      rightText.classList.remove("show");
+      section.classList.remove("opened", "left-opened", "right-opened", "closing");
+
+      updateCursorText();
+    }, 600); // Adjust to match your transition duration
   }
 
   function updateCursorText() {
@@ -31,26 +38,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   leftBottle.addEventListener("click", function () {
     const isActive = leftBottle.classList.contains("clicked");
-    resetAll();
-    if (!isActive) {
-      leftBottle.classList.add("clicked");
-      rightBottle.classList.add("hide");
-      leftText.classList.add("show");
-      section.classList.add("opened", "left-opened");
+    if (isActive) {
+      resetAll();
+    } else {
+      resetAll();
+      setTimeout(() => {
+        leftBottle.classList.add("clicked");
+        rightBottle.classList.add("hide");
+        leftText.classList.add("show");
+        section.classList.add("opened", "left-opened");
+        updateCursorText();
+      }, 10);
     }
-    updateCursorText();
   });
 
   rightBottle.addEventListener("click", function () {
     const isActive = rightBottle.classList.contains("clicked");
-    resetAll();
-    if (!isActive) {
-      rightBottle.classList.add("clicked");
-      leftBottle.classList.add("hide");
-      rightText.classList.add("show");
-      section.classList.add("opened", "right-opened");
+    if (isActive) {
+      resetAll();
+    } else {
+      resetAll();
+      setTimeout(() => {
+        rightBottle.classList.add("clicked");
+        leftBottle.classList.add("hide");
+        rightText.classList.add("show");
+        section.classList.add("opened", "right-opened");
+        updateCursorText();
+      }, 10);
     }
-    updateCursorText();
   });
 
   // --- CUSTOM CURSOR LOGIC ---
