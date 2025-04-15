@@ -263,54 +263,66 @@ nav a {
 
 
 
-/* Menu */
-
-.menu-img {
-    border-radius: 0px;
-    overflow: hidden;
+/* Menu Tab Section */
+.menu-items ul {
+    padding-left: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+  
+  .menu-dish {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--c-dark);
+    margin-bottom: 0.3rem;
+  }
+  
+  .menu-desc {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+  
+  .menu-price {
+    font-weight: 500;
+    color: var(--c-dark);
+    min-width: 60px;
+    padding-left: 1rem;
+    white-space: nowrap;
+  }
+  
+  /* Angled menu photo */
+  .menu-photo {
     max-width: 100%;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.menu-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 15px var(--c-dark);
-}
-
-.menu-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 1rem 0;
-}
-
-.menu-ul li {
-    margin-bottom: 0.5rem;
-    padding-left: 20px;
-    position: relative;
-    font-size: 1rem;
-    color: var(--c-dark);
-    line-height: 1.5;
-}
-
-.menu-ul li::before {
-    content: "✔";
-    color: var(--c-dark);
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
-}
-
-.menu-subtitle {
-    font-size: 1.2rem;
-    color: var(--c-dark);
-    margin-bottom: 1rem;
-}
-
-.menu-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--c-dark);
-}
+    transform: rotate(-2deg);
+    border: 3px solid #7a2c2c; /* red wine tone */
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    margin-top: 2rem;
+  }
+  
+  /* Mobile tweaks */
+  @media (max-width: 768px) {
+    .menu-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .menu-price {
+      padding-left: 0;
+      margin-top: 0.3rem;
+    }
+  
+    .menu-photo {
+      transform: rotate(0deg);
+      margin: 2rem auto 0;
+    }
+  }
+  
 
 
 
