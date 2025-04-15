@@ -12,42 +12,42 @@ document.addEventListener("DOMContentLoaded", function () {
   const isMobile = window.innerWidth <= 768;
 
   function resetAll() {
-    leftBottle.classList.remove("clicked", "hide");
-    rightBottle.classList.remove("clicked", "hide");
-    leftText.classList.remove("show");
-    rightText.classList.remove("show");
-    section.classList.remove("opened", "left-opened", "right-opened");
-    updateCursorText();
+  leftBottle.classList.remove("clicked", "hide");
+  rightBottle.classList.remove("clicked", "hide");
+  leftText.classList.remove("show");
+  rightText.classList.remove("show");
+  section.classList.remove("opened", "left-opened", "right-opened");
+  updateCursorText();
+}
+
+leftBottle.addEventListener("click", function () {
+  const isActive = leftBottle.classList.contains("clicked");
+  resetAll();
+
+  if (!isActive) {
+    leftBottle.classList.add("clicked");
+    rightBottle.classList.add("hide");
+    leftText.classList.add("show");
+    section.classList.add("opened", "left-opened");
   }
-  
-  leftBottle.addEventListener("click", function () {
-    const isActive = leftBottle.classList.contains("clicked");
-    resetAll();
-  
-    if (!isActive) {
-      leftBottle.classList.add("clicked");
-      rightBottle.classList.add("hide");
-      leftText.classList.add("show");
-      section.classList.add("opened", "left-opened");
-    }
-  
-    updateCursorText();
-  });
-  
-  rightBottle.addEventListener("click", function () {
-    const isActive = rightBottle.classList.contains("clicked");
-    resetAll();
-  
-    if (!isActive) {
-      rightBottle.classList.add("clicked");
-      leftBottle.classList.add("hide");
-      rightText.classList.add("show");
-      section.classList.add("opened", "right-opened");
-    }
-  
-    updateCursorText();
-  });
-  
+
+  updateCursorText();
+});
+
+rightBottle.addEventListener("click", function () {
+  const isActive = rightBottle.classList.contains("clicked");
+  resetAll();
+
+  if (!isActive) {
+    rightBottle.classList.add("clicked");
+    leftBottle.classList.add("hide");
+    rightText.classList.add("show");
+    section.classList.add("opened", "right-opened");
+  }
+
+  updateCursorText();
+});
+
 
   // --- CUSTOM CURSOR LOGIC ---
   if (!isMobile) {
