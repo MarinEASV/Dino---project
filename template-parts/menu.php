@@ -45,8 +45,6 @@
           $menu_query = new WP_Query(array('post_type' => 'menu', 'posts_per_page' => -1));
           if ($menu_query->have_posts()):
             while ($menu_query->have_posts()): $menu_query->the_post();
-              $menu_description = get_field("menu_description");
-              $menu_type = get_field("menu_type");
               $card_image = get_field("card_image");
               $dishes_group = get_field("dish_1_group");
           ?>
@@ -57,12 +55,9 @@
             <div class="row">
               <div class="col-lg-8">
                 <div class="menu-items">
-                  <h4 class="py-3"><?php echo esc_html($menu_type); ?></h4>
-                  <p><?php echo esc_html($menu_description); ?></p>
-
                   <ul class="list-unstyled">
                     <?php 
-                    for ($i = 1; $i <= 5; $i++):
+                    for ($i = 1; $i <= 15; $i++):
                       $name = $dishes_group["dish_{$i}_name"];
                       $desc = $dishes_group["dish_{$i}_description"];
                       $price = $dishes_group["dish_{$i}_price"];
@@ -83,7 +78,7 @@
               <div class="col-lg-4 text-center d-none d-lg-block">
                 <?php if ($card_image): ?>
                   <img src="<?php echo esc_url($card_image['sizes']['large']); ?>" 
-                    alt="<?php echo esc_attr($menu_type); ?>" 
+                    alt="Menu Image" 
                     class="menu-photo img-fluid">
                 <?php endif; ?>
               </div>
