@@ -664,7 +664,7 @@ nav a {
     transform: translateY(-50%);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.6s ease;
+    transition: background-color 0.6s ease, color 0.6s ease, opacity 0.8s ease, transform 0.8s ease;
     z-index: 1;
     padding: 2rem;
     background: white;
@@ -674,17 +674,17 @@ nav a {
   
   .left-text {
     background-color: #B64A42;
+    color: white;
     right: 0;
     text-align: left;
-    color: white;
   }
-  
+
   .right-text {
-    background-color: #5F120D;
-    left: 0;
-    text-align: right;
-    color: white;
-  }
+  background-color: #5F120D;
+  color: white;
+  left: 0;
+  text-align: right;
+}
   
   /* Active logic */
   .bottle.left-bottle.clicked ~ .right-bottle {
@@ -833,10 +833,22 @@ nav a {
 .bottle-section.left-opened {
     background-color: #B64A42;
   }
+
+  .bottle-section.left-opened .left-text,
+.bottle-section.left-opened .right-text {
+  background-color: #B64A42;
+  color: white;
+}
   
   .bottle-section.right-opened {
     background-color: #5F120D;
   }
+
+  .bottle-section.right-opened .left-text,
+.bottle-section.right-opened .right-text {
+  background-color: #5F120D;
+  color: white;
+}
 
   .bottle-section.left-opened .left-text {
     background-color: #B64A42;
