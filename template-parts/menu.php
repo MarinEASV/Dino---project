@@ -82,7 +82,7 @@
               </div>
               <div class="col-lg-4 text-center d-none d-lg-block">
                 <?php if ($card_image): ?>
-                  <img src="<?php echo esc_url($card_image['sizes']['medium_large']); ?>"width="300" height="200"/> 
+                  <img src="<?php echo esc_url($card_image['sizes']['medium_large']); ?>" 
                     alt="<?php echo esc_attr($menu_type); ?>" 
                     class="menu-photo img-fluid">
                 <?php endif; ?>
