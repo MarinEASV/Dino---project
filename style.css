@@ -52,7 +52,7 @@ h3, .h3 {
 #preloader.logo-only {
   position: fixed;
   inset: 0;
-  background-color: #ffffff;
+  background-color: var(--c-red);
   display: flex;
   justify-content: center;
   align-items: center;
