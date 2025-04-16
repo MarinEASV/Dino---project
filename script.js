@@ -113,12 +113,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+
   setTimeout(() => {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-      preloader.style.opacity = '0';
-      preloader.style.visibility = 'hidden';
-    }
-  }, 2000); // 2 seconds delay
+    preloader.style.opacity = '0';
+    preloader.style.visibility = 'hidden';
+  }, 2500); // Slightly longer to match logo animation
 });

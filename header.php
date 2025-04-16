@@ -13,10 +13,10 @@
 <?php $logo = get_field("logo"); ?>
 
 <!-- Preloader -->
-<div id="preloader">
+<div id="preloader" class="logo-only">
     <img src="<?php echo esc_url($logo['url']); ?>" alt="Loading..." class="preloader-logo">
-    <div class="spinner"></div>
 </div>
+
 
 <!-- Navbar -->
 <header class="navbar">
