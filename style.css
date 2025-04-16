@@ -114,15 +114,7 @@ h3, .h3 {
     }
   }
   
-  @media (max-width: 480px) {
-    .scrolling-text {
-      font-size: 25px;
-    }
-  
-    .scrolling-text-container {
-      bottom: 40px;
-    }
-  }
+
   
   /* Scroll Animation */
   @keyframes scroll-left {
