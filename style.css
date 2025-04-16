@@ -48,12 +48,11 @@ h3, .h3 {
     font-size: 24px;
     line-height: 40px;
 }
-
 #preloader.logo-only {
   position: fixed;
   inset: 0;
   backdrop-filter: blur(16px);
-  background-color: rgba(0, 0, 0, 0.25); /* subtle dark transparent layer */
+  background-color: rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,7 +65,12 @@ h3, .h3 {
 .preloader-logo {
   width: 140px;
   opacity: 0;
-  animation: bigFadeZoom 2.2s ease-in-out forwards;
+  transform: scale(0.8); /* set the initial state */
+}
+
+/* This class gets added when the page finishes loading */
+.preloader-logo.animate {
+  animation: bigFadeZoom 2.5s ease-in-out forwards;
 }
 
 @keyframes bigFadeZoom {
@@ -78,12 +82,12 @@ h3, .h3 {
     opacity: 1;
     transform: scale(1);
   }
- 
   100% {
     opacity: 0;
-    transform: scale(3); /* Smoothly zoom out */
+    transform: scale(3);
   }
 }
+
 
 
 

@@ -115,9 +115,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
+  const logo = document.querySelector('.preloader-logo');
 
+  // Trigger animation once the page is fully loaded
+  logo.classList.add('animate');
+
+  // Wait for animation to finish, then hide preloader
   setTimeout(() => {
     preloader.style.opacity = '0';
     preloader.style.visibility = 'hidden';
-  }, 2300); // Enough time for animation to play
+  }, 2500); // Should match your CSS animation duration
 });
+
