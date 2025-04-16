@@ -930,42 +930,40 @@ nav a {
   }
 
   @media screen and (max-width: 768px) {
-    /* 1) Stack bottles vertically */
     .bottle-container {
+      display: flex !important;
       flex-direction: column !important;
-      height: auto !important;
     }
-    .bottle {
-      width: 100% !important;
-      transform: none !important;
-      opacity: 1 !important;
-      transition: none !important;
-      cursor: default !important;
-    }
-    /* 2) Let text always show, full-width, no absolute positioning */
+  
+    /* force the exact order we want: 
+       1) left image, 2) left text, 3) right image, 4) right text */
+    .left-bottle  { order: 1 !important; }
+    .left-text    { order: 2 !important; }
+    .right-bottle { order: 3 !important; }
+    .right-text   { order: 4 !important; }
+  
+    /* full-width & no animations as before */
+    .bottle,
     .bottle-text {
-      position: static !important;
-      top: auto !important;
+      width: 100% !important;
       transform: none !important;
       opacity: 1 !important;
-      pointer-events: auto !important;
       transition: none !important;
-      width: 100% !important;
-      margin: 1rem 0;
+      position: static !important;
     }
-    /* 3) Section just grows with content */
+  
     .bottle-section {
       height: auto !important;
-      min-height: auto !important;
       padding: 2rem 1rem;
-      overflow: visible !important;
     }
-    .bottle-section::before {
-      display: none !important;
-    }
-    /* 4) Hide custom cursor (you already do, but just in case) */
+    .bottle-section::before,
     .custom-cursor {
       display: none !important;
+    }
+  
+    /* optional spacing */
+    .bottle, .bottle-text {
+      margin-bottom: 1.5rem;
     }
   }
   
