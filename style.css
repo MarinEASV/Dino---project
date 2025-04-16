@@ -109,6 +109,8 @@ h3, .h3 {
   @media (max-width: 768px) {
     .scrolling-text {
       font-size: 40px;
+      bottom: 100px;
+
     }
   }
   
