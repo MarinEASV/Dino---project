@@ -72,19 +72,16 @@ h3, .h3 {
 @keyframes bigFadeZoom {
   0% {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.8);
   }
-  25% {
+  20% {
     opacity: 1;
     transform: scale(1);
   }
-  75% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
+ 
   100% {
     opacity: 0;
-    transform: scale(4.2); /* 🌟 Dramatic scale-out */
+    transform: scale(5); /* Smoothly zoom out */
   }
 }
 
