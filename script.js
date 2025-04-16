@@ -115,13 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
-  const sound = document.getElementById('preloader-sound');
 
-  // Play sound right before fade out
   setTimeout(() => {
-    if (sound) sound.play();
-
     preloader.style.opacity = '0';
     preloader.style.visibility = 'hidden';
-  }, 2300); // Match timing with logo animation
+  }, 2300); // Enough time for animation to play
 });
