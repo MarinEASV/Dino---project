@@ -65,11 +65,11 @@ h3, .h3 {
 .preloader-logo {
   width: 140px;
   opacity: 0;
-  animation: bigfadeZoom 2,2s ease-in-out forwards;
+  animation: bigFadeZoom 2,2s ease-in-out forwards;
 
 }
 
-@keyframes bigfadeZoom {
+@keyframes bigFadeZoom {
   0% {
     opacity: 0;
     transform: scale(0.9);
