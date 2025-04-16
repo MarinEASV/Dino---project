@@ -17,7 +17,7 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
   <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
    <!-- Infinite Scroll Keywords -->
-   <div class="scrolling-text-container position-absolute w-100" data-aos="fade-in" data-aos-delay="2000">
+   <div class="scrolling-text-container position-absolute w-100" data-aos="fade-in" data-aos-delay="1000">
     <div class="scrolling-text">
       <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
       <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
