@@ -81,7 +81,7 @@ h3, .h3 {
  
   100% {
     opacity: 0;
-    transform: scale(5); /* Smoothly zoom out */
+    transform: scale(3); /* Smoothly zoom out */
   }
 }
 
