@@ -111,3 +111,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+
+window.addEventListener('load', function () {
+  setTimeout(() => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.opacity = '0';
+      preloader.style.visibility = 'hidden';
+    }
+  }, 2000); // 2 seconds delay
+});
