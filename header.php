@@ -15,6 +15,7 @@
 <!-- Preloader -->
 <div id="preloader" class="logo-only">
     <img src="<?php echo esc_url($logo['url']); ?>" alt="Loading..." class="preloader-logo">
+    <audio id="preloader-sound" src="<?php echo get_template_directory_uri(); ?>/assets/sounds/fade-out.mp3"></audio>
 </div>
 
 
