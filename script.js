@@ -1,15 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // --- BOTTLE LOGIC ---
+  const isMobile = window.innerWidth <= 768;
   const leftBottle = document.querySelector(".left-bottle");
   const rightBottle = document.querySelector(".right-bottle");
-  const leftText = document.querySelector(".left-text");
-  const rightText = document.querySelector(".right-text");
-  const section = document.querySelector(".bottle-section");
-
+  const leftText   = document.querySelector(".left-text");
+  const rightText  = document.querySelector(".right-text");
+  const section    = document.querySelector(".bottle-section");
   const customCursor = document.querySelector(".custom-cursor");
-  const cursorText = document.querySelector(".cursor-text");
-
-  const isMobile = window.innerWidth <= 768;
+  const cursorText   = document.querySelector(".cursor-text");
 
   function resetAll() {
     leftBottle.classList.remove("clicked", "hide");
@@ -19,63 +16,63 @@ document.addEventListener("DOMContentLoaded", function () {
     section.classList.remove("opened", "left-opened", "right-opened");
     updateCursorText();
   }
-
   function updateCursorText() {
-    const isActive =
-      leftBottle.classList.contains("clicked") ||
-      rightBottle.classList.contains("clicked");
-    if (cursorText) {
-      cursorText.textContent = isActive ? "Close" : "Click to see more";
-    }
+    const active = leftBottle.classList.contains("clicked") ||
+                   rightBottle.classList.contains("clicked");
+    cursorText.textContent = active ? "Close" : "Click to see more";
   }
 
-  leftBottle.addEventListener("click", function () {
-    const isActive = leftBottle.classList.contains("clicked");
-    resetAll();
-    if (!isActive) {
-      leftBottle.classList.add("clicked");
-      rightBottle.classList.add("hide");
-      leftText.classList.add("show");
-      section.classList.add("opened", "left-opened");
-    }
-    updateCursorText();
-  });
-
-  rightBottle.addEventListener("click", function () {
-    const isActive = rightBottle.classList.contains("clicked");
-    resetAll();
-    if (!isActive) {
-      rightBottle.classList.add("clicked");
-      leftBottle.classList.add("hide");
-      rightText.classList.add("show");
-      section.classList.add("opened", "right-opened");
-    }
-    updateCursorText();
-  });
-
-  // --- CUSTOM CURSOR LOGIC ---
-  if (!isMobile && customCursor) {
-    document.addEventListener("mousemove", (e) => {
-      customCursor.style.top = `${e.clientY}px`;
-      customCursor.style.left = `${e.clientX}px`;
+  if (isMobile) {
+    // on mobile: show both texts, no clicks, no animations
+    leftText.classList.add("show");
+    rightText.classList.add("show");
+  } else {
+    // --- desktop: original bottle‑click logic ---
+    leftBottle.addEventListener("click", function () {
+      const active = leftBottle.classList.contains("clicked");
+      resetAll();
+      if (!active) {
+        leftBottle.classList.add("clicked");
+        rightBottle.classList.add("hide");
+        leftText.classList.add("show");
+        section.classList.add("opened", "left-opened");
+      }
+      updateCursorText();
+    });
+    rightBottle.addEventListener("click", function () {
+      const active = rightBottle.classList.contains("clicked");
+      resetAll();
+      if (!active) {
+        rightBottle.classList.add("clicked");
+        leftBottle.classList.add("hide");
+        rightText.classList.add("show");
+        section.classList.add("opened", "right-opened");
+      }
+      updateCursorText();
     });
 
-    const bottles = document.querySelectorAll(".bottle");
-    bottles.forEach((bottle) => {
-      bottle.addEventListener("mouseenter", () => {
-        customCursor.style.opacity = "1";
-        customCursor.style.visibility = "visible";
+    // --- custom cursor only on desktop ---
+    if (customCursor) {
+      document.addEventListener("mousemove", e => {
+        customCursor.style.top  = `${e.clientY}px`;
+        customCursor.style.left = `${e.clientX}px`;
       });
-      bottle.addEventListener("mouseleave", () => {
-        customCursor.style.opacity = "0";
-        customCursor.style.visibility = "hidden";
+      [leftBottle, rightBottle].forEach(bottle => {
+        bottle.addEventListener("mouseenter", () => {
+          customCursor.style.opacity    = "1";
+          customCursor.style.visibility = "visible";
+        });
+        bottle.addEventListener("mouseleave", () => {
+          customCursor.style.opacity    = "0";
+          customCursor.style.visibility = "hidden";
+        });
       });
-    });
-  }
+    }
 
-  // --- AOS INIT ---
-  if (typeof AOS !== "undefined") {
-    AOS.init({ duration: 1200 });
+    // --- AOS only on desktop ---
+    if (typeof AOS !== "undefined") {
+      AOS.init({ duration: 1200 });
+    }
   }
 
   // --- MOBILE MENU TOGGLE ---
@@ -122,4 +119,5 @@ window.addEventListener('load', () => {
     preloader.style.visibility = 'hidden';
   }, 2500); // Match your CSS animation duration
 });
+
 

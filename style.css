@@ -928,3 +928,44 @@ nav a {
   .bottle-section:not(.left-opened):not(.right-opened)::before {
     background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
   }
+
+  @media screen and (max-width: 768px) {
+    /* 1) Stack bottles vertically */
+    .bottle-container {
+      flex-direction: column !important;
+      height: auto !important;
+    }
+    .bottle {
+      width: 100% !important;
+      transform: none !important;
+      opacity: 1 !important;
+      transition: none !important;
+      cursor: default !important;
+    }
+    /* 2) Let text always show, full-width, no absolute positioning */
+    .bottle-text {
+      position: static !important;
+      top: auto !important;
+      transform: none !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transition: none !important;
+      width: 100% !important;
+      margin: 1rem 0;
+    }
+    /* 3) Section just grows with content */
+    .bottle-section {
+      height: auto !important;
+      min-height: auto !important;
+      padding: 2rem 1rem;
+      overflow: visible !important;
+    }
+    .bottle-section::before {
+      display: none !important;
+    }
+    /* 4) Hide custom cursor (you already do, but just in case) */
+    .custom-cursor {
+      display: none !important;
+    }
+  }
+  
