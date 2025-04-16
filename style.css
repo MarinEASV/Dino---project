@@ -52,21 +52,21 @@ h3, .h3 {
 #preloader.logo-only {
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(16px); /* ✨ The magic */
-  background-color: rgba(0, 0, 0, 0.25); /* subtle dark overlay */
+  backdrop-filter: blur(16px);
+  background-color: rgba(0, 0, 0, 0.25); /* subtle dark transparent layer */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 99999;
   opacity: 1;
   visibility: visible;
-  transition: opacity 1s ease, visibility 1s ease;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
 }
+
 .preloader-logo {
   width: 140px;
   opacity: 0;
-  animation: bigFadeZoom 2,2s ease-in-out forwards;
-
+  animation: bigFadeZoom 2.2s ease-in-out forwards;
 }
 
 @keyframes bigFadeZoom {
@@ -74,19 +74,20 @@ h3, .h3 {
     opacity: 0;
     transform: scale(0.9);
   }
-  30% {
+  25% {
     opacity: 1;
     transform: scale(1);
   }
-  70% {
+  75% {
     opacity: 1;
-    transform: scale(1.02);
+    transform: scale(1.1);
   }
   100% {
     opacity: 0;
-    transform: scale(3.2);
+    transform: scale(3.2); /* 🌟 Dramatic scale-out */
   }
 }
+
 
 
 /* Hero */
