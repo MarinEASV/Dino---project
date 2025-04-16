@@ -1,14 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const isMobile      = window.innerWidth <= 768;
-  const leftBottle    = document.querySelector(".left-bottle");
-  const rightBottle   = document.querySelector(".right-bottle");
-  const leftText      = document.querySelector(".left-text");
-  const rightText     = document.querySelector(".right-text");
-  const section       = document.querySelector(".bottle-section");
-  const customCursor  = document.querySelector(".custom-cursor");
-  const cursorText    = document.querySelector(".cursor-text");
-  const container     = document.querySelector(".bottle-container");
-  const tabs          = document.querySelectorAll(".mobile-tabs .tab-btn");
+  const isMobile = window.innerWidth <= 768;
+  const leftBottle = document.querySelector(".left-bottle");
+  const rightBottle = document.querySelector(".right-bottle");
+  const leftText   = document.querySelector(".left-text");
+  const rightText  = document.querySelector(".right-text");
+  const section    = document.querySelector(".bottle-section");
+  const customCursor = document.querySelector(".custom-cursor");
+  const cursorText   = document.querySelector(".cursor-text");
 
   function resetAll() {
     leftBottle.classList.remove("clicked", "hide");
@@ -18,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     section.classList.remove("opened", "left-opened", "right-opened");
     updateCursorText();
   }
-
   function updateCursorText() {
     const active = leftBottle.classList.contains("clicked") ||
                    rightBottle.classList.contains("clicked");
@@ -26,21 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (isMobile) {
-    // ─── MOBILE: tab switching ─────────────────────────────
-    // default data-active="left" comes from PHP
-    tabs.forEach(btn => {
-      btn.addEventListener("click", function () {
-        // toggle active button
-        tabs.forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
-        // switch content
-        const side = this.getAttribute("data-target");
-        container.setAttribute("data-active", side);
-      });
-    });
-
+    // on mobile: show both texts, no clicks, no animations
+    leftText.classList.add("show");
+    rightText.classList.add("show");
   } else {
-    // ─── DESKTOP: original bottle-click logic ─────────────
+    // --- desktop: original bottle‑click logic ---
     leftBottle.addEventListener("click", function () {
       const active = leftBottle.classList.contains("clicked");
       resetAll();
@@ -52,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       updateCursorText();
     });
-
     rightBottle.addEventListener("click", function () {
       const active = rightBottle.classList.contains("clicked");
       resetAll();
@@ -65,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
       updateCursorText();
     });
 
-    // ─── custom cursor on desktop only ────────────────────
+    // --- custom cursor only on desktop ---
     if (customCursor) {
       document.addEventListener("mousemove", e => {
         customCursor.style.top  = `${e.clientY}px`;
@@ -83,49 +69,55 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // ─── AOS init ─────────────────────────────────────────
+    // --- AOS only on desktop ---
     if (typeof AOS !== "undefined") {
       AOS.init({ duration: 1200 });
     }
   }
 
-  // ─── MOBILE MENU TOGGLE (unchanged) ───────────────────
+  // --- MOBILE MENU TOGGLE ---
   const mobileMenu = document.getElementById("mobileMenu");
   const menuToggle = document.getElementById("menuToggle");
-  const closeMenu  = document.getElementById("closeMenu");
+  const closeMenu = document.getElementById("closeMenu");
 
   if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", function () {
       mobileMenu.classList.add("show");
     });
-    closeMenu?.addEventListener("click", () => {
+
+    closeMenu?.addEventListener("click", function () {
       mobileMenu.classList.remove("show");
     });
-    document.addEventListener("click", event => {
-      if (
-        !mobileMenu.contains(event.target) &&
-        !menuToggle.contains(event.target)
-      ) {
+
+    document.addEventListener("click", function (event) {
+      if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
         mobileMenu.classList.remove("show");
       }
     });
   }
 
-  // ─── NAVBAR SCROLL EFFECT (unchanged) ─────────────────
-  const navbar = document.querySelector(".navbar");
+  // --- NAVBAR SCROLL EFFECT ---
+  const navbar = document.querySelector('.navbar');
   if (navbar) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 0) navbar.classList.add("scrolled");
-      else navbar.classList.remove("scrolled");
+      if (window.scrollY > 0) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
     });
   }
 });
 
 
-window.addEventListener("load", () => {
-  const preloader = document.getElementById("preloader");
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+
+  // Wait for the animation (which already started on page open) to finish
   setTimeout(() => {
-    preloader.style.opacity    = "0";
-    preloader.style.visibility = "hidden";
-  }, 2500);
+    preloader.style.opacity = '0';
+    preloader.style.visibility = 'hidden';
+  }, 2500); // Match your CSS animation duration
 });
+
+
