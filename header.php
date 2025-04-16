@@ -12,6 +12,12 @@
 
 <?php $logo = get_field("logo"); ?>
 
+<!-- Preloader -->
+<div id="preloader">
+    <img src="<?php echo esc_url($logo['url']); ?>" alt="Loading..." class="preloader-logo">
+    <div class="spinner"></div>
+</div>
+
 <!-- Navbar -->
 <header class="navbar">
     <div class="container">
@@ -36,8 +42,8 @@
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="mobile-nav">
     <button id="closeMenu" class="close-btn">&times;</button>
-            <a href="#manufacturing">Menu</a>
-            <a href="#about">About</a>
-            <a href="#footer">Contact</a>
+    <a href="#manufacturing">Menu</a>
+    <a href="#about">About</a>
+    <a href="#footer">Contact</a>
     <div id="weglot_here"></div> <!-- Weglot button for mobile -->
 </div>
