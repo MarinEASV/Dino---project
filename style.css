@@ -508,13 +508,10 @@ nav a {
     text-align: center; /* Ensure text is centered */
 }
 
-.opening-hours .row {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  color: var(--c-dark); /* Matches your current theme */
-  font-size: 20px; /* Same as your footer font size */
-  line-height: 35px; /* Matches spacing of other footer items */
+.opening-hours div {
+  color: var(--c-dark);
+  font-size: 20px;
+  line-height: 35px;
 }
 
 
