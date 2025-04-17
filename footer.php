@@ -29,18 +29,31 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-6 col-xl-3">
-  <div class="footer-item d-flex flex-column">
+  <div class="footer-item">
     <h4 class="mb-4" style="color: var(--c-dark);">Åbningstider</h4>
-    <div class="opening-hours mx-auto" style="max-width: 220px;">
-      <div class="d-flex justify-content-between"><span>Monday</span><span>17:00 – 21:00</span></div>
-      <div class="d-flex justify-content-between"><span>Tuesday</span><span>17:00 – 21:00</span></div>
-      <div class="d-flex justify-content-between"><span>Wednesday</span><span>17:00 – 21:00</span></div>
-      <div class="d-flex justify-content-between"><span>Thursday</span><span>17:00 – 21:00</span></div>
-      <div class="d-flex justify-content-between"><span>Friday</span><span>17:00 – 21:00</span></div>
-      <div class="d-flex justify-content-between"><span>Saturday</span><span>17:00 – 21:00</span></div>
-      <div class="d-flex justify-content-between"><span>Sunday</span><span>17:00 – 21:00</span></div>
-      <div class="d-flex justify-content-between"><span>Holiday X</span><span>closed</span></div>
-      <div class="d-flex justify-content-between"><span>Holiday X</span><span>closed</span></div>
+    <div class="row">
+      <div class="col-6 p-0">
+        <p>Monday</p>
+        <p>Tuesday</p>
+        <p>Wednesday</p>
+        <p>Thursday</p>
+        <p>Friday</p>
+        <p>Saturday</p>
+        <p>Sunday</p>
+        <p>Holiday X</p>
+        <p>Holiday X</p>
+      </div>
+      <div class="col-6 p-0 text-end">
+        <p>17:00 – 21:00</p>
+        <p>17:00 – 21:00</p>
+        <p>17:00 – 21:00</p>
+        <p>17:00 – 21:00</p>
+        <p>17:00 – 21:00</p>
+        <p>17:00 – 21:00</p>
+        <p>17:00 – 21:00</p>
+        <p>closed</p>
+        <p>closed</p>
+      </div>
     </div>
   </div>
 </div>
