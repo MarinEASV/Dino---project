@@ -31,7 +31,7 @@
         <div class="col-md-6 col-lg-6 col-xl-3">
   <div class="footer-item d-flex flex-column">
     <h4 class="mb-4" style="color: var(--c-dark);">Åbningstider</h4>
-    <div class="opening-hours w-100">
+    <div class="opening-hours mx-auto" style="max-width: 220px;">
       <div class="d-flex justify-content-between"><span>Monday</span><span>17:00 – 21:00</span></div>
       <div class="d-flex justify-content-between"><span>Tuesday</span><span>17:00 – 21:00</span></div>
       <div class="d-flex justify-content-between"><span>Wednesday</span><span>17:00 – 21:00</span></div>
