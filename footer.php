@@ -38,6 +38,14 @@
         </div>
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="footer-item d-flex flex-column">
+            <h4 class="mb-4" style="color: var(--c-dark);">Åbningstider</h4>
+            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> CNC mašine</a>
+            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> Pouzdanost</a>
+            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> Kontrolne mjerne stanice</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-3">
+          <div class="footer-item d-flex flex-column">
             <h4 class="mb-4" style="color: var(--c-dark);">Kontakt</h4>
             <a href="https://www.google.com/maps/search/?q=Lužine+bb,+71270+Fojnica" target="_blank"><i class="fa fa-map-marker-alt me-2"></i>Lužine bb, 71270 Fojnica</a>
             <a href="mailto:leon@valmar-metal.ba"><i class="fas fa-envelope me-2"></i>leon@valmar-metal.ba</a>
