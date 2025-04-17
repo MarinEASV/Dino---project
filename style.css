@@ -404,6 +404,15 @@ nav a {
     font-size: 20px;
 }
 
+.opening-hours .row {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+
 #footer a {
     text-decoration: none; /* Remove underline from footer links */
 }
@@ -442,8 +451,6 @@ nav a {
 }
 
 /*ABOUT SECTION */
-
-
 .section-divider {
     border: none;
     border-top: 1px solid var(--c-gray);
