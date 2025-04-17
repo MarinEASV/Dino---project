@@ -17,17 +17,26 @@
         </div>
         <!-- Other sections remain unchanged -->
         <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4" style="color: var(--c-dark);">Informacije</h4>
-            <a href="#about"><i class="fas fa-angle-right me-2"></i> O nama</a>
-            <a href="#" data-toggle="modal" data-target="#bookAppointmentModal">
-              <i class="fas fa-angle-right me-2"></i> Pošaljite upit
-            </a>
-            <a href="http://valmar-metal.local/wp-content/uploads/2025/03/Valmar-Metal-Politika-Privatnosti.pdf">
-              <i class="fas fa-angle-right me-2"></i> Politika Privatnosti
-            </a>
-            </div>
-        </div>
+  <div class="footer-item d-flex flex-column">
+    <h4 class="mb-4" style="color: var(--c-dark);">Informacije</h4>
+    <div class="mx-auto" style="max-width: 220px;">
+      <div class="d-flex justify-content-between">
+        <a href="#about"><i class="fas fa-angle-right me-2"></i><span>O nama</span></a>
+      </div>
+      <div class="d-flex justify-content-between">
+        <a href="#" data-toggle="modal" data-target="#bookAppointmentModal">
+          <i class="fas fa-angle-right me-2"></i><span>Pošaljite upit</span>
+        </a>
+      </div>
+      <div class="d-flex justify-content-between">
+        <a href="http://valmar-metal.local/wp-content/uploads/2025/03/Valmar-Metal-Politika-Privatnosti.pdf">
+          <i class="fas fa-angle-right me-2"></i><span>Politika Privatnosti</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
         <div class="col-md-6 col-lg-6 col-xl-3">
   <div class="footer-item d-flex flex-column">
     <h4 class="mb-4" style="color: var(--c-dark);">Åbningstider</h4>
@@ -45,15 +54,29 @@
   </div>
 </div>
 
-        <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4" style="color: var(--c-dark);">Kontakt</h4>
-            <a href="https://www.google.com/maps/search/?q=Lužine+bb,+71270+Fojnica" target="_blank"><i class="fa fa-map-marker-alt me-2"></i>Lužine bb, 71270 Fojnica</a>
-            <a href="mailto:leon@valmar-metal.ba"><i class="fas fa-envelope me-2"></i>leon@valmar-metal.ba</a>
-            <a href="tel:+38763956751"><i class="fas fa-phone me-2"></i>+387 63 956 751</a>
+<div class="col-md-6 col-lg-6 col-xl-3">
+  <div class="footer-item d-flex flex-column">
+    <h4 class="mb-4" style="color: var(--c-dark);">Kontakt</h4>
+    <div class="mx-auto" style="max-width: 220px;">
+      <div class="d-flex justify-content-between">
+        <a href="https://www.google.com/maps/search/?q=Lužine+bb,+71270+Fojnica" target="_blank">
+          <i class="fa fa-map-marker-alt me-2"></i><span>Lužine bb</span>
+        </a>
+      </div>
+      <div class="d-flex justify-content-between">
+        <a href="mailto:leon@valmar-metal.ba">
+          <i class="fas fa-envelope me-2"></i><span>leon@valmar-metal.ba</span>
+        </a>
+      </div>
+      <div class="d-flex justify-content-between">
+        <a href="tel:+38763956751">
+          <i class="fas fa-phone me-2"></i><span>+387 63 956 751</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-          </div>
-        </div>
       </div>
     </div>
   </div>
