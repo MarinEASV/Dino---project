@@ -28,9 +28,30 @@
             </a>
             </div>
         </div>
+        
+        <div class="col-md-6 col-lg-6 col-xl-3">
+  <div class="footer-item d-flex flex-column">
+    <h4 class="mb-4" style="color: var(--c-dark);">Åbningstider</h4>
+    
+    <div class="opening-hours">
+      <div class="row"><span>Monday</span><span>17:00 – 21:00</span></div>
+      <div class="row"><span>Tuesday</span><span>17:00 – 21:00</span></div>
+      <div class="row"><span>Wednesday</span><span>17:00 – 21:00</span></div>
+      <div class="row"><span>Thursday</span><span>17:00 – 21:00</span></div>
+      <div class="row"><span>Friday</span><span>17:00 – 21:00</span></div>
+      <div class="row"><span>Saturday</span><span>17:00 – 21:00</span></div>
+      <div class="row"><span>Sunday</span><span>17:00 – 21:00</span></div>
+      <div class="row"><span>Holiday X</span><span>closed</span></div>
+      <div class="row"><span>Holiday X</span><span>closed</span></div> <!-- This is the extra row -->
+    </div>
+
+  </div>
+</div>
+
+
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4" style="color: var(--c-dark);">Åbningstider</h4>
+            <h4 class="mb-4" style="color: var(--c-dark);">Proizvodnja</h4>
             <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> CNC mašine</a>
             <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> Pouzdanost</a>
             <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> Kontrolne mjerne stanice</a>

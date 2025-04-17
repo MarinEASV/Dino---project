@@ -390,8 +390,88 @@ nav a {
   }
   
 
+/*ABOUT SECTION */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--c-gray);
+  margin: 0 auto 3rem auto;
+  width: 90%;
+}
 
+.about-section {
+  padding: 4rem 1.5rem;
+  background-color: var(--c-light);
+}
 
+.about-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-image,
+.about-content {
+  flex: 1 1 50%;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border-radius: 0;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.about-title {
+  font-family: var(--h-font);
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: var(--c-dark);
+  justify-content: center;
+  display: flex
+}
+
+.about-text {
+  font-family: var(--p-font);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--c-dark);
+  text-align: left;
+  max-width: 600px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .about-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .about-content {
+      padding: 1rem;
+  }
+
+  .about-title {
+      font-size: 1.9rem;
+  }
+
+  .about-title,
+  .about-text {
+      text-align: center;
+  }
+}
 
 
 /* Footer */
@@ -428,6 +508,16 @@ nav a {
     text-align: center; /* Ensure text is centered */
 }
 
+.opening-hours .row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--c-dark); /* Matches your current theme */
+  font-size: 20px; /* Same as your footer font size */
+  line-height: 35px; /* Matches spacing of other footer items */
+}
+
+
 /* Center the logo inside the anchor tag */
 .footer .footer-item a {
     display: flex;
@@ -440,90 +530,6 @@ nav a {
 .footer .footer-item img {
     margin: 0 auto; /* Auto margins on both sides to center */
 }
-
-/*ABOUT SECTION */
-.section-divider {
-    border: none;
-    border-top: 1px solid var(--c-gray);
-    margin: 0 auto 3rem auto;
-    width: 90%;
-}
-
-.about-section {
-    padding: 4rem 1.5rem;
-    background-color: var(--c-light);
-}
-
-.about-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.about-image,
-.about-content {
-    flex: 1 1 50%;
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    border-radius: 0;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-}
-
-.about-title {
-    font-family: var(--h-font);
-    font-size: 2rem;
-    text-align: left;
-    margin-bottom: 1.5rem;
-    color: var(--c-dark);
-    justify-content: center;
-    display: flex
-}
-
-.about-text {
-    font-family: var(--p-font);
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--c-dark);
-    text-align: left;
-    max-width: 600px;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-content {
-        padding: 1rem;
-    }
-
-    .about-title {
-        font-size: 1.9rem;
-    }
-
-    .about-title,
-    .about-text {
-        text-align: center;
-    }
-}
-
 
 /* Additional responsiveness for smaller screens */
 @media (max-width: 767px) {
