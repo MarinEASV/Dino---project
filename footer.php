@@ -18,22 +18,22 @@
         <!-- Other sections remain unchanged -->
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4" style="color: var(--c-dark);">Informacije</h4>
-            <a href="#about"><i class="fas fa-angle-right me-2"></i> O nama</a>
+            <h4 class="mb-4" style="color: var(--c-dark);">Info</h4>
+            <a href="#about"><i class="fas fa-angle-right me-2"></i>About us</a>
             <a href="#" data-toggle="modal" data-target="#bookAppointmentModal">
-              <i class="fas fa-angle-right me-2"></i> Pošaljite upit
+              <i class="fas fa-angle-right me-2"></i>Check the menu
             </a>
             <a href="http://valmar-metal.local/wp-content/uploads/2025/03/Valmar-Metal-Politika-Privatnosti.pdf">
-              <i class="fas fa-angle-right me-2"></i> Politika Privatnosti
+              <i class="fas fa-angle-right me-2"></i>Privacy Policy
             </a>
             </div>
         </div>
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4" style="color: var(--c-dark);">Proizvodnja</h4>
-            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> CNC mašine</a>
-            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> Pouzdanost</a>
-            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> Kontrolne mjerne stanice</a>
+            <h4 class="mb-4" style="color: var(--c-dark);">Menu</h4>
+            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i>...</a>
+            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i>...</a>
+            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i>...</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-6 col-xl-3">
