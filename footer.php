@@ -31,9 +31,9 @@
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="footer-item d-flex flex-column">
             <h4 class="mb-4" style="color: var(--c-dark);">Åbningstider</h4>
-            <p><i class="fas fa-angle-right me-2"></i>Monday</p>
-            <p><i class="fas fa-angle-right me-2"></i>Tuesday</p>
-            <p><i class="fas fa-angle-right me-2"></i>Wednesday</p>
+            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> CNC mašine</a>
+            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> Pouzdanost</a>
+            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i> Kontrolne mjerne stanice</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-6 col-xl-3">
