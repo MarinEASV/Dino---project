@@ -38,10 +38,10 @@
         </div>
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4" style="color: var(--c-dark);">Kontakt</h4>
-            <a href="https://www.google.com/maps/search/?q=Lužine+bb,+71270+Fojnica" target="_blank"><i class="fa fa-map-marker-alt me-2"></i>Lužine bb, 71270 Fojnica</a>
-            <a href="mailto:leon@valmar-metal.ba"><i class="fas fa-envelope me-2"></i>leon@valmar-metal.ba</a>
-            <a href="tel:+38763956751"><i class="fas fa-phone me-2"></i>+387 63 956 751</a>
+            <h4 class="mb-4" style="color: var(--c-dark);">Contact</h4>
+            <a href="https://maps.app.goo.gl/ULWf8pzeTDfvw2w17" target="_blank"><i class="fa fa-map-marker-alt me-2"></i>Strandvejen 8, 6720 Fanø</a>
+            <a href="mailto:leon@valmar-metal.ba"><i class="fas fa-envelope me-2"></i>http://www.restaurantdino.dk/</a>
+            <a href="tel:+38763956751"><i class="fas fa-phone me-2"></i>75166464</a>
 
           </div>
         </div>
