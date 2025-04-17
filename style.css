@@ -48,6 +48,7 @@ h3, .h3 {
     font-size: 24px;
     line-height: 40px;
 }
+
 #preloader.logo-only {
   position: fixed;
   inset: 0;
@@ -65,20 +66,24 @@ h3, .h3 {
 .preloader-logo {
   width: 140px;
   opacity: 0;
-  animation: bigFadeZoom 2.5s ease-in-out forwards;
+  animation: logoFadeIn 2s ease forwards;
 }
 
-/* This class gets added when the page finishes loading */
 .preloader-logo.animate {
-  animation: bigFadeZoom 2.5s ease-in-out forwards;
+  animation: logoFadeIn 2s ease forwards, bigFadeZoom 2.5s ease-in-out 2s forwards;
+}
+
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes bigFadeZoom {
   0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  20% {
     opacity: 1;
     transform: scale(1);
   }
@@ -87,9 +92,6 @@ h3, .h3 {
     transform: scale(3);
   }
 }
-
-
-
 
 /* Hero */
 .hero-section {
@@ -138,8 +140,8 @@ h3, .h3 {
   .scrolling-text {
     display: inline-block;
     white-space: nowrap;
-    animation: scroll-left 60s linear infinite;
-    font-size: 80px;
+    animation: scroll-left 90s linear infinite;
+    font-size: 100px;
     color: var(--c-light);
     font-weight: 100;
     font-family: var(--p-font); 

@@ -112,12 +112,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
+  const logo = document.querySelector('.preloader-logo');
 
-  // Wait for the animation (which already started on page open) to finish
+  // Start the animation sequence
+  logo.classList.add('animate');
+
+  // Total duration = fade in (2s) + zoom (2.5s) = 4.5s
   setTimeout(() => {
     preloader.style.opacity = '0';
     preloader.style.visibility = 'hidden';
-  }, 2500); // Match your CSS animation duration
+  }, 4500);
 });
+
 
 
