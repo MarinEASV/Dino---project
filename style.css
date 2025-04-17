@@ -389,7 +389,7 @@ nav a {
     }
   }
   
-
+  
 /*ABOUT SECTION */
 .section-divider {
   border: none;
@@ -473,127 +473,107 @@ nav a {
   }
 }
 
+
 /* Footer */
 .footer {
-  background-color: var(--c-light);
-  color: var(--c-dark);
-  padding: 40px 20px;
-  text-align: center;
-  font-family: var(--p-font);
-  font-size: 20px;
+    background-color: var(--c-light);
+    color: var(--c-dark);
+    padding: 40px 20px;
+    text-align: center;
+    font-family: var(--p-font);
+    font-size: 20px;
 }
 
 #footer a {
-  text-decoration: none; /* Remove underline from footer links */
+    text-decoration: none; /* Remove underline from footer links */
 }
 
 #footer a:hover {
-  text-decoration: none; /* Ensure the underline is still removed on hover */
+    text-decoration: none; /* Ensure the underline is still removed on hover */
 }
 
-/* Footer Row Layout */
+
 .footer .row {
-  min-height: 350px;
-  display: flex;
-  align-items: center;
+    min-height: 350px; /* Adjust the height as needed */
+    display: flex;
+    align-items: center; /* Ensures items align properly */
 }
 
-/* Footer Items */
+/* Ensure the footer-item is centered and logo is centered within it */
 .footer .footer-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Align to top */
-  align-items: flex-start; /* Align to left */
-  text-align: left;
-  padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center */
+    align-items: center; /* Horizontally center */
+    text-align: center; /* Ensure text is centered */
 }
 
-/* Logo Block Only */
-.footer .footer-item.logo {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-left: 0;
+/* Center the logo inside the anchor tag */
+.footer .footer-item a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Take up full width to ensure centering */
 }
 
-.footer .footer-item.logo a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+/* Make sure logo has proper margin and centering */
+.footer .footer-item img {
+    margin: 0 auto; /* Auto margins on both sides to center */
 }
 
-.footer .footer-item.logo img {
-  margin: 0 auto;
+/* Additional responsiveness for smaller screens */
+@media (max-width: 767px) {
+    .footer .row {
+        flex-direction: column; /* Stack columns vertically */
+        text-align: center; /* Center all text */
+    }
+
+    .footer .footer-item {
+        text-align: center; /* Ensure footer items are centered */
+    }
 }
 
-/* Opening Hours */
-.opening-hours {
-  max-width: 220px;
-  width: 100%;
+.footer .footer-item {
+    text-align: left; /* Align text to the left */
+    justify-content: flex-start; /* Align items to the start of the container */
 }
 
-.opening-hours div {
-  color: var(--c-dark);
-  font-size: 18px;
-  line-height: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* Links and Text Inside Footer */
+/* Adjust links and paragraphs */
 .footer .footer-item a,
 .footer .footer-item p {
-  color: var(--c-dark);
-  line-height: 35px;
-  transition: letter-spacing 0.5s ease, color 0.5s ease;
+    color: var(--c-dark);
+    line-height: 35px;
+    transition: letter-spacing 0.5s ease, color 0.5s ease;
+    text-align: left;
 }
 
+
 .footer .footer-item a:hover {
-  letter-spacing: 2px;
-  color: var(--c-red);
+    letter-spacing: 2px;
+    color: var(--c-red);
 }
 
 /* Footer Bottom Section */
 .footer-bottom {
-  background-color: var(--c-light);
-  text-align: center;
-  padding: 10px 0;
-  font-size: 20px;
-  color: var(--c-dark);
-  border-top: 1px solid rgba(0, 0, 0, 0.1); /* subtle separator */
+    background-color: var(--c-light);
+    text-align: center; /* Center-align the text */
+    padding: 10px 0; /* Add some spacing */
+    font-size: 20px; /* Slightly smaller font */
+    color: var(--c-dark);
 }
 
-/* Fancy Links */
+
+/* Links */
 .link-fancy {
-  color: var(--c-red);
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
+    color: var(--c-red);
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .link-fancy:hover {
-  color: var(--c-dark);
+    color: var(--c-dark);
 }
-
-/* Responsive Adjustments */
-@media (max-width: 767px) {
-  .footer .row {
-      flex-direction: column;
-      text-align: center;
-  }
-
-  .footer .footer-item {
-      align-items: center;
-      text-align: center;
-      padding-left: 0;
-  }
-
-  .footer .footer-item.logo {
-      padding-bottom: 20px;
-  }
-}
-
 
 
 /* Nav-tabs */
