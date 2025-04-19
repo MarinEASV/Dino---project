@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
     cursorText.textContent = active ? "Close" : "Click to see more";
   }
 
+  // ① initialize on load
+  updateCursorText();
+
   // used when we open the opposite side (instant reset, no delay)
   function resetAllInstant() {
     leftBottle.classList.remove("clicked", "hide");
@@ -27,22 +30,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ── new “smooth close” logic ────────────────────────── */
-  const SLIDE_DURATION = 100000;          // ms — matches .bottle CSS transition
+  // Adjust SLIDE_DURATION (ms) to match your CSS transition duration (e.g. 1000 for 1s)
+  const SLIDE_DURATION = 1000;
   let   closeTimerID   = null;
 
   function closeBottlesSmooth() {
-    // cancel any previous pending removal
     clearTimeout(closeTimerID);
 
-    /* 1️⃣  start slide‑back immediately */
-    leftBottle.classList.remove("clicked");
-    rightBottle.classList.remove("clicked");
-    leftBottle.classList.remove("hide");
-    rightBottle.classList.remove("hide");
+    /* 1️⃣ start slide‑back immediately */
+    leftBottle.classList.remove("clicked", "hide");
+    rightBottle.classList.remove("clicked", "hide");
     leftText.classList.remove("show");
     rightText.classList.remove("show");
 
-    /* 2️⃣  after the slide ends, fade the background away */
+    // ② update cursor text immediately
+    updateCursorText();
+
+    /* 2️⃣ after the slide ends, remove the “opened” classes */
     closeTimerID = setTimeout(() => {
       section.classList.remove("opened", "left-opened", "right-opened");
       updateCursorText();
@@ -53,68 +57,69 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isMobile) {
     leftText.classList.add("show");
     rightText.classList.add("show");
+    return; // no further JS on mobile
   }
 
   /* ── DESKTOP behaviour ───────────────────────────────── */
-  if (!isMobile) {
 
-    /* LEFT bottle click */
-    leftBottle.addEventListener("click", () => {
-      if (leftBottle.classList.contains("clicked")) {
-        // it’s already open → this click means “close”
-        closeBottlesSmooth();
-      } else {
-        // open the left side
-        clearTimeout(closeTimerID);   // stop any pending close
-        resetAllInstant();
-        leftBottle.classList.add("clicked");
-        rightBottle.classList.add("hide");
-        leftText.classList.add("show");
-        section.classList.add("opened", "left-opened");
-        updateCursorText();
-      }
+  /* LEFT bottle click */
+  leftBottle.addEventListener("click", () => {
+    if (leftBottle.classList.contains("clicked")) {
+      // it’s already open → this click means “close”
+      closeBottlesSmooth();
+    } else {
+      clearTimeout(closeTimerID);
+      resetAllInstant();
+      leftBottle.classList.add("clicked");
+      rightBottle.classList.add("hide");
+      leftText.classList.add("show");
+      section.classList.add("opened", "left-opened");
+      updateCursorText();
+    }
+  });
+
+  /* RIGHT bottle click */
+  rightBottle.addEventListener("click", () => {
+    if (rightBottle.classList.contains("clicked")) {
+      closeBottlesSmooth();
+    } else {
+      clearTimeout(closeTimerID);
+      resetAllInstant();
+      rightBottle.classList.add("clicked");
+      leftBottle.classList.add("hide");
+      rightText.classList.add("show");
+      section.classList.add("opened", "right-opened");
+      updateCursorText();
+    }
+  });
+
+  /* custom cursor */
+  if (customCursor) {
+    document.addEventListener("mousemove", (e) => {
+      customCursor.style.top  = `${e.clientY}px`;
+      customCursor.style.left = `${e.clientX}px`;
     });
 
-    /* RIGHT bottle click */
-    rightBottle.addEventListener("click", () => {
-      if (rightBottle.classList.contains("clicked")) {
-        closeBottlesSmooth();
-      } else {
-        clearTimeout(closeTimerID);
-        resetAllInstant();
-        rightBottle.classList.add("clicked");
-        leftBottle.classList.add("hide");
-        rightText.classList.add("show");
-        section.classList.add("opened", "right-opened");
+    [leftBottle, rightBottle].forEach((bottle) => {
+      bottle.addEventListener("mouseenter", () => {
+        // ③ ensure text is fresh on hover
         updateCursorText();
-      }
+        customCursor.style.opacity    = "1";
+        customCursor.style.visibility = "visible";
+      });
+      bottle.addEventListener("mouseleave", () => {
+        customCursor.style.opacity    = "0";
+        customCursor.style.visibility = "hidden";
+      });
     });
-
-    /* custom cursor ██████████████████████████████████████ */
-    if (customCursor) {
-      document.addEventListener("mousemove", (e) => {
-        customCursor.style.top  = `${e.clientY}px`;
-        customCursor.style.left = `${e.clientX}px`;
-      });
-      [leftBottle, rightBottle].forEach((bottle) => {
-        bottle.addEventListener("mouseenter", () => {
-          customCursor.style.opacity    = "1";
-          customCursor.style.visibility = "visible";
-        });
-        bottle.addEventListener("mouseleave", () => {
-          customCursor.style.opacity    = "0";
-          customCursor.style.visibility = "hidden";
-        });
-      });
-    }
-
-    /* AOS (desktop only) */
-    if (typeof AOS !== "undefined") {
-      AOS.init({ duration: 1200 });
-    }
   }
 
-  /* ── MOBILE MENU TOGGLE (unchanged) ──────────────────── */
+  /* AOS (desktop only) */
+  if (typeof AOS !== "undefined") {
+    AOS.init({ duration: 1200 });
+  }
+
+  /* ── MOBILE MENU TOGGLE ──────────────────────────────── */
   const mobileMenu = document.getElementById("mobileMenu");
   const menuToggle = document.getElementById("menuToggle");
   const closeMenu  = document.getElementById("closeMenu");
@@ -136,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ── NAVBAR SCROLL EFFECT (unchanged) ────────────────── */
+  /* ── NAVBAR SCROLL EFFECT ─────────────────────────────── */
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     window.addEventListener("scroll", () => {
@@ -146,15 +151,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/* ── PRELOADER (unchanged) ─────────────────────────────── */
+/* ── PRELOADER ─────────────────────────────────────────── */
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const logo      = document.querySelector(".preloader-logo");
 
-  logo.classList.add("animate");     // start the key‑frame sequence
+  logo.classList.add("animate");
 
   setTimeout(() => {
     preloader.style.opacity    = "0";
     preloader.style.visibility = "hidden";
-  }, 4500);                          // 2 s fade + 2.5 s zoom = 4.5 s
+  }, 4500);
 });
