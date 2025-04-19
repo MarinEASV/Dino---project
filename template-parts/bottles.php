@@ -1,4 +1,3 @@
-php (template part for this section):
 <?php
 /**
  * Template part: Bottles Section
