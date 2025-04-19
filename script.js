@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ── new “smooth close” logic ────────────────────────── */
   // Adjust SLIDE_DURATION (ms) to match your CSS transition duration (e.g. 1000 for 1s)
-  const SLIDE_DURATION = 1000;
+  const SLIDE_DURATION = 10000;
   let   closeTimerID   = null;
 
   function closeBottlesSmooth() {
