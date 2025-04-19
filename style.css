@@ -1131,4 +1131,32 @@ nav a {
   }
 }
 
-/* make sure AOS is loaded in footer (if you’re using it) */
+/* ─── Horizontal scroll tweaks ─── */
+
+.reviews-section .wp-google-review-grid {
+  display: flex;               /* switch from grid → flex-row */
+  overflow-x: auto;            /* enable horizontal scroll */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  gap: 1.5rem;                 /* same gap as before */
+  padding-bottom: 1rem;        /* room for scrollbar (optional) */
+}
+
+.reviews-section .wp-google-review {
+  flex: 0 0 auto;              /* each card keeps its width */
+  width: min(280px, 80%);      /* adapt as you like */
+  scroll-snap-align: start;    /* snap alignment */
+}
+
+/* Optional: make it snap‑to‑card when you lift your finger */
+.reviews-section .wp-google-review-grid {
+  scroll-snap-type: x mandatory;
+}
+
+/* Hide default scrollbar (WebKit) — optional cosmetic */
+.reviews-section .wp-google-review-grid::-webkit-scrollbar {
+  height: 6px;
+}
+.reviews-section .wp-google-review-grid::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
