@@ -1015,24 +1015,40 @@ nav a {
   }
 
   .bottle-section {
-    background: linear-gradient(
+    /* split gradient as background image */
+    background-image: linear-gradient(
       to right,
       #B64A42 0%,
       #B64A42 50%,
       #5F120D 50%,
       #5F120D 100%
-    ) no-repeat center/100% 100%;
-    transition: background-color 0.5s ease; /* fade‑out on close */
+    );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* gradient opacity driven by --grad-opacity (default 1) */
+    --grad-opacity: 1;
+  }
+  /* overlay a solid tint when open */
+  .bottle-section.left-opened  { background-color: #B64A42 !important; }
+  .bottle-section.right-opened { background-color: #5F120D !important; }
+
+  /* generate the gradient layer by a pseudo-element so we can fade its opacity */
+  .bottle-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: inherit;
+    background-repeat: inherit;
+    opacity: var(--grad-opacity) !important;
+    transition: opacity 0.3s ease;  /* fade out/in */
+    z-index: 0;
+    pointer-events: none;
   }
 
-  /* When LEFT is open: solid #B64A42 immediately */
-  .bottle-section.left-opened {
-    background: #B64A42 !important;
+  /* keep text blocks from animating their own color */
+  .bottle-section.opened .bottle-text {
+    transition: none !important;
   }
 
-  /* When RIGHT is open: solid #5F120D immediately */
-  .bottle-section.right-opened {
-    background: #5F120D !important;
-  }
-  }
-  
+}

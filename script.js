@@ -1,90 +1,64 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const isMobile     = window.innerWidth <= 768;
-  const leftBottle   = document.querySelector(".left-bottle");
-  const rightBottle  = document.querySelector(".right-bottle");
-  const leftText     = document.querySelector(".left-text");
-  const rightText    = document.querySelector(".right-text");
-  const section      = document.querySelector(".bottle-section");
-  const customCursor = document.querySelector(".custom-cursor");
-  const cursorText   = document.querySelector(".cursor-text");
+/* ── DESKTOP bottle logic ───────────────────────── */
+if (!isMobile) {
+  function openSide(side) {
+    // 1) immediately hide the gradient layer
+    section.style.setProperty("--grad-opacity", 0);
 
-  /* ── helpers ─────────────────────────────────────────── */
-  function updateCursorText() {
-    const active =
-      leftBottle.classList.contains("clicked") ||
-      rightBottle.classList.contains("clicked");
-    cursorText.textContent = active ? "Close" : "Click to see more";
+    // 2) clear any prior state classes
+    resetInstant();
+
+    // 3) apply your clicked/hide/show logic
+    if (side === "left") {
+      leftBottle.classList.add("clicked");
+      rightBottle.classList.add("hide");
+      leftText.classList.add("show");
+      section.classList.add("opened", "left-opened");
+    } else {
+      rightBottle.classList.add("clicked");
+      leftBottle.classList.add("hide");
+      rightText.classList.add("show");
+      section.classList.add("opened", "right-opened");
+    }
+    updateCursorText();  // shows “Close”
   }
 
-  function resetInstant() {
+  function closeSmooth() {
+    // pick the bottle that will slide back
+    const slidingBottle = section.classList.contains("left-opened")
+      ? rightBottle
+      : leftBottle;
+
+    function onEnd(e) {
+      if (e.propertyName !== "transform") return;
+      slidingBottle.removeEventListener("transitionend", onEnd);
+
+      // 1) restore the gradient layer
+      section.style.setProperty("--grad-opacity", 1);
+      // 2) clear all open/side classes
+      section.classList.remove("opened", "left-opened", "right-opened");
+      updateCursorText();  // back to “Click to see more”
+    }
+    slidingBottle.addEventListener("transitionend", onEnd);
+
+    // trigger the slide‑back
     leftBottle.classList.remove("clicked", "hide");
     rightBottle.classList.remove("clicked", "hide");
     leftText.classList.remove("show");
     rightText.classList.remove("show");
-    section.classList.remove("opened", "left-opened", "right-opened");
-    updateCursorText();
   }
 
-  /* ── MOBILE: simple stack, no clicks ─────────────────── */
-  if (isMobile) {
-    leftText.classList.add("show");
-    rightText.classList.add("show");
-  }
+  leftBottle.addEventListener("click", () => {
+    leftBottle.classList.contains("clicked")
+      ? closeSmooth()
+      : openSide("left");
+  });
+  rightBottle.addEventListener("click", () => {
+    rightBottle.classList.contains("clicked")
+      ? closeSmooth()
+      : openSide("right");
+  });
 
-  /* ── DESKTOP bottle logic ────────────────────────────── */
-  if (!isMobile) {
-    /* wait for the sliding bottle’s transform transition to finish */
-    function closeSmooth() {
-      /* determine which bottle will emit transitionend */
-      const slidingBottle = section.classList.contains("left-opened")
-        ? rightBottle          // right slides in from +100%
-        : leftBottle;          // left slides in from –100%
 
-      const onEnd = (e) => {
-        if (e.propertyName !== "transform") return; // ignore opacity etc.
-        section.classList.remove(
-          "opened",
-          "left-opened",
-          "right-opened"
-        );
-        slidingBottle.removeEventListener("transitionend", onEnd);
-        updateCursorText(); // back to "Click to see more"
-      };
-      slidingBottle.addEventListener("transitionend", onEnd);
-
-      /* start slide‑back */
-      leftBottle.classList.remove("clicked", "hide");
-      rightBottle.classList.remove("clicked", "hide");
-      leftText.classList.remove("show");
-      rightText.classList.remove("show");
-    }
-
-    function openSide(side) {
-      resetInstant(); // clear any previous state
-
-      if (side === "left") {
-        leftBottle.classList.add("clicked");
-        rightBottle.classList.add("hide");
-        leftText.classList.add("show");
-        section.classList.add("opened", "left-opened");
-      } else {
-        rightBottle.classList.add("clicked");
-        leftBottle.classList.add("hide");
-        rightText.classList.add("show");
-        section.classList.add("opened", "right-opened");
-      }
-      updateCursorText(); // shows "Close"
-    }
-
-    leftBottle.addEventListener("click", () => {
-      if (leftBottle.classList.contains("clicked")) closeSmooth();
-      else openSide("left");
-    });
-
-    rightBottle.addEventListener("click", () => {
-      if (rightBottle.classList.contains("clicked")) closeSmooth();
-      else openSide("right");
-    });
 
     /* ── custom cursor (unchanged) ─────────────────────── */
     if (customCursor) {
@@ -140,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
       else navbar.classList.remove("scrolled");
     });
   }
-});
+
 
 /* ── PRELOADER (unchanged) ─────────────────────────────── */
 window.addEventListener("load", () => {
