@@ -641,13 +641,7 @@ nav a {
   }
 
 
-  .bottle-section.left-opened::before {
-    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #B64A42 50%, #B64A42 100%) !important;
-  }
-  .bottle-section.right-opened::before {
-    background: linear-gradient(to right, #5F120D 0%, #5F120D 50%, #5F120D 50%, #5F120D 100%) !important;
-  }
-  
+
   .bottle-container {
     display: flex;
     width: 100%;
