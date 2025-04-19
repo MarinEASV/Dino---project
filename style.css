@@ -628,7 +628,8 @@ nav a {
     }
 }
 
-/* ─────────── BOTTLES PART STYLE ─────────── */
+/* BOTTLES PART STYLE */
+
 .bottle-section {
   position: relative;
   display: flex;
@@ -637,24 +638,43 @@ nav a {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-
-  /* default: split‑gradient background */
-  background: linear-gradient(
-    to right,
-    #B64A42 0%, #B64A42 50%,
-    #5F120D 50%, #5F120D 100%
-  ) no-repeat center/100% 100%;
-  transition: background 0.5s ease; /* fade‑back on close */
 }
 
+/* Gradient split and solid-color overrides applied on the container */
 .bottle-container {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
   z-index: 1;
+
+  /* default two‑tone split gradient */
+  background-image: linear-gradient(
+    to right,
+    #B64A42 0%,
+    #B64A42 50%,
+    #5F120D 50%,
+    #5F120D 100%
+  );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
+/* When left bottle is open: full red background */
+.bottle-section.left-opened .bottle-container {
+  background-image: none;
+  background-color: #B64A42;
+}
+
+/* When right bottle is open: full dark red background */
+.bottle-section.right-opened .bottle-container {
+  background-image: none;
+  background-color: #5F120D;
+}
+
+/* Reset to no tint on close (when classes removed, gradient returns) */
+
+/* Bottle and image styles remain unchanged */
 .bottle {
   width: 50%;
   position: relative;
@@ -662,7 +682,6 @@ nav a {
   cursor: pointer;
   z-index: 2;
 }
-
 .bottle img {
   width: 100%;
   height: auto;
@@ -677,23 +696,22 @@ nav a {
   transform: translateY(-50%) scale(0.98);
   opacity: 0;
   pointer-events: none;
-  transition: background-color 0.6s ease,
-              color 0.6s ease,
-              opacity 0.8s ease,
-              transform 0.8s ease;
+  transition:
+    background-color 0.6s ease,
+    color 0.6s ease,
+    opacity 0.8s ease,
+    transform 0.8s ease;
   z-index: 2;
   padding: 2rem;
   background: white;
   border-radius: 8px;
 }
-
 .left-text {
   background-color: #B64A42;
   color: white;
   right: 0;
   text-align: left;
 }
-
 .right-text {
   background-color: #5F120D;
   color: white;
@@ -720,15 +738,13 @@ nav a {
   opacity: 1;
   pointer-events: auto;
 }
-
-/* Quick show for text */
 .bottle-text.show {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-50%) scale(1);
 }
 
-/* Custom cursor */
+/* Custom cursor setup */
 .custom-cursor {
   position: fixed;
   top: 0; left: 0;
@@ -738,9 +754,7 @@ nav a {
   backdrop-filter: blur(6px);
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: opacity 0.4s ease,
-              transform 0.1s ease,
-              visibility 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.1s ease, visibility 0.4s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -768,35 +782,21 @@ nav a {
   visibility: visible;
 }
 
-/* Hide native cursor */
-.bottle-section,
-.bottle-section * {
-  cursor: none !important;
+/* Hide native cursor behind custom one */
+.bottle-container {
+  cursor: none;
 }
 
-/* ─────────── OPEN STATES (DESKTOP) ─────────── */
-.bottle-section.open-left {
-  background: #B64A42 !important;
-}
-.bottle-section.open-right {
-  background: #5F120D !important;
-}
-
-/* ─────────── MOBILE OVERRIDES ─────────── */
+/* MOBILE STACK & OVERRIDES */
 @media screen and (max-width: 768px) {
-  .bottle-section {
-    height: auto !important;
-    overflow: visible !important;
-    padding: 2rem 1rem;
-    background: none !important;
-    cursor: default;
-  }
   .bottle-container {
     display: flex !important;
     flex-direction: column !important;
     height: auto !important;
+    cursor: default !important;
+    background: none !important;
   }
-  /* order: left img → left text → right img → right text */
+  /* enforce left → left text → right → right text */
   .left-bottle  { order: 1 !important; }
   .left-text    { order: 2 !important; }
   .right-bottle { order: 3 !important; }
