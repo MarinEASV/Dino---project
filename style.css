@@ -909,7 +909,6 @@ nav a {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
   transition: background 0.8s ease-in-out;
   z-index: 0;
   pointer-events: none;
