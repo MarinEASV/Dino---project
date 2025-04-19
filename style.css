@@ -1041,3 +1041,6 @@ nav a {
     }
   }
   
+  .bottle-container {
+    cursor: none;
+  }
