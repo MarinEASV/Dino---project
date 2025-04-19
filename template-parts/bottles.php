@@ -12,11 +12,11 @@ $right_bottle_description = get_field('right_bottle_description');
 
 <section class="bottle-section">
   <div class="bottle-container">
-   <div class="bottle left-bottle" data-aos="fade-left" data-side="left">
+   <div class="bottle left-bottle" data-side="left">
     <img src="<?php echo esc_url($left_bottle_img['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>">
     </div> 
 
-    <div class="bottle right-bottle" data-aos="fade-right" data-side="right">
+    <div class="bottle right-bottle"  data-side="right">
     <img src="<?php echo esc_url($right_bottle_img['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>">
     </div>
 
