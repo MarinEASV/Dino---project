@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const customCursor = document.querySelector(".custom-cursor");
   const cursorText   = document.querySelector(".cursor-text");
 
-  /* ── helpers ─────────────────────────────────────────── */
+  /* ── Helpers ─────────────────────────────────────────── */
   function updateCursorText() {
     const active =
       leftBottle.classList.contains("clicked") ||
@@ -19,28 +19,28 @@ document.addEventListener("DOMContentLoaded", function () {
   function resetInstant() {
     leftBottle.classList.remove("clicked", "hide");
     rightBottle.classList.remove("clicked", "hide");
-    leftText.classList.remove("show");
+    leftText .classList.remove("show");
     rightText.classList.remove("show");
-    section.classList.remove("opened", "left-opened", "right-opened");
-    section.style.backgroundImage  = null;
-    section.style.backgroundColor  = null;
+    section .classList.remove("opened", "left-opened", "right-opened");
+    // restore split‑gradient & clear tint
+    section.style.backgroundImage = "";
+    section.style.backgroundColor = "";
     updateCursorText();
   }
 
-  /* ── MOBILE: show both texts, no clicks ───────────────── */
+  /* ── Mobile: show both texts, no clicks ───────────────── */
   if (isMobile) {
     leftText.classList.add("show");
     rightText.classList.add("show");
   } else {
-    /* ── DESKTOP: open/close logic ──────────────────────── */
+    /* ── Desktop: open/close logic ──────────────────────── */
     function openSide(side) {
-      // remove the split gradient immediately
-      section.style.backgroundImage = "none";
-      // tint solid
-      section.style.backgroundColor =
-        side === "left" ? "#B64A42" : "#5F120D";
+      // 1) remove split‑gradient
+      section.style.backgroundImage  = "none";
+      // 2) tint solid
+      section.style.backgroundColor  = side === "left" ? "#B64A42" : "#5F120D";
 
-      resetInstant(); // clear old state
+      resetInstant(); // clear any previous state
 
       if (side === "left") {
         leftBottle.classList.add("clicked");
@@ -57,23 +57,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function closeSmooth() {
+      // pick the bottle that slides back
       const slidingBottle = section.classList.contains("left-opened")
         ? rightBottle
         : leftBottle;
 
+      // after its transform ends, restore the gradient
       const onEnd = (e) => {
         if (e.propertyName !== "transform") return;
         slidingBottle.removeEventListener("transitionend", onEnd);
-        // restore split gradient
         section.style.backgroundImage = "";
         section.style.backgroundColor = "";
-        // clear classes
         section.classList.remove("opened", "left-opened", "right-opened");
         updateCursorText();
       };
       slidingBottle.addEventListener("transitionend", onEnd);
 
-      // trigger slide‑back
+      // trigger the slide‑back
       leftBottle.classList.remove("clicked", "hide");
       rightBottle.classList.remove("clicked", "hide");
       leftText.classList.remove("show");
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         : openSide("right");
     });
 
-    /* ── custom cursor ────────────────────────────────── */
+    /* ── Custom cursor (desktop) ───────────────────────── */
     if (customCursor) {
       document.addEventListener("mousemove", (e) => {
         customCursor.style.top  = `${e.clientY}px`;
@@ -115,21 +115,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* ── MOBILE MENU TOGGLE (unchanged) ────────────────── */
+  /* ── Mobile menu toggle etc. (unchanged) ───────────── */
   const mobileMenu = document.getElementById("mobileMenu");
   const menuToggle = document.getElementById("menuToggle");
   const closeMenu  = document.getElementById("closeMenu");
   if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", () => mobileMenu.classList.add("show"));
-    closeMenu?.addEventListener("click", () => mobileMenu.classList.remove("show"));
+    menuToggle.addEventListener("click", () =>
+      mobileMenu.classList.add("show")
+    );
+    closeMenu?.addEventListener("click", () =>
+      mobileMenu.classList.remove("show")
+    );
     document.addEventListener("click", (e) => {
-      if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      if (
+        !mobileMenu.contains(e.target) &&
+        !menuToggle.contains(e.target)
+      ) {
         mobileMenu.classList.remove("show");
       }
     });
   }
 
-  /* ── NAVBAR SCROLL EFFECT (unchanged) ─────────────── */
+  /* ── Navbar scroll effect (unchanged) ─────────────── */
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     window.addEventListener("scroll", () =>
@@ -138,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/* ── PRELOADER (unchanged) ─────────────────────────── */
+/* ── Preloader (unchanged) ─────────────────────────── */
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const logo      = document.querySelector(".preloader-logo");
