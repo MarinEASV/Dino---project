@@ -1139,6 +1139,8 @@ nav a {
   -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
   gap: 1.5rem;                 /* same gap as before */
   padding-bottom: 1rem;        /* room for scrollbar (optional) */
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
 }
 
 .reviews-section .wp-google-review {
