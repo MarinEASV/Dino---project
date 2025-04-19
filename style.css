@@ -963,3 +963,37 @@ nav a {
     }
   }
   
+@media screen and (max-width: 768px) {
+
+    .bottle-section {
+      height: auto !important;
+      overflow: visible !important;   
+      padding: 2rem 1rem;          
+    }
+    .bottle-container {
+      flex-direction: column !important;
+      height: auto !important;       
+    }
+  
+    .left-bottle  { order: 1 !important; }
+    .left-text    { order: 2 !important; }
+    .right-bottle { order: 3 !important; }
+    .right-text   { order: 4 !important; }
+  
+    .bottle,
+    .bottle-text {
+      width: 100% !important;
+      position: static !important;
+      transform: none !important;
+      opacity: 1 !important;
+      transition: none !important;
+      pointer-events: auto !important;
+      margin-bottom: 1.5rem;
+    }
+  
+    .bottle-section::before,
+    .custom-cursor {
+      display: none !important;
+    }
+  }
+  
