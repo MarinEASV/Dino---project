@@ -902,30 +902,6 @@ nav a {
   color: white;
 }
   
-.bottle-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
-  transition: background 0.8s ease-in-out;
-  z-index: 0;
-  pointer-events: none;
-}
-  
-  .bottle-section.left-opened::before {
-    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, #5F120D 50%, #5F120D 100%);
-  }
-  
-  .bottle-section.right-opened::before {
-    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #FFFFFF 50%, #FFFFFF 100%);
-  }
-  
-  .bottle-section:not(.left-opened):not(.right-opened)::before {
-    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
-  }
 
   @media screen and (max-width: 768px) {
     .bottle-container {
@@ -1038,19 +1014,25 @@ nav a {
     cursor: none !important;
   }
 
-  .bottle-section.opened::before,
-  .bottle-section.opened::after {
-    display: none !important;
+  .bottle-section {
+    background: linear-gradient(
+      to right,
+      #B64A42 0%,
+      #B64A42 50%,
+      #5F120D 50%,
+      #5F120D 100%
+    ) no-repeat center/100% 100%;
+    transition: background-color 0.5s ease; /* fade‑out on close */
   }
 
-  /* 2) Keep your solid‑colour tint on the section itself */
-  .bottle-section.left-opened  { background-color: #B64A42 !important; }
-  .bottle-section.right-opened { background-color: #5F120D !important; }
+  /* When LEFT is open: solid #B64A42 immediately */
+  .bottle-section.left-opened {
+    background: #B64A42 !important;
+  }
 
-  /* 3) When fully closed again, pseudo‑layers come back */
-  .bottle-section:not(.opened)::before,
-  .bottle-section:not(.opened)::after {
-    display: block !important;
+  /* When RIGHT is open: solid #5F120D immediately */
+  .bottle-section.right-opened {
+    background: #5F120D !important;
   }
   }
   
