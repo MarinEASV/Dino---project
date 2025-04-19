@@ -1037,5 +1037,20 @@ nav a {
   .bottle-section * {
     cursor: none !important;
   }
+
+  .bottle-section.opened::before,
+  .bottle-section.opened::after {
+    display: none !important;
+  }
+
+  /* 2) Keep your solid‑colour tint on the section itself */
+  .bottle-section.left-opened  { background-color: #B64A42 !important; }
+  .bottle-section.right-opened { background-color: #5F120D !important; }
+
+  /* 3) When fully closed again, pseudo‑layers come back */
+  .bottle-section:not(.opened)::before,
+  .bottle-section:not(.opened)::after {
+    display: block !important;
+  }
   }
   
