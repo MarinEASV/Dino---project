@@ -1015,55 +1015,22 @@ nav a {
 }
   }
 
-   @media screen and (min-width: 769px) {
+   /* ─────────────────────────────────────────────────────────
+   DESKTOP:  instant overlay on open, smooth fade on close
+   ───────────────────────────────────────────────────────── */
+@media screen and (min-width: 769px) {
 
-    .bottle-section::before {
-      background: linear-gradient(
-        to right,
-        #B64A42 0%,
-        #B64A42 50%,
-        #5F120D 50%,
-        #5F120D 100%
-      ) !important;          
-      transition: none !important;
-    }
-  
-    .bottle-section.left-opened,
-    .bottle-section.right-opened {
-      background-color: transparent !important;
-    }
-  
+    /* base overlay (hidden) – keep the fade‑out transition */
     .bottle-section::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;                    
-      background: transparent;       
+      transition: opacity .5s ease;    /* fade‑out only */
       opacity: 0;
-      transition: opacity 0.5s ease; 
     }
   
-    .bottle-section.left-opened::after {
-      background: linear-gradient(
-        to right,
-        #FFFFFF 0%,
-        #FFFFFF 50%,
-        transparent 50%,
-        transparent 100%
-      );
-      opacity: 1;
-    }
-  
+    /* when OPEN: show overlay immediately (no transition) */
+    .bottle-section.left-opened::after,
     .bottle-section.right-opened::after {
-      background: linear-gradient(
-        to right,
-        transparent 0%,
-        transparent 50%,
-        #FFFFFF 50%,
-        #FFFFFF 100%
-      );
-      opacity: 1;
+      transition: none;                /* kill fade‑in */
+      opacity: 1;                      /* jump to visible */
     }
   }
   
