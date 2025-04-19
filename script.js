@@ -1,14 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const isMobile     = window.innerWidth <= 768;
-  const leftBottle   = document.querySelector(".left-bottle");
-  const rightBottle  = document.querySelector(".right-bottle");
-  const leftText     = document.querySelector(".left-text");
-  const rightText    = document.querySelector(".right-text");
-  const section      = document.querySelector(".bottle-section");
-  const customCursor = document.querySelector(".custom-cursor");
-  const cursorText   = document.querySelector(".cursor-text");
-
-  /* ── helpers ─────────────────────────────────────────── */
+/* ── DESKTOP bottle logic ───────────────────────────────── */
+if (!isMobile) {
+  /* update helper */
   function updateCursorText() {
     const active =
       leftBottle.classList.contains("clicked") ||
@@ -16,37 +8,49 @@ document.addEventListener("DOMContentLoaded", function () {
     cursorText.textContent = active ? "Close" : "Click to see more";
   }
 
-  /** Wait for the active bottle’s slide‑back to finish, then clear colours */
-  function waitAndResetColour() {
-    // decide which bottle will fire the transitionend (whichever is visible)
-    const bottle = leftBottle.classList.contains("clicked") ? leftBottle : rightBottle;
+  /** open a side */
+  function openSide(side) {
+    resetInstant();                    // clear any previous state
 
-    function handler(e) {
-      if (e.propertyName !== "transform") return;   // ignore opacity etc.
-      section.classList.remove("opened", "left-opened", "right-opened");
-      bottle.removeEventListener("transitionend", handler);
-      updateCursorText();
+    if (side === "left") {
+      leftBottle.classList.add("clicked");
+      rightBottle.classList.add("hide");
+      leftText.classList.add("show");
+      section.classList.add("opened", "left-opened");
+    } else {
+      rightBottle.classList.add("clicked");
+      leftBottle.classList.add("hide");
+      rightText.classList.add("show");
+      section.classList.add("opened", "right-opened");
     }
-
-    bottle.addEventListener("transitionend", handler);
+    updateCursorText();
   }
 
-  /** Close routine without any timeouts */
-  function closeBottlesSmooth() {
-    leftBottle.classList.remove("clicked");
-    rightBottle.classList.remove("clicked");
+  /** close with transition‑end listener (no timeout) */
+  function closeSmooth() {
+    /* Which bottle slides back? */
+    const slidingBottle = section.classList.contains("left-opened")
+      ? rightBottle        // right slides in from +100%
+      : leftBottle;        // left slides in from –100%
 
-    leftBottle.classList.remove("hide");
-    rightBottle.classList.remove("hide");
+    /* when that slide finishes, clear colours & cursor */
+    const onEnd = (e) => {
+      if (e.propertyName !== "transform") return;
+      section.classList.remove("opened", "left-opened", "right-opened");
+      slidingBottle.removeEventListener("transitionend", onEnd);
+      updateCursorText();                // back to “Click to see more”
+    };
+    slidingBottle.addEventListener("transitionend", onEnd);
 
+    /* start the slide‑back */
+    leftBottle.classList.remove("clicked", "hide");
+    rightBottle.classList.remove("clicked", "hide");
     leftText.classList.remove("show");
     rightText.classList.remove("show");
-
-    waitAndResetColour();          // will fire when slide finishes
   }
 
-  /** Reset instantly (used before opening the other side) */
-  function resetAllInstant() {
+  /** instant reset (used before opening the other side) */
+  function resetInstant() {
     leftBottle.classList.remove("clicked", "hide");
     rightBottle.classList.remove("clicked", "hide");
     leftText.classList.remove("show");
@@ -55,40 +59,16 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCursorText();
   }
 
-  /* ── MOBILE (simple stack) ─────────────────────────── */
-  if (isMobile) {
-    leftText.classList.add("show");
-    rightText.classList.add("show");
-  }
+  /* attach handlers */
+  leftBottle.addEventListener("click", () => {
+    if (leftBottle.classList.contains("clicked")) closeSmooth();
+    else openSide("left");
+  });
 
-  /* ── DESKTOP behaviour ─────────────────────────────── */
-  if (!isMobile) {
-
-    leftBottle.addEventListener("click", () => {
-      if (leftBottle.classList.contains("clicked")) {
-        closeBottlesSmooth();                      // user is closing
-      } else {
-        resetAllInstant();
-        leftBottle.classList.add("clicked");
-        rightBottle.classList.add("hide");
-        leftText.classList.add("show");
-        section.classList.add("opened", "left-opened");
-        updateCursorText();
-      }
-    });
-
-    rightBottle.addEventListener("click", () => {
-      if (rightBottle.classList.contains("clicked")) {
-        closeBottlesSmooth();
-      } else {
-        resetAllInstant();
-        rightBottle.classList.add("clicked");
-        leftBottle.classList.add("hide");
-        rightText.classList.add("show");
-        section.classList.add("opened", "right-opened");
-        updateCursorText();
-      }
-    });
+  rightBottle.addEventListener("click", () => {
+    if (rightBottle.classList.contains("clicked")) closeSmooth();
+    else openSide("right");
+  });
 
     /* custom cursor (unchanged) */
     if (customCursor) {
@@ -144,8 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
       else navbar.classList.remove("scrolled");
     });
   }
-});
-
+  
 /* ── PRELOADER (unchanged) ───────────────────────────── */
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
