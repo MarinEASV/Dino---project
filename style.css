@@ -1035,7 +1035,8 @@ nav a {
   }
 
   @media (min-width: 769px) {
-    body.hide-default-cursor {
+     .bottle-section,
+    .bottle-container {
       cursor: none !important;
     }
   }
