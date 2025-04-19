@@ -660,11 +660,11 @@ nav a {
   }
   
   .left-side {
-    background-color: #B64A42;
+    background-color: #B64A42 !important;
   }
   
   .right-side {
-    background-color: #5F120D;
+    background-color: #5F120D !important;
   }
   
   .bottle {
