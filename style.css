@@ -1051,4 +1051,34 @@ nav a {
       display: block;
     }
   }
-  
+  /* ──────────────────────────────────────────────────────────
+   DESKTOP: fade the gradient layer out while a bottle is open
+   ────────────────────────────────────────────────────────── */
+@media screen and (min-width: 769px) {
+
+  /* base gradient layer */
+  .bottle-section::before {
+    opacity: 1;
+    transition: opacity .25s ease;           /* quick fade */
+  }
+
+  /* when either side is open, let it fade to 0 (invisible) */
+  .bottle-section.opened::before {
+    opacity: 0;                              /* gradient gone */
+  }
+
+  /* the solid tint still comes from these rules */
+  .bottle-section.left-opened  { background-color: #B64A42 !important; }
+  .bottle-section.right-opened { background-color: #5F120D !important; }
+
+  /* and because the gradient is now invisible, remove the “white” hacks */
+  .bottle-section.left-opened::before,
+  .bottle-section.right-opened::before {
+    background: inherit !important;          /* no swap to white */
+  }
+
+  /* stop the text cards from animating their background */
+  .bottle-section.opened .bottle-text {
+    transition: none !important;
+  }
+}
