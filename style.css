@@ -843,32 +843,6 @@ nav a {
       }
   }
 
-@media screen and (min-width: 769px) {
-    .bottle-section {
-      position: relative;               
-    }
-  
-    .bottle-section::after {
-      content: "";
-      position: absolute;
-      inset: 0;                        
-      background: #B64A42;             
-      opacity: 0;                       
-      transition: opacity 1s ease;  
-      pointer-events: none;             
-      z-index: 0;                       
-    }
-  
-    .bottle-section.left-opened::after {
-      background: #B64A42;
-      opacity: 1;
-    }
-  
-    .bottle-section.right-opened::after {
-      background: #5F120D;
-      opacity: 1;
-    }
-  }
   
 
 .bottle-section.left-opened {
@@ -1039,5 +1013,33 @@ nav a {
   background-color: none !important;
   color: white;
 }
+  }
+
+@media screen and (min-width: 769px) {
+
+    .bottle-section.left-opened::before,
+    .bottle-section.right-opened::before {
+      background: linear-gradient(
+        to right,
+        #B64A42 0%,
+        #B64A42 50%,
+        #5F120D 50%,
+        #5F120D 100%
+      ) !important;
+    }
+  
+    .bottle-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: transparent;  
+      opacity: 0;               
+      transition: opacity 0.5s ease;  
+      pointer-events: none;
+      z-index: 0;              
+    }
+  
+    .bottle-section.left-opened::after  { background: #B64A42; opacity: 1; }
+    .bottle-section.right-opened::after { background: #5F120D; opacity: 1; }
   }
   
