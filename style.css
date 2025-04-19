@@ -1015,31 +1015,55 @@ nav a {
 }
   }
 
-@media screen and (min-width: 769px) {
+   @media screen and (min-width: 769px) {
 
-    .bottle-section.left-opened::before,
-    .bottle-section.right-opened::before {
+    .bottle-section::before {
       background: linear-gradient(
         to right,
         #B64A42 0%,
         #B64A42 50%,
         #5F120D 50%,
         #5F120D 100%
-      ) !important;
+      ) !important;          
+      transition: none !important;
+    }
+  
+    .bottle-section.left-opened,
+    .bottle-section.right-opened {
+      background-color: transparent !important;
     }
   
     .bottle-section::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: transparent;  
-      opacity: 0;               
-      transition: opacity 0.5s ease;  
       pointer-events: none;
-      z-index: 0;              
+      z-index: 0;                    
+      background: transparent;       
+      opacity: 0;
+      transition: opacity 0.5s ease; 
     }
   
-    .bottle-section.left-opened::after  { background: #B64A42; opacity: 1; }
-    .bottle-section.right-opened::after { background: #5F120D; opacity: 1; }
+    .bottle-section.left-opened::after {
+      background: linear-gradient(
+        to right,
+        #FFFFFF 0%,
+        #FFFFFF 50%,
+        transparent 50%,
+        transparent 100%
+      );
+      opacity: 1;
+    }
+  
+    .bottle-section.right-opened::after {
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent 50%,
+        #FFFFFF 50%,
+        #FFFFFF 100%
+      );
+      opacity: 1;
+    }
   }
   
