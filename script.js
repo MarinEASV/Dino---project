@@ -1,68 +1,78 @@
 document.addEventListener("DOMContentLoaded", function () {
   const isMobile     = window.innerWidth <= 768;
-  const section      = document.querySelector(".bottle-section");
-  const overlay      = document.querySelector(".gradient-overlay");
   const leftBottle   = document.querySelector(".left-bottle");
   const rightBottle  = document.querySelector(".right-bottle");
   const leftText     = document.querySelector(".left-text");
   const rightText    = document.querySelector(".right-text");
+  const section      = document.querySelector(".bottle-section");
   const customCursor = document.querySelector(".custom-cursor");
   const cursorText   = document.querySelector(".cursor-text");
 
-  // Helper to update the inner cursor text
-  function updateCursor() {
-    const active = leftBottle.classList.contains("clicked") ||
-                   rightBottle.classList.contains("clicked");
+  /* ── Helpers ─────────────────────────────────────────── */
+  function updateCursorText() {
+    const active =
+      leftBottle.classList.contains("clicked") ||
+      rightBottle.classList.contains("clicked");
     cursorText.textContent = active ? "Close" : "Click to see more";
   }
 
-  // Reset everything to the closed state
-  function resetAll() {
-    section.classList.remove("open-left", "open-right");
-    overlay.style.opacity = "1";             // show gradient
-    section.style.backgroundColor = "";      // clear tint
-
+  function resetInstant() {
     leftBottle.classList.remove("clicked", "hide");
     rightBottle.classList.remove("clicked", "hide");
-    leftText.classList.remove("show");
+    leftText .classList.remove("show");
     rightText.classList.remove("show");
-    updateCursor();
+    section .classList.remove("opened", "left-opened", "right-opened");
+    // restore split‑gradient & clear tint
+    section.style.backgroundImage = "";
+    section.style.backgroundColor = "";
+    updateCursorText();
   }
 
+  /* ── Mobile: show both texts, no clicks ───────────────── */
   if (isMobile) {
-    // Mobile: always show texts, no click logic
     leftText.classList.add("show");
     rightText.classList.add("show");
   } else {
-    // Desktop: click handlers
+    /* ── Desktop: open/close logic ──────────────────────── */
     function openSide(side) {
-      resetAll();                           // clear any previous state
-      overlay.style.opacity = "0";          // hide gradient immediately
-      section.classList.add(side === "left" ? "open-left" : "open-right");
-      section.style.backgroundColor = side === "left"
-        ? "#B64A42"
-        : "#5F120D";
+      // 1) remove split‑gradient
+      section.style.backgroundImage  = "none";
+      // 2) tint solid
+      section.style.backgroundColor  = side === "left" ? "#B64A42" : "#5F120D";
+
+      resetInstant(); // clear any previous state
+
       if (side === "left") {
         leftBottle.classList.add("clicked");
         rightBottle.classList.add("hide");
         leftText.classList.add("show");
+        section.classList.add("opened", "left-opened");
       } else {
         rightBottle.classList.add("clicked");
         leftBottle.classList.add("hide");
         rightText.classList.add("show");
+        section.classList.add("opened", "right-opened");
       }
-      updateCursor();
+      updateCursorText();
     }
 
-    function closeSide() {
-      // Wait for the bottle to slide back (0.8s), then reset
-      const sliding = section.classList.contains("open-left")
-        ? rightBottle : leftBottle;
-      sliding.addEventListener("transitionend", function handler(e) {
+    function closeSmooth() {
+      // pick the bottle that slides back
+      const slidingBottle = section.classList.contains("left-opened")
+        ? rightBottle
+        : leftBottle;
+
+      // after its transform ends, restore the gradient
+      const onEnd = (e) => {
         if (e.propertyName !== "transform") return;
-        sliding.removeEventListener("transitionend", handler);
-        resetAll();
-      });
+        slidingBottle.removeEventListener("transitionend", onEnd);
+        section.style.backgroundImage = "";
+        section.style.backgroundColor = "";
+        section.classList.remove("opened", "left-opened", "right-opened");
+        updateCursorText();
+      };
+      slidingBottle.addEventListener("transitionend", onEnd);
+
       // trigger the slide‑back
       leftBottle.classList.remove("clicked", "hide");
       rightBottle.classList.remove("clicked", "hide");
@@ -72,16 +82,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     leftBottle.addEventListener("click", () => {
       leftBottle.classList.contains("clicked")
-        ? closeSide()
+        ? closeSmooth()
         : openSide("left");
     });
     rightBottle.addEventListener("click", () => {
       rightBottle.classList.contains("clicked")
-        ? closeSide()
+        ? closeSmooth()
         : openSide("right");
     });
 
-    // Custom cursor logic (unchanged)
+    /* ── Custom cursor (desktop) ───────────────────────── */
     if (customCursor) {
       document.addEventListener("mousemove", (e) => {
         customCursor.style.top  = `${e.clientY}px`;
