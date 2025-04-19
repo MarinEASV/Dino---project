@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ── new “smooth close” logic ────────────────────────── */
-  const SLIDE_DURATION = 10000;          // ms — matches .bottle CSS transition
+  const SLIDE_DURATION = null;          // ms — matches .bottle CSS transition
   let   closeTimerID   = null;
 
   function closeBottlesSmooth() {
