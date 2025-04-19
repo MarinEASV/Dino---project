@@ -1041,6 +1041,7 @@ nav a {
     }
   }
   
-  .bottle-container {
-    cursor: none;
+  .bottle-section,
+  .bottle-section * {
+    cursor: none !important;
   }
