@@ -1033,13 +1033,14 @@ nav a {
       opacity: 1;                      /* jump to visible */
     }
 
-    .bottle-section.opened .bottle-text {
-      transition: 10s !important;
+    .bottle-section::before {
+      transition: none !important;
     }
-
-    .bottle-section,
-  .bottle-section * {
-    cursor: none !important;
-  }
+  
+    /* Don’t swap the gradient to the white variant either */
+    .bottle-section.left-opened::before,
+    .bottle-section.right-opened::before {
+      background: inherit !important;   /* keep original split gradient */
+    }
   }
   
