@@ -1032,5 +1032,9 @@ nav a {
       transition: none;                /* kill fade‑in */
       opacity: 1;                      /* jump to visible */
     }
+
+    .bottle-section.opened .bottle-text {
+      transition: none !important;
+    }
   }
   
