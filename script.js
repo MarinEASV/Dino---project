@@ -16,7 +16,36 @@ document.addEventListener("DOMContentLoaded", function () {
     cursorText.textContent = active ? "Close" : "Click to see more";
   }
 
-  // used when we open the opposite side (instant reset, no delay)
+  /** Wait for the active bottle’s slide‑back to finish, then clear colours */
+  function waitAndResetColour() {
+    // decide which bottle will fire the transitionend (whichever is visible)
+    const bottle = leftBottle.classList.contains("clicked") ? leftBottle : rightBottle;
+
+    function handler(e) {
+      if (e.propertyName !== "transform") return;   // ignore opacity etc.
+      section.classList.remove("opened", "left-opened", "right-opened");
+      bottle.removeEventListener("transitionend", handler);
+      updateCursorText();
+    }
+
+    bottle.addEventListener("transitionend", handler);
+  }
+
+  /** Close routine without any timeouts */
+  function closeBottlesSmooth() {
+    leftBottle.classList.remove("clicked");
+    rightBottle.classList.remove("clicked");
+
+    leftBottle.classList.remove("hide");
+    rightBottle.classList.remove("hide");
+
+    leftText.classList.remove("show");
+    rightText.classList.remove("show");
+
+    waitAndResetColour();          // will fire when slide finishes
+  }
+
+  /** Reset instantly (used before opening the other side) */
   function resetAllInstant() {
     leftBottle.classList.remove("clicked", "hide");
     rightBottle.classList.remove("clicked", "hide");
@@ -26,46 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCursorText();
   }
 
-  /* ── new “smooth close” logic ────────────────────────── */
-  const SLIDE_DURATION = 100000;          // ms — matches .bottle CSS transition
-  let   closeTimerID   = null;
-
-  function closeBottlesSmooth() {
-    // cancel any previous pending removal
-    clearTimeout(closeTimerID);
-
-    /* 1️⃣  start slide‑back immediately */
-    leftBottle.classList.remove("clicked");
-    rightBottle.classList.remove("clicked");
-    leftBottle.classList.remove("hide");
-    rightBottle.classList.remove("hide");
-    leftText.classList.remove("show");
-    rightText.classList.remove("show");
-
-    /* 2️⃣  after the slide ends, fade the background away */
-    closeTimerID = setTimeout(() => {
-      section.classList.remove("opened", "left-opened", "right-opened");
-      updateCursorText();
-    }, SLIDE_DURATION);
-  }
-
-  /* ── MOBILE (simple stack, no clicks) ────────────────── */
+  /* ── MOBILE (simple stack) ─────────────────────────── */
   if (isMobile) {
     leftText.classList.add("show");
     rightText.classList.add("show");
   }
 
-  /* ── DESKTOP behaviour ───────────────────────────────── */
+  /* ── DESKTOP behaviour ─────────────────────────────── */
   if (!isMobile) {
 
-    /* LEFT bottle click */
     leftBottle.addEventListener("click", () => {
       if (leftBottle.classList.contains("clicked")) {
-        // it’s already open → this click means “close”
-        closeBottlesSmooth();
+        closeBottlesSmooth();                      // user is closing
       } else {
-        // open the left side
-        clearTimeout(closeTimerID);   // stop any pending close
         resetAllInstant();
         leftBottle.classList.add("clicked");
         rightBottle.classList.add("hide");
@@ -75,12 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    /* RIGHT bottle click */
     rightBottle.addEventListener("click", () => {
       if (rightBottle.classList.contains("clicked")) {
         closeBottlesSmooth();
       } else {
-        clearTimeout(closeTimerID);
         resetAllInstant();
         rightBottle.classList.add("clicked");
         leftBottle.classList.add("hide");
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    /* custom cursor ██████████████████████████████████████ */
+    /* custom cursor (unchanged) */
     if (customCursor) {
       document.addEventListener("mousemove", (e) => {
         customCursor.style.top  = `${e.clientY}px`;
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* ── MOBILE MENU TOGGLE (unchanged) ──────────────────── */
+  /* ── MOBILE MENU TOGGLE (unchanged) ────────────────── */
   const mobileMenu = document.getElementById("mobileMenu");
   const menuToggle = document.getElementById("menuToggle");
   const closeMenu  = document.getElementById("closeMenu");
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ── NAVBAR SCROLL EFFECT (unchanged) ────────────────── */
+  /* ── NAVBAR SCROLL EFFECT (unchanged) ──────────────── */
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     window.addEventListener("scroll", () => {
@@ -146,15 +146,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-/* ── PRELOADER (unchanged) ─────────────────────────────── */
+/* ── PRELOADER (unchanged) ───────────────────────────── */
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const logo      = document.querySelector(".preloader-logo");
 
-  logo.classList.add("animate");     // start the key‑frame sequence
+  logo.classList.add("animate");
 
   setTimeout(() => {
     preloader.style.opacity    = "0";
     preloader.style.visibility = "hidden";
-  }, 4500);                          // 2 s fade + 2.5 s zoom = 4.5 s
+  }, 4500);
 });
