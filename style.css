@@ -1042,5 +1042,14 @@ nav a {
     .bottle-section.right-opened::before {
       background: inherit !important;   /* keep original split gradient */
     }
+
+    .bottle-section.opened::before {
+      display: none !important;
+    }
+  
+    /* As soon as it’s closed, the pseudo‑element is rendered again */
+    .bottle-section:not(.opened)::before {
+      display: block;
+    }
   }
   
