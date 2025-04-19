@@ -1036,5 +1036,10 @@ nav a {
     .bottle-section.opened .bottle-text {
       transition: 10s !important;
     }
+
+    .bottle-section,
+  .bottle-section * {
+    cursor: none !important;
+  }
   }
   
