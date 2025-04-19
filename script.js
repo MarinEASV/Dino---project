@@ -1,14 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const isMobile = window.innerWidth <= 768;
-  const leftBottle = document.querySelector(".left-bottle");
-  const rightBottle = document.querySelector(".right-bottle");
-  const leftText   = document.querySelector(".left-text");
-  const rightText  = document.querySelector(".right-text");
-  const section    = document.querySelector(".bottle-section");
+  const isMobile     = window.innerWidth <= 768;
+  const leftBottle   = document.querySelector(".left-bottle");
+  const rightBottle  = document.querySelector(".right-bottle");
+  const leftText     = document.querySelector(".left-text");
+  const rightText    = document.querySelector(".right-text");
+  const section      = document.querySelector(".bottle-section");
   const customCursor = document.querySelector(".custom-cursor");
   const cursorText   = document.querySelector(".cursor-text");
 
-  function resetAll() {
+  /* ── helpers ─────────────────────────────────────────── */
+  function updateCursorText() {
+    const active =
+      leftBottle.classList.contains("clicked") ||
+      rightBottle.classList.contains("clicked");
+    cursorText.textContent = active ? "Close" : "Click to see more";
+  }
+
+  // used when we open the opposite side (instant reset, no delay)
+  function resetAllInstant() {
     leftBottle.classList.remove("clicked", "hide");
     rightBottle.classList.remove("clicked", "hide");
     leftText.classList.remove("show");
@@ -16,48 +25,78 @@ document.addEventListener("DOMContentLoaded", function () {
     section.classList.remove("opened", "left-opened", "right-opened");
     updateCursorText();
   }
-  function updateCursorText() {
-    const active = leftBottle.classList.contains("clicked") ||
-                   rightBottle.classList.contains("clicked");
-    cursorText.textContent = active ? "Close" : "Click to see more";
+
+  /* ── new “smooth close” logic ────────────────────────── */
+  const SLIDE_DURATION = 800;          // ms — matches .bottle CSS transition
+  let   closeTimerID   = null;
+
+  function closeBottlesSmooth() {
+    // cancel any previous pending removal
+    clearTimeout(closeTimerID);
+
+    /* 1️⃣  start slide‑back immediately */
+    leftBottle.classList.remove("clicked");
+    rightBottle.classList.remove("clicked");
+    leftBottle.classList.remove("hide");
+    rightBottle.classList.remove("hide");
+    leftText.classList.remove("show");
+    rightText.classList.remove("show");
+
+    /* 2️⃣  after the slide ends, fade the background away */
+    closeTimerID = setTimeout(() => {
+      section.classList.remove("opened", "left-opened", "right-opened");
+      updateCursorText();
+    }, SLIDE_DURATION);
   }
 
+  /* ── MOBILE (simple stack, no clicks) ────────────────── */
   if (isMobile) {
-    // on mobile: show both texts, no clicks, no animations
     leftText.classList.add("show");
     rightText.classList.add("show");
-  } else {
-    // --- desktop: original bottle‑click logic ---
-    leftBottle.addEventListener("click", function () {
-      const active = leftBottle.classList.contains("clicked");
-      resetAll();
-      if (!active) {
+  }
+
+  /* ── DESKTOP behaviour ───────────────────────────────── */
+  if (!isMobile) {
+
+    /* LEFT bottle click */
+    leftBottle.addEventListener("click", () => {
+      if (leftBottle.classList.contains("clicked")) {
+        // it’s already open → this click means “close”
+        closeBottlesSmooth();
+      } else {
+        // open the left side
+        clearTimeout(closeTimerID);   // stop any pending close
+        resetAllInstant();
         leftBottle.classList.add("clicked");
         rightBottle.classList.add("hide");
         leftText.classList.add("show");
         section.classList.add("opened", "left-opened");
+        updateCursorText();
       }
-      updateCursorText();
     });
-    rightBottle.addEventListener("click", function () {
-      const active = rightBottle.classList.contains("clicked");
-      resetAll();
-      if (!active) {
+
+    /* RIGHT bottle click */
+    rightBottle.addEventListener("click", () => {
+      if (rightBottle.classList.contains("clicked")) {
+        closeBottlesSmooth();
+      } else {
+        clearTimeout(closeTimerID);
+        resetAllInstant();
         rightBottle.classList.add("clicked");
         leftBottle.classList.add("hide");
         rightText.classList.add("show");
         section.classList.add("opened", "right-opened");
+        updateCursorText();
       }
-      updateCursorText();
     });
 
-    // --- custom cursor only on desktop ---
+    /* custom cursor ██████████████████████████████████████ */
     if (customCursor) {
-      document.addEventListener("mousemove", e => {
+      document.addEventListener("mousemove", (e) => {
         customCursor.style.top  = `${e.clientY}px`;
         customCursor.style.left = `${e.clientX}px`;
       });
-      [leftBottle, rightBottle].forEach(bottle => {
+      [leftBottle, rightBottle].forEach((bottle) => {
         bottle.addEventListener("mouseenter", () => {
           customCursor.style.opacity    = "1";
           customCursor.style.visibility = "visible";
@@ -69,60 +108,53 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // --- AOS only on desktop ---
+    /* AOS (desktop only) */
     if (typeof AOS !== "undefined") {
       AOS.init({ duration: 1200 });
     }
   }
 
-  // --- MOBILE MENU TOGGLE ---
+  /* ── MOBILE MENU TOGGLE (unchanged) ──────────────────── */
   const mobileMenu = document.getElementById("mobileMenu");
   const menuToggle = document.getElementById("menuToggle");
-  const closeMenu = document.getElementById("closeMenu");
+  const closeMenu  = document.getElementById("closeMenu");
 
   if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener("click", function () {
+    menuToggle.addEventListener("click", () => {
       mobileMenu.classList.add("show");
     });
-
-    closeMenu?.addEventListener("click", function () {
+    closeMenu?.addEventListener("click", () => {
       mobileMenu.classList.remove("show");
     });
-
-    document.addEventListener("click", function (event) {
-      if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+    document.addEventListener("click", (event) => {
+      if (
+        !mobileMenu.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
         mobileMenu.classList.remove("show");
       }
     });
   }
 
-  // --- NAVBAR SCROLL EFFECT ---
-  const navbar = document.querySelector('.navbar');
+  /* ── NAVBAR SCROLL EFFECT (unchanged) ────────────────── */
+  const navbar = document.querySelector(".navbar");
   if (navbar) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 0) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
+      if (window.scrollY > 0) navbar.classList.add("scrolled");
+      else navbar.classList.remove("scrolled");
     });
   }
 });
 
+/* ── PRELOADER (unchanged) ─────────────────────────────── */
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  const logo      = document.querySelector(".preloader-logo");
 
-window.addEventListener('load', () => {
-  const preloader = document.getElementById('preloader');
-  const logo = document.querySelector('.preloader-logo');
+  logo.classList.add("animate");     // start the key‑frame sequence
 
-  // Start the animation sequence
-  logo.classList.add('animate');
-
-  // Total duration = fade in (2s) + zoom (2.5s) = 4.5s
   setTimeout(() => {
-    preloader.style.opacity = '0';
-    preloader.style.visibility = 'hidden';
-  }, 4500);
+    preloader.style.opacity    = "0";
+    preloader.style.visibility = "hidden";
+  }, 4500);                          // 2 s fade + 2.5 s zoom = 4.5 s
 });
-
-
-
