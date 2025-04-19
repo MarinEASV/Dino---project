@@ -22,6 +22,10 @@
      <?php get_template_part("template-parts/video"); ?>
     <!-- Video Section -->
 
+    <!-- Reviews Section -->
+    <?php get_template_part("template-parts/reviews"); ?>
+    <!-- Reviews Section -->
+
      
 
     

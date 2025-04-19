@@ -1045,3 +1045,90 @@ nav a {
   .bottle-section * {
     cursor: none !important;
   }
+
+  /* ───────────────── Reviews Section ───────────────── */
+
+.reviews-section {
+  padding: 4rem 1rem;
+  background-color: #f9f9f9;
+}
+.reviews-section__title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #333;
+}
+
+/* grid of review cards */
+.wp-google-review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* each review card */
+.wp-google-review {
+  background: #fff;
+  border-radius: .5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform .3s ease, box-shadow .3s ease;
+  overflow: hidden;
+}
+.wp-google-review:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* review header (avatar, name, stars) */
+.wp-google-review .wpg-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.wp-google-review .wpg-author img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  margin-right: .75rem;
+}
+.wp-google-review .wpg-author .wpg-author-name {
+  font-weight: 600;
+  color: #222;
+}
+.wp-google-review .wpg-rating {
+  margin-left: auto;
+  color: #f5a623; /* star color */
+}
+
+/* review text */
+.wp-google-review .wpg-text {
+  font-size: .95rem;
+  line-height: 1.5;
+  color: #444;
+  margin-top: .75rem;
+}
+
+/* date/time */
+.wp-google-review .wpg-time {
+  display: block;
+  font-size: .8rem;
+  color: #888;
+  margin-top: .5rem;
+}
+
+/* mobile tweaks */
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 2.5rem 1rem;
+  }
+  .reviews-section__title {
+    font-size: 1.75rem;
+  }
+  .wp-google-review {
+    padding: 1.25rem;
+  }
+}
+
+/* make sure AOS is loaded in footer (if you’re using it) */
