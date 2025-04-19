@@ -1033,4 +1033,10 @@ nav a {
       opacity: 1;                      /* jump to visible */
     }
   }
+
+  @media (min-width: 769px) {
+    body.hide-default-cursor {
+      cursor: none !important;
+    }
+  }
   
