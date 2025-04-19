@@ -720,24 +720,30 @@ nav a {
 }
 
 /* Slide & reveal logic */
-.bottle.left-bottle.clicked ~ .right-bottle {
+.bottle-section.left-opened .right-bottle {
   transform: translateX(100%);
   opacity: 0;
   pointer-events: none;
 }
-.bottle.left-bottle.clicked ~ .left-text {
+
+.bottle-section.left-opened .left-text {
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(-50%) scale(1);
 }
-.bottle.right-bottle.clicked ~ .left-bottle {
+
+.bottle-section.right-opened .left-bottle {
   transform: translateX(-100%);
   opacity: 0;
   pointer-events: none;
 }
-.bottle.right-bottle.clicked ~ .right-text {
+
+.bottle-section.right-opened .right-text {
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(-50%) scale(1);
 }
+
 .bottle-text.show {
   opacity: 1;
   pointer-events: auto;
@@ -811,5 +817,6 @@ nav a {
     pointer-events: auto !important;
     margin-bottom: 1.5rem;
   }
+  
   .custom-cursor { display: none !important; }
 }
