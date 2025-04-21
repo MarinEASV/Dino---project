@@ -87,17 +87,20 @@
   ?>
 
   <?php if ($card_image_1): ?>
-    <img src="<?php echo esc_url($card_image_1['sizes']['medium_large']); ?>" 
-      alt="<?php echo esc_attr($menu_type); ?> image 1" 
-      class="menu-photo img-fluid mb-4" style="max-width: 90%;">
-  <?php endif; ?>
-
-  <?php if ($card_image_2): ?>
-    <img src="<?php echo esc_url($card_image_2['sizes']['medium_large']); ?>" 
-      alt="<?php echo esc_attr($menu_type); ?> image 2" 
-      class="menu-photo img-fluid" style="max-width: 90%;">
-  <?php endif; ?>
+    <div class="menu-photo-wrapper menu-photo-rotate-left mb-4">
+  <img src="<?php echo esc_url($card_image['sizes']['medium_large']); ?>" 
+       alt="<?php echo esc_attr($menu_type); ?>" 
+       class="menu-photo img-fluid">
 </div>
+
+<?php if ($card_image_2): ?>
+  <div class="menu-photo-wrapper menu-photo-rotate-right">
+    <img src="<?php echo esc_url($card_image_2['sizes']['medium_large']); ?>" 
+         alt="<?php echo esc_attr($menu_type); ?>" 
+         class="menu-photo img-fluid">
+  </div>
+<?php endif; ?>
+
 
             </div>
           </div>
