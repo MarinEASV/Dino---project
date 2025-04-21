@@ -362,28 +362,22 @@ nav a {
   }
   
   .menu-photo-wrapper {
-    display: inline-block;
-    border: 3px solid #7a2c2c;
-    border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    overflow: hidden;
-    margin-top: 2rem;
-  }
-  
-  .menu-photo-rotate-left {
-    transform: rotate(-2deg);
-  }
-  
-  .menu-photo-rotate-right {
-    transform: rotate(2deg);
-  }
-  
-  .menu-photo {
-    max-width: 100%;
-    height: auto;
-    transform: none !important;
-    display: block;
-  }
+  display: inline-block;
+  transform: rotate(-2deg);
+  border: 3px solid #7a2c2c;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.menu-photo {
+  max-width: 100%;
+  height: auto;
+  transform: none !important; /* removes double-rotation if applied */
+  display: block;
+}
+
   
   
   /* Mobile tweaks */
