@@ -39,9 +39,10 @@
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="footer-item d-flex flex-column">
             <h4 class="mb-4" style="color: var(--c-dark);">Contact</h4>
-            <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank"><i class="fa fa-map-marker-alt me-2"></i>Strandvejen 8, 6720 Fanø</a>
             <a href="mailto:leon@valmar-metal.ba"><i class="fas fa-envelope me-2"></i>http://www.restaurantdino.dk/</a>
-            <a href="tel:+38763956751"><i class="fas fa-phone me-2"></i>75166464</a>
+            <a href="tel:+38763956751"><i class="fas fa-phone me-2"></i>+45 75 16 64 64</a>
+            <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank"><i class="fa fa-map-marker-alt me-2"></i>Strandvejen 8, 6720 Fanø</a>
+
 
           </div>
         </div>

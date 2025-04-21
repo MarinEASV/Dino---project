@@ -5,7 +5,7 @@
 
       <!-- Video Section Title -->
       <div class="container my-5 text-center" data-aos="fade-down">
-        <h2>Pogledajte više o nama u promo videu</h2>
+        <h2>Take a look and find out more in our video</h2>
       </div>
 
       <!-- Centered Video Carousel Section -->
