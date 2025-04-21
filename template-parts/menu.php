@@ -81,12 +81,24 @@
                 </div>
               </div>
               <div class="col-lg-4 text-center d-none d-lg-block">
-                <?php if ($card_image): ?>
-                  <img src="<?php echo esc_url($card_image['sizes']['medium_large']); ?>" 
-                    alt="<?php echo esc_attr($menu_type); ?>" 
-                    class="menu-photo img-fluid">
-                <?php endif; ?>
-              </div>
+  <?php 
+    $card_image_1 = get_field("card_image_1");
+    $card_image_2 = get_field("card_image_2");
+  ?>
+
+  <?php if ($card_image_1): ?>
+    <img src="<?php echo esc_url($card_image_1['sizes']['medium_large']); ?>" 
+      alt="<?php echo esc_attr($menu_type); ?> image 1" 
+      class="menu-photo img-fluid mb-4" style="max-width: 90%;">
+  <?php endif; ?>
+
+  <?php if ($card_image_2): ?>
+    <img src="<?php echo esc_url($card_image_2['sizes']['medium_large']); ?>" 
+      alt="<?php echo esc_attr($menu_type); ?> image 2" 
+      class="menu-photo img-fluid" style="max-width: 90%;">
+  <?php endif; ?>
+</div>
+
             </div>
           </div>
           <?php

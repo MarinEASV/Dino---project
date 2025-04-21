@@ -363,7 +363,7 @@ nav a {
   
   /* Angled menu photo */
   .menu-photo {
-    max-width: 100%;
+    max-width: 90%;
     transform: rotate(-2deg);
     border: 3px solid #7a2c2c; /* red wine tone */
     border-radius: 4px;
