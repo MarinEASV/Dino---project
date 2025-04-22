@@ -92,7 +92,8 @@
        alt="<?php echo esc_attr($menu_type); ?>" 
        class="menu-photo img-fluid">
 </div>
-
+  <?php endif; ?>
+  
 <?php if ($card_image_2): ?>
   <div class="menu-photo-wrapper menu-photo-rotate-right">
     <img src="<?php echo esc_url($card_image_2['sizes']['medium_large']); ?>" 
