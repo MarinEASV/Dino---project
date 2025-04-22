@@ -151,3 +151,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+/* ── PRELOADER ─────────────────────────────────────────── */
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  const logo      = document.querySelector(".preloader-logo");
+
+  logo.classList.add("animate");
+
+  setTimeout(() => {
+    preloader.style.opacity    = "0";
+    preloader.style.visibility = "hidden";
+  }, 4500);
+});
