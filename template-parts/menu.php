@@ -80,30 +80,32 @@
                   </ul>
                 </div>
               </div>
+             
+
+
               <div class="col-lg-4 text-center d-none d-lg-block">
   <?php 
-    $card_image_1 = get_field("card_image_1");
-    $card_image_2 = get_field("card_image_2");
+    $card_image_1 = get_field("card_image_1", get_the_ID());
+    $card_image_2 = get_field("card_image_2", get_the_ID());
   ?>
 
   <?php if ($card_image_1): ?>
     <div class="menu-photo-wrapper menu-photo-rotate-left mb-4">
-  <img src="<?php echo esc_url($card_image['sizes']['medium_large']); ?>" 
-       alt="<?php echo esc_attr($menu_type); ?>" 
-       class="menu-photo img-fluid">
-</div>
+      <img src="<?php echo esc_url($card_image_1['sizes']['medium_large']); ?>" 
+           alt="<?php echo esc_attr($menu_type); ?> image 1" 
+           class="menu-photo img-fluid">
+    </div>
   <?php endif; ?>
-  
-<?php if ($card_image_2): ?>
-  <div class="menu-photo-wrapper menu-photo-rotate-right">
-    <img src="<?php echo esc_url($card_image_2['sizes']['medium_large']); ?>" 
-         alt="<?php echo esc_attr($menu_type); ?>" 
-         class="menu-photo img-fluid">
-  </div>
-<?php endif; ?>
 
+  <?php if ($card_image_2): ?>
+    <div class="menu-photo-wrapper menu-photo-rotate-right">
+      <img src="<?php echo esc_url($card_image_2['sizes']['medium_large']); ?>" 
+           alt="<?php echo esc_attr($menu_type); ?> image 2" 
+           class="menu-photo img-fluid">
+    </div>
+  <?php endif; ?>
+</div>
 
-            </div>
           </div>
           <?php
             $isFirst = false;
