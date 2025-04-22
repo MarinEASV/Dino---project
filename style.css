@@ -365,9 +365,6 @@ nav a {
 .menu-photo-wrapper {
   display: inline-block;
   transform: rotate(-2deg); /* Adjust the rotation for visual tilt */
-  border: 3px solid #7a2c2c; /* Border color */
-  border-radius: 4px; /* Rounded corners */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Shadow effect */
   overflow: hidden; /* Prevents image from spilling outside */
   margin-top: 2rem; /* Top margin for spacing */
 }
