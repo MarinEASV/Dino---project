@@ -12,10 +12,7 @@
 
 <?php $logo = get_field("logo"); ?>
 
-<!-- Preloader -->
-<div id="preloader" class="logo-only">
-    <img src="<?php echo esc_url($logo['url']); ?>" alt="Loading..." class="preloader-logo">
-</div>
+
 
 
 <!-- Navbar -->
