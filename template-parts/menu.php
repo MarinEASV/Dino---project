@@ -10,7 +10,6 @@
         <nav>
           <div class="nav nav-tabs mb-5 justify-content-center" id="nav-tab" role="tablist">
             <?php
-            // Fetch and store all menu data in an array
             $menu_tabs = array();
             $menu_query = new WP_Query(array('post_type' => 'menu', 'posts_per_page' => -1));
             if ($menu_query->have_posts()):
@@ -29,7 +28,6 @@
               wp_reset_postdata();
             endif;
 
-            // Display the tab buttons
             $isFirst = true;
             foreach ($menu_tabs as $index => $tab):
             ?>
@@ -53,7 +51,6 @@
         <!-- Tab Content -->
         <div class="tab-content" id="nav-tabContent">
           <?php
-          // Display the tab content
           $isFirst = true;
           foreach ($menu_tabs as $index => $tab):
           ?>

@@ -361,17 +361,25 @@ nav a {
     white-space: nowrap;
   }
   
-  .menu-photo {
-    max-width: 90%;
-    height: auto;
-    transform: rotate(-2deg);
-    border: 3px solid #7a2c2c;
-    border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    margin-top: 2rem;
-  }
-  
- 
+ /* Image Container */
+.menu-photo-wrapper {
+  display: inline-block;
+  transform: rotate(-2deg); /* Adjust the rotation for visual tilt */
+  border: 3px solid #7a2c2c; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Shadow effect */
+  overflow: hidden; /* Prevents image from spilling outside */
+  margin-top: 2rem; /* Top margin for spacing */
+}
+
+/* Image Styling */
+.menu-photo {
+  max-width: 100%; /* Ensures image doesn't exceed the container width */
+  height: auto; /* Maintain aspect ratio */
+  transform: none !important; /* Prevent double rotation if applied */
+  display: block; /* Ensures image is block-level */
+}
+
 
   
   
@@ -1049,3 +1057,120 @@ nav a {
   .bottle-section * {
     cursor: none !important;
   }
+
+  /* ───────────────── Reviews Section ───────────────── */
+
+.reviews-section {
+  padding: 4rem 1rem;
+  background-color: #f9f9f9;
+}
+.reviews-section__title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #333;
+}
+
+/* grid of review cards */
+.wp-google-review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* each review card */
+.wp-google-review {
+  background: #fff;
+  border-radius: .5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform .3s ease, box-shadow .3s ease;
+  overflow: hidden;
+}
+.wp-google-review:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* review header (avatar, name, stars) */
+.wp-google-review .wpg-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.wp-google-review .wpg-author img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  margin-right: .75rem;
+}
+.wp-google-review .wpg-author .wpg-author-name {
+  font-weight: 600;
+  color: #222;
+}
+.wp-google-review .wpg-rating {
+  margin-left: auto;
+  color: #f5a623; /* star color */
+}
+
+/* review text */
+.wp-google-review .wpg-text {
+  font-size: .95rem;
+  line-height: 1.5;
+  color: #444;
+  margin-top: .75rem;
+}
+
+/* date/time */
+.wp-google-review .wpg-time {
+  display: block;
+  font-size: .8rem;
+  color: #888;
+  margin-top: .5rem;
+}
+
+/* mobile tweaks */
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 2.5rem 1rem;
+  }
+  .reviews-section__title {
+    font-size: 1.75rem;
+  }
+  .wp-google-review {
+    padding: 1.25rem;
+  }
+}
+
+/* ─── Horizontal scroll tweaks ─── */
+
+.reviews-section .wp-google-review-grid {
+  display: flex;               /* switch from grid → flex-row */
+  overflow-x: auto;            /* enable horizontal scroll */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  gap: 1.5rem;                 /* same gap as before */
+  padding-bottom: 1rem;        /* room for scrollbar (optional) */
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
+}
+
+.reviews-section .wp-google-review {
+  flex: 0 0 auto;              /* each card keeps its width */
+  width: min(280px, 80%);      /* adapt as you like */
+  scroll-snap-align: start;    /* snap alignment */
+}
+
+/* Optional: make it snap‑to‑card when you lift your finger */
+.reviews-section .wp-google-review-grid {
+  scroll-snap-type: x mandatory;
+}
+
+/* Hide default scrollbar (WebKit) — optional cosmetic */
+.reviews-section .wp-google-review-grid::-webkit-scrollbar {
+  height: 6px;
+}
+.reviews-section .wp-google-review-grid::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
