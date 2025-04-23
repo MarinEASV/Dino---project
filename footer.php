@@ -20,7 +20,7 @@
           <div class="footer-item d-flex flex-column">
             <h4 class="mb-4" style="color: var(--c-dark);">Info</h4>
             <a href="#about"><i class="fas fa-angle-right me-2"></i>About us</a>
-            <a href="#" data-toggle="modal" data-target="#bookAppointmentModal">
+            <a href="menu" data-toggle="modal" data-target="#bookAppointmentModal">
               <i class="fas fa-angle-right me-2"></i>Check the menu
             </a>
             <a href="http://valmar-metal.local/wp-content/uploads/2025/03/Valmar-Metal-Politika-Privatnosti.pdf">
