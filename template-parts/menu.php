@@ -1,7 +1,7 @@
 <section id="menu">
   <div class="py-vh-5 w-100 overflow-hidden">
     <div class="container">
-      <div class="text-center mx-auto" data-aos="fade-down" style="max-width: 600px; padding-top: 5rem;">
+      <div class="text-center mx-auto" data-aos="fade-in" style="max-width: 600px; padding-top: 5rem;">
         <h1 class="display-5 mb-5 fw-medium" style="color: var(--c-dark);">MENU</h1>
       </div>
 
