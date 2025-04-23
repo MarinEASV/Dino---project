@@ -48,10 +48,7 @@ function custom_theme_scripts() {
     // Enqueue Bootstrap (if needed)
     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true);
 
-    // Enqueue WOW.js
-    wp_enqueue_script('wow-js', 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js', array(), null, true);
-    wp_add_inline_script('wow-js', 'new WOW().init();');
-
+  
     // Enqueue Custom Script
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/script.js', array('jquery'), null, true);
 }

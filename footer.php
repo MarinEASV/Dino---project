@@ -31,9 +31,9 @@
         <div class="col-md-6 col-lg-6 col-xl-3">
           <div class="footer-item d-flex flex-column">
             <h4 class="mb-4" style="color: var(--c-dark);">Menu</h4>
-            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i>...</a>
-            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i>...</a>
-            <a href="#manufacturing"><i class="fas fa-angle-right me-2"></i>...</a>
+            <a href="#menu"><i class="fas fa-angle-right me-2"></i>...</a>
+            <a href="#menu"><i class="fas fa-angle-right me-2"></i>...</a>
+            <a href="#menu"><i class="fas fa-angle-right me-2"></i>...</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-6 col-xl-3">
