@@ -7,7 +7,7 @@ $about_heading = get_field('about_heading');
 $about_text = get_field('about_text');
 ?>
 
-<section class="about-section" id="about" data-aos="">
+<section class="about-section" id="about">
   <hr class="section-divider">
   <div class="about-container">
     <?php if ($about_image): ?>
@@ -18,7 +18,7 @@ $about_text = get_field('about_text');
 
     <div class="about-content">
       <?php if ($about_heading): ?>
-        <h2 class="about-title"><?php echo esc_html($about_heading); ?></h2>
+        <h2 class="about-title" data-aos="fade-in"><?php echo esc_html($about_heading); ?></h2>
       <?php endif; ?>
 
       <?php if ($about_text): ?>
