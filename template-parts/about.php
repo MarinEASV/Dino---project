@@ -7,11 +7,11 @@ $about_heading = get_field('about_heading');
 $about_text = get_field('about_text');
 ?>
 
-<section class="about-section" id="about">
+<section class="about-section" id="about" data-aos="fade-in" >
   <hr class="section-divider">
   <div class="about-container">
     <?php if ($about_image): ?>
-      <div class="about-image" data-aos="fade-in">
+      <div class="about-image">
         <img src="<?php echo esc_url($about_image['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>">
       </div>
     <?php endif; ?>
