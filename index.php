@@ -6,13 +6,17 @@
     <?php get_template_part("template-parts/hero"); ?>
     <!--hero-->
 
-  
+    <!--menu-->
+     <?php get_template_part ("template-parts/menu");?>
+    <!--menu-->
 
     <!--about-->
     <?php get_template_part ("template-parts/about");?>
     <!--about-->
 
-   
+    <!-- Bottles Section -->
+    <?php get_template_part("template-parts/bottles"); ?>
+    <!-- Bottles Section -->
 
     <!-- Video Section -->
      <?php get_template_part("template-parts/video"); ?>
