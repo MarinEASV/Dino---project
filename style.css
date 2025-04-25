@@ -324,6 +324,67 @@ nav a {
 
 }
 
+/* Reserve Button */
+.reserve-btn {
+  background-color: var(--c-red); /* Or your brand color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: var(--p-font);
+  font-weight: 500;
+  border-radius: 0; /* Sharp edges */
+  transition: background 0.3s ease;
+}
+
+.reserve-btn:hover {
+  background-color: darkred;
+}
+
+/* Modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 2000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.6); 
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.call-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 20px;
+  color: var(--c-red);
+  text-decoration: none;
+}
+
+.call-link:hover {
+  text-decoration: underline;
+}
 
 
 
