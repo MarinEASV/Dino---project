@@ -30,7 +30,7 @@
             <a href="#menu">Menu</a>
             <a href="#about">About</a>
             <a href="#footer">Contact</a>
-            <button type="button" class="btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
+            <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
                 Reserve
             </button>
             <div id="weglot_here"></div> <!-- Weglot button -->
@@ -55,7 +55,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center">
             <div class="modal-header">
-                <h5 class="modal-title text-center" id="reservationModalLabel">Reservation Info</h5>
+                <h5 class="modal-title" id="reservationModalLabel">Reservation Info</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
