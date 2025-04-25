@@ -165,3 +165,15 @@ window.addEventListener("load", () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  const modalEl = document.getElementById('reservationModal');
+
+  modalEl.addEventListener('hide.bs.modal', function () {
+      const dialog = modalEl.querySelector('.modal-dialog');
+      modalEl.classList.add('showing-out');
+
+      setTimeout(() => {
+          modalEl.classList.remove('showing-out');
+      }, 300); // should match the slideFadeOut duration
+  });
+});

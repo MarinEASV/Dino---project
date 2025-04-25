@@ -324,7 +324,54 @@ nav a {
 
 }
 
+/* Custom animation for Bootstrap modal */
+@keyframes slideFadeIn {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
+@keyframes slideFadeOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
+/* Override Bootstrap's fade class */
+.modal.fade .modal-dialog {
+  transition: none;
+  animation: slideFadeIn 0.4s ease forwards;
+}
+
+/* When modal is fading out */
+.modal.fade.showing-out .modal-dialog {
+  animation: slideFadeOut 0.3s ease forwards;
+}
+
+.custom-reserve-btn {
+  padding: 0;
+  margin: 0;
+  border-radius: 0; /* Sharp edges */
+  font-size: 18 px;
+  background-color: var(--c-red);
+  color: var(--c-light);
+  border: none;
+}
+
+/* Optional: hover effect */
+.custom-reserve-btn:hover {
+  background-color: var(--c-dark);
+}
 
 
 
