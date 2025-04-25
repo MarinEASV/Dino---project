@@ -386,7 +386,7 @@ nav a {
 /* Modal title */
 .custom-reservation-modal .modal-title {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--c-red);
 }
 
@@ -403,7 +403,7 @@ nav a {
 .custom-call-btn:hover {
   background-color: var(--c-red);
   color: var(--c-light);
-  border-color: var(--c-red;
+  border-color: var(--c-red);
 }
 
 /* Optional: make modal header cleaner */
