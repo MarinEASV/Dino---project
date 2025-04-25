@@ -359,10 +359,11 @@ nav a {
 }
 
 .custom-reserve-btn {
-  padding: 0;
+  padding: 10px;
   margin: 0;
   border-radius: 0; /* Sharp edges */
   font-size: 18 px;
+  line-height: 1;
   background-color: var(--c-red);
   color: var(--c-light);
   border: none;
@@ -373,6 +374,42 @@ nav a {
   background-color: var(--c-dark);
 }
 
+/* Modal base */
+.custom-reservation-modal {
+  background-color: var(--c-light);
+  border-radius: 0;
+  padding: 30px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: var(--p-font); 
+}
+
+/* Modal title */
+.custom-reservation-modal .modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--c-red);
+}
+
+/* Call button */
+.custom-call-btn {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 0;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.custom-call-btn:hover {
+  background-color: var(--c-red);
+  color: var(--c-light);
+  border-color: var(--c-red;
+}
+
+/* Optional: make modal header cleaner */
+.custom-reservation-modal .modal-header {
+  border-bottom: none;
+}
 
 
 
