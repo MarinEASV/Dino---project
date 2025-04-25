@@ -170,17 +170,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const btn = document.getElementById("reserveBtn");
   const span = modal.querySelector(".close");
 
-  btn.onclick = function() {
-      modal.style.display = "block";
-  }
+  if (btn && modal && span) {
+      btn.onclick = function () {
+          modal.style.display = "block";
+      }
 
-  span.onclick = function() {
-      modal.style.display = "none";
-  }
-
-  window.onclick = function(event) {
-      if (event.target == modal) {
+      span.onclick = function () {
           modal.style.display = "none";
+      }
+
+      window.onclick = function (event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
       }
   }
 });
