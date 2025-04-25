@@ -30,7 +30,7 @@
             <a href="#menu">Menu</a>
             <a href="#about">About</a>
             <a href="#footer">Contact</a>
-            <button type="button" class="btn btn-danger rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
+            <button type="button" class="btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
                 Reserve
             </button>
             <div id="weglot_here"></div> <!-- Weglot button -->
@@ -55,12 +55,12 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center">
             <div class="modal-header">
-                <h5 class="modal-title" id="reservationModalLabel">Reservation Info</h5>
+                <h5 class="modal-title text-center" id="reservationModalLabel">Reservation Info</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>We handle table reservations or food orders only via phone calls.</p>
-                <a href="tel:+1234567890" class="btn btn-outline-danger mt-3">📞 +1 (234) 567-890</a>
+                <p>We handle table reservations and food orders only via phone calls.</p>
+                <a href="tel:+1234567890" class="btn btn-outline-danger mt-3">📞 +45 75 16 64 64</a>
             </div>
         </div>
     </div>
