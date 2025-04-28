@@ -178,29 +178,37 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-(function($){
-  // run when DOM is ready
-  $(document).ready(function(){
-    // your custom text
-    var myNumber = '420 anmeldelser';
+// ─── paste this at the BOTTOM of your script.js, AFTER your Trustindex embed ───
+(function(){
+  const myNumber = '420 anmeldelser';
 
-    // find every Google-reviews widget
-    $('.trustindex-widget[data-ttid*="google"]').each(function(){
-      var $widget = $(this);
+  function injectReviewCount() {
+    // 1) grab every Google­-reviews widget
+    document.querySelectorAll('.trustindex-widget[data-ttid*="google"]')
+      .forEach(widget => {
+        // 2) only inject if we haven't already
+        if (widget.querySelector('.my-review-count')) return;
 
-      // only do it once per widget
-      if ( !$widget.find('.my-review-count').length ) {
-        var $stars = $widget.find('.ti-widget-stars');
-        if ( $stars.length ) {
-          // insert your number after the stars
-          $stars.after(
-            '<span class="my-review-count" ' +
-              'style="margin-left:.5em;font-weight:600;">' +
-              myNumber +
-            '</span>'
-          );
-        }
-      }
-    });
-  });
-})(jQuery);
+        // 3) find the stars container
+        const stars = widget.querySelector('.ti-widget-stars');
+        if (!stars) return;
+
+        // 4) build & insert our badge
+        const span = document.createElement('span');
+        span.className = 'my-review-count';
+        span.textContent = myNumber;
+        span.style.marginLeft   = '0.5em';
+        span.style.fontWeight   = '600';
+        span.style.verticalAlign = 'middle';
+        stars.insertAdjacentElement('afterend', span);
+      });
+  }
+
+  // poll every 400ms, stop as soon as we've injected once
+  const handle = setInterval(() => {
+    injectReviewCount();
+    if (document.querySelector('.my-review-count')) {
+      clearInterval(handle);
+    }
+  }, 400);
+})();
