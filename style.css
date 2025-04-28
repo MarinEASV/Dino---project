@@ -582,36 +582,27 @@ nav a {
   align-items: flex-start;
 }
 
-/* 3) Logo column */
-#footer .footer-logo img {
-  display: block;
-  margin: 0 auto;
-}
-
-/* 4) Headings */
+/* 3) Headings */
 #footer h4 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
   color: var(--c-dark);
 }
 
-/* 5) Remove default list styling */
+/* 4) Remove default list styling */
 #footer ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* 6) List items & icons */
+/* 5) List items */
 #footer li {
   margin-bottom: 0.75rem;
   line-height: 1.6;
 }
-#footer li i {
-  color: var(--c-red);
-}
 
-/* 7) Links */
+/* 6) Links */
 #footer a {
   color: var(--c-dark);
   text-decoration: none;
@@ -622,13 +613,13 @@ nav a {
   letter-spacing: 1px;
 }
 
-/* 8) Footer bottom bar */
+/* 7) Footer bottom bar */
 .footer-bottom {
   background-color: var(--c-light);
   font-size: 0.9rem;
 }
 
-/* 9) Mobile: center everything */
+/* 8) Responsive: center on small screens */
 @media (max-width: 767px) {
   #footer,
   #footer .row,
