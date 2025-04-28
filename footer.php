@@ -20,7 +20,7 @@
         <h4>Kontakt</h4>
         <ul class="list-unstyled">
           <li>
-            <i class="fas fa-map-pin me-2"></i>
+            </i style="font-weight: bold;" >
             Restaurant Dino
           </li>
           <li>
@@ -30,7 +30,7 @@
               target="_blank" rel="noopener noreferrer"
             >Strandvejen 8</a>
           </li>
-          <li>6720 Fanø</li>
+          <li>6720 Fanø</li><br>
           <li>CVR 12 34 56 78</li>
           <li>
             <i class="fas fa-phone me-2"></i>
@@ -38,7 +38,7 @@
               href="tel:+4575166464"
               rel="noopener noreferrer"
             >+45 75 16 64 64</a>
-          </li>
+          </li><br>
           <li>
             <i class="fas fa-envelope me-2"></i>
             <a
