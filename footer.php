@@ -43,7 +43,7 @@
             <a
               href="mailto:kristijan.kiki13@gmail.com"
               target="_blank" rel="noopener noreferrer"
-            >kristijan.kiki13@gmail.com</a>
+            >ekarahusic@msn.com </a>
           </li>
         </ul>
       </div>

@@ -2,33 +2,74 @@
 /**
  * Template part: Bottles Section
  */
-$left_bottle_img = get_field('left_bottle_img');
-$left_bottle_title = get_field('left_bottle_title');
-$left_bottle_description = get_field('left_bottle_description');
-$right_bottle_img = get_field('right_bottle_img');
-$right_bottle_title = get_field('right_bottle_title');
-$right_bottle_description = get_field('right_bottle_description');
+
+// helper to render one side
+function render_bottle_side( $side ) {
+    // prefix = "left" or "right"
+    $img        = get_field("{$side}_bottle_img");
+    $title      = get_field("{$side}_bottle_title");
+    $description= get_field("{$side}_bottle_description");
+    $features   = get_field("{$side}_bottle_features"); // repeater
+    $buy_link   = get_field("{$side}_bottle_link");     // URL field
+    $buy_label  = get_field("{$side}_bottle_link_label") ?: 'Buy Now';
+    $price      = get_field("{$side}_bottle_price");    // text
+
+    // bottle image container
+    ?>
+    <div class="bottle <?php echo esc_attr($side); ?>-bottle" data-side="<?php echo esc_attr($side); ?>">
+      <img src="<?php echo esc_url( $img['url'] ); ?>"
+           alt="<?php echo esc_attr( $img['alt'] ); ?>">
+    </div>
+
+    <div class="bottle-text <?php echo esc_attr($side); ?>-text">
+      <?php if ( $title ): ?>
+        <h2><?php echo esc_html( $title ); ?></h2>
+      <?php endif; ?>
+
+      <?php if ( $description ): ?>
+        <p><?php echo esc_html( $description ); ?></p>
+      <?php endif; ?>
+
+      <?php if ( $features ): ?>
+        <ul class="bottle-features">
+          <?php foreach ( $features as $feat ): 
+            // assume 'icon' = CSS class or SVG markup, 'text' = label
+            $icon = $feat['icon'];
+            $txt  = $feat['text'];
+          ?>
+            <li>
+              <?php if ( $icon ): ?>
+                <span class="feature-icon"><?php echo $icon; ?></span>
+              <?php endif; ?>
+              <span class="feature-text"><?php echo esc_html( $txt ); ?></span>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endif; ?>
+
+      <?php if ( $price ): ?>
+        <div class="bottle-price"><?php echo esc_html( $price ); ?></div>
+      <?php endif; ?>
+
+      <?php if ( $buy_link ): ?>
+        <a class="bottle-buy-button"
+           href="<?php echo esc_url( $buy_link ); ?>"
+           target="_blank"
+           rel="noopener">
+          <?php echo esc_html( $buy_label ); ?>
+        </a>
+      <?php endif; ?>
+    </div>
+    <?php
+}
 ?>
 
 <section class="bottle-section">
   <div class="bottle-container" data-aos="zoom-in">
-   <div class="bottle left-bottle" data-side="left">
-    <img src="<?php echo esc_url($left_bottle_img['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>">
-    </div> 
-
-    <div class="bottle right-bottle" data-side="right">
-    <img src="<?php echo esc_url($right_bottle_img['url']); ?>" alt="<?php echo esc_attr($about_image['alt']); ?>">
-    </div>
-
-    <div class="bottle-text left-text">
-      <h2><?php the_field('left_bottle_title'); ?></h2>
-      <p><?php the_field('left_bottle_description'); ?></p>
-    </div>
-
-    <div class="bottle-text right-text">
-      <h2><?php the_field('right_bottle_title'); ?></h2>
-      <p><?php the_field('left_bottle_description'); ?></p>
-    </div>
+    <?php
+      render_bottle_side( 'left' );
+      render_bottle_side( 'right' );
+    ?>
   </div>
 </section>
 
