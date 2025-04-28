@@ -7,8 +7,8 @@
       <div class="col-12 col-md-3 mb-4 text-center text-md-start">
         <a href="/" class="footer-logo d-inline-block">
           <img
-            src="<?php echo esc_url( get_theme_file_uri( 'https://dinoproject.dk/wp-content/uploads/2025/04/Logo-with-letters.png' ) ); ?>"
-            alt="Dino logo"
+          src="<?php echo get_template_directory_uri()  ?>/assets/Dino-logo.svg" alt="logo" width="200" height="auto"
+          alt="Dino logo"
             class="img-fluid"
             style="max-width: 200px;"
           >
@@ -36,7 +36,7 @@
             <i class="fas fa-phone me-2"></i>
             <a
               href="tel:+4575166464"
-              target="_blank" rel="noopener noreferrer"
+              rel="noopener noreferrer"
             >+45 75 16 64 64</a>
           </li>
           <li>
