@@ -1263,7 +1263,7 @@ nav a {
 /* play button */
 .scroll-to-video {
   position: absolute;
-  bottom: 20px;    /* 20px up from bottom of #video */
+  bottom: 35px;    /* 20px up from bottom of #video */
   right: 20px;     /* 20px in from right of #video */
   width: 60px;     /* size of the clickable area */
   height: 60px;
