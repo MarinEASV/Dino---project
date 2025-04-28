@@ -3,11 +3,12 @@
   <div class="container py-5">
     <div class="row align-items-start">
 
-      <!-- LOGO -->
-      <div class="col-6 col-md-3 mb-4 text-center text-md-start">
+      <!-- 1) LOGO -->
+      <div class="col-12 col-md-3 mb-4 text-center text-md-start">
         <a href="/" class="footer-logo d-inline-block">
+          <!-- note the slash before /assets -->
           <img
-            src="<?php echo get_template_directory_uri() ?>/assets/Dino-logo.svg"
+            src="<?php echo get_template_directory_uri(); ?>/assets/Dino-logo.svg"
             alt="Dino logo"
             class="img-fluid"
             style="max-width: 200px;"
@@ -15,34 +16,39 @@
         </a>
       </div>
 
-      <!-- KONTAKT -->
-      <div class="col-6 col-md-3 mb-4 text-center text-md-start">
+      <!-- 2) KONTAKT -->
+      <div class="col-12 col-md-3 mb-4 text-center text-md-start">
         <h4>Kontakt</h4>
-        <p>
-          <i class="fas fa-map-pin me-2"></i>
-          Restaurant Dino
-        </p>
-        <p>
-          <i class="fas fa-map-marker-alt me-2"></i>
-          <a
-            href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5"
-            target="_blank"
-          >Strandvejen 8</a>
-        </p>
-        <p>6720 Fanø</p>
-        <p>CVR 12 34 56 78</p>
-        <p>
-          <i class="fas fa-phone me-2"></i>
-          +45 75 16 64 64
-        </p>
-        <p>
-          <i class="fas fa-envelope me-2"></i>
-          kristijan.kiki13@gmail.com
-        </p>
+        <ul class="list-unstyled">
+          <li>
+            <i class="fas fa-map-pin me-2"></i>
+            Restaurant Dino
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt me-2"></i>
+            <a
+              href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5"
+              target="_blank"
+              class="text-break"
+            >Strandvejen 8</a>
+          </li>
+          <li>6720 Fanø</li>
+          <li>CVR 12 34 56 78</li>
+          <li>
+            <i class="fas fa-phone me-2"></i>
+            <a href="tel:+4575166464">+45 75 16 64 64</a>
+          </li>
+          <li>
+            <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:kristijan.kiki13@gmail.com"
+               class="text-break"
+            >kristijan.kiki13@gmail.com</a>
+          </li>
+        </ul>
       </div>
 
-      <!-- ÅBNINGSTIDER -->
-      <div class="col-6 col-md-3 mb-4 text-center text-md-start">
+      <!-- 3) ÅBNINGSTIDER -->
+      <div class="col-12 col-md-3 mb-4 text-center text-md-start">
         <h4>Åbningstider</h4>
         <ul class="list-unstyled">
           <li>Mandag: 17:00 – 21:00</li>
@@ -55,21 +61,21 @@
         </ul>
       </div>
 
-      <!-- PRAKTISK -->
-      <div class="col-6 col-md-3 mb-4 text-center text-md-start">
+      <!-- 4) PRAKTISK -->
+      <div class="col-12 col-md-3 mb-4 text-center text-md-start">
         <h4>Praktisk</h4>
         <ul class="list-unstyled">
           <li>
             <i class="fas fa-angle-right me-2"></i>
-            <a href="#">Smiley certificate</a>
+            <a href="#" class="text-break">Smiley certificate</a>
           </li>
           <li>
             <i class="fas fa-angle-right me-2"></i>
-            <a href="#">Terms of use</a>
+            <a href="#" class="text-break">Terms of use</a>
           </li>
           <li>
             <i class="fas fa-angle-right me-2"></i>
-            <a href="#">Privacy policy</a>
+            <a href="#" class="text-break">Privacy policy</a>
           </li>
         </ul>
       </div>
@@ -83,6 +89,6 @@
 </section>
 <!-- Footer End -->
 
-<?php wp_footer() ?>
+<?php wp_footer(); ?>
 </body>
 </html>

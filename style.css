@@ -569,7 +569,7 @@ nav a {
 
 
 /* ----------------------------------
-   Footer Base
+   Base Footer
 ----------------------------------- */
 #footer {
   background-color: var(--c-light);
@@ -578,32 +578,35 @@ nav a {
   font-size: 20px;
 }
 
-/* Remove default UL styling */
 #footer ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-/* Headings */
 #footer h4 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
-/* Paragraph & list item spacing */
-#footer p,
+/* wrap long links/text */
+#footer a,
+#footer li {
+  word-break: break-word;
+}
+
+/* spacing */
 #footer li {
   margin-bottom: 0.75rem;
   line-height: 1.5;
 }
 
-/* Icons in red */
+/* red icons */
 #footer i {
   color: var(--c-red);
 }
 
-/* Links */
+/* link styles */
 #footer a {
   color: var(--c-dark);
   text-decoration: none;
@@ -614,26 +617,24 @@ nav a {
   letter-spacing: 1px;
 }
 
-/* Footer bottom bar */
+/* footer bottom */
 .footer-bottom {
-  font-size: 0.9rem;
   background-color: var(--c-light);
+  font-size: 0.9rem;
 }
 
 /* ----------------------------------
-   Responsiveness
+   Responsive
 ----------------------------------- */
 @media (max-width: 767px) {
-  /* Stack columns & center text */
   #footer .row {
     flex-direction: column;
     text-align: center;
   }
-  #footer .col-6 {
+  #footer .col-12 {
+    /* full width on xs */
     max-width: 100%;
   }
-  /* Give a little breathing room */
-  #footer p,
   #footer li {
     margin-bottom: 0.5rem;
   }
