@@ -3,51 +3,90 @@
  * Template part: Bottles Section
  */
 
-function render_bottle_side( $side ) {
-    $img         = get_field("{$side}_bottle_img");
-    $title       = get_field("{$side}_bottle_title");
-    $description = get_field("{$side}_bottle_description");
-    $price       = get_field("{$side}_bottle_price");
-    $buy_link    = get_field("{$side}_bottle_link");
-    $buy_label   = get_field("{$side}_bottle_link_label") ?: 'Buy Now';
-    ?>
-    <div class="bottle <?php echo esc_attr($side); ?>-bottle" data-side="<?php echo esc_attr($side); ?>">
-      <img src="<?php echo esc_url( $img['url'] ); ?>"
-           alt="<?php echo esc_attr( $img['alt'] ); ?>">
-    </div>
+// LEFT SIDE
+$left_img         = get_field('left_bottle_img');
+$left_title       = get_field('left_bottle_title');
+$left_description = get_field('left_bottle_description');
+$left_price       = get_field('left_bottle_price');
+$left_link        = get_field('left_bottle_link');
+$left_link_label  = get_field('left_bottle_link_label') ?: 'Buy Now';
 
-    <div class="bottle-text <?php echo esc_attr($side); ?>-text">
-      <?php if ( $title ): ?>
-        <h2><?php echo esc_html( $title ); ?></h2>
-      <?php endif; ?>
-
-      <?php if ( $description ): ?>
-        <p><?php echo esc_html( $description ); ?></p>
-      <?php endif; ?>
-
-      <?php if ( $price ): ?>
-        <div class="bottle-price">kr<?php echo esc_html( $price ); ?></div>
-      <?php endif; ?>
-
-      <?php if ( $buy_link ): ?>
-        <a class="bottle-buy-button"
-           href="<?php echo esc_url( $buy_link ); ?>"
-           target="_blank"
-           rel="noopener">
-          <?php echo esc_html( $buy_label ); ?>
-        </a>
-      <?php endif; ?>
-    </div>
-    <?php
-}
+// RIGHT SIDE
+$right_img         = get_field('right_bottle_img');
+$right_title       = get_field('right_bottle_title');
+$right_description = get_field('right_bottle_description');
+$right_price       = get_field('right_bottle_price');
+$right_link        = get_field('right_bottle_link');
+$right_link_label  = get_field('right_bottle_link_label') ?: 'Buy Now';
 ?>
 
 <section class="bottle-section">
   <div class="bottle-container" data-aos="zoom-in">
-    <?php
-      render_bottle_side( 'left' );
-      render_bottle_side( 'right' );
-    ?>
+
+    <!-- LEFT BOTTLE IMAGE -->
+    <div class="bottle left-bottle" data-side="left">
+      <?php if ( $left_img ): ?>
+        <img src="<?php echo esc_url( $left_img['url'] ); ?>"
+             alt="<?php echo esc_attr( $left_img['alt'] ); ?>">
+      <?php endif; ?>
+    </div>
+
+    <!-- RIGHT BOTTLE IMAGE -->
+    <div class="bottle right-bottle" data-side="right">
+      <?php if ( $right_img ): ?>
+        <img src="<?php echo esc_url( $right_img['url'] ); ?>"
+             alt="<?php echo esc_attr( $right_img['alt'] ); ?>">
+      <?php endif; ?>
+    </div>
+
+    <!-- LEFT TEXT BLOCK -->
+    <div class="bottle-text left-text">
+      <?php if ( $left_title ): ?>
+        <h2><?php echo esc_html( $left_title ); ?></h2>
+      <?php endif; ?>
+
+      <?php if ( $left_description ): ?>
+        <p><?php echo esc_html( $left_description ); ?></p>
+      <?php endif; ?>
+
+      <?php if ( $left_price ): ?>
+        <div class="bottle-price"><?php echo esc_html( $left_price ); ?> kr</div>
+      <?php endif; ?>
+
+      <?php if ( $left_link ): ?>
+        <a class="bottle-buy-button"
+           href="<?php echo esc_url( $left_link ); ?>"
+           target="_blank"
+           rel="noopener">
+          <?php echo esc_html( $left_link_label ); ?>
+        </a>
+      <?php endif; ?>
+    </div>
+
+    <!-- RIGHT TEXT BLOCK -->
+    <div class="bottle-text right-text">
+      <?php if ( $right_title ): ?>
+        <h2><?php echo esc_html( $right_title ); ?></h2>
+      <?php endif; ?>
+
+      <?php if ( $right_description ): ?>
+        <p><?php echo esc_html( $right_description ); ?></p>
+      <?php endif; ?>
+
+      <?php if ( $right_price ): ?>
+        <div class="bottle-price"><?php echo esc_html( $right_price ); ?> kr</div>
+      <?php endif; ?>
+
+      <?php if ( $right_link ): ?>
+        <a class="bottle-buy-button"
+           href="<?php echo esc_url( $right_link ); ?>"
+           target="_blank"
+           rel="noopener">
+          <?php echo esc_html( $right_link_label ); ?>
+        </a>
+      <?php endif; ?>
+    </div>
+
   </div>
 </section>
 
