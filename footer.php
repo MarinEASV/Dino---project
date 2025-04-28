@@ -7,7 +7,7 @@
       <div class="col-12 col-md-3 mb-4 text-center text-md-start">
         <a href="/" class="footer-logo d-inline-block">
           <img
-            src="<?php echo esc_url( get_theme_file_uri( '/assets/Dino-logo.svg' ) ); ?>"
+            src="<?php echo esc_url( get_theme_file_uri( 'https://dinoproject.dk/wp-content/uploads/2025/04/Logo-with-letters.png' ) ); ?>"
             alt="Dino logo"
             class="img-fluid"
             style="max-width: 200px;"
