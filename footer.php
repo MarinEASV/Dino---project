@@ -1,62 +1,87 @@
-    <!-- Footer Start -->
+<!-- Footer Start -->
 <section id="footer">
-  <div class="container-fluid footer py-5">
-    <div class="container py-5">
-      <div class="row g-5 justify-content-center text-center">
-        <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            
-            <a href="/" style="d-flex justify-content-center align-items-center">             
-            <img src="<?php echo get_template_directory_uri()  ?>/assets/Dino-logo.svg" alt="logo" width="200" height="auto">
-            </a>
-            
-           
-         
-
-          </div>
-        </div>
-        <!-- Other sections remain unchanged -->
-        <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4" style="color: var(--c-dark);">Info</h4>
-            <a href="#about"><i class="fas fa-angle-right me-2"></i>About us</a>
-            <a href="menu" data-toggle="modal" data-target="#bookAppointmentModal">
-              <i class="fas fa-angle-right me-2"></i>Check the menu
-            </a>
-            <a href="http://valmar-metal.local/wp-content/uploads/2025/03/Valmar-Metal-Politika-Privatnosti.pdf">
-              <i class="fas fa-angle-right me-2"></i>Privacy Policy
-            </a>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4" style="color: var(--c-dark);">Menu</h4>
-            <a href="#menu"><i class="fas fa-angle-right me-2"></i>...</a>
-            <a href="#menu"><i class="fas fa-angle-right me-2"></i>...</a>
-            <a href="#menu"><i class="fas fa-angle-right me-2"></i>...</a>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4" style="color: var(--c-dark);">Contact</h4>
-            <a href="mailto:leon@valmar-metal.ba"><i class="fas fa-envelope me-2"></i>http://www.restaurantdino.dk/</a>
-            <a href="tel:+38763956751"><i class="fas fa-phone me-2"></i>+45 75 16 64 64</a>
-            <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank"><i class="fa fa-map-marker-alt me-2"></i>Strandvejen 8, 6720 Fanø</a>
-
-
-          </div>
-        </div>
+  <div class="container py-5">
+    <div class="row justify-content-between align-items-start">
+      
+      <!-- Logo column -->
+      <div class="col-12 col-md-3 mb-4">
+        <a href="/" class="footer-logo d-block text-center">
+          <img
+            src="<?php echo get_template_directory_uri() ?>/assets/Dino-logo.svg"
+            alt="Dino logo"
+            class="img-fluid"
+            style="max-width: 200px"
+          >
+        </a>
       </div>
-    </div>
-  </div>
 
-   <!-- Footer Bottom Section -->
-   <div class="footer-bottom text-center py-3">
+      <!-- Kontakt -->
+      <div class="col-12 col-md-3 mb-4">
+        <h4>Kontakt</h4>
+        <ul class="list-unstyled">
+          <li>
+            <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:leon@valmar-metal.ba">leon@valmar-metal.ba</a>
+          </li>
+          <li>
+            <i class="fas fa-phone me-2"></i>
+            <a href="tel:+4575166464">+45 75 16 64 64</a>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt me-2"></i>
+            <a
+              href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5"
+              target="_blank"
+            >Strandvejen 8, 6720 Fanø</a>
+          </li>
+          <li>
+            <i class="fas fa-globe me-2"></i>
+            <a href="http://www.restaurantdino.dk/" target="_blank">
+              www.restaurantdino.dk
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Åbningstider -->
+      <div class="col-12 col-md-3 mb-4">
+        <h4>Åbningstider</h4>
+        <ul class="list-unstyled">
+          <li>Mandag–Fredag: 11:00 – 22:00</li>
+          <li>Lørdag–Søndag: 12:00 – 23:00</li>
+        </ul>
+      </div>
+
+      <!-- Praktisk -->
+      <div class="col-12 col-md-3 mb-4">
+        <h4>Praktisk</h4>
+        <ul class="list-unstyled">
+          <li>
+            <i class="fas fa-angle-right me-2"></i>
+            <a href="#about">Om os</a>
+          </li>
+          <li>
+            <i class="fas fa-angle-right me-2"></i>
+            <a href="#menu">Se menu</a>
+          </li>
+          <li>
+            <i class="fas fa-angle-right me-2"></i>
+            <a href="<?php echo get_template_directory_uri()?>/assets/Valmar-Metal-Politika-Privatnosti.pdf" target="_blank">
+              Privatlivspolitik
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /.row -->
+
+    <div class="footer-bottom text-center py-3">
       <p>All rights reserved © 2025 Dino restaurant</p>
     </div>
-
+  </div><!-- /.container -->
 </section>
+<!-- Footer End -->
 
-        <?php wp_footer() ?>
-    </body>
+<?php wp_footer() ?>
+</body>
 </html>
