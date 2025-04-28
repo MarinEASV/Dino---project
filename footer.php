@@ -68,15 +68,15 @@
         <ul class="list-unstyled">
           <li>
             <i class="fas fa-angle-right me-2"></i>
-            <a href="https://www.findsmiley.dk/74148" class="text-break">Smiley certificate</a>
+            <a href="https://www.findsmiley.dk/74148" target="_blank" class="text-break">Smiley certificate</a>
           </li>
           <li>
             <i class="fas fa-angle-right me-2"></i>
-            <a href="#" class="text-break">Terms of use</a>
+            <a href="https://dinoproject.dk/wp-content/uploads/2025/04/Vilkaar_for_brug.docx" target="_blank" class="text-break">Terms of use</a>
           </li>
           <li>
             <i class="fas fa-angle-right me-2"></i>
-            <a href="#" class="text-break">Privacy policy</a>
+            <a href="https://dinoproject.dk/wp-content/uploads/2025/04/Privatlivspolitik.docx" target="_blank" class="text-break">Privacy policy</a>
           </li>
         </ul>
       </div>
