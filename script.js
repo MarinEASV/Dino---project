@@ -178,3 +178,14 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.querySelector('.scroll-to-video');
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    document
+      .querySelector('#video-section')
+      .scrollIntoView({ behavior: 'smooth' });
+  });
+});
