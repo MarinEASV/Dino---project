@@ -29,7 +29,7 @@
               target="_blank" rel="noopener noreferrer"
             >Strandvejen 8</a>
           </li>
-          <li>6720 Fanø</li><br><br>
+          <li>6720 Fanø</li><br>
           <li>CVR 12 34 56 78</li>
           <li>
             <i class="fas fa-phone me-2"></i>
@@ -68,7 +68,7 @@
         <ul class="list-unstyled">
           <li>
             <i class="fas fa-angle-right me-2"></i>
-            <a href="#" class="text-break">Smiley certificate</a>
+            <a href="https://www.findsmiley.dk/74148" class="text-break">Smiley certificate</a>
           </li>
           <li>
             <i class="fas fa-angle-right me-2"></i>
