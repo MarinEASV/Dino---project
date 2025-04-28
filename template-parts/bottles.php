@@ -26,7 +26,7 @@ function render_bottle_side( $side ) {
       <?php endif; ?>
 
       <?php if ( $price ): ?>
-        <div class="bottle-price"><?php echo esc_html( $price ); ?></div>
+        <div class="bottle-price">kr<?php echo esc_html( $price ); ?></div>
       <?php endif; ?>
 
       <?php if ( $buy_link ): ?>
