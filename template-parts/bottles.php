@@ -3,18 +3,13 @@
  * Template part: Bottles Section
  */
 
-// helper to render one side
 function render_bottle_side( $side ) {
-    // prefix = "left" or "right"
-    $img        = get_field("{$side}_bottle_img");
-    $title      = get_field("{$side}_bottle_title");
-    $description= get_field("{$side}_bottle_description");
-    $features   = get_field("{$side}_bottle_features"); // repeater
-    $buy_link   = get_field("{$side}_bottle_link");     // URL field
-    $buy_label  = get_field("{$side}_bottle_link_label") ?: 'Buy Now';
-    $price      = get_field("{$side}_bottle_price");    // text
-
-    // bottle image container
+    $img         = get_field("{$side}_bottle_img");
+    $title       = get_field("{$side}_bottle_title");
+    $description = get_field("{$side}_bottle_description");
+    $price       = get_field("{$side}_bottle_price");
+    $buy_link    = get_field("{$side}_bottle_link");
+    $buy_label   = get_field("{$side}_bottle_link_label") ?: 'Buy Now';
     ?>
     <div class="bottle <?php echo esc_attr($side); ?>-bottle" data-side="<?php echo esc_attr($side); ?>">
       <img src="<?php echo esc_url( $img['url'] ); ?>"
@@ -28,23 +23,6 @@ function render_bottle_side( $side ) {
 
       <?php if ( $description ): ?>
         <p><?php echo esc_html( $description ); ?></p>
-      <?php endif; ?>
-
-      <?php if ( $features ): ?>
-        <ul class="bottle-features">
-          <?php foreach ( $features as $feat ): 
-            // assume 'icon' = CSS class or SVG markup, 'text' = label
-            $icon = $feat['icon'];
-            $txt  = $feat['text'];
-          ?>
-            <li>
-              <?php if ( $icon ): ?>
-                <span class="feature-icon"><?php echo $icon; ?></span>
-              <?php endif; ?>
-              <span class="feature-text"><?php echo esc_html( $txt ); ?></span>
-            </li>
-          <?php endforeach; ?>
-        </ul>
       <?php endif; ?>
 
       <?php if ( $price ): ?>
