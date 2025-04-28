@@ -74,7 +74,7 @@ $right_link_label  = get_field('right_bottle_link_label') ?: 'Buy Now';
       <?php endif; ?>
 
       <?php if ( $right_price ): ?>
-        <div class="bottle-price"><?php echo esc_html( $right_price ); ?></div>
+        <div class="bottle-price"><?php echo esc_html( $right_price ); ?> kr</div>
       <?php endif; ?>
 
       <?php if ( $right_link ): ?>
