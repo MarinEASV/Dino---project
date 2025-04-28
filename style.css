@@ -869,17 +869,41 @@ nav a {
 
 /* Buy button */
 .bottle-buy-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #000;
+  position: relative;
+  overflow: hidden;
+  /* if you want a transparent / outlined start state: */
+  background: transparent;
+  border: 2px solid #fff;
   color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+  transition: color 0.3s ease;
 }
+
+/* 2) the sliding fill layer */
+.bottle-buy-button::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 100%;
+  z-index: -1;
+  transition: width 0.4s ease;
+}
+
+/* 3) pick the “opposite side” color on hover */
+.left-text .bottle-buy-button::before {
+  background-color: #5F120D; /* right-side color */
+}
+.right-text .bottle-buy-button::before {
+  background-color: #B64A42; /* left-side color */
+}
+
+/* 4) on hover, expand the fill */
+.bottle-buy-button:hover::before {
+  width: 100%;
+}
+
+/* 5) make sure your text stays visible */
 .bottle-buy-button:hover {
-  background-color: #333;
+  color: #fff;
 }
 
   
