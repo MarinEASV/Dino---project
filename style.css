@@ -1289,3 +1289,22 @@ nav a {
   transform: none;
   background: none;
 }
+
+@media (max-width: 768px) {
+  .scroll-to-video {
+    /* pull it up into the top corner */
+    top: 16px;
+    right: 16px;
+    bottom: auto;      /* cancel the desktop bottom rule */
+    
+    /* make it a little smaller on phones */
+    width: 48px;
+    height: 48px;
+  }
+
+  .scroll-to-video svg {
+    /* shrink the ▶ icon accordingly */
+    width: 24px;
+    height: 24px;
+  }
+}
