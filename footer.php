@@ -6,9 +6,8 @@
       <!-- 1) LOGO -->
       <div class="col-12 col-md-3 mb-4 text-center text-md-start">
         <a href="/" class="footer-logo d-inline-block">
-          <!-- note the slash before /assets -->
           <img
-            src="<?php echo get_template_directory_uri(); ?>/assets/Dino-logo.svg"
+            src="<?php echo esc_url( get_theme_file_uri( '/assets/Dino-logo.svg' ) ); ?>"
             alt="Dino logo"
             class="img-fluid"
             style="max-width: 200px;"
@@ -28,20 +27,23 @@
             <i class="fas fa-map-marker-alt me-2"></i>
             <a
               href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5"
-              target="_blank"
-              class="text-break"
+              target="_blank" rel="noopener noreferrer"
             >Strandvejen 8</a>
           </li>
           <li>6720 Fanø</li>
           <li>CVR 12 34 56 78</li>
           <li>
             <i class="fas fa-phone me-2"></i>
-            <a href="tel:+4575166464">+45 75 16 64 64</a>
+            <a
+              href="tel:+4575166464"
+              target="_blank" rel="noopener noreferrer"
+            >+45 75 16 64 64</a>
           </li>
           <li>
             <i class="fas fa-envelope me-2"></i>
-            <a href="mailto:kristijan.kiki13@gmail.com"
-               class="text-break"
+            <a
+              href="mailto:kristijan.kiki13@gmail.com"
+              target="_blank" rel="noopener noreferrer"
             >kristijan.kiki13@gmail.com</a>
           </li>
         </ul>
