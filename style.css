@@ -1258,3 +1258,34 @@ nav a {
   background: rgba(0,0,0,0.2);
   border-radius: 3px;
 }
+
+
+/* play button */
+.scroll-to-video {
+  position: absolute;
+  bottom: 20px;    /* 20px up from bottom of #video */
+  right: 20px;     /* 20px in from right of #video */
+  width: 60px;     /* size of the clickable area */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;      /* no background circle */
+  padding: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* 3) big white icon */
+.scroll-to-video svg {
+  width: 100%;    /* fills the 60×60 box */
+  height: 100%;
+  fill: #fff;     /* white triangle */
+  stroke: none;
+}
+
+/* 4) no hover effect needed—static icon */
+.scroll-to-video:hover {
+  transform: none;
+  background: none;
+}

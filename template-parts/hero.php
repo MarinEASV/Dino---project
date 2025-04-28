@@ -6,8 +6,9 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
 <section id="hero" class="hero-section position-relative vh-100 overflow-hidden">
 
   <!-- Video Background -->
-  <?php if ($hero_video): ?>
-    <video autoplay muted loop playsinline class="hero-video w-100 h-100 position-absolute top-0 start-0 object-fit-cover">
+  <?php if ( $hero_video ): ?>
+    <video autoplay muted loop playsinline 
+           class="hero-video w-100 h-100 position-absolute top-0 start-0 object-fit-cover">
       <source src="<?php echo esc_url($hero_video); ?>" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -16,28 +17,25 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
   <!-- Overlay Filter -->
   <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
-   <!-- Infinite Scroll Keywords -->
-   <div class="scrolling-text-container position-absolute w-100">
+  <!-- Infinite Scroll Keywords -->
+  <div class="scrolling-text-container position-absolute w-100">
     <div class="scrolling-text">
-      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
-      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local · Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
+      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
+      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
     </div>
   </div>
 
-  <a href="#video" class="scroll-to-video" aria-label="Watch video">
-            <!-- You can swap this SVG for FontAwesome, Ionicons, etc. -->
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" 
-         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="10"></circle>
-      <polygon points="10 8 16 12 10 16 10 8"></polygon>
-    </svg>
-  </a>
-
-    <!-- Dash and Subtext -->
-    <div class="hero-subtext text-center text-light">
+  <!-- Dash and Subtext -->
+  <div class="hero-subtext text-center text-light">
     <div class="dash"></div>
     <p class="subtext">Authentic Balkan & Danish Cuisine on Fanø</p>
   </div>
 
-  
+  <!-- Play ➔ scroll to #video -->
+  <a href="#video" class="scroll-to-video" aria-label="Watch Video">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="9,7 9,17 17,12"/>
+    </svg>
+  </a>
+
 </section>
