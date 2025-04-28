@@ -30,7 +30,7 @@
             >Strandvejen 8</a>
           </li>
           <li>6720 Fanø</li><br>
-          <li>CVR 12 34 56 78</li>
+          <li>CVR: 25996682</li>
           <li>
             <i class="fas fa-phone me-2"></i>
             <a
