@@ -177,3 +177,30 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 300); // should match the slideFadeOut duration
   });
 });
+
+(function($){
+  // run when DOM is ready
+  $(document).ready(function(){
+    // your custom text
+    var myNumber = '420 anmeldelser';
+
+    // find every Google-reviews widget
+    $('.trustindex-widget[data-ttid*="google"]').each(function(){
+      var $widget = $(this);
+
+      // only do it once per widget
+      if ( !$widget.find('.my-review-count').length ) {
+        var $stars = $widget.find('.ti-widget-stars');
+        if ( $stars.length ) {
+          // insert your number after the stars
+          $stars.after(
+            '<span class="my-review-count" ' +
+              'style="margin-left:.5em;font-weight:600;">' +
+              myNumber +
+            '</span>'
+          );
+        }
+      }
+    });
+  });
+})(jQuery);

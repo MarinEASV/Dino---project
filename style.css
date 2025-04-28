@@ -316,7 +316,7 @@ nav a {
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        display: none !important;
     }
     .menu-btn {
         display: block;
@@ -361,7 +361,8 @@ nav a {
 .custom-reserve-btn {
   padding: 10px;
   margin: 0;
-  border-radius: 0; /* Sharp edges */
+  margin-left: 30px !important;
+  border-radius: 20px; 
   font-size: 18 px;
   line-height: 1;
   background-color: var(--c-red);
@@ -371,7 +372,7 @@ nav a {
 
 /* Optional: hover effect */
 .custom-reserve-btn:hover {
-  background-color: var(--c-dark);
+  background-color: var(--c-light);
 }
 
 /* Modal base */
