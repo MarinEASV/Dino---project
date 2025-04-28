@@ -190,39 +190,3 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.querySelector('.scroll-to-video');
-  if (!btn) return;
-
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    const targetEl = document.querySelector('#video');
-    if (!targetEl) return;
-
-    const startY   = window.scrollY;
-    const endY     = targetEl.getBoundingClientRect().top + startY;
-    const duration = 800;                    // total ms to scroll
-    const start   = performance.now();
-
-    // ease-in-out quad (accel then decel)
-    function ease(t) {
-      return t < 0.5 
-        ? 2 * t * t 
-        : -1 + (4 - 2 * t) * t;
-    }
-
-    function tick(now) {
-      const elapsed = now - start;
-      let progress  = Math.min(elapsed / duration, 1);
-      const eased   = ease(progress);
-
-      window.scrollTo(0, startY + (endY - startY) * eased);
-
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      }
-    }
-
-    requestAnimationFrame(tick);
-  });
-});
