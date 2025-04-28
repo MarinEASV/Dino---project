@@ -568,7 +568,9 @@ nav a {
 }
 
 
-/* 1) Base footer styling */
+/* ----------------------------------
+   Footer Base
+----------------------------------- */
 #footer {
   background-color: var(--c-light);
   color: var(--c-dark);
@@ -576,33 +578,32 @@ nav a {
   font-size: 20px;
 }
 
-/* 2) Grid tweaks */
-#footer .row {
-  justify-content: space-between;
-  align-items: flex-start;
+/* Remove default UL styling */
+#footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* 3) Headings */
+/* Headings */
 #footer h4 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: var(--c-dark);
 }
 
-/* 4) Remove default list styling */
-#footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* 5) List items */
+/* Paragraph & list item spacing */
+#footer p,
 #footer li {
   margin-bottom: 0.75rem;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* 6) Links */
+/* Icons in red */
+#footer i {
+  color: var(--c-red);
+}
+
+/* Links */
 #footer a {
   color: var(--c-dark);
   text-decoration: none;
@@ -613,25 +614,28 @@ nav a {
   letter-spacing: 1px;
 }
 
-/* 7) Footer bottom bar */
+/* Footer bottom bar */
 .footer-bottom {
-  background-color: var(--c-light);
   font-size: 0.9rem;
+  background-color: var(--c-light);
 }
 
-/* 8) Responsive: center on small screens */
+/* ----------------------------------
+   Responsiveness
+----------------------------------- */
 @media (max-width: 767px) {
-  #footer,
-  #footer .row,
-  #footer ul {
-    text-align: center;
-  }
+  /* Stack columns & center text */
   #footer .row {
     flex-direction: column;
+    text-align: center;
   }
-  #footer ul li {
-    display: inline-block;
-    margin: 0.5rem 1rem;
+  #footer .col-6 {
+    max-width: 100%;
+  }
+  /* Give a little breathing room */
+  #footer p,
+  #footer li {
+    margin-bottom: 0.5rem;
   }
 }
 
