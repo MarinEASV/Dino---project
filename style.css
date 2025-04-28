@@ -1213,13 +1213,6 @@ nav a {
 }
 
 
-.my-review-count {
-  margin-left: 0.5em;
-  font-weight: 600;
-  vertical-align: middle;
-  font-size: 1rem;      /* tweak as needed */
-  color: #333;          /* tweak to suit your theme */
-}
 
 /* mobile tweaks */
 @media (max-width: 768px) {

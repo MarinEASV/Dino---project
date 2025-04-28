@@ -179,70 +179,67 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 ;(function(){
-  const SUFFIX = ' anmeldelser';
+  const SUFFIX     = ' anmeldelser';
+  const WRAPPER    = '.ti-widget-container.ti-col-4';
+  const STARS_SEL  = '.ti-stars.star-lg';
 
-  // 1) figure out the numeric rating
-  function getRating(widget) {
-    // a) look for the "filled‐stars" inner bar
-    const inner = widget.querySelector('.ti-stars-inner');
-    if (inner && inner.style.width) {
-      const pct = parseFloat(inner.style.width);
-      if (!isNaN(pct)) {
-        return (pct * 5) / 100;
-      }
+  // 1) Grab the rating number (tries .ti-rating-text, then .ti-stars-inner width)
+  function getRating(widget){
+    // a) hidden text node
+    const txt = widget.querySelector('.ti-header .ti-rating-text');
+    if(txt && txt.textContent.trim()){
+      const num = txt.textContent.trim().replace(',', '.');
+      const val = parseFloat(num);
+      if(!isNaN(val)) return val;
     }
-    // b) fallback: count full/half star icons
-    const icons = widget.querySelectorAll('.ti-widget-stars i, .ti-widget-stars svg');
-    let rating = 0;
-    icons.forEach(ic => {
-      const c = ic.getAttribute('class') || '';
-      if (/\bhalf\b/.test(c))        rating += 0.5;
-      else if (/\b(empty)?star\b/.test(c)) rating += 1;
-    });
-    return rating;
+    // b) inner‐bar width
+    const inner = widget.querySelector('.ti-stars-inner');
+    if(inner && inner.style.width){
+      const pct = parseFloat(inner.style.width);
+      if(!isNaN(pct)) return (pct * 5) / 100;
+    }
+    return null;
   }
 
-  // 2) inject the badge if not already present
-  function injectBadge(widget) {
-    if (widget.querySelector('.my-review-count')) return;
-    const starsWrap = widget.querySelector('.ti-widget-stars');
-    if (!starsWrap) return;
+  // 2) Inject our “x,x anmeldelser” badge
+  function injectBadge(widget){
+    if(widget.querySelector('.my-review-count')) return;        // only once
+    const starsEl = widget.querySelector(STARS_SEL);
+    if(!starsEl) return;
     const rating = getRating(widget);
-    if (!rating) return;
+    if(rating === null) return;
 
-    const text = rating.toFixed(1).replace('.', ',') + SUFFIX;
+    const formatted = rating.toFixed(1).replace('.', ',') + SUFFIX;
     const span = document.createElement('span');
     span.className = 'my-review-count';
-    span.textContent = text;
+    span.textContent = formatted;
+    // optional inline styles—you can move these to your CSS
     span.style.marginLeft    = '0.5em';
     span.style.fontWeight    = '600';
     span.style.verticalAlign = 'middle';
 
-    starsWrap.insertAdjacentElement('afterend', span);
+    starsEl.insertAdjacentElement('afterend', span);
   }
 
-  // 3) scan existing widgets now...
-  function scanAll() {
-    document
-      .querySelectorAll('.ti-widget-container ti-col-4')
-      .forEach(injectBadge);
+  // 3) Scan what's already on the page
+  function scanAll(){
+    document.querySelectorAll(WRAPPER).forEach(injectBadge);
   }
 
-  // 4) ...and watch for any that load afterward
-  const observer = new MutationObserver(muts => {
+  // 4) Watch for any new reviews loading later
+  const obs = new MutationObserver(muts => {
     muts.forEach(m => {
       m.addedNodes.forEach(n => {
-        if (n.nodeType === 1 &&
-            (n.matches('.ti-stars star-lg')
-             || n.matches('.ti-widget-container ti-col-4')))
-        {
-          const w = n.closest('.ti-widget-container ti-col-4');
-          if (w) injectBadge(w);
+        if(
+          n.nodeType === 1 &&
+          n.matches(WRAPPER)
+        ){
+          injectBadge(n);
         }
       });
     });
   });
-  observer.observe(document.body, { childList: true, subtree: true });
+  obs.observe(document.body, { childList: true, subtree: true });
 
   // kick it off
   scanAll();
