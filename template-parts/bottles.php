@@ -14,7 +14,7 @@ $left_link_label  = get_field('left_bottle_link_label') ?: 'Buy Now';
 // RIGHT SIDE
 $right_img         = get_field('right_bottle_img');
 $right_title       = get_field('right_bottle_title');
-$right_description = get_field('right_bottle_description');
+$right_description = get_field('right_bottle_description_2');
 $right_price       = get_field('right_bottle_price');
 $right_link        = get_field('right_bottle_link');
 $right_link_label  = get_field('right_bottle_link_label') ?: 'Buy Now';
@@ -74,7 +74,7 @@ $right_link_label  = get_field('right_bottle_link_label') ?: 'Buy Now';
       <?php endif; ?>
 
       <?php if ( $right_price ): ?>
-        <div class="bottle-price"><?php echo esc_html( $right_price ); ?> kr</div>
+        <div class="bottle-price"><?php echo esc_html( $right_price ); ?></div>
       <?php endif; ?>
 
       <?php if ( $right_link ): ?>
