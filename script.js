@@ -178,37 +178,72 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// ─── paste this at the BOTTOM of your script.js, AFTER your Trustindex embed ───
-(function(){
-  const myNumber = '420 anmeldelser';
+;(function(){
+  const SUFFIX = ' anmeldelser';
 
-  function injectReviewCount() {
-    // 1) grab every Google­-reviews widget
-    document.querySelectorAll('.trustindex-widget[data-ttid*="google"]')
-      .forEach(widget => {
-        // 2) only inject if we haven't already
-        if (widget.querySelector('.my-review-count')) return;
-
-        // 3) find the stars container
-        const stars = widget.querySelector('.ti-widget-stars');
-        if (!stars) return;
-
-        // 4) build & insert our badge
-        const span = document.createElement('span');
-        span.className = 'my-review-count';
-        span.textContent = myNumber;
-        span.style.marginLeft   = '0.5em';
-        span.style.fontWeight   = '600';
-        span.style.verticalAlign = 'middle';
-        stars.insertAdjacentElement('afterend', span);
-      });
+  // 1) figure out the numeric rating
+  function getRating(widget) {
+    // a) look for the "filled‐stars" inner bar
+    const inner = widget.querySelector('.ti-stars-inner');
+    if (inner && inner.style.width) {
+      const pct = parseFloat(inner.style.width);
+      if (!isNaN(pct)) {
+        return (pct * 5) / 100;
+      }
+    }
+    // b) fallback: count full/half star icons
+    const icons = widget.querySelectorAll('.ti-widget-stars i, .ti-widget-stars svg');
+    let rating = 0;
+    icons.forEach(ic => {
+      const c = ic.getAttribute('class') || '';
+      if (/\bhalf\b/.test(c))        rating += 0.5;
+      else if (/\b(empty)?star\b/.test(c)) rating += 1;
+    });
+    return rating;
   }
 
-  // poll every 400ms, stop as soon as we've injected once
-  const handle = setInterval(() => {
-    injectReviewCount();
-    if (document.querySelector('.my-review-count')) {
-      clearInterval(handle);
-    }
-  }, 400);
+  // 2) inject the badge if not already present
+  function injectBadge(widget) {
+    if (widget.querySelector('.my-review-count')) return;
+    const starsWrap = widget.querySelector('.ti-widget-stars');
+    if (!starsWrap) return;
+    const rating = getRating(widget);
+    if (!rating) return;
+
+    const text = rating.toFixed(1).replace('.', ',') + SUFFIX;
+    const span = document.createElement('span');
+    span.className = 'my-review-count';
+    span.textContent = text;
+    span.style.marginLeft    = '0.5em';
+    span.style.fontWeight    = '600';
+    span.style.verticalAlign = 'middle';
+
+    starsWrap.insertAdjacentElement('afterend', span);
+  }
+
+  // 3) scan existing widgets now...
+  function scanAll() {
+    document
+      .querySelectorAll('.ti-widget-container ti-col-4')
+      .forEach(injectBadge);
+  }
+
+  // 4) ...and watch for any that load afterward
+  const observer = new MutationObserver(muts => {
+    muts.forEach(m => {
+      m.addedNodes.forEach(n => {
+        if (n.nodeType === 1 &&
+            (n.matches('.ti-stars star-lg')
+             || n.matches('.ti-widget-container ti-col-4')))
+        {
+          const w = n.closest('.ti-widget-container ti-col-4');
+          if (w) injectBadge(w);
+        }
+      });
+    });
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // kick it off
+  scanAll();
 })();
