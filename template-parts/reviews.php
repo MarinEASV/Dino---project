@@ -12,7 +12,7 @@
     <div class="trustindex-widget-container">
       <?php
         // NOTE the quotes around "google" — Trustindex needs that
-        echo do_shortcode( '[trustindex]' );
+        echo do_shortcode( '[trustindex data-widget-id="478dcc2136263f2b3a3726ff"]' );
       ?>
     </div>
   </div>
