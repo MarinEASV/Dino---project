@@ -7,7 +7,7 @@
       <div class="col-12 col-md-3 mb-3 text-center text-md-start"> <!-- ↓ was mb-4 -->
         <a href="/" class="footer-logo d-inline-block">
           <img
-            src="<?php echo get_template_directory_uri() ?>/assets/Dino-logo.svg"
+          src="<?php echo get_template_directory_uri()  ?>/assets/Dino-logo.svg" alt="logo" width="200" height="auto"
             alt="Dino logo"
             class="img-fluid"
             style="max-width: 200px;"
