@@ -12,7 +12,7 @@
     <div class="trustindex-widget-container">
       <?php
         // NOTE the quotes around "google" — Trustindex needs that
-        echo do_shortcode( '[trustindex no-registration="google"]' );
+        echo do_shortcode( '[trustindex]' );
       ?>
     </div>
   </div>
