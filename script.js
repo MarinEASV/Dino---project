@@ -190,29 +190,3 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  // only on mobile
-  if (window.innerWidth < 768) {
-    const headers = document.querySelectorAll('#mobileMenuAccordion .accordion-button');
-    headers.forEach(header => {
-      const panel = document.querySelector(header.dataset.target);
-      // initialize each panel’s max-height
-      if (!header.classList.contains('collapsed')) {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-      }
-      header.addEventListener('click', function () {
-        const isOpen = !header.classList.contains('collapsed');
-        // close all
-        headers.forEach(h => {
-          h.classList.add('collapsed');
-          const p = document.querySelector(h.dataset.target);
-          p.style.maxHeight = '0';
-        });
-        // if it was closed, open it
-        if (isOpen) return; // we just closed it
-        header.classList.remove('collapsed');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-      });
-    });
-  }
-});
