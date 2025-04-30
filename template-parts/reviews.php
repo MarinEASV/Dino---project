@@ -11,8 +11,8 @@
 
     <div class="trustindex-widget-container">
       <?php
-        // NOTE the quotes around "google" — Trustindex needs that
-        echo do_shortcode( '[trustindex data-widget-id="478dcc2136263f2b3a3726ff"]' );
+        // Render your Trustindex widget by its real ID:
+        echo do_shortcode( '[trustindex data-widget-id="ede1d6245a9a52887346390af8b"]' );
       ?>
     </div>
   </div>
