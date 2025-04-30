@@ -1325,22 +1325,3 @@ nav a {
   z-index: 1 !important;
 }
 
-/* 1) Make sure the Trustindex wrapper and its iframe are forced visible */
-.trustindex-widget-container,
-.trustindex-widget-container > iframe {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* 2) Give it a minimum height so you can spot it */
-.trustindex-widget-container {
-  min-height: 300px;
-}
-
-/* 3) If it loads an iframe, make it fill the container */
-.trustindex-widget-container > iframe {
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 300px !important;
-}
