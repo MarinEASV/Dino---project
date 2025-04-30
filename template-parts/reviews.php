@@ -8,7 +8,12 @@
 <section id="reviews-section" class="reviews-section">
   <div class="container">
     <h2 class="reviews-section__title">What Our Customers Are Saying</h2>
-<div class="test-widget">
-<p style="background:yellow; padding:1rem;">🛠️ STATIC CONTENT SHOWS UP</p>
+
+    <div class="trustindex-widget-container">
+      <?php
+        // NOTE the quotes around "google" — Trustindex needs that
+        echo do_shortcode( '[trustindex no-registration="google"]' );
+      ?>
+    </div>
   </div>
 </section>
