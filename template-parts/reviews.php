@@ -13,7 +13,7 @@
       // WP Google Reviews shortcode.
       // Change place_id / layout / columns as desired.
       echo do_shortcode(
-        '[[trustindex no-registration=google]]'
+        '[trustindex no-registration=google]'
       );
     ?>
   </div>
