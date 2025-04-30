@@ -628,6 +628,7 @@ nav a {
 #footer h4 {
   text-transform: uppercase;
   font-weight: 600; /* optional if you want them bolder */
+  font-family: var(--h-font) !important;
 }
 
 /* 2) Tweak list spacing globally */
