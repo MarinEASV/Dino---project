@@ -10,9 +10,6 @@
      <?php get_template_part ("template-parts/menu");?>
     <!--menu-->
 
-    <?php get_template_part("template-parts/reviews"); ?>
-
-
     <!--about-->
     <?php get_template_part ("template-parts/about");?>
     <!--about-->
