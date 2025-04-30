@@ -535,7 +535,6 @@ nav a {
   text-align: left;
   margin-bottom: 1.5rem;
   color: var(--c-dark);
-  justify-content: center;
   display: flex
 }
 
@@ -576,8 +575,8 @@ nav a {
 #footer {
   background-color: var(--c-light);
   color: var(--c-dark);
-  font-family: var(--p-font);
-  font-size: 20px;
+  font-family: var(--p-font) !important;
+  font-size: 17px;
 }
 
 #footer ul {
@@ -624,6 +623,33 @@ nav a {
   background-color: var(--c-light);
   font-size: 0.9rem;
 }
+
+/* 1) Uppercase all column titles */
+#footer h4 {
+  text-transform: uppercase;
+  font-weight: 600; /* optional if you want them bolder */
+  font-family: var(--h-font) !important;
+}
+
+/* 2) Tweak list spacing globally */
+#footer li {
+  margin-bottom: 0.5rem;   /* tighter than the 0.75rem default */
+  line-height: 1.4;        /* slightly more compact */
+}
+
+/* 3) If you need to override Bootstrap’s py-3 on .container: */
+#footer .container.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+/* 4) And shorten the footer-bottom area */
+.footer-bottom {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  font-size: 0.85rem;      /* optional: make that text a hair smaller */
+}
+
 
 /* ----------------------------------
    Responsive
@@ -1290,3 +1316,31 @@ nav a {
   background: none;
 }
 
+#reviews-section {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  overflow: visible !important;
+  z-index: 1 !important;
+}
+
+/* 1) Make sure the Trustindex wrapper and its iframe are forced visible */
+.trustindex-widget-container,
+.trustindex-widget-container > iframe {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 2) Give it a minimum height so you can spot it */
+.trustindex-widget-container {
+  min-height: 300px;
+}
+
+/* 3) If it loads an iframe, make it fill the container */
+.trustindex-widget-container > iframe {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 300px !important;
+}
