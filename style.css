@@ -468,42 +468,51 @@ nav a {
   
   
 @media (max-width: 767px) {
-  /* reset any Bootstrap accordion styles you don’t want */
-  .accordion .accordion-item {
-    border: none;
-    margin-bottom: 0.75rem;
-  }
+  /* remove Bootstrap’s default blue and box-shadow */
   .accordion-button {
-    background: var(--c-gray);
-    color: var(--c-dark);
-    font-weight: 500;
-    border-radius: 0;
-    padding: 1rem;
-    position: relative;
-    transition: background .3s;
+    background-color: var(--c-gray) !important;
+    color: var(--c-dark) !important;
+    border: none;
+    box-shadow: none;
   }
-  .accordion-button:hover {
-    background: #e0e0e0;
+  .accordion-button:focus {
+    outline: none;
+    box-shadow: none;
   }
+
+  /* kill the default arrow */
   .accordion-button::after {
-    content: "\25BC";           /* ▼ */
+    display: none;
+  }
+
+  /* add our own single arrow */
+  .accordion-button::before {
+    content: "▼";
     font-size: 0.8rem;
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%) rotate(0deg);
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
   }
-  .accordion-button.collapsed::after {
+  /* rotate when collapsed/expanded */
+  .accordion-button.collapsed::before {
     transform: translateY(-50%) rotate(-90deg);
   }
+
+  /* panel styling */
   .accordion-body {
     background: var(--c-light);
     border-top: 1px solid var(--c-gray);
     padding: 1rem;
-    transition: max-height .4s ease;
+    transition: max-height 0.4s ease;
+  }
+
+  .accordion-item + .accordion-item {
+    margin-top: 0.75rem;
   }
 }
+
 
 
   
