@@ -101,3 +101,7 @@
   </div><!-- /.container -->
 </section>
 <!-- Footer End -->
+
+<?php wp_footer(); ?>
+</body>
+</html>
