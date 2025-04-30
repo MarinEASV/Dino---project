@@ -485,6 +485,20 @@ nav a {
     }
   }
   
+  @media (max-width: 768px) {
+    /* hide old tabs (if you didn’t wrap in d-none) */
+    #nav-tab { display: none; }
+  
+    /* spacing on accordion items */
+    .accordion-button {
+      padding: 1rem;
+      font-weight: 600;
+    }
+    .accordion-body .menu-items {
+      padding: 0 1rem 1rem;
+    }
+  }
+   
   
 /*ABOUT SECTION */
 .section-divider {
