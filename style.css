@@ -535,7 +535,6 @@ nav a {
   text-align: left;
   margin-bottom: 1.5rem;
   color: var(--c-dark);
-  justify-content: center;
   display: flex
 }
 
