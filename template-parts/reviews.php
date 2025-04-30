@@ -5,15 +5,16 @@
  */
 ?>
 
-<section id="reviews-section" class="reviews-section">
+<section id="reviews-section" class="reviews-section" data-aos="fade-up">
   <div class="container">
     <h2 class="reviews-section__title">What Our Customers Are Saying</h2>
 
-    <div class="trustindex-widget-container">
-      <?php
-        // Render your Trustindex widget by its real ID:
-        echo do_shortcode( '[trustindex data-widget-id="ede1d6245a9a52887346390af8b"]' );
-      ?>
-    </div>
+    <?php
+      // WP Google Reviews shortcode.
+      // Change place_id / layout / columns as desired.
+      echo do_shortcode(
+        '[[trustindex no-registration=google]]'
+      );
+    ?>
   </div>
 </section>
