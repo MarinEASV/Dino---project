@@ -467,37 +467,46 @@ nav a {
 
   
   
-  /* Mobile tweaks */
-  @media (max-width: 768px) {
-    .menu-item {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .menu-price {
-      padding-left: 0;
-      margin-top: 0.3rem;
-    }
-  
-    .menu-photo {
-      transform: rotate(0deg);
-      margin: 2rem auto 0;
-    }
+@media (max-width: 767px) {
+  /* reset any Bootstrap accordion styles you don’t want */
+  .accordion .accordion-item {
+    border: none;
+    margin-bottom: 0.75rem;
   }
-  
-  @media (max-width: 768px) {
-    /* hide old tabs (if you didn’t wrap in d-none) */
-    #nav-tab { display: none; }
-  
-    /* spacing on accordion items */
-    .accordion-button {
-      padding: 1rem;
-      font-weight: 600;
-    }
-    .accordion-body .menu-items {
-      padding: 0 1rem 1rem;
-    }
+  .accordion-button {
+    background: var(--c-gray);
+    color: var(--c-dark);
+    font-weight: 500;
+    border-radius: 0;
+    padding: 1rem;
+    position: relative;
+    transition: background .3s;
   }
+  .accordion-button:hover {
+    background: #e0e0e0;
+  }
+  .accordion-button::after {
+    content: "\25BC";           /* ▼ */
+    font-size: 0.8rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform .3s ease;
+  }
+  .accordion-button.collapsed::after {
+    transform: translateY(-50%) rotate(-90deg);
+  }
+  .accordion-body {
+    background: var(--c-light);
+    border-top: 1px solid var(--c-gray);
+    padding: 1rem;
+    transition: max-height .4s ease;
+  }
+}
+
+
+  
    
   
 /*ABOUT SECTION */
