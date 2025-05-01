@@ -126,56 +126,47 @@ h3, .h3 {
     height: 100%;
   }
   
-/* infinite scroll */
+/* New section container */
+.scrolling-section {
+  background-color: var(--c-light);
+  padding: 2rem 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
 /* Scrolling Text Container */
 .scrolling-text-container {
-    bottom: 120px;
-    text-align: center;
-    z-index: 2;
-    overflow: hidden;
-    white-space: nowrap;
-    pointer-events: none;
-    padding: 0 1rem;
-  }
-  
-  /* The Animated Text */
-  .scrolling-text {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll-left 90s linear infinite;
-    font-size: 100px;
-    color: var(--c-light);
-    font-weight: 100;
-    font-family: var(--p-font); 
-    text-shadow: 0 0 10px rgba(0,0,0,0.6);
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .scrolling-text {
-      font-size: 60px;
-      bottom: 130px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 1rem;
+}
 
-    }
+/* The Animated Text */
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 90s linear infinite;
+  font-size: 100px;
+  color: var(--c-red);
+  font-weight: 100;
+  font-family: var(--p-font);
+  text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
 
-    .hero-subtext .dash {
-      width: 200px;
-    }
-
+/* Scroll Animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
   }
-  
-
-  
-  /* Scroll Animation */
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  100% {
+    transform: translateX(-50%);
   }
-  
+}
+
+
   .hero-subtext {
     position: absolute;
     bottom: 50px;
@@ -201,6 +192,19 @@ h3, .h3 {
     margin: 0;
   }
   
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .scrolling-text {
+      font-size: 60px;
+      bottom: 130px;
+
+    }
+
+    .hero-subtext .dash {
+      width: 200px;
+    }
+
+  }
 
 
 /* Navbar */

@@ -7,16 +7,18 @@ $about_heading = get_field('about_heading');
 $about_text = get_field('about_text');
 ?>
 
-<section class="about-section" id="about" data-aos="fade-in" >
-
-<!-- Infinite Scroll Keywords -->
-<div class="scrolling-text-container position-absolute w-100">
+<!-- Infinite Scroll Section -->
+<section class="scrolling-section">
+  <div class="scrolling-text-container">
     <div class="scrolling-text">
       <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
       <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
     </div>
   </div>
+</section>
 
+
+<section class="about-section" id="about" data-aos="fade-in" >
   <hr class="section-divider">
   <div class="about-container">
     <?php if ($about_image): ?>
