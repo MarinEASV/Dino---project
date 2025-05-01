@@ -7,6 +7,15 @@ $about_heading = get_field('about_heading');
 $about_text = get_field('about_text');
 ?>
 
+<!-- Infinite Scroll Keywords -->
+<div class="scrolling-text-container position-absolute w-100">
+    <div class="scrolling-text">
+      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
+      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
+    </div>
+  </div>
+
+
 <section class="about-section" id="about" data-aos="fade-in" >
   <hr class="section-divider">
   <div class="about-container">
