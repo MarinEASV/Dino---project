@@ -30,9 +30,7 @@
             <a href="#menu">Menu</a>
             <a href="#about">About</a>
             <a href="#footer">Contact</a>
-            <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
-                Reserve
-            </button>
+            <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
             <div id="weglot_here"></div> <!-- Weglot button -->
         </nav>
 
@@ -48,6 +46,7 @@
     <a href="#manufacturing">Menu</a>
     <a href="#about">About</a>
     <a href="#footer">Contact</a>
+    <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
     <div id="weglot_here"></div> <!-- Weglot button for mobile -->
 </div>
 

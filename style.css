@@ -153,7 +153,6 @@ h3, .h3 {
   color: var(--c-red);
   font-weight: 100;
   font-family: var(--p-font);
-  /* text-shadow: 0 0 10px rgba(0,0,0,0.3); */
 }
 
 /* Scroll Animation */
@@ -365,11 +364,11 @@ nav a {
 }
 
 .custom-reserve-btn {
-  padding: 10px;
+  padding: 14px;
   margin: 0;
   margin-left: 30px !important;
   border-radius: 20px; 
-  font-size: 18 px;
+  font-size: 20px;
   line-height: 1;
   background-color: var(--c-red);
   color: var(--c-light);
@@ -379,6 +378,7 @@ nav a {
 /* Optional: hover effect */
 .custom-reserve-btn:hover {
   background-color: var(--c-light);
+  color: var(--c-red);
 }
 
 /* Modal base */
