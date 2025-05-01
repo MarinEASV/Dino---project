@@ -148,7 +148,7 @@ h3, .h3 {
 .scrolling-text {
   display: inline-block;
   white-space: nowrap;
-  animation: scroll-left 90s linear infinite;
+  animation: scroll-left 70s linear infinite;
   font-size: 100px;
   color: var(--c-red);
   font-weight: 100;
