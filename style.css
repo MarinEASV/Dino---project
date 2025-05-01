@@ -181,6 +181,21 @@ h3, .h3 {
   overflow: hidden;
 }
 
+/* Responsive: Adjust for smaller screens */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 28px;
+    bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text {
+    font-size: 22px;
+    bottom: 40px;
+  }
+}
+
   .hero-subtext {
     position: absolute;
     bottom: 50px;
