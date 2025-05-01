@@ -148,13 +148,13 @@ h3, .h3 {
 /* Responsive: Adjust for smaller screens */
 @media (max-width: 768px) {
   .hero-text {
-    bottom: 70px;
+    bottom: 90px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-text {
-    bottom: 50px;
+    bottom: 90px;
   }
 }
 
