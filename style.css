@@ -167,10 +167,16 @@ h3, .h3 {
 
 .hero-text {
   position: absolute;
-  bottom: 80px;
+  bottom: 90px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
+  color: var(--c-light);
+  font-size: 40px;
+  opacity: 0.85;
+  font-family: var(--p-font);
+  font-weight: 100;
+  margin: 0;
 }
 
   .hero-subtext {
