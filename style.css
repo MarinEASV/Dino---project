@@ -148,15 +148,12 @@ h3, .h3 {
 /* Responsive: Adjust for smaller screens */
 @media (max-width: 768px) {
   .hero-text {
-    bottom: 90px;
+    bottom: 110px;
   }
 }
 
-@media (max-width: 480px) {
-  .hero-text {
-    bottom: 90px;
-  }
-}
+
+
 
   .hero-subtext {
     position: absolute;
@@ -183,19 +180,6 @@ h3, .h3 {
     margin: 0;
   }
   
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .scrolling-text {
-      font-size: 60px;
-      bottom: 130px;
-
-    }
-
-    .hero-subtext .dash {
-      width: 200px;
-    }
-
-  }
 
 
 /* Navbar */
@@ -548,7 +532,20 @@ nav a {
     transform: translateX(-50%);
   }
 }
-  
+
+ /* Responsive Styles */
+ @media (max-width: 768px) {
+  .scrolling-text {
+    font-size: 60px;
+    bottom: 130px;
+
+  }
+
+  .hero-subtext .dash {
+    width: 200px;
+  }
+
+}
    
   
 /*ABOUT SECTION */
