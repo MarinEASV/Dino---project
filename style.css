@@ -146,7 +146,7 @@ h3, .h3 {
   
 
 /* Responsive: Adjust for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 722px) {
   .hero-text {
     bottom: 110px;
   }
