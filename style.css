@@ -133,17 +133,18 @@ h3, .h3 {
     transform: translateX(-50%);
     z-index: 3;
     color: var(--c-light);
-    font-size: clamp(20px, 5vw, 40px); /* fluid size from 20px to 40px */
+    font-size: clamp(18px, 4vw, 40px); /* responsive size */
     opacity: 0.85;
     font-family: var(--p-font);
     font-weight: 100;
     margin: 0;
-    max-width: 90%;
+    white-space: nowrap;       /* force one line */
+    overflow: hidden;          /* prevent overflow */
+    max-width: 90vw;           /* keeps text inside screen */
     text-align: center;
-    white-space: normal; /* allow wrapping */
-    overflow: visible;
   }
   
+
 /* Responsive: Adjust for smaller screens */
 @media (max-width: 768px) {
   .hero-text {
