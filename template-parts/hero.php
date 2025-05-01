@@ -17,7 +17,9 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
   <!-- Overlay Filter -->
   <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
-  
+  <div class="hero-text text-center text-light">
+    <p class="subtext">Welcome to Dino, a family-run restaurant serving homemade meals since 2005</p>
+  </div>
 
   <!-- Dash and Subtext -->
   <div class="hero-subtext text-center text-light">
