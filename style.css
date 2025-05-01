@@ -126,61 +126,24 @@ h3, .h3 {
     height: 100%;
   }
   
-/* New section container */
-.scrolling-section {
-  background-color: var(--c-light);
-  padding: 2rem 0;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  z-index: 1;
-}
-
-/* Scrolling Text Container */
-.scrolling-text-container {
-  text-align: center;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 0 1rem;
-}
-
-/* The Animated Text */
-.scrolling-text {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scroll-left 70s linear infinite;
-  font-size: 100px;
-  color: var(--c-red);
-  font-weight: 100;
-  font-family: var(--p-font);
-}
-
-/* Scroll Animation */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
+  .hero-text {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
     transform: translateX(-50%);
+    z-index: 3;
+    color: var(--c-light);
+    font-size: clamp(20px, 5vw, 40px); /* fluid size from 20px to 40px */
+    opacity: 0.85;
+    font-family: var(--p-font);
+    font-weight: 100;
+    margin: 0;
+    max-width: 90%;
+    text-align: center;
+    white-space: normal; /* allow wrapping */
+    overflow: visible;
   }
-}
-
-.hero-text {
-  position: absolute;
-  bottom: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  color: var(--c-light);
-  font-size: 40px;
-  opacity: 0.85;
-  font-family: var(--p-font);
-  font-weight: 100;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
+  
 /* Responsive: Adjust for smaller screens */
 @media (max-width: 768px) {
   .hero-text {
@@ -548,7 +511,44 @@ nav a {
 }
 
 
+/* New section container */
+.scrolling-section {
+  background-color: var(--c-light);
+  padding: 2rem 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
 
+/* Scrolling Text Container */
+.scrolling-text-container {
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 1rem;
+}
+
+/* The Animated Text */
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 70s linear infinite;
+  font-size: 100px;
+  color: var(--c-red);
+  font-weight: 100;
+  font-family: var(--p-font);
+}
+
+/* Scroll Animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
   
    
   
