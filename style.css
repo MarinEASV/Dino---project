@@ -133,7 +133,7 @@ h3, .h3 {
     transform: translateX(-50%);
     z-index: 3;
     color: var(--c-light);
-    font-size: clamp(18px, 4vw, 40px); /* responsive size */
+    font-size: clamp(17px, 3vw, 35px); /* responsive size */
     opacity: 0.85;
     font-family: var(--p-font);
     font-weight: 100;
@@ -148,15 +148,13 @@ h3, .h3 {
 /* Responsive: Adjust for smaller screens */
 @media (max-width: 768px) {
   .hero-text {
-    font-size: 28px;
-    bottom: 60px;
+    bottom: 70px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-text {
-    font-size: 22px;
-    bottom: 40px;
+    bottom: 50px;
   }
 }
 
