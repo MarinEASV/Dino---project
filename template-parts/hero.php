@@ -17,13 +17,7 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
   <!-- Overlay Filter -->
   <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
-  <!-- Infinite Scroll Keywords -->
-  <div class="scrolling-text-container position-absolute w-100">
-    <div class="scrolling-text">
-      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
-      <span>Balkan · Italian · Authentic · Cozy · Family · Rustic · Local ·&nbsp;</span>
-    </div>
-  </div>
+  
 
   <!-- Dash and Subtext -->
   <div class="hero-subtext text-center text-light">
