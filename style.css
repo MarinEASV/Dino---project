@@ -153,7 +153,7 @@ h3, .h3 {
   color: var(--c-red);
   font-weight: 100;
   font-family: var(--p-font);
-  text-shadow: 0 0 10px rgba(0,0,0,0.3);
+  /* text-shadow: 0 0 10px rgba(0,0,0,0.3); */
 }
 
 /* Scroll Animation */
