@@ -41,48 +41,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }, SLIDE_DURATION);
   }
 
-  /* ── MOBILE ACCORDION (only <768px) ─────────────────── */
-if (window.innerWidth < 768) {
-  const headers = document.querySelectorAll('#mobileMenuAccordion .accordion-button');
-  headers.forEach(header => {
-    // Find the panel in the same accordion-item
-    const item  = header.closest('.accordion-item');
-    const panel = item.querySelector('.accordion-body');
-    if (!panel) return;
-
-    // ensure we hide overflow and animate max-height
-    panel.style.overflow = 'hidden';
-    panel.style.transition = 'max-height 0.4s ease';
-
-    // initial open/closed
-    if (header.classList.contains('collapsed')) {
-      panel.style.maxHeight = '0';
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + 'px';
-    }
-
-    header.addEventListener('click', () => {
-      const wasClosed = header.classList.contains('collapsed');
-
-      // close everything
-      headers.forEach(h => {
-        h.classList.add('collapsed');
-        const i = h.closest('.accordion-item');
-        const p = i.querySelector('.accordion-body');
-        if (p) p.style.maxHeight = '0';
-      });
-
-      // if it was closed, open it
-      if (wasClosed) {
-        header.classList.remove('collapsed');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-        // scroll header into view (avoids whitespace when panels vary in height)
-        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (isMobile) {
+    // on phone just show both texts, skip bottle clicks
+    leftText.classList.add("show");
+    rightText.classList.add("show");
+  } else {
+    // desktop: bottle clicks
+    leftBottle.addEventListener("click", () => {
+      if (leftBottle.classList.contains("clicked")) {
+        closeBottlesSmooth();
+      } else {
+        clearTimeout(closeTimerID);
+        resetAllInstant();
+        leftBottle.classList.add("clicked");
+        rightBottle.classList.add("hide");
+        leftText.classList.add("show");
+        section.classList.add("opened", "left-opened");
+        updateCursorText();
       }
     });
-  });
-}
-
+    rightBottle.addEventListener("click", () => {
+      if (rightBottle.classList.contains("clicked")) {
+        closeBottlesSmooth();
+      } else {
+        clearTimeout(closeTimerID);
+        resetAllInstant();
+        rightBottle.classList.add("clicked");
+        leftBottle.classList.add("hide");
+        rightText.classList.add("show");
+        section.classList.add("opened", "right-opened");
+        updateCursorText();
+      }
+    });
+  }
 
   /* ── CUSTOM CURSOR ────────────────────────────────────── */
   if (customCursor) {
