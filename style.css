@@ -447,6 +447,7 @@ nav a {
 
   
   
+/* ── MOBILE ACCORDION RESTYLE ───────────────────────── */
 @media (max-width: 767px) {
   /* card look */
   .accordion-item {
@@ -460,7 +461,7 @@ nav a {
   /* header: transparent + subtle border */
   .accordion-button {
     background: transparent !important;
-    color: var(--c-dark)   !important;
+    color: var(--c-dark) !important;
     padding: 1rem;
     font-weight: 500;
     border: none;
@@ -472,12 +473,12 @@ nav a {
     box-shadow: none;
   }
 
-  /* kill Bootstrap’s default arrow */
+  /* remove Bootstrap’s default arrow */
   .accordion-button::after {
-    display: none;
+    display: none !important;
   }
 
-  /* one single arrow in ::before */
+  /* add our single, rotating arrow */
   .accordion-button::before {
     content: "▼";
     font-size: 0.9rem;
@@ -492,13 +493,13 @@ nav a {
     transform: translateY(-50%) rotate(-90deg);
   }
 
-  /* panel body: clean white */
+  /* panel body: crisp white */
   .accordion-body {
     background: #fff;
     padding: 1rem;
-    transition: max-height 0.4s ease;
   }
 }
+
 
 
 /* New section container */

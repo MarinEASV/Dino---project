@@ -42,43 +42,41 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ── MOBILE ACCORDION (only <768px) ─────────────────── */
-if (isMobile) {
+if (window.innerWidth < 768) {
   const headers = document.querySelectorAll('#mobileMenuAccordion .accordion-button');
   headers.forEach(header => {
-    // figure out which panel goes with this header
-    let selector =
-      header.dataset.target ||
-      header.dataset.bsTarget ||
-      `#${header.getAttribute('aria-controls')}`;
-    const panel = document.querySelector(selector);
+    // Find the panel in the same accordion-item
+    const item  = header.closest('.accordion-item');
+    const panel = item.querySelector('.accordion-body');
     if (!panel) return;
 
-    // ensure overflow hidden
+    // ensure we hide overflow and animate max-height
     panel.style.overflow = 'hidden';
-    // set initial open/closed state
-    panel.style.maxHeight = header.classList.contains('collapsed')
-      ? '0'
-      : panel.scrollHeight + 'px';
+    panel.style.transition = 'max-height 0.4s ease';
+
+    // initial open/closed
+    if (header.classList.contains('collapsed')) {
+      panel.style.maxHeight = '0';
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+    }
 
     header.addEventListener('click', () => {
       const wasClosed = header.classList.contains('collapsed');
 
-      // close _all_ first
+      // close everything
       headers.forEach(h => {
         h.classList.add('collapsed');
-        let sel =
-          h.dataset.target ||
-          h.dataset.bsTarget ||
-          `#${h.getAttribute('aria-controls')}`;
-        const p = document.querySelector(sel);
+        const i = h.closest('.accordion-item');
+        const p = i.querySelector('.accordion-body');
         if (p) p.style.maxHeight = '0';
       });
 
-      // if we were closed, open _this_ one
+      // if it was closed, open it
       if (wasClosed) {
         header.classList.remove('collapsed');
         panel.style.maxHeight = panel.scrollHeight + 'px';
-        // scroll it into view so shorter panels don't leave blank space
+        // scroll header into view (avoids whitespace when panels vary in height)
         header.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
