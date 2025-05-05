@@ -41,43 +41,50 @@ document.addEventListener("DOMContentLoaded", function () {
     }, SLIDE_DURATION);
   }
 
-  if (isMobile) {
-    const headers = document.querySelectorAll('#mobileMenuAccordion .accordion-button');
-  
-    headers.forEach(header => {
-      const panel = document.querySelector(header.dataset.target);
-  
-      // set initial state…
-      if (!header.classList.contains('collapsed')) {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-      } else {
-        panel.style.maxHeight = '0';
-      }
-  
-      header.addEventListener('click', () => {
-        const willOpen = header.classList.contains('collapsed');
-  
-        // close all
-        headers.forEach(h => {
-          h.classList.add('collapsed');
-          const p = document.querySelector(h.dataset.target);
-          p.style.maxHeight = '0';
-        });
-  
-        if (!willOpen) {
-          // we just closed an open panel, no need to scroll
-          return;
-        }
-  
-        // open this one
+  /* ── MOBILE ACCORDION (only <768px) ─────────────────── */
+if (isMobile) {
+  const headers = document.querySelectorAll('#mobileMenuAccordion .accordion-button');
+  headers.forEach(header => {
+    // figure out which panel goes with this header
+    let selector =
+      header.dataset.target ||
+      header.dataset.bsTarget ||
+      `#${header.getAttribute('aria-controls')}`;
+    const panel = document.querySelector(selector);
+    if (!panel) return;
+
+    // ensure overflow hidden
+    panel.style.overflow = 'hidden';
+    // set initial open/closed state
+    panel.style.maxHeight = header.classList.contains('collapsed')
+      ? '0'
+      : panel.scrollHeight + 'px';
+
+    header.addEventListener('click', () => {
+      const wasClosed = header.classList.contains('collapsed');
+
+      // close _all_ first
+      headers.forEach(h => {
+        h.classList.add('collapsed');
+        let sel =
+          h.dataset.target ||
+          h.dataset.bsTarget ||
+          `#${h.getAttribute('aria-controls')}`;
+        const p = document.querySelector(sel);
+        if (p) p.style.maxHeight = '0';
+      });
+
+      // if we were closed, open _this_ one
+      if (wasClosed) {
         header.classList.remove('collapsed');
         panel.style.maxHeight = panel.scrollHeight + 'px';
-  
+        // scroll it into view so shorter panels don't leave blank space
         header.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+      }
     });
-  }
-  
+  });
+}
+
 
   /* ── CUSTOM CURSOR ────────────────────────────────────── */
   if (customCursor) {

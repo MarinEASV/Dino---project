@@ -448,19 +448,19 @@ nav a {
   
   
 @media (max-width: 767px) {
-  /* each card gets a light card look */
+  /* card look */
   .accordion-item {
-    background: #fafafa;                 /* very light grey */
+    background: #fafafa;
     border-radius: 0.5rem;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     overflow: hidden;
     margin-bottom: 1rem;
   }
 
-  /* header button: transparent but with a subtle bottom border */
+  /* header: transparent + subtle border */
   .accordion-button {
     background: transparent !important;
-    color: var(--c-dark) !important;
+    color: var(--c-dark)   !important;
     padding: 1rem;
     font-weight: 500;
     border: none;
@@ -472,7 +472,12 @@ nav a {
     box-shadow: none;
   }
 
-  /* our custom arrow, tinted softly */
+  /* kill Bootstrap’s default arrow */
+  .accordion-button::after {
+    display: none;
+  }
+
+  /* one single arrow in ::before */
   .accordion-button::before {
     content: "▼";
     font-size: 0.9rem;
@@ -487,7 +492,7 @@ nav a {
     transform: translateY(-50%) rotate(-90deg);
   }
 
-  /* body panel: crisp white, padded */
+  /* panel body: clean white */
   .accordion-body {
     background: #fff;
     padding: 1rem;
