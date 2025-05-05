@@ -448,48 +448,50 @@ nav a {
   
   
 @media (max-width: 767px) {
-  /* remove Bootstrap’s default blue and box-shadow */
+  /* each card gets a light card look */
+  .accordion-item {
+    background: #fafafa;                 /* very light grey */
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  /* header button: transparent but with a subtle bottom border */
   .accordion-button {
-    background-color: var(--c-gray) !important;
+    background: transparent !important;
     color: var(--c-dark) !important;
+    padding: 1rem;
+    font-weight: 500;
     border: none;
-    box-shadow: none;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: relative;
   }
   .accordion-button:focus {
     outline: none;
     box-shadow: none;
   }
 
-  /* kill the default arrow */
-  .accordion-button::after {
-    display: none;
-  }
-
-  /* add our own single arrow */
+  /* our custom arrow, tinted softly */
   .accordion-button::before {
     content: "▼";
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    color: rgba(0,0,0,0.4);
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%) rotate(0deg);
     transition: transform 0.3s ease;
   }
-  /* rotate when collapsed/expanded */
   .accordion-button.collapsed::before {
     transform: translateY(-50%) rotate(-90deg);
   }
 
-  /* panel styling */
+  /* body panel: crisp white, padded */
   .accordion-body {
-    background: var(--c-light);
-    border-top: 1px solid var(--c-gray);
+    background: #fff;
     padding: 1rem;
     transition: max-height 0.4s ease;
-  }
-
-  .accordion-item + .accordion-item {
-    margin-top: 0.75rem;
   }
 }
 

@@ -42,38 +42,42 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (isMobile) {
-    // on phone just show both texts, skip bottle clicks
-    leftText.classList.add("show");
-    rightText.classList.add("show");
-  } else {
-    // desktop: bottle clicks
-    leftBottle.addEventListener("click", () => {
-      if (leftBottle.classList.contains("clicked")) {
-        closeBottlesSmooth();
+    const headers = document.querySelectorAll('#mobileMenuAccordion .accordion-button');
+  
+    headers.forEach(header => {
+      const panel = document.querySelector(header.dataset.target);
+  
+      // set initial state…
+      if (!header.classList.contains('collapsed')) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
       } else {
-        clearTimeout(closeTimerID);
-        resetAllInstant();
-        leftBottle.classList.add("clicked");
-        rightBottle.classList.add("hide");
-        leftText.classList.add("show");
-        section.classList.add("opened", "left-opened");
-        updateCursorText();
+        panel.style.maxHeight = '0';
       }
-    });
-    rightBottle.addEventListener("click", () => {
-      if (rightBottle.classList.contains("clicked")) {
-        closeBottlesSmooth();
-      } else {
-        clearTimeout(closeTimerID);
-        resetAllInstant();
-        rightBottle.classList.add("clicked");
-        leftBottle.classList.add("hide");
-        rightText.classList.add("show");
-        section.classList.add("opened", "right-opened");
-        updateCursorText();
-      }
+  
+      header.addEventListener('click', () => {
+        const willOpen = header.classList.contains('collapsed');
+  
+        // close all
+        headers.forEach(h => {
+          h.classList.add('collapsed');
+          const p = document.querySelector(h.dataset.target);
+          p.style.maxHeight = '0';
+        });
+  
+        if (!willOpen) {
+          // we just closed an open panel, no need to scroll
+          return;
+        }
+  
+        // open this one
+        header.classList.remove('collapsed');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+  
+        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
   }
+  
 
   /* ── CUSTOM CURSOR ────────────────────────────────────── */
   if (customCursor) {
