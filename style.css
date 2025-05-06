@@ -381,6 +381,7 @@ nav a {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
+  border: 2px solid var(--c-red); 
 }
 
 .custom-call-btn:hover {
