@@ -206,8 +206,23 @@ h3, .h3 {
     align-items: center;
     gap: 20px;
     font-size: 20px;
+    transition: border-bottom 0.3s ease, color 0.3s ease; /* Smooth transition for underline and color */
+    background: transparent !important; /* Remove background */
+    border: none !important; /* Remove border */
+    color: var(--c-dark); /* Set text color */
 }
 
+/* Add an underline to the active tab */
+.nav-link.active {
+  border-bottom: 2px solid var(--c-red); /* Underline with the color var(--c-red) */
+  color: var(--c-dark); /* Optional: active tab text color */
+}
+
+/* Optionally: add hover effect */
+.nav-link:hover {
+  border-bottom: 2px solid var(--c-red); /* Underline on hover */
+  color: var(--c-red); /* Optional: text color change on hover */
+}
 
 /* Desktop navbar spacing */
 @media (min-width: 768px) {
@@ -410,7 +425,7 @@ nav a {
   }
   
   .menu-dish {
-    font-weight: 600;
+    font-weight: bold;
     font-size: 1.1rem;
     color: var(--c-dark);
     margin-bottom: 0.3rem;
