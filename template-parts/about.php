@@ -18,7 +18,7 @@ $about_text = get_field('about_text');
 </section>
 
 
-<section class="about-section" id="about" data-aos="fade-in" >
+<section class="about-section" id="about">
   <hr class="section-divider">
   <div class="about-container">
     <?php if ($about_image): ?>
