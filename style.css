@@ -206,23 +206,9 @@ h3, .h3 {
     align-items: center;
     gap: 20px;
     font-size: 20px;
-    transition: border-bottom 0.3s ease, color 0.3s ease; /* Smooth transition for underline and color */
-    background: transparent !important; /* Remove background */
-    border: none !important; /* Remove border */
-    color: var(--c-dark); /* Set text color */
+    
 }
 
-/* Add an underline to the active tab */
-.nav-link.active {
-  border-bottom: 2px solid var(--c-red); /* Underline with the color var(--c-red) */
-  color: var(--c-dark); /* Optional: active tab text color */
-}
-
-/* Optionally: add hover effect */
-.nav-link:hover {
-  border-bottom: 2px solid var(--c-red); /* Underline on hover */
-  color: var(--c-red); /* Optional: text color change on hover */
-}
 
 /* Desktop navbar spacing */
 @media (min-width: 768px) {
@@ -1434,4 +1420,36 @@ nav a {
   width: 100% !important;
   height: 100% !important;
   min-height: 300px !important;
+}
+
+
+/* Remove Bootstrap default active tab background/border */
+.nav-tabs .nav-link {
+  border: none;
+  background-color: transparent;
+  color: var(--c-dark);
+  padding-bottom: 0.5rem;
+  position: relative;
+  font-weight: 400;
+}
+
+/* Add underline on active tab */
+.nav-tabs .nav-link.active {
+  color: var(--c-red);
+  border: none;
+}
+
+.nav-tabs .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: var(--c-red);
+}
+
+/* Optional: hover style */
+.nav-tabs .nav-link:hover {
+  color: var(--c-red);
 }
