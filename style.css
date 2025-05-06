@@ -1423,22 +1423,21 @@ nav a {
 }
 
 
-/* Remove Bootstrap default active tab background/border */
+/* Reset default Bootstrap styles */
 .nav-tabs .nav-link {
-  border: none;
-  background-color: transparent;
-  color: var(--c-dark);
-  padding-bottom: 0.5rem;
+  border: none !important;
+  background: transparent;
   position: relative;
-  font-weight: 400;
+  color: var(--c-dark); /* fallback color */
+  padding-bottom: 0.5rem;
 }
 
-/* Add underline on active tab */
+/* Style for active tab */
 .nav-tabs .nav-link.active {
   color: var(--c-red);
-  border: none;
 }
 
+/* Underline effect */
 .nav-tabs .nav-link.active::after {
   content: "";
   position: absolute;
@@ -1449,7 +1448,7 @@ nav a {
   background-color: var(--c-red);
 }
 
-/* Optional: hover style */
+/* Optional: hover color change */
 .nav-tabs .nav-link:hover {
   color: var(--c-red);
 }
