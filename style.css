@@ -416,6 +416,10 @@ nav a {
     margin-bottom: 0.3rem;
   }
   
+  .menu_price {
+    font-weight: bold;
+  }
+  
   .menu-desc {
     color: #666;
     font-size: 0.95rem;
@@ -423,7 +427,7 @@ nav a {
   }
   
   .menu-price {
-    font-weight: 500;
+    font-weight: bold;
     color: var(--c-dark);
     min-width: 60px;
     padding-left: 1rem;
