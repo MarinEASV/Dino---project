@@ -371,8 +371,6 @@ nav a {
   font-size: 1.5rem;
   font-weight: 400;
   color: var(--c-red);
-  width: 100%;
-  text-align: center; 
 }
 
 /* Call button */
