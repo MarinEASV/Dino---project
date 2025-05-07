@@ -778,10 +778,10 @@ nav a {
 
 
   .bottle-section.left-opened::before {
-    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #B64A42 50%, #B64A42 100%) !important;
+    background: linear-gradient(to right, #F5F5F5 0%, #F5F5F5 50%, #F5F5F5 50%, #F5F5F5 100%) !important;
   }
   .bottle-section.right-opened::before {
-    background: linear-gradient(to right, #5F120D 0%, #5F120D 50%, #5F120D 50%, #5F120D 100%) !important;
+    background: linear-gradient(to right, #D1D1D1 0%, #D1D1D1 50%, #D1D1D1 50%, #D1D1D1 100%) !important;
   }
   
   .bottle-container {
@@ -802,11 +802,11 @@ nav a {
   }
   
   .left-side {
-    background-color: #B64A42;
+    background-color: #F5F5F5;
   }
   
   .right-side {
-    background-color: #5F120D;
+    background-color: #D1D1D1;
   }
   
   .bottle {
@@ -838,14 +838,14 @@ nav a {
   }
   
   .left-text {
-    background-color: #B64A42;
+    background-color: #F5F5F5;
     color: white;
     right: 0;
     text-align: left;
   }
 
   .right-text {
-  background-color: #5F120D;
+  background-color: #D1D1D1;
   color: white;
   left: 0;
   text-align: right;
@@ -890,11 +890,11 @@ nav a {
   }
 
   .left-bottle {
-    background-color: #B64A42; /* Lighter red */
+    background-color: #F5F5F5; /* Lighter red */
   }
   
   .right-bottle {
-    background-color: #5F120D; /* Darker red */
+    background-color: #D1D1D1; /* Darker red */
   }
   
   .bottle-text {
@@ -1023,10 +1023,10 @@ nav a {
 
 /* 3) pick the “opposite side” color on hover */
 .left-text .bottle-buy-button::before {
-  background-color: #5F120D; /* right-side color */
+  background-color: #D1D1D1; /* right-side color */
 }
 .right-text .bottle-buy-button::before {
-  background-color: #B64A42; /* left-side color */
+  background-color: #F5F5F5; /* left-side color */
 }
 
 /* 4) on hover, expand the fill */
@@ -1061,43 +1061,43 @@ nav a {
   
 
 .bottle-section.left-opened {
-    background-color: #B64A42 !important;
+    background-color: #F5F5F5 !important;
   }
 
   .bottle-section.left-opened .left-text,
 .bottle-section.left-opened .right-text {
-  background-color: #B64A42;
+  background-color: #F5F5F5;
   color: white;
 }
   
   .bottle-section.right-opened {
-    background-color: #5F120D !important;
+    background-color: #D1D1D1 !important;
   }
 
   .bottle-section.right-opened .left-text,
 .bottle-section.right-opened .right-text {
-  background-color: #5F120D;
+  background-color: #D1D1D1;
   color: white;
 }
 
   .bottle-section.left-opened .left-text {
-    background-color: #B64A42;
+    background-color: #F5F5F5;
     color: white;
   }
   
   .bottle-section.right-opened .right-text {
-    background-color: #5F120D;
+    background-color: #D1D1D1;
     color: white;
   }
 
   .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
-  background-color: #B64A42 !important;
+  background-color: #F5F5F5 !important;
 }
 
 .bottle-section.right-opened .left-bottle,
 .bottle-section.right-opened .right-bottle {
-  background-color: #5F120D !important;
+  background-color: #D1D1D1 !important;
 }
 
 
@@ -1105,7 +1105,7 @@ nav a {
 .bottle-section.left-opened .right-text,
 .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
-  background-color: #B64A42 !important;
+  background-color: #F5F5F5 !important;
   color: white;
 }
 
@@ -1113,7 +1113,7 @@ nav a {
 .bottle-section.right-opened .right-text,
 .bottle-section.right-opened .left-bottle,
 .bottle-section.right-opened .right-bottle {
-  background-color: #5F120D !important;
+  background-color: #D1D1D1 !important;
   color: white;
 }
   
@@ -1124,22 +1124,22 @@ nav a {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
+  background: linear-gradient(to right, #F5F5F5 0%, #F5F5F5 50%, #D1D1D1 50%, #D1D1D1 100%);
   transition: background 0.8s ease-in-out;
   z-index: 0;
   pointer-events: none;
 }
   
   .bottle-section.left-opened::before {
-    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, #5F120D 50%, #5F120D 100%);
+    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, #D1D1D1 50%, #D1D1D1 100%);
   }
   
   .bottle-section.right-opened::before {
-    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #FFFFFF 50%, #FFFFFF 100%);
+    background: linear-gradient(to right, #F5F5F5 0%, #F5F5F5 50%, #FFFFFF 50%, #FFFFFF 100%);
   }
   
   .bottle-section:not(.left-opened):not(.right-opened)::before {
-    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
+    background: linear-gradient(to right, #F5F5F5 0%, #F5F5F5 50%, #D1D1D1 50%, #D1D1D1 100%);
   }
 
   @media screen and (max-width: 768px) {
