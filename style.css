@@ -1082,12 +1082,12 @@ nav a {
 
   .bottle-section.left-opened .left-text {
     background-color: #F5F5F5;
-    color: white;
+    color: black;
   }
   
   .bottle-section.right-opened .right-text {
     background-color: #D1D1D1;
-    color: white;
+    color: black;
   }
 
   .bottle-section.left-opened .left-bottle,
