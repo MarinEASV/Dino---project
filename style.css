@@ -415,6 +415,7 @@ nav a {
     font-size: 1.1rem;
     color: var(--c-dark);
     margin-bottom: 0.3rem;
+    font-family: var(--h-font) !important;
   }
   
   .menu-price {
