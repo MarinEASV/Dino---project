@@ -513,6 +513,7 @@ nav a {
 
  .accordion-button {
     font-family: var(--h-font) !important;
+    font-weight: bolder;
   }
 }
 
@@ -571,6 +572,10 @@ nav a {
 
   .footer-logo {
     max-width: 100px;
+  }
+
+  .hero-subtext {
+    bottom: 10px;
   }
 
 }
