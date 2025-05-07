@@ -60,7 +60,7 @@
             </div>
             <div class="modal-body">
                 <p>We handle table reservations and food orders only via phone calls.</p>
-                <a href="tel:++45 75 16 64 64" class="btn custom-call-btn mt-3">📞 +45 75 16 64 64</a>
+                <a href="tel:+45 75 16 64 64" class="btn custom-call-btn mt-3">📞 +45 75 16 64 64</a>
             </div>
         </div>
     </div>
