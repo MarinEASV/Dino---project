@@ -161,7 +161,7 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     preloader.style.opacity = "0";
     preloader.style.visibility = "hidden";
-  }, 5500); // longer duration to allow full smooth transition
+  }, 2500); // longer duration to allow full smooth transition
 });
 
 
