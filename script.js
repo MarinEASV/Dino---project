@@ -149,16 +149,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }); // end DOMContentLoaded
 
-/* ── PRELOADER ─────────────────────────────────────────── */
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
-  const logo      = document.querySelector(".preloader-logo");
-  logo.classList.add("animate");
+  const logo = document.querySelector(".preloader-logo");
+
+  // Remove pulse by cloning the node (resets animation), then add final animation
+  const newLogo = logo.cloneNode(true);
+  logo.parentNode.replaceChild(newLogo, logo);
+
+  newLogo.classList.add("animate");
+
   setTimeout(() => {
-    preloader.style.opacity    = "0";
+    preloader.style.opacity = "0";
     preloader.style.visibility = "hidden";
   }, 3500);
 });
+
 
 /* ── RESERVATION MODAL CLEANUP ───────────────────────── */
 document.addEventListener('DOMContentLoaded', function () {
