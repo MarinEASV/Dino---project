@@ -512,7 +512,7 @@ nav a {
   }
 
  .accordion-button {
-    font-family: var(--h-font) !important;
+    font-family: var(--p-font) !important;
   }
 }
 
