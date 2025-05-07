@@ -1033,9 +1033,11 @@ nav a {
 /* 3) pick the “opposite side” color on hover */
 .left-text .bottle-buy-button::before {
   background-color: #D1D1D1; /* right-side color */
+  color: black;
 }
 .right-text .bottle-buy-button::before {
   background-color: #F5F5F5; /* left-side color */
+  color: black;
 }
 
 /* 4) on hover, expand the fill */
