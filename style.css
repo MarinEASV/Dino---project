@@ -75,9 +75,8 @@ h3, .h3 {
 
 /* After load: stop pulsing and start zoom out smoothly */
 .preloader-logo.animate {
-  animation: logoFadeIn 1.2s ease forwards,
-             pulse 2s ease-in-out 1.2s 1, /* just one more pulse before ending */
-             bigFadeZoom 2s ease-in-out 3.4s forwards;
+  animation:
+  bigFadeZoom 1s ease-in-out forwards;
   animation-fill-mode: forwards;
 }
 
@@ -252,7 +251,7 @@ nav a {
   }
   
 .logo {
-    max-height: 90px;
+    max-height: 70px;
 }
 
 /* Mobile Menu */
