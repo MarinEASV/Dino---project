@@ -258,52 +258,63 @@ nav a {
 .mobile-nav {
   position: fixed;
   top: 0;
-  left: -100%;
-  width: 60%;
+  right: -100%;
+  width: 70%;
+  max-width: 300px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(5px);
-  transition: left 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  transition: right 0.3s ease-in-out;
+  z-index: 1050;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 190px 20px 0 20px;
-  z-index: 1050;
+  padding-top: 100px;
 }
 
 .mobile-nav.show {
-  left: 0;
+  right: 0;
 }
 
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+/* Mobile Nav Links */
 .mobile-nav a,
 .mobile-nav button {
-  transition: all 0.3s ease;
-  text-decoration: none;
+  font-size: 24px;
+  text-align: left;
   color: var(--c-dark);
-  font-size: 30px;
-  margin: 10px 0;
-  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Hover effect */
 .mobile-nav a:hover {
-  transform: scale(1.2);
   color: var(--c-red);
+  transform: translateX(5px);
 }
 
+/* Close Button */
 .close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 24px;
+  font-size: 28px;
   background: none;
   border: none;
   cursor: pointer;
 }
 
+/* Toggle Button */
 .menu-btn {
   display: none;
-  font-size: 24px;
+  font-size: 28px;
   background: none;
   border: none;
   cursor: pointer;
@@ -311,13 +322,15 @@ nav a {
 
 /* Social Icons */
 .mobile-social {
-  margin-top: 40px;
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  margin-top: auto;
+  padding: 20px;
 }
 
 .mobile-social a {
   color: var(--c-dark);
+  font-size: 20px;
   transition: color 0.3s ease;
 }
 
@@ -328,10 +341,11 @@ nav a {
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
-      display: none !important;
+    display: none !important;
   }
+
   .menu-btn {
-      display: block;
+    display: block;
   }
 }
 
