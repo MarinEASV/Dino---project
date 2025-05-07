@@ -1055,6 +1055,7 @@ nav a {
       .bottle-text.show {
         opacity: 1;
   transform: translateY(0);
+  color: black;
       }
   }
 
