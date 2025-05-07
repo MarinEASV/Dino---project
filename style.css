@@ -1067,7 +1067,7 @@ nav a {
   .bottle-section.left-opened .left-text,
 .bottle-section.left-opened .right-text {
   background-color: #F5F5F5;
-  color: black;
+  color: white;
 }
   
   .bottle-section.right-opened {
@@ -1077,17 +1077,17 @@ nav a {
   .bottle-section.right-opened .left-text,
 .bottle-section.right-opened .right-text {
   background-color: #D1D1D1;
-  color: black;
+  color: white;
 }
 
   .bottle-section.left-opened .left-text {
     background-color: #F5F5F5;
-    color: black;
+    color: white;
   }
   
   .bottle-section.right-opened .right-text {
     background-color: #D1D1D1;
-    color: black;
+    color: white;
   }
 
   .bottle-section.left-opened .left-bottle,
