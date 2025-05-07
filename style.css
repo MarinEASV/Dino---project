@@ -16,7 +16,7 @@ html {
     --c-light: #ffffff;
     --c-red: #8C1C13; 
     --c-gray: #C4C4C4; 
-    --h-font: 'DM Serif Display', serif;
+    --h-font: "DM Serif Display", serif;
     --p-font: 'Red Hat Display', sans-serif ;
 }
 
@@ -51,6 +51,7 @@ h3, .h3 {
     line-height: 40px;
 }
 
+/* Preloader container */
 #preloader.logo-only {
   position: fixed;
   inset: 0;
@@ -65,16 +66,19 @@ h3, .h3 {
   transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
+/* Logo default state with pulse while waiting */
 .preloader-logo {
   width: 140px;
   opacity: 0;
-  animation: logoFadeIn 2s ease forwards;
+  animation: logoFadeIn 1.2s ease forwards, pulse 2s ease-in-out infinite;
 }
 
+/* Final animation after load: fade out + zoom */
 .preloader-logo.animate {
-  animation: logoFadeIn 2s ease forwards, bigFadeZoom 2.5s ease-in-out 2s forwards;
+  animation: logoFadeIn 1.2s ease forwards, bigFadeZoom 2s ease-in-out 0.8s forwards;
 }
 
+/* Fade-in animation */
 @keyframes logoFadeIn {
   from {
     opacity: 0;
@@ -84,6 +88,19 @@ h3, .h3 {
   }
 }
 
+/* Pulse effect while waiting */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Final zoom + fade out */
 @keyframes bigFadeZoom {
   0% {
     opacity: 1;
@@ -94,6 +111,7 @@ h3, .h3 {
     transform: scale(3);
   }
 }
+
 
 /* Hero */
 .hero-section {
@@ -133,25 +151,25 @@ h3, .h3 {
     transform: translateX(-50%);
     z-index: 3;
     color: var(--c-light);
-    font-size: clamp(17px, 3vw, 35px); /* responsive size */
-    opacity: 0.85;
+    font-size: clamp(24px, 5vw, 48px) !important;
     font-family: var(--p-font);
-    font-weight: 100;
+    font-weight: 200;
     margin: 0;
-    white-space: nowrap;       /* force one line */
-    overflow: hidden;          /* prevent overflow */
-    max-width: 90vw;           /* keeps text inside screen */
+    white-space: normal;        /* allow wrapping */
+    overflow: hidden;
+    max-width: 90vw;
     text-align: center;
+    padding: 0 10px;            /* some padding for small screens */
   }
   
-
-/* Responsive: Adjust for smaller screens */
-@media (max-width: 722px) {
-  .hero-text {
-    bottom: 110px;
+  /* Responsive: Adjust for smaller screens */
+  @media (max-width: 722px) {
+    .hero-text {
+      bottom: 110px;
+      font-size: clamp(20px, 6vw, 36px); /* smaller but still large enough */
+    }
   }
-}
-
+  
 
 
 
@@ -223,6 +241,7 @@ h3, .h3 {
     font-family: var(--p-font);
     color: var(--c-light);
     font-weight: 300;
+    
 }
 
 /* Target the navigation links */
@@ -304,17 +323,8 @@ nav a {
         display: block;
     }
 
-    #menuToggle,
-#closeMenu,
-.menu-btn,
-.close-btn {
-  color: var(--c-light) !important;  /* or whatever your icon/text color should be */
 }
 
-.custom-reserve-btn {
-    margin-left: none;
-}
-}
 /* Custom animation for Bootstrap modal */
 @keyframes slideFadeIn {
   0% {
@@ -424,19 +434,16 @@ nav a {
     font-size: 1.1rem;
     color: var(--c-dark);
     margin-bottom: 0.3rem;
-    font-family: var(--h-font) !important;
   }
   
   .menu-price {
     font-weight: bold;
-    font-family: var(--h-font) !important;
   }
 
   .menu-desc {
     color: #666;
     font-size: 0.95rem;
     margin-bottom: 0;
-    font-family: var(--p-font) !important;
   }
   
   .menu-price {
@@ -470,6 +477,7 @@ nav a {
 @media (max-width: 767px) {
   /* card look */
   .accordion-item {
+    background: #fafafa;
     border-radius: 0.5rem;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     overflow: hidden;
@@ -483,14 +491,12 @@ nav a {
     padding: 1rem;
     font-weight: 500;
     border: none;
-    border-bottom: 5px solid #5f120d !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
     position: relative;
-    height: 75px;
   }
   .accordion-button:focus {
     outline: none;
     box-shadow: none;
-    border-color: #5f120d !important;
   }
 
   /* remove Bootstrap’s default arrow */
@@ -508,7 +514,6 @@ nav a {
     top: 50%;
     transform: translateY(-50%) rotate(0deg);
     transition: transform 0.3s ease;
-    color: #5F120D
   }
   .accordion-button.collapsed::before {
     transform: translateY(-50%) rotate(-90deg);
@@ -518,11 +523,6 @@ nav a {
   .accordion-body {
     background: #fff;
     padding: 1rem;
-  }
-
- .accordion-button {
-    font-family: var(--h-font) !important;
-    font-weight: bolder;
   }
 }
 
@@ -577,14 +577,6 @@ nav a {
 
   .hero-subtext .dash {
     width: 200px;
-  }
-
-  .footer-logo {
-    max-width: 100px;
-  }
-
-  .hero-subtext {
-    bottom: 10px;
   }
 
 }
@@ -787,10 +779,10 @@ nav a {
 
 
   .bottle-section.left-opened::before {
-    background: linear-gradient(to right, #F5F5F5 0%, #F5F5F5 50%, #F5F5F5 50%, #F5F5F5 100%) !important;
+    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #B64A42 50%, #B64A42 100%) !important;
   }
   .bottle-section.right-opened::before {
-    background: linear-gradient(to right, #D1D1D1 0%, #D1D1D1 50%, #D1D1D1 50%, #D1D1D1 100%) !important;
+    background: linear-gradient(to right, #5F120D 0%, #5F120D 50%, #5F120D 50%, #5F120D 100%) !important;
   }
   
   .bottle-container {
@@ -811,11 +803,11 @@ nav a {
   }
   
   .left-side {
-    background-color: #F5F5F5;
+    background-color: #B64A42;
   }
   
   .right-side {
-    background-color: #D1D1D1;
+    background-color: #5F120D;
   }
   
   .bottle {
@@ -847,14 +839,14 @@ nav a {
   }
   
   .left-text {
-    background-color: #F5F5F5;
+    background-color: #B64A42;
     color: white;
     right: 0;
     text-align: left;
   }
 
   .right-text {
-  background-color: #D1D1D1;
+  background-color: #5F120D;
   color: white;
   left: 0;
   text-align: right;
@@ -899,11 +891,11 @@ nav a {
   }
 
   .left-bottle {
-    background-color: #F5F5F5; /* Lighter red */
+    background-color: #B64A42; /* Lighter red */
   }
   
   .right-bottle {
-    background-color: #D1D1D1; /* Darker red */
+    background-color: #5F120D; /* Darker red */
   }
   
   .bottle-text {
@@ -1004,7 +996,7 @@ nav a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   background-color: #000;
-  color: #000;
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   border-radius: 4px;
@@ -1015,8 +1007,8 @@ nav a {
   overflow: hidden;
   /* if you want a transparent / outlined start state: */
   background: transparent;
-  border: 2px solid #000;
-  color: #000;
+  border: 2px solid #fff;
+  color: #fff;
   transition: color 0.3s ease;
 }
 
@@ -1032,12 +1024,10 @@ nav a {
 
 /* 3) pick the “opposite side” color on hover */
 .left-text .bottle-buy-button::before {
-  background-color: #D1D1D1; /* right-side color */
-  color: black;
+  background-color: #5F120D; /* right-side color */
 }
 .right-text .bottle-buy-button::before {
-  background-color: #F5F5F5; /* left-side color */
-  color: black;
+  background-color: #B64A42; /* left-side color */
 }
 
 /* 4) on hover, expand the fill */
@@ -1047,7 +1037,7 @@ nav a {
 
 /* 5) make sure your text stays visible */
 .bottle-buy-button:hover {
-  color: #000;
+  color: #fff;
 }
 
 
@@ -1066,50 +1056,49 @@ nav a {
       .bottle-text.show {
         opacity: 1;
   transform: translateY(0);
-  color: black;
       }
   }
 
   
 
 .bottle-section.left-opened {
-    background-color: #F5F5F5 !important;
+    background-color: #B64A42 !important;
   }
 
   .bottle-section.left-opened .left-text,
 .bottle-section.left-opened .right-text {
-  background-color: #F5F5F5;
-  color: black;
+  background-color: #B64A42;
+  color: white;
 }
   
   .bottle-section.right-opened {
-    background-color: #D1D1D1 !important;
+    background-color: #5F120D !important;
   }
 
   .bottle-section.right-opened .left-text,
 .bottle-section.right-opened .right-text {
-  background-color: #D1D1D1;
-  color: black;
+  background-color: #5F120D;
+  color: white;
 }
 
   .bottle-section.left-opened .left-text {
-    background-color: #F5F5F5;
-    color: black;
+    background-color: #B64A42;
+    color: white;
   }
   
   .bottle-section.right-opened .right-text {
-    background-color: #D1D1D1;
-    color: black;
+    background-color: #5F120D;
+    color: white;
   }
 
   .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
-  background-color: #F5F5F5 !important;
+  background-color: #B64A42 !important;
 }
 
 .bottle-section.right-opened .left-bottle,
 .bottle-section.right-opened .right-bottle {
-  background-color: #D1D1D1 !important;
+  background-color: #5F120D !important;
 }
 
 
@@ -1117,16 +1106,16 @@ nav a {
 .bottle-section.left-opened .right-text,
 .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
-  background-color: #F5F5F5 !important;
-  color: black;
+  background-color: #B64A42 !important;
+  color: white;
 }
 
 .bottle-section.right-opened .left-text,
 .bottle-section.right-opened .right-text,
 .bottle-section.right-opened .left-bottle,
 .bottle-section.right-opened .right-bottle {
-  background-color: #D1D1D1 !important;
-  color: black;
+  background-color: #5F120D !important;
+  color: white;
 }
   
 .bottle-section::before {
@@ -1136,22 +1125,22 @@ nav a {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, #F5F5F5 0%, #F5F5F5 50%, #D1D1D1 50%, #D1D1D1 100%);
+  background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
   transition: background 0.8s ease-in-out;
   z-index: 0;
   pointer-events: none;
 }
   
   .bottle-section.left-opened::before {
-    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, #D1D1D1 50%, #D1D1D1 100%);
+    background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 50%, #5F120D 50%, #5F120D 100%);
   }
   
   .bottle-section.right-opened::before {
-    background: linear-gradient(to right, #F5F5F5 0%, #F5F5F5 50%, #FFFFFF 50%, #FFFFFF 100%);
+    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #FFFFFF 50%, #FFFFFF 100%);
   }
   
   .bottle-section:not(.left-opened):not(.right-opened)::before {
-    background: linear-gradient(to right, #F5F5F5 0%, #F5F5F5 50%, #D1D1D1 50%, #D1D1D1 100%);
+    background: linear-gradient(to right, #B64A42 0%, #B64A42 50%, #5F120D 50%, #5F120D 100%);
   }
 
   @media screen and (max-width: 768px) {
@@ -1230,7 +1219,7 @@ nav a {
 .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
   background-color: none !important;
-  color: black;
+  color: white;
 }
 
 .bottle-section.right-opened .left-text,
@@ -1238,7 +1227,7 @@ nav a {
 .bottle-section.right-opened .left-bottle,
 .bottle-section.right-opened .right-bottle {
   background-color: none !important;
-  color: black;
+  color: white;
 }
   }
 

@@ -149,20 +149,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }); // end DOMContentLoaded
 
+/* ── PRELOADER ─────────────────────────────────────────── */
 window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const logo = document.querySelector(".preloader-logo");
 
-  // Remove pulse by cloning the node (resets animation), then add final animation
+  // Clone logo to reset pulse animation
   const newLogo = logo.cloneNode(true);
   logo.parentNode.replaceChild(newLogo, logo);
 
+  // Add final animation
   newLogo.classList.add("animate");
 
+  // Hide preloader after animation
   setTimeout(() => {
     preloader.style.opacity = "0";
     preloader.style.visibility = "hidden";
-  }, 3500);
+  }, 3000); // Adjust timing if needed
 });
 
 
