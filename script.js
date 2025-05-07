@@ -154,19 +154,16 @@ window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const logo = document.querySelector(".preloader-logo");
 
-  // Clone logo to reset pulse animation
-  const newLogo = logo.cloneNode(true);
-  logo.parentNode.replaceChild(newLogo, logo);
-
-  // Add final animation
-  newLogo.classList.add("animate");
+  // Trigger final animation
+  logo.classList.add("animate");
 
   // Hide preloader after animation
   setTimeout(() => {
     preloader.style.opacity = "0";
     preloader.style.visibility = "hidden";
-  }, 3000); // Adjust timing if needed
+  }, 5500); // longer duration to allow full smooth transition
 });
+
 
 
 /* ── RESERVATION MODAL CLEANUP ───────────────────────── */

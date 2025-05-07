@@ -66,50 +66,19 @@ h3, .h3 {
   transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
-/* Logo default state with pulse while waiting */
+/* Logo with fade-in and pulse */
 .preloader-logo {
   width: 140px;
   opacity: 0;
-  animation: logoFadeIn 1.2s ease forwards, pulse 2s ease-in-out infinite;
+  animation: logoFadeIn 1.2s ease forwards, pulse 2s ease-in-out 1.2s infinite;
 }
 
-/* Final animation after load: fade out + zoom */
+/* After load: stop pulsing and start zoom out smoothly */
 .preloader-logo.animate {
-  animation: logoFadeIn 1.2s ease forwards, bigFadeZoom 2s ease-in-out 0.8s forwards;
-}
-
-/* Fade-in animation */
-@keyframes logoFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Pulse effect while waiting */
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-}
-
-/* Final zoom + fade out */
-@keyframes bigFadeZoom {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(3);
-  }
+  animation: logoFadeIn 1.2s ease forwards,
+             pulse 2s ease-in-out 1.2s 1, /* just one more pulse before ending */
+             bigFadeZoom 2s ease-in-out 3.4s forwards;
+  animation-fill-mode: forwards;
 }
 
 
