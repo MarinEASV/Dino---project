@@ -1082,12 +1082,12 @@ nav a {
 
   .bottle-section.left-opened .left-text {
     background-color: #F5F5F5;
-    color: white;
+    color: black;
   }
   
   .bottle-section.right-opened .right-text {
     background-color: #D1D1D1;
-    color: white;
+    color: black;
   }
 
   .bottle-section.left-opened .left-bottle,
@@ -1106,7 +1106,7 @@ nav a {
 .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
   background-color: #F5F5F5 !important;
-  color: white;
+  color: black;
 }
 
 .bottle-section.right-opened .left-text,
@@ -1114,7 +1114,7 @@ nav a {
 .bottle-section.right-opened .left-bottle,
 .bottle-section.right-opened .right-bottle {
   background-color: #D1D1D1 !important;
-  color: white;
+  color: black;
 }
   
 .bottle-section::before {
