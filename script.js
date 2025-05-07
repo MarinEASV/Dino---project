@@ -181,29 +181,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  let videoSection = document.querySelector("#video");
-  let videos = document.querySelectorAll("#video video");
-
-  if (videoSection && videos.length > 0) {
-      let observer = new IntersectionObserver(
-          function (entries) {
-              entries.forEach((entry) => {
-                  let video = entry.target.querySelector("video");
-
-                  if (entry.isIntersecting) {
-                      video.play();
-                  } else {
-                      video.pause();
-                      video.currentTime = 0; // Reset video when out of view
-                  }
-              });
-          },
-          { threshold: 0.5 } // Video should be at least 50% visible to play
-      );
-
-      document.querySelectorAll(".carousel-item").forEach((item) => {
-          observer.observe(item);
-      });
-  }
-});
