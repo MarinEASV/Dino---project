@@ -311,8 +311,10 @@ nav a {
   color: var(--c-light) !important;  /* or whatever your icon/text color should be */
 }
 
+.custom-reserve-btn {
+    margin-left: none;
 }
-
+}
 /* Custom animation for Bootstrap modal */
 @keyframes slideFadeIn {
   0% {
