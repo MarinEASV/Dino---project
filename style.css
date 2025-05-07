@@ -511,7 +511,7 @@ nav a {
     padding: 1rem;
   }
 
-  .accordion-item:first-of-type .accordion-button {
+ .accordion-button {
     font-family: var(--h-font) !important;
   }
 }
