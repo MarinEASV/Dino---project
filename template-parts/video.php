@@ -11,22 +11,22 @@
       <!-- Centered Video Carousel Section -->
       <div class="mx-auto w-75" style="max-width: 800px;">
         <div id="carouselExampleCaptions" class="carousel slide" data-aos="fade-up" data-bs-ride="false">
-
-          <!-- Carousel Indicators (hidden) -->
+          
           <div class="carousel-indicators" style="display: none !important;">
             <?php
             $videoLoop = new WP_Query([
               'post_type'      => 'video',
               'posts_per_page' => -1
             ]);
+
             if ($videoLoop->have_posts()):
               $slide_index = 0;
               while ($videoLoop->have_posts()): 
                 $videoLoop->the_post();
                 ?>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $slide_index; ?>"
-                  class="<?php echo ($slide_index === 0) ? 'active' : ''; ?>"
-                  aria-current="<?php echo ($slide_index === 0) ? 'true' : 'false'; ?>"
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $slide_index; ?>" 
+                  class="<?php echo ($slide_index === 0) ? 'active' : ''; ?>" 
+                  aria-current="<?php echo ($slide_index === 0) ? 'true' : 'false'; ?>" 
                   aria-label="Slide <?php echo $slide_index + 1; ?>"></button>
                 <?php
                 $slide_index++;
@@ -36,13 +36,13 @@
             ?>
           </div>
 
-          <!-- Carousel Items -->
           <div class="carousel-inner">
             <?php
             $videoLoop = new WP_Query([
               'post_type'      => 'video',
               'posts_per_page' => -1
             ]);
+
             if ($videoLoop->have_posts()):
               $slide_index = 0;
               while ($videoLoop->have_posts()): 
@@ -50,15 +50,7 @@
                 $video_url = get_field('video');
                 ?>
                 <div class="carousel-item <?php echo ($slide_index === 0) ? 'active' : ''; ?>">
-                  <video 
-                    src="<?php echo esc_url($video_url); ?>" 
-                    class="d-block w-100"
-                    muted
-                    autoplay
-                    playsinline
-                    loop
-                    controls>
-                  </video>
+                  <video src="<?php echo esc_url($video_url); ?>" class="d-block w-100" controls></video>
                 </div>
                 <?php
                 $slide_index++;
@@ -67,33 +59,41 @@
             endif;
             ?>
           </div>
-
         </div>
       </div>
-
+          
       <br><br><br><br>            
+
     </div>
   </div>
 </section>
 
+<!-- Autoplay Video on Scroll -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const videos = document.querySelectorAll("#video .carousel-item video");
+    let videoSection = document.querySelector("#video");
+    let videos = document.querySelectorAll("#video video");
 
-  if (videos.length > 0) {
-    let observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const video = entry.target;
-        if (entry.isIntersecting) {
-          video.play().catch(err => console.warn("Autoplay error:", err));
-        } else {
-          video.pause();
-          video.currentTime = 0;
-        }
-      });
-    }, { threshold: 0.5 });
+    if (videoSection && videos.length > 0) {
+        let observer = new IntersectionObserver(
+            function (entries) {
+                entries.forEach((entry) => {
+                    let video = entry.target.querySelector("video");
 
-    videos.forEach(video => observer.observe(video));
-  }
+                    if (entry.isIntersecting) {
+                        video.play();
+                    } else {
+                        video.pause();
+                        video.currentTime = 0; // Reset video when out of view
+                    }
+                });
+            },
+            { threshold: 0.5 } // Video should be at least 50% visible to play
+        );
+
+        document.querySelectorAll(".carousel-item").forEach((item) => {
+            observer.observe(item);
+        });
+    }
 });
 </script>
