@@ -10,7 +10,7 @@
           src="<?php echo get_template_directory_uri()  ?>/assets/Dino-logo.svg" alt="logo" width="200" height="auto"
             alt="Dino logo"
             class="img-fluid"
-            style="max-width: 200px;"
+            style=""
           >
         </a>
       </div>
