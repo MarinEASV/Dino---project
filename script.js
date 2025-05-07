@@ -157,7 +157,7 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     preloader.style.opacity    = "0";
     preloader.style.visibility = "hidden";
-  }, 4500);
+  }, 3500);
 });
 
 /* ── RESERVATION MODAL CLEANUP ───────────────────────── */
