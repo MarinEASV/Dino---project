@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php bloginfo('description'); ?>">
-    <title><?php bloginfo('name'); ?>  <?php bloginfo('description'); ?></title>
+    <title><?php bloginfo('name'); ?> <?php bloginfo('description'); ?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <?php wp_head(); ?>
 </head>
 
@@ -31,23 +32,32 @@
             <a href="#about">About</a>
             <a href="#footer">Contact</a>
             <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
-            <div id="weglot_here"></div> <!-- Weglot button -->
+            <div id="weglot_here"></div>
         </nav>
 
         <!-- Mobile Menu Button -->
         <button id="menuToggle" class="menu-btn">☰</button>
     </div>
-    
 </header>
 
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="mobile-nav">
     <button id="closeMenu" class="close-btn">&times;</button>
-    <a href="#manufacturing">Menu</a>
+    <a href="#menu">Menu</a>
     <a href="#about">About</a>
     <a href="#footer">Contact</a>
     <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
-    <div id="weglot_here"></div> <!-- Weglot button for mobile -->
+    <div id="weglot_here"></div>
+
+    <!-- Social Links -->
+    <div class="mobile-social mt-4">
+        <a href="https://facebook.com" target="_blank" class="me-3">
+            <i class="fab fa-facebook fa-2x"></i>
+        </a>
+        <a href="https://maps.google.com/?q=Your+Business+Address" target="_blank">
+            <i class="fas fa-map-marker-alt fa-2x"></i>
+        </a>
+    </div>
 </div>
 
 <!-- Reservation Modal -->
