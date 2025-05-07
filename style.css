@@ -304,6 +304,13 @@ nav a {
         display: block;
     }
 
+    #menuToggle,
+#closeMenu,
+.menu-btn,
+.close-btn {
+  color: var(--c-light) !important;  /* or whatever your icon/text color should be */
+}
+
 }
 
 /* Custom animation for Bootstrap modal */
