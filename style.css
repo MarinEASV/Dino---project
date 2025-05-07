@@ -1006,8 +1006,8 @@ nav a {
   overflow: hidden;
   /* if you want a transparent / outlined start state: */
   background: transparent;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid #000;
+  color: #000;
   transition: color 0.3s ease;
 }
 
