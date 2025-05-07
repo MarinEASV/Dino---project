@@ -426,6 +426,7 @@ nav a {
     color: #666;
     font-size: 0.95rem;
     margin-bottom: 0;
+    font-family: var(--p-font) !important;
   }
   
   .menu-price {
