@@ -475,12 +475,14 @@ nav a {
     padding: 1rem;
     font-weight: 500;
     border: none;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 5px solid #5f120d;
     position: relative;
+    height: 75px;
   }
   .accordion-button:focus {
     outline: none;
     box-shadow: none;
+    border-color: #5f120d;
   }
 
   /* remove Bootstrap’s default arrow */
@@ -498,6 +500,7 @@ nav a {
     top: 50%;
     transform: translateY(-50%) rotate(0deg);
     transition: transform 0.3s ease;
+    color: #5F120D
   }
   .accordion-button.collapsed::before {
     transform: translateY(-50%) rotate(-90deg);
