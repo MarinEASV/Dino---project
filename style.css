@@ -1218,7 +1218,7 @@ nav a {
 .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
   background-color: none !important;
-  color: white;
+  color: black;
 }
 
 .bottle-section.right-opened .left-text,
@@ -1226,7 +1226,7 @@ nav a {
 .bottle-section.right-opened .left-bottle,
 .bottle-section.right-opened .right-bottle {
   background-color: none !important;
-  color: white;
+  color: black;
 }
   }
 
