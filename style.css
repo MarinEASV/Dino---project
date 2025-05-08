@@ -261,13 +261,13 @@ nav a {
     right: -100%;
     width: 60%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8); /* semi-transparent */
+    background: var(--c-light);
     backdrop-filter: blur(5px); /* Apply blur */
     transition: right 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 190px;
+    padding-top: 100px;
     z-index: 1050;
 }
 
@@ -304,6 +304,7 @@ nav a {
     display: none;
     font-size: 24px;
     background: none;
+    color: var(--c-light);
     border: none;
     cursor: pointer;
 }
