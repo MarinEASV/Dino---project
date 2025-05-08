@@ -303,12 +303,14 @@ nav a {
 
 /* Bottom container (reserve + social) */
 .mobile-bottom {
-  align-self: flex-end;
+  align-self: center; /* Centers horizontally within its parent container */
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center; /* Centers child elements horizontally */
+  justify-content: center; /* Optionally, centers content vertically if the container's height is sufficient */
   gap: 10px;
 }
+
 
 /* Social icons */
 .mobile-social a {
