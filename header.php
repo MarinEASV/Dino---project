@@ -43,29 +43,22 @@
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="mobile-nav">
     <button id="closeMenu" class="close-btn">&times;</button>
-    
-    <!-- Mobile Nav Links -->
     <a href="#menu">Menu</a>
     <a href="#about">About</a>
     <a href="#footer">Contact</a>
-    
-    <!-- Reserve Button (added) -->
     <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
-    
-    <!-- Weglot Switcher (unchanged) -->
     <div id="weglot_here"></div>
 
-    <!-- Social Links (added) -->
-    <div class="mobile-social mt-4 d-flex align-items-center gap-4">
-        <a href="https://facebook.com" target="_blank" class="text-dark">
+    <!-- Social Links -->
+    <div class="mobile-social mt-4">
+        <a href="https://facebook.com" target="_blank" class="me-3">
             <i class="fab fa-facebook fa-2x"></i>
         </a>
-        <a href="https://maps.google.com/?q=Your+Business+Address" target="_blank" class="text-dark">
+        <a href="https://maps.google.com/?q=Your+Business+Address" target="_blank">
             <i class="fas fa-map-marker-alt fa-2x"></i>
         </a>
     </div>
 </div>
-
 
 <!-- Reservation Modal -->
 <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
