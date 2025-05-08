@@ -254,71 +254,74 @@ nav a {
     max-height: 70px;
 }
 
-/* Mobile Menu */
+/* Adjust mobile menu layout */
 .mobile-nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 60%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8); /* semi-transparent */
-    backdrop-filter: blur(5px); /* Apply blur */
-    transition: right 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 190px;
-    z-index: 1050;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  transition: right 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40px 30px;
+  z-index: 1050;
 }
 
-/* Style for links inside the mobile menu */
-.mobile-nav a {
-    transition: all 0.3s ease; /* Smooth transition for all properties */
-    text-decoration: none; /* Remove underline */
-    color:var(--c-dark);
-    font-size: 30px; /* Set base font size */
-    margin: 10px 0; /* Add spacing between links */
+/* Left side menu links */
+.mobile-nav .menu-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
-.mobile-nav.show {
-    right: 0;
+/* Style links */
+.mobile-nav .menu-links a {
+  color: var(--c-dark);
+  font-size: 28px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-/* Hover effect */
-.mobile-nav a:hover {
-    transform: scale(1.2); /* Slightly enlarge the text */
-    color: var(--c-red);
+.mobile-nav .menu-links a:hover {
+  transform: scale(1.1);
+  color: var(--c-red);
 }
 
+/* Right side: reserve button + socials */
+.mobile-nav .menu-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+/* Close button stays top-right */
 .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.menu-btn {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
+/* Social icons */
+.mobile-social {
+  display: flex;
+  gap: 20px;
 }
 
-
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none !important;
-    }
-    .menu-btn {
-        display: block;
-    }
-
+/* Show menu */
+.mobile-nav.show {
+  right: 0;
 }
+
 
 /* Custom animation for Bootstrap modal */
 @keyframes slideFadeIn {
