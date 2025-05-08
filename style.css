@@ -254,72 +254,73 @@ nav a {
     max-height: 70px;
 }
 
-/* Adjust mobile menu layout */
+/* Mobile Menu */
 .mobile-nav {
   position: fixed;
   top: 0;
   right: -100%;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8); /* semi-transparent */
   backdrop-filter: blur(5px);
   transition: right 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding: 40px 30px;
+  padding: 100px 20px 40px 20px;
+  box-sizing: border-box;
   z-index: 1050;
+  flex-direction: row;
 }
 
-/* Left side menu links */
-.mobile-nav .menu-links {
+/* Left side nav links */
+.mobile-nav > .mobile-links {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 20px;
+  font-size: 30px;
+  color: var(--c-dark);
 }
 
-/* Style links */
-.mobile-nav .menu-links a {
-  color: var(--c-dark);
-  font-size: 28px;
+/* Style for each link */
+.mobile-links a {
   text-decoration: none;
+  color: var(--c-dark);
   transition: all 0.3s ease;
 }
-
-.mobile-nav .menu-links a:hover {
-  transform: scale(1.1);
+.mobile-links a:hover {
+  transform: scale(1.2);
   color: var(--c-red);
 }
 
-/* Right side: reserve button + socials */
-.mobile-nav .menu-right {
+/* Right side with button and social */
+.mobile-nav > .mobile-right {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: flex-end;
-  justify-content: space-between;
+  gap: 20px;
 }
 
-/* Close button stays top-right */
+/* Social icons */
+.mobile-social a {
+  color: var(--c-dark);
+  margin-left: 10px;
+}
+
+/* Menu open state */
+.mobile-nav.show {
+  right: 0;
+}
+
+/* Close button stays in top-right */
 .close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 28px;
+  font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
-}
-
-/* Social icons */
-.mobile-social {
-  display: flex;
-  gap: 20px;
-}
-
-/* Show menu */
-.mobile-nav.show {
-  right: 0;
 }
 
 
