@@ -256,69 +256,100 @@ nav a {
 
 /* Mobile Menu */
 .mobile-nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 60%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8); /* semi-transparent */
-    backdrop-filter: blur(5px); /* Apply blur */
-    transition: right 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 190px;
-    z-index: 1050;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* semi-transparent */
+  backdrop-filter: blur(5px); /* Apply blur */
+  transition: right 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 100px 30px 30px 30px;
+  z-index: 1050;
 }
 
-/* Style for links inside the mobile menu */
-.mobile-nav a {
-    transition: all 0.3s ease; /* Smooth transition for all properties */
-    text-decoration: none; /* Remove underline */
-    color:var(--c-dark);
-    font-size: 30px; /* Set base font size */
-    margin: 10px 0; /* Add spacing between links */
-}
-
+/* Show menu */
 .mobile-nav.show {
-    right: 0;
+  right: 0;
+}
+
+/* Menu links container */
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Links inside menu */
+.mobile-links a {
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--c-dark);
+  font-size: 30px;
+  margin: 10px 0;
+  text-align: left;
 }
 
 /* Hover effect */
-.mobile-nav a:hover {
-    transform: scale(1.2); /* Slightly enlarge the text */
-    color: var(--c-red);
+.mobile-links a:hover {
+  transform: scale(1.2);
+  color: var(--c-red);
 }
 
+/* Bottom container (reserve + social) */
+.mobile-bottom {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* Social icons */
+.mobile-social a {
+  color: var(--c-dark);
+  transition: transform 0.3s ease;
+}
+
+.mobile-social a:hover {
+  transform: scale(1.2);
+  color: var(--c-red);
+}
+
+/* Close button */
 .close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
+/* Hamburger menu button (visible only on mobile) */
 .menu-btn {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-
-/* Responsive */
+/* Responsive: hide desktop nav, show mobile btn */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none !important;
-    }
-    .menu-btn {
-        display: block;
-    }
-
+  .nav-links {
+      display: none !important;
+  }
+  .menu-btn {
+      display: block;
+  }
 }
+
 
 /* Custom animation for Bootstrap modal */
 @keyframes slideFadeIn {
