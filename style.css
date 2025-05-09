@@ -301,14 +301,32 @@ nav a {
   color: var(--c-red);
 }
 
-/* Bottom container (reserve + social) */
-.mobile-bottom {
-  align-self: flex-end;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
+/* New class for positioning reserve button under links */
+.mobile-reserve-btn {
+  margin-top: 20px;
+  align-self: flex-start;
 }
+
+/* Adjust mobile-bottom to only contain social icons bottom right */
+.mobile-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+/* Remove margin for Reserve button only inside the mobile menu */
+#mobileMenu .custom-reserve-btn {
+  margin-left: 0 !important;
+}
+
+@media (max-width: 768px) {
+  #mobileMenu .custom-reserve-btn {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
 
 /* Social icons */
 .mobile-social a {
