@@ -1161,7 +1161,7 @@ nav a {
 .bottle-section.left-opened .left-bottle,
 .bottle-section.left-opened .right-bottle {
   background-color: #f5f5f5 !important;
-  color: white;
+  color: black;
 }
 
 .bottle-section.right-opened .left-text,
@@ -1194,7 +1194,7 @@ nav a {
   }
   
   .bottle-section:not(.left-opened):not(.right-opened)::before {
-    background: linear-gradient(to right, #f5f5f5 0%, #f5f5f5 50%, #d1d1d1 50%, #d1d1d1 100%);
+    background: linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, #f5f5f5 50%, #f5f5f5 100%);
   }
 
   @media screen and (max-width: 768px) {
