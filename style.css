@@ -254,34 +254,6 @@ nav a {
     max-height: 70px;
 }
 
-.language-switcher {
-    position: relative;
-    z-index: 9999; /* Ensures it's on top */
-}
-
-.navbar-lang {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-.navbar-lang li {
-    font-size: 16px;
-}
-
-.navbar-lang li a {
-    text-decoration: none;
-    color: black;
-}
-
-.navbar-lang li a:hover {
-    color: #007bff; /* Adjust hover effect as needed */
-}
-
-.navbar-lang li a img {
-    width: 20px; /* Flag icon size */
-    margin-right: 8px;
-}
 
 
 
