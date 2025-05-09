@@ -300,6 +300,14 @@ nav a {
   align-self: flex-start;
 }
 
+@media (max-width: 768px) {
+  #mobileMenu .custom-reserve-btn {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+
 /* Remove margin for Reserve button only inside the mobile menu */
 #mobileMenu .custom-reserve-btn {
   margin-left: 0 !important;
