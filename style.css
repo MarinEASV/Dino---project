@@ -263,9 +263,7 @@ nav a {
     color: #000;
     text-decoration: none;
 }
-.language-switcher .dropdown-menu li a:hover {
-    background-color: #f8f9fa;
-}
+
 
 .language-switcher img {
     width: 20px;
