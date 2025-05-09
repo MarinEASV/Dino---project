@@ -64,11 +64,3 @@ function dino_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'dino_enqueue_scripts');
 
 
-function load_bootstrap_assets() {
-    // Bootstrap CSS
-    wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
-
-    // Bootstrap Bundle JS (includes Popper.js)
-    wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', [], null, true);
-}
-add_action('wp_enqueue_scripts', 'load_bootstrap_assets');
