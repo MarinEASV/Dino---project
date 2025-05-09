@@ -254,6 +254,11 @@ nav a {
     max-height: 70px;
 }
 
+.language-switcher {
+    position: relative;
+    z-index: 9999; /* Ensures it's on top */
+}
+
 .navbar-lang {
     display: flex;
     gap: 15px;
