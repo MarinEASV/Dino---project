@@ -47,8 +47,8 @@
   <!-- Menu links (aligned left) -->
   <div class="mobile-links">
     <a href="#menu">Menu</a>
-    <a href="#about">About</a>
-    <a href="#footer">Contact</a>
+    <a href="#about">Om os</a>
+    <a href="#footer">Kontakt</a>
   </div>
 
   <!-- Reserve Button directly under links -->
@@ -73,11 +73,11 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center custom-reservation-modal">
             <div class="modal-header">
-                <h5 class="modal-title" id="reservationModalLabel">Reservation Info</h5>
+                <h5 class="modal-title" id="reservationModalLabel">Reservationsinfo</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>We handle table reservations and food orders only via phone calls.</p>
+                <p>Vi håndterer kun bordreservationer og madbestillinger via telefonopkald.</p>
                 <a href="tel:+45 75 16 64 64" class="btn custom-call-btn mt-3">📞 +45 75 16 64 64</a>
             </div>
         </div>

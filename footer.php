@@ -87,7 +87,7 @@
           <li>
             <i class="fas fa-angle-right me-2"></i>
             <a href="…/Privatlivspolitik.pdf" target="_blank">
-              Privacy policy
+             Privatlivspolitik
             </a>
           </li>
         </ul>
@@ -96,7 +96,7 @@
     </div><!-- /.row -->
 
     <div class="footer-bottom text-center py-2">  <!-- ↓ was py-3 -->
-      <p>All rights reserved © 2025 Dino restaurant</p>
+      <p>Alle rettigheder forbeholdes © 2025 Dino restaurant</p>
     </div>
   </div><!-- /.container -->
 </section>

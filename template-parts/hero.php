@@ -24,7 +24,7 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
   <!-- Dash and Subtext -->
   <div class="hero-subtext text-center text-light">
     <div class="dash"></div>
-    <p class="subtext">Authentic Balkan & Danish Cuisine on Fanø</p>
+    <p class="subtext">Autentisk Balkan & Dansk Køkken</p>
   </div>
 
   <!-- Play ➔ scroll to #video -->

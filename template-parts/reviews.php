@@ -7,7 +7,7 @@
 
 <section id="reviews-section" class="reviews-section" data-aos="fade-up">
   <div class="container">
-    <h2 class="reviews-section__title">What Our Customers Are Saying</h2>
+    <h2 class="reviews-section__title">Hvad vores kunder siger</h2>
 
     
 <?php

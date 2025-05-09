@@ -2,8 +2,8 @@
   <div class="py-vh-5 w-100 overflow-hidden">
     <div class="container">
       <div class="text-start" style="max-width: 600px; padding-top: 5rem;">
-        <h1 class="display-5 fw-medium" style="color: var(--c-dark);">Our Menu</h1>
-        <p class="lead mb-5" style="font-family: var(--p-font);">Traditional Danish Dishes &amp; Balkan Favorites</p>
+        <h1 class="display-5 fw-medium" style="color: var(--c-dark);">Vores menu</h1>
+        <p class="lead mb-5" style="font-family: var(--p-font);">Traditionelle danske retter &amp; Balkan favoritter</p>
       </div>
 
       <div class="container my-5">
