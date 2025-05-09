@@ -468,6 +468,7 @@ nav a {
   
   .menu-price {
     font-weight: bold;
+    font-family: var(--h-font);
   }
 
   .menu-desc {
@@ -1072,7 +1073,7 @@ nav a {
 
 /* 5) make sure your text stays visible */
 .bottle-buy-button:hover {
-  color: #fff;
+  color: #000;
 }
 
 
