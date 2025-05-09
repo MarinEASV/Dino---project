@@ -264,18 +264,6 @@ nav a {
     text-decoration: none;
 }
 
-.language-switcher {
-    position: relative; /* Make sure it's positioned to contain the dropdown */
-}
-
-.language-switcher .dropdown-menu {
-    position: absolute; /* Make sure it's absolutely positioned */
-    top: 100%; /* Position directly below the button */
-    left: 0;
-    z-index: 1100; /* Ensures it appears on top of other elements */
-}
-
-
 .language-switcher img {
     width: 20px;
     height: auto;
