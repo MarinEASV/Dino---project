@@ -254,23 +254,6 @@ nav a {
     max-height: 70px;
 }
 
-.language-switcher .dropdown-menu li {
-    list-style: none;
-}
-.language-switcher .dropdown-menu li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: #000;
-    text-decoration: none;
-}
-.language-switcher .dropdown-menu li a:hover {
-    background-color: #f8f9fa;
-}
-
-.language-switcher img {
-    width: 20px;
-    height: auto;
-}
 
 
 /* Mobile Menu */
