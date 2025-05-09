@@ -20,8 +20,8 @@ $right_link        = get_field('right_bottle_link');
 $right_link_label  = get_field('right_bottle_link_label') ?: 'Buy Now';
 ?>
 
-<section class="bottle-section">
-  <div class="bottle-container" data-aos="zoom-in">
+<section class="bottle-section" data-aos="zoom-in">
+  <div class="bottle-container" >
 
     <!-- LEFT BOTTLE IMAGE -->
     <div class="bottle left-bottle" data-side="left">
