@@ -52,16 +52,17 @@
 
   <!-- Bottom section: Reserve + Socials -->
   <div class="mobile-bottom">
-    <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
-    <div class="mobile-social mt-3">
-      <a href="https://www.facebook.com/RestaurantDino" target="_blank" class="me-3">
-        <i class="fab fa-facebook fa-2x"></i>
-      </a>
-      <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank">
-        <i class="fas fa-map-marker-alt fa-2x"></i>
-      </a>
-    </div>
+  <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
+  <div class="mobile-social">
+    <a href="https://www.facebook.com/RestaurantDino" target="_blank" class="me-3">
+      <i class="fab fa-facebook fa-2x"></i>
+    </a>
+    <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank">
+      <i class="fas fa-map-marker-alt fa-2x"></i>
+    </a>
   </div>
+</div>
+
 </div>
 
 <!-- Reservation Modal -->
