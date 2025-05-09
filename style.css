@@ -1316,6 +1316,23 @@ nav a {
     cursor: none !important;
   }
 
+  @media screen and (max-width: 1024px) {
+    .bottle-section::before {
+      display: none !important;
+    }
+    /* rely solely on the .side backgrounds now */
+    .side {
+      width: 100%;
+      /* ensure we keep their original bg-colors */
+      background-color: inherit !important;
+    }
+  }
+
+  .bottle-section.aos-init::before,
+.bottle-section.aos-animate::before {
+  /* either hide it entirely: */
+  display: none !important;
+}
   /* ───────────────── Reviews Section ───────────────── */
 
 .reviews-section {
