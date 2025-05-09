@@ -300,6 +300,12 @@ nav a {
   align-self: flex-start;
 }
 
+/* Remove margin for Reserve button only inside the mobile menu */
+#mobileMenu .custom-reserve-btn {
+  margin-left: 0 !important;
+}
+
+
 /* Hover effect */
 .mobile-links a:hover {
   transform: scale(1.2);
