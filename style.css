@@ -295,6 +295,11 @@ nav a {
   text-align: left;
 }
 
+.mobile-reserve-btn {
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
 /* Hover effect */
 .mobile-links a:hover {
   transform: scale(1.2);
@@ -303,11 +308,10 @@ nav a {
 
 /* Bottom container (reserve + social) */
 .mobile-bottom {
-  align-self: flex-end;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
+  justify-content: flex-end;
+  margin-top: auto;
 }
 
 /* Social icons */

@@ -42,28 +42,31 @@
 
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="mobile-nav">
-    <button id="closeMenu" class="close-btn">&times;</button>
-   <!-- Menu links (aligned left) -->
+  <button id="closeMenu" class="close-btn">&times;</button>
+
+  <!-- Menu links (aligned left) -->
   <div class="mobile-links">
     <a href="#menu">Menu</a>
     <a href="#about">About</a>
     <a href="#footer">Contact</a>
   </div>
 
-  <!-- Bottom section: Reserve + Socials -->
+  <!-- Reserve Button directly under links -->
+  <button type="button" class="btn custom-reserve-btn rounded-0 mobile-reserve-btn" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
+
+  <!-- Social icons at the bottom right -->
   <div class="mobile-bottom">
-  <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
-  <div class="mobile-social">
-    <a href="https://www.facebook.com/RestaurantDino" target="_blank" class="me-3">
-      <i class="fab fa-facebook fa-2x"></i>
-    </a>
-    <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank">
-      <i class="fas fa-map-marker-alt fa-2x"></i>
-    </a>
+    <div class="mobile-social">
+      <a href="https://www.facebook.com/RestaurantDino" target="_blank" class="me-3">
+        <i class="fab fa-facebook fa-2x"></i>
+      </a>
+      <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank">
+        <i class="fas fa-map-marker-alt fa-2x"></i>
+      </a>
+    </div>
   </div>
 </div>
 
-</div>
 
 <!-- Reservation Modal -->
 <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
