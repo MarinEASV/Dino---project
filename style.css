@@ -254,20 +254,30 @@ nav a {
     max-height: 70px;
 }
 
-.language-switcher .dropdown-menu li {
+.navbar-lang {
+    display: flex;
+    gap: 15px;
     list-style: none;
 }
-.language-switcher .dropdown-menu li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: #000;
-    text-decoration: none;
+
+.navbar-lang li {
+    font-size: 16px;
 }
 
-.language-switcher img {
-    width: 20px;
-    height: auto;
+.navbar-lang li a {
+    text-decoration: none;
+    color: black;
 }
+
+.navbar-lang li a:hover {
+    color: #007bff; /* Adjust hover effect as needed */
+}
+
+.navbar-lang li a img {
+    width: 20px; /* Flag icon size */
+    margin-right: 8px;
+}
+
 
 
 /* Mobile Menu */

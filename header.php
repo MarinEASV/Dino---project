@@ -32,25 +32,23 @@
             <a href="#about">Om os</a>
             <a href="#footer">Kontakt</a>
             <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
-<div class="language-switcher dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        🌐
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-        <?php if (function_exists('pll_get_the_languages')): ?>
-            <?php $languages = pll_get_the_languages(['raw' => 1]); ?>
-            <?php if (!empty($languages)): ?>
-                <?php foreach ($languages as $lang): ?>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center gap-2" href="<?php echo esc_url($lang['url']); ?>">
-                            <img src="<?php echo esc_url($lang['flag']); ?>" alt="<?php echo esc_attr($lang['slug']); ?> flag" style="width: 20px;">
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        <?php endif; ?>
-    </ul>
-</div>
+
+            <!-- Language Picker - Inline List -->
+            <ul class="navbar-lang d-flex gap-3 list-unstyled mb-0">
+                <?php if (function_exists('pll_get_the_languages')): ?>
+                    <?php $languages = pll_get_the_languages(['raw' => 1]); ?>
+                    <?php if (!empty($languages)): ?>
+                        <?php foreach ($languages as $lang): ?>
+                            <li>
+                                <a class="d-flex align-items-center gap-2" href="<?php echo esc_url($lang['url']); ?>">
+                                    <img src="<?php echo esc_url($lang['flag']); ?>" alt="<?php echo esc_attr($lang['slug']); ?> flag" style="width: 20px;">
+                                    <?php echo esc_html($lang['name']); ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </ul>
         </nav>
 
         <!-- Mobile Menu Button -->
@@ -84,7 +82,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- Reservation Modal -->
 <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
