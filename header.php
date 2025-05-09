@@ -29,8 +29,8 @@
         <!-- Desktop Menu -->
         <nav class="nav-links d-flex align-items-center gap-3">
             <a href="#menu">Menu</a>
-            <a href="#about">About</a>
-            <a href="#footer">Contact</a>
+            <a href="#about">Om os</a>
+            <a href="#footer">Kontakt</a>
             <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
             <div id="weglot_here"></div>
         </nav>
