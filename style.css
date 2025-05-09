@@ -520,12 +520,13 @@ nav a {
     padding: 1rem;
     font-weight: 500;
     border: none;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 5px solid #5F120D;
     position: relative;
   }
   .accordion-button:focus {
     outline: none;
     box-shadow: none;
+    border-bottom: 5px solid #5F120D !important;
   }
 
   /* remove Bootstrap’s default arrow */
@@ -537,7 +538,7 @@ nav a {
   .accordion-button::before {
     content: "▼";
     font-size: 0.9rem;
-    color: rgba(0,0,0,0.4);
+    color: #5F120D;
     position: absolute;
     right: 1rem;
     top: 50%;
