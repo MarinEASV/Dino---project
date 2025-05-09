@@ -295,25 +295,6 @@ nav a {
   text-align: left;
 }
 
-.mobile-reserve-btn {
-  margin-top: 20px;
-  align-self: flex-start;
-}
-
-@media (max-width: 768px) {
-  #mobileMenu .custom-reserve-btn {
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
-  }
-}
-
-
-/* Remove margin for Reserve button only inside the mobile menu */
-#mobileMenu .custom-reserve-btn {
-  margin-left: 0 !important;
-}
-
-
 /* Hover effect */
 .mobile-links a:hover {
   transform: scale(1.2);
@@ -322,10 +303,11 @@ nav a {
 
 /* Bottom container (reserve + social) */
 .mobile-bottom {
-  width: 100%;
+  align-self: flex-end;
   display: flex;
-  justify-content: flex-end;
-  margin-top: auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
 
 /* Social icons */
@@ -481,6 +463,7 @@ nav a {
     font-size: 1.1rem;
     color: var(--c-dark);
     margin-bottom: 0.3rem;
+    font-family: var(--h-font);
   }
   
   .menu-price {
@@ -1059,8 +1042,8 @@ nav a {
   overflow: hidden;
   /* if you want a transparent / outlined start state: */
   background: transparent;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid #000;
+  color: #000;
   transition: color 0.3s ease;
 }
 
@@ -1167,7 +1150,7 @@ nav a {
 .bottle-section.right-opened .left-bottle,
 .bottle-section.right-opened .right-bottle {
   background-color: #d1d1d1 !important;
-  color: white;
+  color: black;
 }
   
 .bottle-section::before {
