@@ -32,7 +32,25 @@
             <a href="#about">Om os</a>
             <a href="#footer">Kontakt</a>
             <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
-            <div id="weglot_here"></div>
+<div class="language-switcher dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        🌐
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+        <?php if (function_exists('pll_get_the_languages')): ?>
+            <?php $languages = pll_get_the_languages(['raw' => 1]); ?>
+            <?php if (!empty($languages)): ?>
+                <?php foreach ($languages as $lang): ?>
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center gap-2" href="<?php echo esc_url($lang['url']); ?>">
+                            <img src="<?php echo esc_url($lang['flag']); ?>" alt="<?php echo esc_attr($lang['slug']); ?> flag" style="width: 20px;">
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        <?php endif; ?>
+    </ul>
+</div>
         </nav>
 
         <!-- Mobile Menu Button -->
