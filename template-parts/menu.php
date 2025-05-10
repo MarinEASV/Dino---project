@@ -13,6 +13,7 @@
         $menu_q = new WP_Query([
           'post_type'      => 'menu',
           'posts_per_page' => -1,
+          'page-attributes'
         ]);
         if ( $menu_q->have_posts() ) {
           while ( $menu_q->have_posts() ) {
