@@ -153,6 +153,9 @@
                             ?>
                               <li class="d-flex justify-content-between align-items-start mb-4 menu-item">
                                 <div class="menu-text">
+                                <p class="menu-philosophy mb-4">
+      <?php echo esc_html( $tab['pizza_philosophy'] ); ?>
+    </p>
                                   <h5 class="menu-dish"><?php echo esc_html( $name ); ?></h5>
                                   <p class="menu-desc mb-1"><?php echo esc_html( $desc ); ?></p>
                                 </div>
