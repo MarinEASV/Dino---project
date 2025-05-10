@@ -730,7 +730,7 @@ nav a {
   color: var(--c-dark);
   font-family: var(--p-font) !important;
   font-size: 17px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 #footer ul {
@@ -795,8 +795,7 @@ nav a {
 
 /* 4) And shorten the footer-bottom area */
 .footer-bottom {
-  padding-top: 40px !important;
-  padding-bottom: 10px !important;
+  padding-top: 50px !important;
   font-size: 20px;
   font-weight: bold;
 }
