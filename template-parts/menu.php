@@ -143,6 +143,9 @@
                       <div class="col-12">
                         <div class="menu-items">
                           <h4 class="py-3"><?php echo esc_html( $tab['menu_type'] ); ?></h4>
+                          <p class="menu-philosophy mb-4">
+      <?php echo esc_html( $tab['pizza_philosophy'] ); ?>
+    </p>
                           <p><?php echo esc_html( $tab['menu_description'] ); ?></p>
                           <ul class="list-unstyled">
                             <?php for ( $j = 1; $j <= 15; $j++ ):
@@ -153,9 +156,7 @@
                             ?>
                               <li class="d-flex justify-content-between align-items-start mb-4 menu-item">
                                 <div class="menu-text">
-                                <p class="menu-philosophy mb-4">
-      <?php echo esc_html( $tab['pizza_philosophy'] ); ?>
-    </p>
+                                  
                                   <h5 class="menu-dish"><?php echo esc_html( $name ); ?></h5>
                                   <p class="menu-desc mb-1"><?php echo esc_html( $desc ); ?></p>
                                 </div>
