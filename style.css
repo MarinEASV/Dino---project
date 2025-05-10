@@ -730,6 +730,7 @@ nav a {
   color: var(--c-dark);
   font-family: var(--p-font) !important;
   font-size: 17px;
+  margin-top: 20px;
 }
 
 #footer ul {
