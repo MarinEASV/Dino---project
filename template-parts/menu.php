@@ -25,6 +25,7 @@
               'card_image_1'     => get_field('card_image_1'),
               'card_image_2'     => get_field('card_image_2'),
               'dishes_group'     => get_field('dish_1_group'),
+              'pizza_philosophy' => get_field('pizza_philosophy'),
             ];
           }
           wp_reset_postdata();
@@ -67,6 +68,9 @@
                 >
                   <div class="row">
                     <div class="col-lg-8">
+                    <p class="menu-philosophy mb-4">
+      <?php echo esc_html( $tab['pizza_philosophy'] ); ?>
+    </p>
                       <div class="menu-items">
                         <h4 class="py-3"><?php echo esc_html( $tab['menu_type'] ); ?></h4>
                         <p><?php echo esc_html( $tab['menu_description'] ); ?></p>
