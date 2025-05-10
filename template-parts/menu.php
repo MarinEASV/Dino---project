@@ -142,10 +142,11 @@
                     <div class="row">
                       <div class="col-12">
                         <div class="menu-items">
-                          <h4 class="py-3"><?php echo esc_html( $tab['menu_type'] ); ?></h4>
-                          <p class="menu-philosophy mb-4">
+                        <p class="menu-philosophy mb-4">
       <?php echo esc_html( $tab['pizza_philosophy'] ); ?>
     </p>
+                          <h4 class="py-3"><?php echo esc_html( $tab['menu_type'] ); ?></h4>
+                          
                           <p><?php echo esc_html( $tab['menu_description'] ); ?></p>
                           <ul class="list-unstyled">
                             <?php for ( $j = 1; $j <= 15; $j++ ):
