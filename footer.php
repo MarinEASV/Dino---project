@@ -55,18 +55,18 @@
       </div>
 
       <!-- 3) ÅBNINGSTIDER -->
-      <div class="col-12 col-md-3 mb-3 text-center text-md-start"> <!-- ↓ was mb-4 -->
-        <h4>Åbningstider</h4>
-        <ul class="list-unstyled">
-          <li>Mandag: 17:00 – 21:00</li>
-          <li>Tirsdag: 17:00 – 21:00</li>
-          <li>Onsdag: 17:00 – 21:00</li>
-          <li>Torsdag: 17:00 – 21:00</li>
-          <li>Fredag: 17:00 – 21:00</li>
-          <li>Lørdag: 17:00 – 21:00</li>
-          <li>Søndag: 17:00 – 21:00</li>
-        </ul>
-      </div>
+      <?php
+if( $hours = get_field('opening_hours') ): ?>
+  <div class="col-12 col-md-3 mb-3 text-center text-md-start">
+    <h4>Åbningstider</h4>
+    <ul class="list-unstyled">
+      <?php
+      // If you want to allow <li> tags in your ACF textarea:
+      echo wp_kses( $hours, [ 'li'=>[], 'br'=>[], 'strong'=>[], 'em'=>[] ] );
+      ?>
+    </ul>
+  </div>
+<?php endif; ?>
 
       <!-- 4) PRAKTISK -->
       <div class="col-12 col-md-3 mb-3 text-center text-md-start"> <!-- ↓ was mb-4 -->
