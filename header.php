@@ -1,11 +1,3 @@
-<?php echo "<!-- DEBUG: my header.php is loaded -->\n"; ?>
-<?php
-  if ( function_exists('pll_the_languages') ) {
-    echo "<!-- DEBUG: Polylang is active -->\n";
-  } else {
-    echo "<!-- DEBUG: Polylang NOT active -->\n";
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,80 +20,25 @@
 
 <!-- Navbar -->
 <header class="navbar">
-  <div class="container d-flex align-items-center">
-    <!-- Logo -->
-    <a class="navbar-brand me-4" href="<?php echo home_url(); ?>">
-      <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo" class="logo">
-    </a>
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="<?php echo home_url(); ?>">
+            <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo" class="logo">
+        </a>
 
-    <!-- Main nav: single row, no wrap -->
-    <?php // force no wrapping so everything stays on one line ?>
-    <nav class="nav-links d-flex align-items-center w-100" style="flex-wrap: nowrap;">
+        <!-- Desktop Menu -->
+        <nav class="nav-links d-flex align-items-center gap-3">
+            <a href="#menu">Menu</a>
+            <a href="#about">Om os</a>
+            <a href="#footer">Kontakt</a>
+            <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
+            
+        </nav>
 
-      <!-- Left links -->
-      <a href="#menu" class="me-4">Menu</a>
-      <a href="#about" class="me-4">Om os</a>
-      <a href="#footer" class="me-4">Kontakt</a>
-
-      <!-- Reserve button -->
-      <button 
-        type="button" 
-        class="btn custom-reserve-btn rounded-0 me-4" 
-        data-bs-toggle="modal" 
-        data-bs-target="#reservationModal"
-      >Reserve</button>
-
-      <!-- Spacer pushes dropdown to the far right -->
-      <div class="ms-auto"></div>
-
-      <?php if ( function_exists('pll_get_the_languages') ): 
-        $langs = pll_get_the_languages(['raw'=>1]);
-        if ( $langs ):
-          $current = reset( array_filter($langs, fn($l)=> $l['current_lang']) );
-          $others  = array_filter($langs, fn($l)=> ! $l['current_lang'] );
-      ?>
-        <!-- Language dropdown -->
-        <div class="nav-item dropdown">
-          <a 
-            class="nav-link dropdown-toggle d-flex align-items-center" 
-            href="#" 
-            id="langDropdown" 
-            role="button" 
-            data-bs-toggle="dropdown" 
-            aria-expanded="false"
-          >
-            <img src="<?php echo esc_url($current['flag']); ?>" width="20" class="me-1">
-            <?php echo esc_html($current['slug']); ?>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-            <?php foreach( $others as $lang ): ?>
-              <li>
-                <a 
-                  class="dropdown-item d-flex align-items-center" 
-                  href="<?php echo esc_url($lang['url']); ?>"
-                >
-                  <img src="<?php echo esc_url($lang['flag']); ?>" width="20" class="me-2">
-                  <?php echo esc_html($lang['slug']); ?>
-                </a>
-              </li>
-            <?php endforeach; ?>
-          </ul>
-        </div>
-      <?php 
-        endif;
-      endif; ?>
-      <?php pll_the_languages([
-  'dropdown'   => 1,
-  'show_flags' => 1,
-  'show_names' => 0,
-]); ?>
-    </nav>
-
-    <!-- Mobile menu toggle (stays on right) -->
-    <button id="menuToggle" class="menu-btn ms-3">☰</button>
-  </div>
+        <!-- Mobile Menu Button -->
+        <button id="menuToggle" class="menu-btn">☰</button>
+    </div>
 </header>
-
 
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="mobile-nav">
@@ -117,21 +54,6 @@
   <!-- Reserve Button directly under links -->
   <button type="button" class="btn custom-reserve-btn rounded-0 mobile-reserve-btn" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
 
-  <?php if ( function_exists('pll_get_the_languages') ): 
-  $langs = pll_get_the_languages(['raw'=>1]);
-  if( $langs ): ?>
-    <div class="mobile-lang mt-4">
-      <?php foreach($langs as $lang): ?>
-        <a href="<?php echo esc_url($lang['url']); ?>" 
-           class="d-flex align-items-center mb-2 text-dark text-decoration-none">
-          <img src="<?php echo esc_url($lang['flag']); ?>" width="24" class="me-2">
-          <?php echo esc_html($lang['name']); ?>
-        </a>
-      <?php endforeach; ?>
-    </div>
-<?php endif; endif; ?>
-
-
   <!-- Social icons at the bottom right -->
   <div class="mobile-bottom">
     <div class="mobile-social">
@@ -144,7 +66,7 @@
     </div>
   </div>
 </div>
-            
+
 <!-- Reservation Modal -->
 <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
