@@ -1,3 +1,11 @@
+<?php echo "<!-- DEBUG: my header.php is loaded -->\n"; ?>
+<?php
+  if ( function_exists('pll_the_languages') ) {
+    echo "<!-- DEBUG: Polylang is active -->\n";
+  } else {
+    echo "<!-- DEBUG: Polylang NOT active -->\n";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,6 +90,11 @@
       <?php 
         endif;
       endif; ?>
+      <?php pll_the_languages([
+  'dropdown'   => 1,
+  'show_flags' => 1,
+  'show_names' => 0,
+]); ?>
     </nav>
 
     <!-- Mobile menu toggle (stays on right) -->
