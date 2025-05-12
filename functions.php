@@ -39,11 +39,9 @@ function dino_theme_enqueue_assets() {
     wp_enqueue_script('aos-js', 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js', array(), null, true);
     wp_enqueue_script('theme-script', get_template_directory_uri() . '/script.js', array(), null, true);
 
-    // Inline script to initialize AOS
     wp_add_inline_script('aos-js', 'AOS.init();');
 }
 add_action('wp_enqueue_scripts', 'dino_theme_enqueue_assets');
-// Optional: Disable Gutenberg
 function dino_theme_remove_gutenberg() {
     remove_post_type_support("post", "editor");
     remove_post_type_support("page", "editor");

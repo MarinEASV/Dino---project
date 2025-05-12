@@ -1546,4 +1546,45 @@ nav a {
 }
 
 /* Flag sizing */
-.language-dropdown .dropdown-
+.language-dropdown .dropdown-item img {
+  width: 25px;      /* your chosen size */
+  height: auto;
+  display: inline-block;
+}
+
+/* Remove any transform hover */
+.language-dropdown .dropdown-item:hover img {
+  transform: none !important;
+  background: none !important;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+  transform: scale(1.1) !important;
+  background: none !important;
+}
+
+.language-dropdown .dropdown-item:hover {
+  background: #5F120D;
+
+}
+
+.btn, .dropdown-toggle {
+  color: white !important;
+}
+
+@media screen and (max-width: 768px) {
+
+  .btn, .dropdown-toggle {
+    color: rgb(26, 26, 26) !important;
+  }
+  
+
+  .hero-text {
+    font-size: 1.5rem !important;
+  }
+
+.dropdown-menu.show {
+  justify-items: start;
+}
+}
+
+
