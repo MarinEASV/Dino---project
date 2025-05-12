@@ -80,13 +80,13 @@ if( $hours = get_field('opening_hours') ): ?>
           </li>
           <li>
             <i class="fas fa-angle-right me-2"></i>
-            <a href="…/Vilkaar_for_brug.pdf" target="_blank">
+            <a href="https://dinoproject.dk/wp-content/uploads/2025/04/Vilkaar_for_brug.pdf" target="_blank">
               <?php pll_e( 'Terms of use' ); ?>
             </a>
           </li>
           <li>
             <i class="fas fa-angle-right me-2"></i>
-            <a href="…/Privatlivspolitik.pdf" target="_blank">
+            <a href="https://dinoproject.dk/wp-content/uploads/2025/04/Privatlivspolitik.pdf" target="_blank">
              <?php pll_e( 'Privatlivspolitik' ); ?>
             </a>
           </li>
