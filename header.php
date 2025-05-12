@@ -39,12 +39,18 @@
 
   <?php if ( function_exists('pll_the_languages') ) :
     $langs   = pll_the_languages([
-      'raw'           => 1,
-      'hide_if_empty' => 0,
+        'raw'           => 1,
+        'hide_if_empty' => 0,
     ]);
     $current = pll_current_language();
+    // map WP slugs → flag-icon country codes
+    $flag_map = [
+      'en' => 'gb',
+      'da' => 'dk',
+      'de' => 'de',
+    ];
 
-    if ( ! empty($langs) ) : ?>
+    if ( ! empty( $langs ) ) : ?>
   <div class="dropdown language-dropdown">
     <button 
       class="btn dropdown-toggle p-0 border-0" 
@@ -53,25 +59,28 @@
       data-bs-toggle="dropdown" 
       aria-expanded="false"
     >
-      <!-- Current language flag -->
+      <?php 
+        $iso = isset($flag_map[$current]) ? $flag_map[$current] : $current;
+      ?>
       <span 
-        class="flag-icon flag-icon-<?php echo esc_attr( $current ); ?> language-flag current-flag"
+        class="flag-icon flag-icon-<?php echo esc_attr($iso); ?> current-flag"
         aria-label="<?php echo esc_attr( $langs[$current]['name'] ); ?>"
       ></span>
     </button>
 
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-      <?php foreach( $langs as $slug => $lang ) :
-        if ( $slug === $current ) continue;  // skip current
+      <?php foreach ( $langs as $slug => $lang ) :
+        if ( $slug === $current ) continue;
+        $iso = isset($flag_map[$slug]) ? $flag_map[$slug] : $slug;
       ?>
         <li>
           <a 
-            class="dropdown-item text-center p-1" 
+            class="dropdown-item p-1 text-center" 
             href="<?php echo esc_url( $lang['url'] ); ?>" 
             title="<?php echo esc_attr( $lang['name'] ); ?>"
           >
             <span 
-              class="flag-icon flag-icon-<?php echo esc_attr($slug); ?> language-flag"
+              class="flag-icon flag-icon-<?php echo esc_attr($iso); ?> language-flag"
               aria-hidden="true"
             ></span>
           </a>
@@ -80,6 +89,7 @@
     </ul>
   </div>
 <?php endif; endif; ?>
+
 </nav>
 
 
