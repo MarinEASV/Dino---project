@@ -1547,9 +1547,9 @@ nav a {
 .dropdown-menu.show {
   margin-top: 20px !important;
   background: transparent;
-    box-shadow: none !important;
-    justify-content: right;
-    justify-items: end;
+  border-color: transparent !important;
+  justify-content: right;
+  justify-items: end;
 }
 
 /* Only flags, no text */
