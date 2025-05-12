@@ -67,17 +67,23 @@
   </div>
 
   <!-- Reserve Button directly under links -->
-  <button type="button" class="btn custom-reserve-btn rounded-0 mobile-reserve-btn" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
+  <button 
+    type="button" 
+    class="btn custom-reserve-btn rounded-0 mobile-reserve-btn" 
+    data-bs-toggle="modal" 
+    data-bs-target="#reservationModal"
+  >
+    Reserve
+  </button>
 
   <?php if ( function_exists('pll_the_languages') ) : ?>
-    <div class="mobile-language-switcher mt-3">
-    <?php if ( function_exists('pll_the_languages') ) : ?>
     <div class="mobile-language-switcher d-flex gap-3 mt-3">
       <?php pll_the_languages( array(
-        'dropdown'   => 0,
-        'show_flags' => 1,
-        'show_names' => 0,
-        'echo'       => 1
+        'dropdown'    => 0,
+        'show_flags'  => 1,
+        'show_names'  => 0,
+        'hide_if_empty' => 0,
+        'echo'        => 1
       ) ); ?>
     </div>
   <?php endif; ?>
