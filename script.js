@@ -185,4 +185,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!btn) return;
   btn.addEventListener('click', function(e) {
     e.preventDefault();
-    d
+    document.querySelector('#video').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+
