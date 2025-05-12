@@ -1545,38 +1545,30 @@ nav a {
 /* LANGUAGE SWITCH */
 
 /* ——— Desktop ——— */
-.navbar .language-switcher {
-  margin-left: auto;                 /* push to far right */
+/* globally remove bullets from our language dropdown */
+.language-dropdown .dropdown-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-.language-switcher a {
-  display: block;
-  margin-left: 1rem;                 /* spacing between flags */
+/* tighten up the flag toggle button */
+.language-dropdown .dropdown-toggle {
+  background: transparent;
+  border: none;
 }
 
-.language-switcher img {
-  width: 24px;                       /* tweak to taste */
-  height: auto;
-  transition: transform .2s;
-}
-.language-switcher a:hover img {
-  transform: scale(1.1);
-}
-
-/* ——— Mobile ——— */
-.mobile-language-switcher {
-  justify-content: flex-start;       /* stack under reserve */
-}
-
-.mobile-language-switcher a img {
+/* size your flags to match your vibe */
+.language-dropdown img {
   width: 28px;
   height: auto;
 }
 
-/* If you want monochrome/white flags to match your white nav text: */
-/*
-.language-switcher img,
-.mobile-language-switcher img {
-  filter: brightness(0) invert(1);
+/* optional: on hover, gently lift the icon */
+.language-dropdown .dropdown-item img {
+  transition: transform .15s ease;
 }
-*/
+.language-dropdown .dropdown-item:hover img {
+  transform: scale(1.1);
+}
+

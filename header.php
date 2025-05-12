@@ -35,17 +35,58 @@
     Reserve
   </button>
 
-  <?php if ( function_exists('pll_the_languages') ) : ?>
-    <div class="language-switcher d-flex align-items-center">
-      <?php pll_the_languages( array(
-        'dropdown'    => 0,    // inline links, not <select>
-        'show_flags'  => 1,    // show flags
-        'show_names'  => 0,    // hide language names
-        'hide_if_empty' => 0,  // even if only one lang
-        'echo'        => 1
-      ) ); ?>
-    </div>
-  <?php endif; ?>
+  <?php 
+if ( function_exists('pll_the_languages') ) : 
+  $langs = pll_the_languages( array(
+    'raw'           => 1,   // grab data, not HTML
+    'hide_if_empty' => 0
+  ) );
+  // find the current language key
+  $current = pll_current_language();
+  if ( ! empty( $langs ) ) : ?>
+  
+  <div class="dropdown language-dropdown">
+    <!-- toggle button shows current flag -->
+    <button 
+      class="btn dropdown-toggle p-0 border-0" 
+      type="button" 
+      id="languageDropdown" 
+      data-bs-toggle="dropdown" 
+      aria-expanded="false"
+    >
+      <img 
+        src="<?php echo esc_url( $langs[ $current ]['flag'] ); ?>" 
+        alt="<?php echo esc_attr( $langs[ $current ]['name'] ); ?>" 
+        class="current-flag"
+      >
+    </button>
+
+    <ul 
+      class="dropdown-menu dropdown-menu-end" 
+      aria-labelledby="languageDropdown"
+    >
+      <?php foreach( $langs as $lang ) : ?>
+        <li>
+          <a 
+            class="dropdown-item d-flex align-items-center" 
+            href="<?php echo esc_url( $lang['url'] ); ?>"
+          >
+            <img 
+              src="<?php echo esc_url( $lang['flag'] ); ?>" 
+              alt="<?php echo esc_attr( $lang['name'] ); ?>" 
+              class="me-2"
+            >
+            <?php echo esc_html( $lang['name'] ); ?>
+          </a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+
+<?php 
+  endif;
+endif;
+?>
 </nav>
 
 
@@ -76,17 +117,58 @@
     Reserve
   </button>
 
-  <?php if ( function_exists('pll_the_languages') ) : ?>
-    <div class="mobile-language-switcher d-flex gap-3 mt-3">
-      <?php pll_the_languages( array(
-        'dropdown'    => 0,
-        'show_flags'  => 1,
-        'show_names'  => 0,
-        'hide_if_empty' => 0,
-        'echo'        => 1
-      ) ); ?>
-    </div>
-  <?php endif; ?>
+  <?php 
+if ( function_exists('pll_the_languages') ) : 
+  $langs = pll_the_languages( array(
+    'raw'           => 1,   // grab data, not HTML
+    'hide_if_empty' => 0
+  ) );
+  // find the current language key
+  $current = pll_current_language();
+  if ( ! empty( $langs ) ) : ?>
+  
+  <div class="dropdown language-dropdown">
+    <!-- toggle button shows current flag -->
+    <button 
+      class="btn dropdown-toggle p-0 border-0" 
+      type="button" 
+      id="languageDropdown" 
+      data-bs-toggle="dropdown" 
+      aria-expanded="false"
+    >
+      <img 
+        src="<?php echo esc_url( $langs[ $current ]['flag'] ); ?>" 
+        alt="<?php echo esc_attr( $langs[ $current ]['name'] ); ?>" 
+        class="current-flag"
+      >
+    </button>
+
+    <ul 
+      class="dropdown-menu dropdown-menu-end" 
+      aria-labelledby="languageDropdown"
+    >
+      <?php foreach( $langs as $lang ) : ?>
+        <li>
+          <a 
+            class="dropdown-item d-flex align-items-center" 
+            href="<?php echo esc_url( $lang['url'] ); ?>"
+          >
+            <img 
+              src="<?php echo esc_url( $lang['flag'] ); ?>" 
+              alt="<?php echo esc_attr( $lang['name'] ); ?>" 
+              class="me-2"
+            >
+            <?php echo esc_html( $lang['name'] ); ?>
+          </a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+
+<?php 
+  endif;
+endif;
+?>
 
   <!-- Social icons at the bottom right -->
   <div class="mobile-bottom">
