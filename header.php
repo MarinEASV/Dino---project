@@ -28,50 +28,56 @@
 
         <!-- Desktop Menu -->
         <nav class="nav-links d-flex align-items-center gap-3 w-100">
-            <a href="#menu">Menu</a>
-            <a href="#about">Om os</a>
-            <a href="#footer">Kontakt</a>
-            <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
+  <a href="#menu">Menu</a>
+  <a href="#about">Om os</a>
+  <a href="#footer">Kontakt</a>
+  <button 
+    type="button" 
+    class="btn custom-reserve-btn rounded-0 ms-3" 
+    data-bs-toggle="modal" 
+    data-bs-target="#reservationModal"
+  >
+    Reserve
+  </button>
 
-            <!-- Language Picker - Inline List -->
-            <?php if ( function_exists('pll_the_languages') ) : ?>
-  <div class="navbar-lang-wrapper ms-auto">
-  <?php if ( function_exists('pll_get_the_languages') ) : 
-  $langs = pll_get_the_languages(['raw'=>1]);
-  if( $langs ): 
-
-    // find the current language entry
-    $current = array_filter($langs, fn($l)=> $l['current_lang']);
-    $current = reset($current);
-    $others  = array_filter($langs, fn($l)=> ! $l['current_lang'] );
-?>
-  <div class="nav-item dropdown ms-3">
-    <a 
-      class="nav-link dropdown-toggle d-flex align-items-center" 
-      href="#" 
-      id="langDropdown" 
-      role="button" 
-      data-bs-toggle="dropdown" 
-      aria-expanded="false"
-    >
-      <img src="<?php echo esc_url($current['flag']); ?>" width="20" class="me-1">
-      <?php echo esc_html($current['slug']); // or $current['name'] ?>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-      <?php foreach($others as $lang): ?>
-        <li>
-          <a class="dropdown-item d-flex align-items-center" href="<?php echo esc_url($lang['url']); ?>">
-            <img src="<?php echo esc_url($lang['flag']); ?>" width="20" class="me-2">
-            <?php echo esc_html($lang['slug']); ?>
-          </a>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-  </div>
-<?php 
-  endif;
-endif; ?>
-        </nav>
+  <?php if ( function_exists('pll_get_the_languages') ): 
+    $langs = pll_get_the_languages(['raw'=>1]);
+    if ( $langs ):
+      // find the current/other languages
+      $current = reset( array_filter($langs, fn($l)=> $l['current_lang']) );
+      $others  = array_filter($langs, fn($l)=> ! $l['current_lang'] );
+  ?>
+      <div class="nav-item dropdown ms-auto">  <!-- dropdown container -->
+        <a 
+          class="nav-link dropdown-toggle d-flex align-items-center" 
+          href="#" 
+          id="langDropdown" 
+          role="button" 
+          data-bs-toggle="dropdown" 
+          aria-expanded="false"
+        >
+          <img src="<?php echo esc_url($current['flag']); ?>" width="20" class="me-1">
+          <?php echo esc_html($current['slug']); ?>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+          <?php foreach( $others as $lang ): ?>
+            <li>
+              <a 
+                class="dropdown-item d-flex align-items-center" 
+                href="<?php echo esc_url($lang['url']); ?>"
+              >
+                <img src="<?php echo esc_url($lang['flag']); ?>" width="20" class="me-2">
+                <?php echo esc_html($lang['slug']); ?>
+              </a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+  <?php 
+    endif;               // closes if( $langs )
+  endif;                 // closes if ( function_exists )
+  ?>
+</nav> 
 
         <!-- Mobile Menu Button -->
         <button id="menuToggle" class="menu-btn">☰</button>
@@ -113,4 +119,29 @@ endif; ?>
       <a href="https://www.facebook.com/RestaurantDino" target="_blank" class="me-3">
         <i class="fab fa-facebook fa-2x"></i>
       </a>
-      <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" t
+      <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank">
+        <i class="fas fa-map-marker-alt fa-2x"></i>
+      </a>
+    </div>
+  </div>
+</div>
+            
+<!-- Reservation Modal -->
+<div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center custom-reservation-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservationModalLabel">Reservationsinfo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Vi håndterer kun bordreservationer og madbestillinger via telefonopkald.</p>
+                <a href="tel:+45 75 16 64 64" class="btn custom-call-btn mt-3">📞 +45 75 16 64 64</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php wp_footer(); ?>
+</body>
+</html>
