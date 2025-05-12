@@ -93,45 +93,17 @@ if( $hours = get_field('opening_hours') ): ?>
         </ul>
       </div>
 
-    </div><!-- /.row -->
+    </div>
 
     <div class="footer-bottom text-center py-2">  <!-- ↓ was py-3 -->
       <p>Alle rettigheder forbeholdes © 2025 Dino restaurant</p>
     </div>
-  </div><!-- /.container -->
-<!-- Footer End -->
-</section>
-
-<?php
-// ─── language stick here ─────────────────────
-if ( function_exists('pll_get_the_languages') ) {
-  $langs = pll_get_the_languages([ 'raw' => 1 ]);
-  if ( $langs ) {
-    $current = reset( array_filter($langs, fn($l)=> $l['current_lang']) );
-    $others  = array_filter($langs,    fn($l)=> ! $l['current_lang'] );
-?>
-  <div class="lang-dropdown-stick">
-    <button class="lang-current">
-      <img src="<?php echo esc_url($current['flag']); ?>" width="20" alt="">
-      <?php echo esc_html(strtoupper($current['slug'])); ?>
-    </button>
-    <ul class="lang-list">
-      <?php foreach($others as $l): ?>
-        <li>
-          <a href="<?php echo esc_url($l['url']); ?>">
-            <img src="<?php echo esc_url($l['flag']); ?>" width="18" alt="">
-            <?php echo esc_html(strtoupper($l['slug'])); ?>
-          </a>
-        </li>
-      <?php endforeach; ?>
-    </ul>
   </div>
-<?php
-  }
-}
-// ────────────────────────────────────────────
+</section>
+<!-- Footer End -->
 
-wp_footer();
-?>
+
+
+<?php wp_footer(); ?>
 </body>
 </html>

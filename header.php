@@ -28,12 +28,27 @@
 
         <!-- Desktop Menu -->
         <nav class="nav-links d-flex align-items-center gap-3">
-            <a href="#menu">Menu</a>
-            <a href="#about">Om os</a>
-            <a href="#footer">Kontakt</a>
-            <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
-            
-        </nav>
+  <a href="#menu">Menu</a>
+  <a href="#about">Om os</a>
+  <a href="#footer">Kontakt</a>
+  <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
+    Reserve
+  </button>
+
+  <?php if ( function_exists('pll_the_languages') ) : ?>
+    <div class="language-switcher">
+      <?php
+      pll_the_languages( array(
+        'dropdown'   => 1,    // use <select>
+        'show_names' => 1,    // show language names
+        'hide_if_empty' => 0, // always show (even if 1 lang)
+        'echo'       => 1
+      ) );
+      ?>
+    </div>
+  <?php endif; ?>
+</nav>
+
 
         <!-- Mobile Menu Button -->
         <button id="menuToggle" class="menu-btn">☰</button>
@@ -53,6 +68,19 @@
 
   <!-- Reserve Button directly under links -->
   <button type="button" class="btn custom-reserve-btn rounded-0 mobile-reserve-btn" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
+
+  <?php if ( function_exists('pll_the_languages') ) : ?>
+    <div class="mobile-language-switcher mt-3">
+      <?php
+      pll_the_languages( array(
+        'dropdown'   => 1,
+        'show_names' => 1,
+        'hide_if_empty' => 0,
+        'echo'       => 1
+      ) );
+      ?>
+    </div>
+  <?php endif; ?>
 
   <!-- Social icons at the bottom right -->
   <div class="mobile-bottom">
