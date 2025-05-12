@@ -96,7 +96,7 @@ if( $hours = get_field('opening_hours') ): ?>
     </div><!-- /.row -->
 
     <div class="footer-bottom text-center py-2">  <!-- ↓ was py-3 -->
-      <p>Alle rettigheder forbeholdes © 2025 Dino restaurant</p>
+      <p> rettigheder forbeholdes © 2025 Dino restaurant</p>
     </div>
   </div><!-- /.container -->
 </section>
