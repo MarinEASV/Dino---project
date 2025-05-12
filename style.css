@@ -1589,3 +1589,9 @@ nav a {
 
 }
 
+@media screen and (max-width: 768px) {
+
+.dropdown-menu.show {
+  justify-items: start;
+}
+}
