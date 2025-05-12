@@ -1571,6 +1571,9 @@ nav a {
   transform: none !important;
   background: none !important;
 }
-
+.dropdown-item:focus, .dropdown-item:hover {
+  transform: none !important;
+  background: none !important;
+}
 
 
