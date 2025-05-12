@@ -99,4 +99,7 @@ if( $hours = get_field('opening_hours') ): ?>
       <p> <?php pll_e( 'Alle rettigheder forbeholdes © 2025 Dino restaurant' ); ?></p>
     </div>
   </div>
-</
+</section>
+<?php wp_footer(); ?>
+</body>
+</html>
