@@ -5,7 +5,7 @@
 
       <!-- Video Section Title -->
       <div class="container my-5 text-center" data-aos="fade-down">
-        <h2>Tag et kig og find ud af mere i vores video</h2>
+        <h2><?php pll_e( 'Tag et kig og find ud af mere i vores video' ); ?></h2>
       </div>
 
       <!-- Centered Video Carousel Section -->

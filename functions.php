@@ -16,6 +16,7 @@ add_action( 'init', function() {
         pll_register_string( 'Our menu',                      'Vores menu' );
         pll_register_string( 'Menu description',              'Traditionelle danske retter & Balkan favoritter' );
         pll_register_string( 'Review',                  'Hvad vores kunder siger' );
+        pll_register_string( 'Video',                  'Tag et kig og find ud af mere i vores video' );
     }
 });
 
