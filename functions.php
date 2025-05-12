@@ -1,4 +1,11 @@
 <?php
+add_action( 'init', function() {
+    if ( function_exists( 'pll_register_string' ) ) {
+        pll_register_string( 'Cursor: open label',  'Click to see more' );
+        pll_register_string( 'Cursor: close label', 'Close' );
+    }
+});
+
 function dino_theme_enqueue_assets() {
     // Styles
     wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css');
@@ -37,7 +44,7 @@ add_action( 'init', function() {
         pll_register_string( 'Phone',  '📞 +45 75 16 64 64' );
         pll_register_string( 'Reservation info',  'Reservationsinfo' );
         pll_register_string( 'Reservation info text',  'Vi håndterer kun bordreservationer og madbestillinger via telefonopkald.' );
-        pll_register_string( 'Click',    'Click to see more' );
+        pll_register_string( 'Click', 'Click to see more' );
 
     }
 });

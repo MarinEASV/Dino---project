@@ -5,16 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftText     = document.querySelector(".left-text");
   const rightText    = document.querySelector(".right-text");
   const section      = document.querySelector(".bottle-section");
-  const customCursor = document.querySelector(".custom-cursor");
-  const cursorText   = document.querySelector(".cursor-text");
+  const cursorEl    = document.getElementById('customCursor');
+const cursorText  = cursorEl.querySelector('.cursor-text');
+const openText    = cursorEl.dataset.openText;
+const closeText   = cursorEl.dataset.closeText;
 
   /* ── BOTTLE INTERACTIONS ───────────────────────────────── */
   function updateCursorText() {
     const active =
       leftBottle.classList.contains("clicked") ||
       rightBottle.classList.contains("clicked");
-    cursorText.textContent = active ? "Close" : "Click to see more";
+    cursorText.textContent = active ? closeText : openText;
   }
+  
   updateCursorText();
 
   function resetAllInstant() {

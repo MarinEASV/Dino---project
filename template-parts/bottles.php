@@ -90,6 +90,11 @@ $right_link_label  = get_field('right_bottle_link_label') ?: 'Buy Now';
   </div>
 </section>
 
-<div class="custom-cursor">
-  <span class="cursor-text"><?php pll_e( 'Click to see more' ); ?></span>
+<div 
+  id="customCursor" 
+  class="custom-cursor"
+  data-open-text="<?php echo esc_attr( pll__( 'Click to see more' ) ); ?>"
+  data-close-text="<?php echo esc_attr( pll__( 'Close' ) ); ?>"
+>
+  <span class="cursor-text"></span>
 </div>
