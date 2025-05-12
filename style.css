@@ -1614,20 +1614,3 @@ nav a {
 }
 
 
-@media screen and (max-width: 1100px) {
-  /* 1) kill the gradient overlay entirely */
-  .bottle-section::before,
-  .bottle-section::after {
-    display: none !important;
-  }
-
-  /* 2) remove all .bottle background colors */
-  .bottle {
-    background: transparent !important;
-  }
-
-  /* 3) remove all text‐block backgrounds (you can bring these back on tap if you want) */
-  .bottle-text {
-    background: transparent !important;
-  }
-}
