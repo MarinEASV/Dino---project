@@ -159,9 +159,7 @@ if ( function_exists('pll_the_languages') ) :
     </li>
   <?php endforeach; ?>
 </ul>
-
   </div>
-
 <?php 
   endif;
 endif;
