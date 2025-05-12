@@ -1612,3 +1612,11 @@ nav a {
   justify-items: start;
 }
 }
+
+
+/* Dropdown list flags */
+.language-dropdown .language-flag {
+  image-rendering: pixelated;
+}
+
+
