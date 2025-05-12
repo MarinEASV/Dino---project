@@ -1576,4 +1576,8 @@ nav a {
   background: none !important;
 }
 
+.language-dropdown .dropdown-item:hover {
+  background: #5F120D;
+
+}
 
