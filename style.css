@@ -1093,33 +1093,7 @@ nav a {
   color: #000;
 }
 
-@media screen and (max-width: 900px) {
-  .bottle-section {
-    height: auto !important;
-    overflow: visible;
-    padding: 2rem 1rem;
-  }
-  .bottle-container {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  /* kill the full-screen gradient overlay */
-  .bottle-section::before {
-    display: none !important;
-  }
 
-  /* make each .bottle and .bottle-text full width */
-  .bottle,
-  .bottle-text {
-    width: 100% !important;
-    position: static !important;
-    transform: none !important;
-    opacity: 1 !important;
-    transition: none !important;
-    margin-bottom: 1.5rem;
-    pointer-events: auto;
-  }
-}
 
 
   
