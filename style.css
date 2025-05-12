@@ -1561,7 +1561,7 @@ nav a {
 
 /* Flag sizing */
 .language-dropdown .dropdown-item img {
-  width: 30px;      /* your chosen size */
+  width: 25px;      /* your chosen size */
   height: auto;
   display: inline-block;
 }
@@ -1569,6 +1569,7 @@ nav a {
 /* Remove any transform hover */
 .language-dropdown .dropdown-item:hover img {
   transform: none !important;
+  background: none !important;
 }
 
 
