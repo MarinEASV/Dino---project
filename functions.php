@@ -22,10 +22,10 @@ add_action( 'init', function() {
         pll_register_string( 'Smiley certificate', 'Smiley certificate' );
         pll_register_string( 'Terms of use', 'Terms of use' );
         pll_register_string( 'Privatlivspolitik', 'Privatlivspolitik' );
-        pll_register_string( 'Copyright', 'Alle rettigheder forbeholdes © 2025 Dino restaurant' );
-         }
-    });
+        pll_register_string( 'Copyright','Alle rettigheder forbeholdes © 2025 Dino restaurant' );
 
+    }
+});
 
 function dino_theme_enqueue_assets() {
     // Styles
