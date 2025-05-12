@@ -25,7 +25,6 @@ add_action( 'init', function() {
         pll_register_string( 'Copyright', 'Alle rettigheder forbeholdes © 2025 Dino restaurant' );
     }
 });
-
 function dino_theme_enqueue_assets() {
     wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css');
     wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
