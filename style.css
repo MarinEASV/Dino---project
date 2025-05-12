@@ -1581,7 +1581,7 @@ nav a {
     display: none !important;
   }
   
-  .container {
+  .desktop-nav {
     display: contents;
 }
   

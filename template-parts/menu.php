@@ -192,7 +192,4 @@
           <!-- /MOBILE -->
 
         <?php endif; ?>
-      </div>
-    </div>
-  </div>
-</section>
+ 

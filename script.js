@@ -190,6 +190,4 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     document.querySelector('#video').scrollIntoView({ behavior: 'smooth' });
   });
-});
-
-
+})

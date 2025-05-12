@@ -20,7 +20,7 @@
 
 <!-- Navbar -->
 <header class="navbar">
-    <div class="container">
+    <div class="container desktop-nav">
         <!-- Logo -->
         <a class="navbar-brand" href="<?php echo home_url(); ?>">
             <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo" class="logo">
