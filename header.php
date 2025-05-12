@@ -27,28 +27,26 @@
         </a>
 
         <!-- Desktop Menu -->
-        <nav class="nav-links d-flex align-items-center gap-3">
+        <nav class="nav-links d-flex align-items-center gap-3 w-100">
             <a href="#menu">Menu</a>
             <a href="#about">Om os</a>
             <a href="#footer">Kontakt</a>
             <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">Reserve</button>
 
             <!-- Language Picker - Inline List -->
-            <ul class="navbar-lang d-flex gap-3 list-unstyled mb-0">
-                <?php if (function_exists('pll_get_the_languages')): ?>
-                    <?php $languages = pll_get_the_languages(['raw' => 1]); ?>
-                    <?php if (!empty($languages)): ?>
-                        <?php foreach ($languages as $lang): ?>
-                            <li>
-                                <a class="d-flex align-items-center gap-2" href="<?php echo esc_url($lang['url']); ?>">
-                                    <img src="<?php echo esc_url($lang['flag']); ?>" alt="<?php echo esc_attr($lang['slug']); ?> flag" style="width: 20px;">
-                                    <?php echo esc_html($lang['name']); ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                <?php endif; ?>
-            </ul>
+            <?php if ( function_exists('pll_the_languages') ) : ?>
+  <div class="navbar-lang-wrapper ms-auto">
+    <?php
+      pll_the_languages([
+        'show_flags' => 1,
+        'show_names' => 1,
+        'display_names_as' => 'slug',
+        'hide_if_empty' => 0,
+        'dropdown'   => 0,
+      ]);
+    ?>
+  </div>
+<?php endif; ?>
         </nav>
 
         <!-- Mobile Menu Button -->
