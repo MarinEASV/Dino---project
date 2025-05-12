@@ -26,3 +26,17 @@ function dino_theme_remove_gutenberg() {
 add_action("init", "dino_theme_remove_gutenberg");
 add_filter("use_block_editor_for_post", "__return_false");
 add_filter("use_block_editor_for_page", "__return_false");
+
+add_action( 'init', function() {
+    if ( function_exists( 'pll_register_string' ) ) {
+
+        pll_register_string( 'Menu link',    'Menu' );
+        pll_register_string( 'About link',   'Om os' );
+        pll_register_string( 'Contact link', 'Kontakt' );
+        pll_register_string( 'Reserve btn',  'Reserve' );
+        pll_register_string( 'Phone',  '📞 +45 75 16 64 64' );
+        pll_register_string( 'Reservation info',  'Reservationsinfo' );
+        pll_register_string( 'Reservation info text',  'Vi håndterer kun bordreservationer og madbestillinger via telefonopkald.' );
+
+    }
+});

@@ -28,11 +28,11 @@
 
         <!-- Desktop Menu -->
         <nav class="nav-links d-flex align-items-center gap-3">
-  <a href="#menu">Menu</a>
-  <a href="#about">Om os</a>
-  <a href="#footer">Kontakt</a>
+  <a href="#menu"><?php pll_e( 'Menu' ); ?></a>
+  <a href="#about"><?php pll_e( 'Om os' ); ?></a>
+  <a href="#footer"><?php pll_e( 'Kontakt' ); ?></a>
   <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
-    Reserve
+  <?php pll_e( 'Reserve' ); ?>
   </button>
 
   <?php 
@@ -102,9 +102,9 @@ endif;
 
   <!-- Menu links (aligned left) -->
   <div class="mobile-links">
-    <a href="#menu">Menu</a>
-    <a href="#about">Om os</a>
-    <a href="#footer">Kontakt</a>
+    <a href="#menu"><?php pll_e( 'Menu' ); ?></a>
+    <a href="#about"><?php pll_e( 'Om os' ); ?></a>
+    <a href="#footer"><?php pll_e( 'Kontakt' ); ?></a>
   </div>
 
   <!-- Reserve Button directly under links -->
@@ -114,7 +114,7 @@ endif;
     data-bs-toggle="modal" 
     data-bs-target="#reservationModal"
   >
-    Reserve
+  <?php pll_e( 'Reserve' ); ?>
   </button>
 
   <?php 
@@ -186,12 +186,12 @@ endif;
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center custom-reservation-modal">
             <div class="modal-header">
-                <h5 class="modal-title" id="reservationModalLabel">Reservationsinfo</h5>
+                <h5 class="modal-title" id="reservationModalLabel"><?php pll_e( 'Reservationsinfo' ); ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Vi håndterer kun bordreservationer og madbestillinger via telefonopkald.</p>
-                <a href="tel:+45 75 16 64 64" class="btn custom-call-btn mt-3">📞 +45 75 16 64 64</a>
+                <p><?php pll_e( 'Vi håndterer kun bordreservationer og madbestillinger via telefonopkald.' ); ?></p>
+                <a href="tel:+45 75 16 64 64" class="btn custom-call-btn mt-3"><?php pll_e( '📞 +45 75 16 64 64' ); ?></a>
             </div>
         </div>
     </div>
