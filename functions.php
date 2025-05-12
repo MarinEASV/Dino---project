@@ -45,6 +45,7 @@ add_action( 'init', function() {
         pll_register_string( 'Reservation info',  'Reservationsinfo' );
         pll_register_string( 'Reservation info text',  'Vi håndterer kun bordreservationer og madbestillinger via telefonopkald.' );
         pll_register_string( 'Click', 'Click to see more' );
-
+        pll_register_string( 'Taste of Fanø', 'D I N   S M A G   A F   F A N Ø' );
+        pll_register_string( 'Authentic Balkan & Danish Cuisine', 'Autentisk Balkan & Dansk Køkken' );
     }
 });

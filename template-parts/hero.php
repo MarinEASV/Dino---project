@@ -18,13 +18,13 @@ $hero_video = get_field("hero_video"); // ACF video file (mp4)
   <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
   <div class="hero-text text-center text-light">
-    <p class="hero text">D I N   S M A G   A F   F A N Ø</p>
+    <p class="hero text"><?php pll_e( 'D I N   S M A G   A F   F A N Ø' ); ?></p>
   </div>
 
   <!-- Dash and Subtext -->
   <div class="hero-subtext text-center text-light">
     <div class="dash"></div>
-    <p class="subtext">Autentisk Balkan & Dansk Køkken</p>
+    <p class="subtext"><?php pll_e( 'Autentisk Balkan & Dansk Køkken' ); ?></p>
   </div>
 
   <!-- Play ➔ scroll to #video -->
