@@ -1541,3 +1541,62 @@ nav a {
 }
 
 
+
+/* LANGUAGE SWITCH */
+
+/* ── FORCE NAV-LINKS ONE-LINE ───────────────────────── */
+.nav-links {
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+}
+.nav-links a,
+.nav-links .btn {
+  white-space: nowrap;
+}
+
+/* reduce margin on first link */
+.nav-links a:first-child {
+  margin-left: 0;
+}
+
+/* ── BOOTSTRAP DROPDOWN STYLING ─────────────────────── */
+.nav-link.dropdown-toggle {
+  color: var(--c-light) !important;
+  text-decoration: none !important;
+}
+.nav-link.dropdown-toggle:hover {
+  color: var(--c-red) !important;
+}
+
+/* darker backdrop for menu */
+.dropdown-menu {
+  background: rgba(0,0,0,0.85);
+  border: none;
+}
+.dropdown-item {
+  color: #fff;
+}
+.dropdown-item:hover {
+  background-color: var(--c-red);
+  color: #fff;
+}
+
+/* ── MOBILE MENU LANGUAGE LIST ─────────────────────── */
+#mobileMenu .mobile-lang {
+  margin-top: 1.5rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+#mobileMenu .mobile-lang a {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--c-dark);
+  text-decoration: none;
+  margin-bottom: .75rem;
+}
+#mobileMenu .mobile-lang img {
+  margin-right: .75rem;
+  width: 24px;
+  height: auto;
+}
