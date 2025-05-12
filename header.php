@@ -137,8 +137,7 @@ if ( function_exists('pll_the_languages') ) :
       aria-expanded="false"
     >
       <img 
-        src="<?php echo esc_url( $langs[ $current ]['flag'] ); ?>" 
-        alt="<?php echo esc_attr( $langs[ $current ]['name'] ); ?>" 
+        src="<?php echo esc_url( $langs[ $current ]['flag'] ); ?>"  alt="<?php echo esc_attr( $langs[ $current ]['name'] ); ?>" 
         class="current-flag"
       >
     </button>
