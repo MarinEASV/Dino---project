@@ -36,18 +36,15 @@
   </button>
 
   <?php 
-if ( function_exists('pll_the_languages') ) : 
-  $langs = pll_the_languages( array(
-    'raw'           => 1,   // grab data, not HTML
-    'hide_if_empty' => 0
-    
-  ) );
-  // find the current language key
-  $current = pll_current_language();
-  if ( ! empty( $langs ) ) : ?>
-  
+if ( function_exists( 'pll_the_languages' ) ) :
+    $langs    = pll_the_languages( [
+        'raw'           => 1,
+        'hide_if_empty' => 0,
+    ] );
+    $current  = pll_current_language();
+
+    if ( ! empty( $langs ) ) : ?>
   <div class="dropdown language-dropdown">
-    <!-- toggle button shows current flag -->
     <button 
       class="btn dropdown-toggle p-0 border-0" 
       type="button" 
@@ -59,37 +56,35 @@ if ( function_exists('pll_the_languages') ) :
         src="<?php echo esc_url( $langs[ $current ]['flag'] ); ?>" 
         alt="<?php echo esc_attr( $langs[ $current ]['name'] ); ?>" 
         class="current-flag"
+        width="24"
+        height="auto"
       >
     </button>
-
-    <ul 
-      class="dropdown-menu dropdown-menu-end" 
-      aria-labelledby="languageDropdown"
-    >
-      <?php foreach( $langs as $lang ) {
-        // Skip the current language
-        if ( $slug === $current ) {
-          continue;
-        } } ?>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+      <?php foreach ( $langs as $slug => $lang ) : 
+          // Skip current language
+          if ( $slug === $current ) {
+              continue;
+          }
+      ?>
         <li>
           <a 
-            class="dropdown-item d-flex align-items-center" 
+            class="dropdown-item p-1 text-center" 
             href="<?php echo esc_url( $lang['url'] ); ?>"
           >
             <img 
               src="<?php echo esc_url( $lang['flag'] ); ?>" 
               alt="<?php echo esc_attr( $lang['name'] ); ?>" 
-              class="me-2"
+              width="20" 
+              height="auto"
             >
-            <?php echo esc_html( $lang['name'] ); ?>
           </a>
         </li>
       <?php endforeach; ?>
     </ul>
   </div>
-
 <?php 
-  endif;
+    endif;
 endif;
 ?>
 </nav>

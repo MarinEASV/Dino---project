@@ -106,4 +106,4 @@ if( $hours = get_field('opening_hours') ): ?>
 
 <?php wp_footer(); ?>
 </body>
-<
+</html>
