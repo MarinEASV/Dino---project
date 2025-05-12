@@ -26,7 +26,6 @@ add_action( 'init', function() {
     }
 });
 
-
 function dino_theme_enqueue_assets() {
     // Styles
     wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css');
