@@ -107,27 +107,30 @@ const closeText   = cursorEl.dataset.closeText;
     const headers = document.querySelectorAll('#mobileMenuAccordion .accordion-button');
     headers.forEach(header => {
       const panel = document.querySelector(header.dataset.target);
-      // set initial max-height
+  
+      // set initial state
       if (!header.classList.contains('collapsed')) {
         panel.style.maxHeight = panel.scrollHeight + 'px';
       } else {
         panel.style.maxHeight = '0';
       }
+  
       header.addEventListener('click', () => {
-        const willOpen = header.classList.contains('collapsed');
-        // close all
-        headers.forEach(h => {
-          h.classList.add('collapsed');
-          const p = document.querySelector(h.dataset.target);
-          p.style.maxHeight = '0';
-        });
-        if (!willOpen) return; // clicking open header closed it
-        // open this one
-        header.classList.remove('collapsed');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
+        const isCollapsed = header.classList.contains('collapsed');
+  
+        if (isCollapsed) {
+          // OPEN this panel
+          header.classList.remove('collapsed');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        } else {
+          // CLOSE this panel
+          header.classList.add('collapsed');
+          panel.style.maxHeight = '0';
+        }
       });
     });
   }
+  
 
   /* ── MOBILE MENU TOGGLE ──────────────────────────────── */
   const mobileMenu = document.getElementById("mobileMenu");
