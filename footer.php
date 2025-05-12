@@ -95,15 +95,11 @@ if( $hours = get_field('opening_hours') ): ?>
 
     </div>
 
-    <div class="footer-bottom text-center py-2">  <!-- ↓ was py-3 -->
+    <div class="footer-bottom text-center py-2"> 
       <p> <?php pll_e( 'Alle rettigheder forbeholdes © 2025 Dino restaurant' ); ?></p>
     </div>
   </div>
 </section>
-<!-- Footer End -->
-
-
-
 <?php wp_footer(); ?>
 </body>
 </html>
