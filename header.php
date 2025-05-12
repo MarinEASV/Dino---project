@@ -36,18 +36,18 @@
   </button>
 
   <?php if ( function_exists('pll_the_languages') ) : ?>
-    <div class="language-switcher">
-      <?php
-      pll_the_languages( array(
-        'dropdown'   => 1,    // use <select>
-        'show_names' => 1,    // show language names
-        'hide_if_empty' => 0, // always show (even if 1 lang)
-        'echo'       => 1
-      ) );
-      ?>
+    <div class="language-switcher d-flex align-items-center">
+      <?php pll_the_languages( array(
+        'dropdown'    => 0,    // inline links, not <select>
+        'show_flags'  => 1,    // show flags
+        'show_names'  => 0,    // hide language names
+        'hide_if_empty' => 0,  // even if only one lang
+        'echo'        => 1
+      ) ); ?>
     </div>
   <?php endif; ?>
 </nav>
+
 
 
         <!-- Mobile Menu Button -->
@@ -71,14 +71,14 @@
 
   <?php if ( function_exists('pll_the_languages') ) : ?>
     <div class="mobile-language-switcher mt-3">
-      <?php
-      pll_the_languages( array(
-        'dropdown'   => 1,
-        'show_names' => 1,
-        'hide_if_empty' => 0,
+    <?php if ( function_exists('pll_the_languages') ) : ?>
+    <div class="mobile-language-switcher d-flex gap-3 mt-3">
+      <?php pll_the_languages( array(
+        'dropdown'   => 0,
+        'show_flags' => 1,
+        'show_names' => 0,
         'echo'       => 1
-      ) );
-      ?>
+      ) ); ?>
     </div>
   <?php endif; ?>
 

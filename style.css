@@ -1544,31 +1544,39 @@ nav a {
 
 /* LANGUAGE SWITCH */
 
-/* make sure nav-links container stretches and items align */
-.navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* ——— Desktop ——— */
+.navbar .language-switcher {
+  margin-left: auto;                 /* push to far right */
 }
 
-/* push the language switcher to the very right */
-.language-switcher {
-  margin-left: auto;
+.language-switcher a {
+  display: block;
+  margin-left: 1rem;                 /* spacing between flags */
 }
 
-/* style the <select> to match your buttons/links */
-.language-switcher select {
-  padding: .4em .6em;
-  font-size: 1rem;
-  border-radius: 0;
-  border: 1px solid #ccc;
-  background: #fff;
+.language-switcher img {
+  width: 24px;                       /* tweak to taste */
+  height: auto;
+  transition: transform .2s;
+}
+.language-switcher a:hover img {
+  transform: scale(1.1);
 }
 
-.mobile-language-switcher select {
-  width: 100%;
-  padding: .5em;
-  font-size: 1rem;
-  border-radius: 0;
-  border: 1px solid #ccc;
+/* ——— Mobile ——— */
+.mobile-language-switcher {
+  justify-content: flex-start;       /* stack under reserve */
 }
+
+.mobile-language-switcher a img {
+  width: 28px;
+  height: auto;
+}
+
+/* If you want monochrome/white flags to match your white nav text: */
+/*
+.language-switcher img,
+.mobile-language-switcher img {
+  filter: brightness(0) invert(1);
+}
+*/
