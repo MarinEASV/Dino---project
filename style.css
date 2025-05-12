@@ -1544,6 +1544,10 @@ nav a {
 
 /* LANGUAGE SWITCH */
 
+.dropdown-menu.show {
+  margin-top: 20px !important;
+}
+
 /* Only flags, no text */
 .language-dropdown .dropdown-item {
   padding: 0.2rem 0.3rem;
@@ -1572,7 +1576,7 @@ nav a {
   background: none !important;
 }
 .dropdown-item:focus, .dropdown-item:hover {
-  transform: none !important;
+  transform: scale(1.1) !important;
   background: none !important;
 }
 
