@@ -27,7 +27,7 @@
         </a>
 
         <!-- Desktop Menu -->
-        <nav class="nav-links d-flex align-items-center gap-3 w-100">
+        <nav class="nav-links d-flex align-items-center gap-3">
   <a href="#menu">Menu</a>
   <a href="#about">Om os</a>
   <a href="#footer">Kontakt</a>
