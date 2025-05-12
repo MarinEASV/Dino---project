@@ -20,69 +20,75 @@
 
 <!-- Navbar -->
 <header class="navbar">
-    <div class="container">
-        <!-- Logo -->
-        <a class="navbar-brand" href="<?php echo home_url(); ?>">
-            <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo" class="logo">
-        </a>
+  <div class="container d-flex align-items-center">
+    <!-- Logo -->
+    <a class="navbar-brand me-4" href="<?php echo home_url(); ?>">
+      <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo" class="logo">
+    </a>
 
-        <!-- Desktop Menu -->
-        <nav class="nav-links d-flex align-items-center gap-3">
-  <a href="#menu">Menu</a>
-  <a href="#about">Om os</a>
-  <a href="#footer">Kontakt</a>
-  <button 
-    type="button" 
-    class="btn custom-reserve-btn rounded-0 ms-3" 
-    data-bs-toggle="modal" 
-    data-bs-target="#reservationModal"
-  >
-    Reserve
-  </button>
+    <!-- Main nav: single row, no wrap -->
+    <?php // force no wrapping so everything stays on one line ?>
+    <nav class="nav-links d-flex align-items-center w-100" style="flex-wrap: nowrap;">
 
-  <?php if ( function_exists('pll_get_the_languages') ): 
-    $langs = pll_get_the_languages(['raw'=>1]);
-    if ( $langs ):
-      // find the current/other languages
-      $current = reset( array_filter($langs, fn($l)=> $l['current_lang']) );
-      $others  = array_filter($langs, fn($l)=> ! $l['current_lang'] );
-  ?>
-      <div class="nav-item dropdown ms-auto">  <!-- dropdown container -->
-        <a 
-          class="nav-link dropdown-toggle d-flex align-items-center" 
-          href="#" 
-          id="langDropdown" 
-          role="button" 
-          data-bs-toggle="dropdown" 
-          aria-expanded="false"
-        >
-          <img src="<?php echo esc_url($current['flag']); ?>" width="20" class="me-1">
-          <?php echo esc_html($current['slug']); ?>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
-          <?php foreach( $others as $lang ): ?>
-            <li>
-              <a 
-                class="dropdown-item d-flex align-items-center" 
-                href="<?php echo esc_url($lang['url']); ?>"
-              >
-                <img src="<?php echo esc_url($lang['flag']); ?>" width="20" class="me-2">
-                <?php echo esc_html($lang['slug']); ?>
-              </a>
-            </li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-  <?php 
-    endif;               // closes if( $langs )
-  endif;                 // closes if ( function_exists )
-  ?>
-</nav> 
+      <!-- Left links -->
+      <a href="#menu" class="me-4">Menu</a>
+      <a href="#about" class="me-4">Om os</a>
+      <a href="#footer" class="me-4">Kontakt</a>
 
-        <!-- Mobile Menu Button -->
-        <button id="menuToggle" class="menu-btn">☰</button>
-    </div>
+      <!-- Reserve button -->
+      <button 
+        type="button" 
+        class="btn custom-reserve-btn rounded-0 me-4" 
+        data-bs-toggle="modal" 
+        data-bs-target="#reservationModal"
+      >Reserve</button>
+
+      <!-- Spacer pushes dropdown to the far right -->
+      <div class="ms-auto"></div>
+
+      <?php if ( function_exists('pll_get_the_languages') ): 
+        $langs = pll_get_the_languages(['raw'=>1]);
+        if ( $langs ):
+          $current = reset( array_filter($langs, fn($l)=> $l['current_lang']) );
+          $others  = array_filter($langs, fn($l)=> ! $l['current_lang'] );
+      ?>
+        <!-- Language dropdown -->
+        <div class="nav-item dropdown">
+          <a 
+            class="nav-link dropdown-toggle d-flex align-items-center" 
+            href="#" 
+            id="langDropdown" 
+            role="button" 
+            data-bs-toggle="dropdown" 
+            aria-expanded="false"
+          >
+            <img src="<?php echo esc_url($current['flag']); ?>" width="20" class="me-1">
+            <?php echo esc_html($current['slug']); ?>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+            <?php foreach( $others as $lang ): ?>
+              <li>
+                <a 
+                  class="dropdown-item d-flex align-items-center" 
+                  href="<?php echo esc_url($lang['url']); ?>"
+                >
+                  <img src="<?php echo esc_url($lang['flag']); ?>" width="20" class="me-2">
+                  <?php echo esc_html($lang['slug']); ?>
+                </a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      <?php 
+        endif;
+      endif; ?>
+    </nav>
+
+    <!-- Mobile menu toggle (stays on right) -->
+    <button id="menuToggle" class="menu-btn ms-3">☰</button>
+  </div>
 </header>
+
 
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="mobile-nav">
