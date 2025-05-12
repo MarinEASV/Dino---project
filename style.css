@@ -1593,10 +1593,14 @@ nav a {
 
 }
 
+.btn {
+  color: white !important;
+}
+
 @media screen and (max-width: 768px) {
 
   .hero-text {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
   }
 
 .dropdown-menu.show {
