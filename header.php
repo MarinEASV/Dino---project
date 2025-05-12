@@ -44,7 +44,7 @@ if ( function_exists( 'pll_the_languages' ) ) :
     $current  = pll_current_language();
 
     if ( ! empty( $langs ) ) : ?>
-  <div class="dropdown language-dropdown">
+  <div class="dropdown language-dropdown desktop-dropdown">
     <button 
       class="btn dropdown-toggle p-0 border-0" 
       type="button" 
