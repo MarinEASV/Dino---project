@@ -47,5 +47,8 @@ add_action( 'init', function() {
         pll_register_string( 'Click', 'Click to see more' );
         pll_register_string( 'Taste of Fanø', 'D I N   S M A G   A F   F A N Ø' );
         pll_register_string( 'Authentic Balkan & Danish Cuisine', 'Autentisk Balkan & Dansk Køkken' );
+        pll_register_string( 'Our menu','Vores menu' );
+        pll_register_string( 'Menu description','Traditionelle danske retter &amp; Balkan favoritter' );
+
     }
 });
