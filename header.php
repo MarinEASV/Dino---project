@@ -40,6 +40,7 @@ if ( function_exists('pll_the_languages') ) :
   $langs = pll_the_languages( array(
     'raw'           => 1,   // grab data, not HTML
     'hide_if_empty' => 0
+    
   ) );
   // find the current language key
   $current = pll_current_language();
@@ -65,7 +66,11 @@ if ( function_exists('pll_the_languages') ) :
       class="dropdown-menu dropdown-menu-end" 
       aria-labelledby="languageDropdown"
     >
-      <?php foreach( $langs as $lang ) : ?>
+      <?php foreach( $langs as $lang ) {
+        // Skip the current language
+        if ( $slug === $current ) {
+          continue;
+        } } ?>
         <li>
           <a 
             class="dropdown-item d-flex align-items-center" 
