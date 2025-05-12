@@ -1612,3 +1612,20 @@ nav a {
   justify-items: start;
 }
 }
+
+/* Base size for desktop toggle */
+.language-flag.current-flag {
+  font-size: 1.5rem;   /* 24px at root 16px font-size */
+  display: inline-block;
+}
+
+/* Dropdown list flags */
+.language-dropdown .language-flag {
+  font-size: 1.25rem;  /* 20px */
+  display: inline-block;
+}
+
+/* Optional: little hover highlight */
+.language-dropdown .dropdown-item:hover {
+  background-color: rgba(255,255,255,0.1);
+}

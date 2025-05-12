@@ -6,6 +6,8 @@
     <meta name="description" content="<?php bloginfo('description'); ?>">
     <title><?php bloginfo('name'); ?> <?php bloginfo('description'); ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icon.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" 
+/>
     <?php wp_head(); ?>
 </head>
 
@@ -35,15 +37,14 @@
   <?php pll_e( 'Reserve' ); ?>
   </button>
 
-  <?php 
-if ( function_exists( 'pll_the_languages' ) ) :
-    $langs    = pll_the_languages( [
-        'raw'           => 1,
-        'hide_if_empty' => 0,
-    ] );
-    $current  = pll_current_language();
+  <?php if ( function_exists('pll_the_languages') ) :
+    $langs   = pll_the_languages([
+      'raw'           => 1,
+      'hide_if_empty' => 0,
+    ]);
+    $current = pll_current_language();
 
-    if ( ! empty( $langs ) ) : ?>
+    if ( ! empty($langs) ) : ?>
   <div class="dropdown language-dropdown">
     <button 
       class="btn dropdown-toggle p-0 border-0" 
@@ -52,41 +53,33 @@ if ( function_exists( 'pll_the_languages' ) ) :
       data-bs-toggle="dropdown" 
       aria-expanded="false"
     >
-      <img 
-        src="<?php echo esc_url( $langs[ $current ]['flag'] ); ?>" 
-        alt="<?php echo esc_attr( $langs[ $current ]['name'] ); ?>" 
-        class="current-flag"
-        width="24"
-        height="auto"
-      >
+      <!-- Current language flag -->
+      <span 
+        class="flag-icon flag-icon-<?php echo esc_attr( $current ); ?> language-flag current-flag"
+        aria-label="<?php echo esc_attr( $langs[$current]['name'] ); ?>"
+      ></span>
     </button>
+
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-      <?php foreach ( $langs as $slug => $lang ) : 
-          // Skip current language
-          if ( $slug === $current ) {
-              continue;
-          }
+      <?php foreach( $langs as $slug => $lang ) :
+        if ( $slug === $current ) continue;  // skip current
       ?>
         <li>
           <a 
-            class="dropdown-item p-1 text-center" 
-            href="<?php echo esc_url( $lang['url'] ); ?>"
+            class="dropdown-item text-center p-1" 
+            href="<?php echo esc_url( $lang['url'] ); ?>" 
+            title="<?php echo esc_attr( $lang['name'] ); ?>"
           >
-            <img 
-              src="<?php echo esc_url( $lang['flag'] ); ?>" 
-              alt="<?php echo esc_attr( $lang['name'] ); ?>" 
-              width="20" 
-              height="auto"
-            >
+            <span 
+              class="flag-icon flag-icon-<?php echo esc_attr($slug); ?> language-flag"
+              aria-hidden="true"
+            ></span>
           </a>
         </li>
       <?php endforeach; ?>
     </ul>
   </div>
-<?php 
-    endif;
-endif;
-?>
+<?php endif; endif; ?>
 </nav>
 
 
