@@ -94,6 +94,3 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".carousel-item").forEach((item) => {
             observer.observe(item);
         });
-    }
-});
-</script>

@@ -20,7 +20,9 @@
 
 <!-- Navbar -->
 <header class="navbar">
-    <div class="container">
+    <div class="container" style="
+    display: contents;
+">
         <!-- Logo -->
         <a class="navbar-brand" href="<?php echo home_url(); ?>">
             <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo" class="logo">
@@ -44,9 +46,9 @@ if ( function_exists( 'pll_the_languages' ) ) :
     $current  = pll_current_language();
 
     if ( ! empty( $langs ) ) : ?>
-  <div class="dropdown language-dropdown desktop-dropdown">
+  <div class="dropdown language-dropdown ">
     <button 
-      class="btn dropdown-toggle p-0 border-0" 
+      class="btn desktop-dropdown dropdown-toggle p-0 border-0" 
       type="button" 
       id="languageDropdown" 
       data-bs-toggle="dropdown" 
