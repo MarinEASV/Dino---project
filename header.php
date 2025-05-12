@@ -6,8 +6,6 @@
     <meta name="description" content="<?php bloginfo('description'); ?>">
     <title><?php bloginfo('name'); ?> <?php bloginfo('description'); ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icon.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" 
-/>
     <?php wp_head(); ?>
 </head>
 
@@ -37,18 +35,13 @@
   <?php pll_e( 'Reserve' ); ?>
   </button>
 
-  <?php if ( function_exists('pll_the_languages') ) :
-    $langs   = pll_the_languages([
+  <?php 
+if ( function_exists( 'pll_the_languages' ) ) :
+    $langs    = pll_the_languages( [
         'raw'           => 1,
         'hide_if_empty' => 0,
-    ]);
-    $current = pll_current_language();
-    // map WP slugs → flag-icon country codes
-    $flag_map = [
-      'en' => 'gb',
-      'da' => 'dk',
-      'de' => 'de',
-    ];
+    ] );
+    $current  = pll_current_language();
 
     if ( ! empty( $langs ) ) : ?>
   <div class="dropdown language-dropdown">
@@ -59,37 +52,41 @@
       data-bs-toggle="dropdown" 
       aria-expanded="false"
     >
-      <?php 
-        $iso = isset($flag_map[$current]) ? $flag_map[$current] : $current;
-      ?>
-      <span 
-        class="flag-icon flag-icon-<?php echo esc_attr($iso); ?> current-flag"
-        aria-label="<?php echo esc_attr( $langs[$current]['name'] ); ?>"
-      ></span>
+      <img 
+        src="<?php echo esc_url( $langs[ $current ]['flag'] ); ?>" 
+        alt="<?php echo esc_attr( $langs[ $current ]['name'] ); ?>" 
+        class="current-flag"
+        width="24"
+        height="auto"
+      >
     </button>
-
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-      <?php foreach ( $langs as $slug => $lang ) :
-        if ( $slug === $current ) continue;
-        $iso = isset($flag_map[$slug]) ? $flag_map[$slug] : $slug;
+      <?php foreach ( $langs as $slug => $lang ) : 
+          // Skip current language
+          if ( $slug === $current ) {
+              continue;
+          }
       ?>
         <li>
           <a 
             class="dropdown-item p-1 text-center" 
-            href="<?php echo esc_url( $lang['url'] ); ?>" 
-            title="<?php echo esc_attr( $lang['name'] ); ?>"
+            href="<?php echo esc_url( $lang['url'] ); ?>"
           >
-            <span 
-              class="flag-icon flag-icon-<?php echo esc_attr($iso); ?> language-flag"
-              aria-hidden="true"
-            ></span>
+            <img 
+              src="<?php echo esc_url( $lang['flag'] ); ?>" 
+              alt="<?php echo esc_attr( $lang['name'] ); ?>" 
+              width="20" 
+              height="auto"
+            >
           </a>
         </li>
       <?php endforeach; ?>
     </ul>
   </div>
-<?php endif; endif; ?>
-
+<?php 
+    endif;
+endif;
+?>
 </nav>
 
 
@@ -120,12 +117,13 @@
   <?php pll_e( 'Reserve' ); ?>
   </button>
 
-  <?php if ( function_exists( 'pll_the_languages' ) ) :
-    $langs   = pll_the_languages( [
+  <?php 
+if ( function_exists( 'pll_the_languages' ) ) :
+    $langs    = pll_the_languages( [
         'raw'           => 1,
         'hide_if_empty' => 0,
     ] );
-    $current = pll_current_language();
+    $current  = pll_current_language();
 
     if ( ! empty( $langs ) ) : ?>
   <div class="dropdown language-dropdown">
@@ -136,51 +134,41 @@
       data-bs-toggle="dropdown" 
       aria-expanded="false"
     >
-      <?php 
-        // CURRENT flag at 24px wide
-        $code    = strtolower( $current );     // “en”, “da”, “de”…
-        $w_curr  = 24;
-        $h_curr  = intval( $w_curr * 0.75 );    // 4:3 ratio → 18px
-        $f1x_c   = "https://flagcdn.com/{$w_curr}x{$h_curr}/{$code}.png";
-        $f2x_c   = "https://flagcdn.com/".( $w_curr*2 )."x".( $h_curr*2 )."/{$code}.png";
-      ?>
-      <img
-        srcset="<?php echo esc_url( $f2x_c ); ?> 2x"
-        src="<?php echo esc_url( $f1x_c ); ?>"
-        width="<?php echo $w_curr; ?>"
-        height="<?php echo $h_curr; ?>"
-        alt="<?php echo esc_attr( $langs[ $current ]['name'] ); ?>"
+      <img 
+        src="<?php echo esc_url( $langs[ $current ]['flag'] ); ?>" 
+        alt="<?php echo esc_attr( $langs[ $current ]['name'] ); ?>" 
+        class="current-flag"
+        width="24"
+        height="auto"
       >
     </button>
-
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-      <?php foreach ( $langs as $slug => $lang ) :
+      <?php foreach ( $langs as $slug => $lang ) : 
+          // Skip current language
           if ( $slug === $current ) {
-            continue;
+              continue;
           }
-          // build flag URLs for each other language
-          $code   = strtolower( $slug );
-          $w      = 20;                      // display width
-          $h      = intval( $w * 0.75 );    // 15px height
-          $f1x    = "https://flagcdn.com/{$w}x{$h}/{$code}.png";
-          $f2x    = "https://flagcdn.com/".( $w*2 )."x".( $h*2 )."/{$code}.png";
       ?>
         <li>
-          <a class="dropdown-item p-1 text-center" href="<?php echo esc_url( $lang['url'] ); ?>">
-            <img
-              srcset="<?php echo esc_url( $f2x ); ?> 2x"
-              src="<?php echo esc_url( $f1x ); ?>"
-              width="<?php echo $w; ?>"
-              height="<?php echo $h; ?>"
-              alt="<?php echo esc_attr( $lang['name'] ); ?>"
+          <a 
+            class="dropdown-item p-1 text-center" 
+            href="<?php echo esc_url( $lang['url'] ); ?>"
+          >
+            <img 
+              src="<?php echo esc_url( $lang['flag'] ); ?>" 
+              alt="<?php echo esc_attr( $lang['name'] ); ?>" 
+              width="20" 
+              height="auto"
             >
           </a>
         </li>
       <?php endforeach; ?>
     </ul>
   </div>
-<?php endif; endif; ?>
-
+<?php 
+    endif;
+endif;
+?>
 
   <!-- Social icons at the bottom right -->
   <div class="mobile-bottom">
