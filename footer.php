@@ -17,7 +17,7 @@
 
       <!-- 2) KONTAKT -->
       <div class="col-12 col-md-3 mb-3 text-center text-md-start"> <!-- ↓ was mb-4 -->
-        <h4>Kontakt</h4>
+        <h4><?php pll_e( 'Kontakt' ); ?></h4>
         <ul class="list-unstyled">
           <li class="fw-bold">
             <i class="fas fa-angle-right me-2"></i>
@@ -58,7 +58,7 @@
       <?php
 if( $hours = get_field('opening_hours') ): ?>
   <div class="col-12 col-md-3 mb-3 text-center text-md-start">
-    <h4>Åbningstider</h4>
+    <h4><?php pll_e( 'Åbningstider' ); ?></h4>
     <ul class="list-unstyled">
       <?php
       // If you want to allow <li> tags in your ACF textarea:
@@ -70,24 +70,24 @@ if( $hours = get_field('opening_hours') ): ?>
 
       <!-- 4) PRAKTISK -->
       <div class="col-12 col-md-3 mb-3 text-center text-md-start"> <!-- ↓ was mb-4 -->
-        <h4>Praktisk</h4>
+        <h4><?php pll_e( 'Praktisk' ); ?></h4>
         <ul class="list-unstyled">
           <li>
             <i class="fas fa-angle-right me-2"></i>
             <a href="https://www.findsmiley.dk/74148" target="_blank">
-              Smiley certificate
+              <?php pll_e( 'Smiley certificate' ); ?>
             </a>
           </li>
           <li>
             <i class="fas fa-angle-right me-2"></i>
             <a href="…/Vilkaar_for_brug.pdf" target="_blank">
-              Terms of use
+              <?php pll_e( 'Terms of use' ); ?>
             </a>
           </li>
           <li>
             <i class="fas fa-angle-right me-2"></i>
             <a href="…/Privatlivspolitik.pdf" target="_blank">
-             Privatlivspolitik
+             <?php pll_e( 'Privatlivspolitik' ); ?>
             </a>
           </li>
         </ul>
@@ -96,7 +96,7 @@ if( $hours = get_field('opening_hours') ): ?>
     </div>
 
     <div class="footer-bottom text-center py-2">  <!-- ↓ was py-3 -->
-      <p>Alle rettigheder forbeholdes © 2025 Dino restaurant</p>
+      <p> <?php pll_e( 'Alle rettigheder forbeholdes © 2025 Dino restaurant' ); ?></p>
     </div>
   </div>
 </section>

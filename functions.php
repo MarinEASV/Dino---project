@@ -17,6 +17,12 @@ add_action( 'init', function() {
         pll_register_string( 'Menu description',              'Traditionelle danske retter & Balkan favoritter' );
         pll_register_string( 'Review',                  'Hvad vores kunder siger' );
         pll_register_string( 'Video',                  'Tag et kig og find ud af mere i vores video' );
+        pll_register_string( 'Opening hours',            'Åbningstider' );
+        pll_register_string( 'Links',                  'Praktisk' );
+        pll_register_string( 'Smiley certificate',                  'Smiley certificate' );
+        pll_register_string( 'Terms of use',                  'Terms of use' );
+        pll_register_string( 'Privatlivspolitik',                  'Privatlivspolitik' );
+        pll_register_string( 'Copyright',                  'Alle rettigheder forbeholdes © 2025 Dino restaurant' );
     }
 });
 
