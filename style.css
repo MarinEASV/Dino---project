@@ -1544,39 +1544,36 @@ nav a {
 
 /* LANGUAGE SWITCH */
 
-/* ——— Desktop ——— */
-/* globally remove bullets from our language dropdown */
-.language-dropdown .dropdown-toggle img.current-flag {
-  width: 24px;              /* slightly smaller in the header */
-  height: auto;
+/* Only flags, no text */
+.language-dropdown .dropdown-item {
+  padding: 0.2rem 0.3rem;
 }
 
-/* Dropdown-menu flags */
-.language-dropdown .dropdown-menu img {
-  width: 20px;              /* shrink these so they don’t dominate */
-  height: auto;
-  margin-right: 8px;        /* small gap to the name */
+/* Center each flag link */
+.language-dropdown .dropdown-item {
+  text-align: center;
 }
 
-/* ——— Dropdown item styling ——— */
-/* remove the scale-on-hover we added before */
+/* Ensure no leftover name width */
+.language-dropdown .dropdown-item {
+  font-size: 0;     /* hides any stray text nodes */
+}
+
+/* Flag sizing */
+.language-dropdown .dropdown-item img {
+  width: 20px;      /* your chosen size */
+  height: auto;
+  display: inline-block;
+}
+
+/* Remove any transform hover */
 .language-dropdown .dropdown-item:hover img {
   transform: none !important;
 }
 
-/* subtle background highlight on hover */
-.language-dropdown .dropdown-item {
-  transition: background-color .2s ease;
-  padding: 6px 12px;        /* adjust padding for a more compact list */
-}
+/* Optional: a subtle background highlight */
 .language-dropdown .dropdown-item:hover {
-  background-color: rgba(255,255,255,0.15); /* light overlay to match your white-on-video aesthetic */
+  background-color: rgba(255,255,255,0.1);
 }
 
-/* ensure no list bullets */
-.language-dropdown .dropdown-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 

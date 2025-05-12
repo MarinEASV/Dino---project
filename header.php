@@ -143,26 +143,24 @@ if ( function_exists('pll_the_languages') ) :
       >
     </button>
 
-    <ul 
-      class="dropdown-menu dropdown-menu-end" 
-      aria-labelledby="languageDropdown"
-    >
-      <?php foreach( $langs as $lang ) : ?>
-        <li>
-          <a 
-            class="dropdown-item d-flex align-items-center" 
-            href="<?php echo esc_url( $lang['url'] ); ?>"
-          >
-            <img 
-              src="<?php echo esc_url( $lang['flag'] ); ?>" 
-              alt="<?php echo esc_attr( $lang['name'] ); ?>" 
-              class="me-2"
-            >
-            <?php echo esc_html( $lang['name'] ); ?>
-          </a>
-        </li>
-      <?php endforeach; ?>
-    </ul>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+  <?php foreach( $langs as $lang ) : ?>
+    <li>
+      <a 
+        class="dropdown-item p-1 text-center" 
+        href="<?php echo esc_url( $lang['url'] ); ?>"
+      >
+        <img 
+          src="<?php echo esc_url( $lang['flag'] ); ?>" 
+          alt="<?php echo esc_attr( $lang['name'] ); ?>" 
+          width="20" 
+          height="auto"
+        >
+      </a>
+    </li>
+  <?php endforeach; ?>
+</ul>
+
   </div>
 
 <?php 
