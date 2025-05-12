@@ -1599,6 +1599,11 @@ nav a {
 
 @media screen and (max-width: 768px) {
 
+  .btn, .dropdown-toggle {
+    color: rgb(26, 26, 26) !important;
+  }
+  
+
   .hero-text {
     font-size: 1.5rem !important;
   }
