@@ -1596,3 +1596,11 @@ nav a {
 }
 
 
+.desktop-dropdown {
+  display: inline-block;
+}
+@media (max-width: 767px) {
+  .desktop-dropdown {
+    display: none !important;
+  }
+}

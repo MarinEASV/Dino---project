@@ -20,22 +20,26 @@
 
 <!-- Navbar -->
 <header class="navbar">
-    <div class="container desktop-nav">
-        <!-- Logo -->
-        <a class="navbar-brand" href="<?php echo home_url(); ?>">
-            <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo" class="logo">
-        </a>
+  <div class="container d-flex align-items-center justify-content-between">
 
-        <!-- Desktop Menu -->
-        <nav class="nav-links d-flex align-items-center gap-3">
-  <a href="#menu"><?php pll_e( 'Menu' ); ?></a>
-  <a href="#about"><?php pll_e( 'Om os' ); ?></a>
-  <a href="#footer"><?php pll_e( 'Kontakt' ); ?></a>
-  <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
-  <?php pll_e( 'Reserve' ); ?>
-  </button>
-  </div>
-  <?php 
+    <!-- Logo -->
+    <a class="navbar-brand" href="<?php echo home_url(); ?>">
+      <img src="<?php echo esc_url($logo['url']); ?>" alt="Logo" class="logo">
+    </a>
+
+    <!-- Desktop nav: links + reserve + lang -->
+    <div class="d-none d-md-flex align-items-center gap-3 desktop-nav">
+      <nav class="nav-links d-flex align-items-center gap-3">
+        <a href="#menu"><?php pll_e('Menu'); ?></a>
+        <a href="#about"><?php pll_e('Om os'); ?></a>
+        <a href="#footer"><?php pll_e('Kontakt'); ?></a>
+      </nav>
+
+      <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
+        <?php pll_e('Reserve'); ?>
+      </button>
+
+      <?php 
 if ( function_exists( 'pll_the_languages' ) ) :
     $langs    = pll_the_languages( [
         'raw'           => 1,
@@ -44,9 +48,9 @@ if ( function_exists( 'pll_the_languages' ) ) :
     $current  = pll_current_language();
 
     if ( ! empty( $langs ) ) : ?>
-  <div class="dropdown language-dropdown ">
+  <div class="dropdown language-dropdown">
     <button 
-      class="btn desktop-dropdown dropdown-toggle p-0 border-0" 
+      class="btn dropdown-toggle p-0 border-0" 
       type="button" 
       id="languageDropdown" 
       data-bs-toggle="dropdown" 
@@ -82,18 +86,16 @@ if ( function_exists( 'pll_the_languages' ) ) :
         </li>
       <?php endforeach; ?>
     </ul>
-  
+  </div>
 <?php 
     endif;
 endif;
 ?>
-</nav>
-
-
-
-        <!-- Mobile Menu Button -->
-        <button id="menuToggle" class="menu-btn">☰</button>
     </div>
+
+    <!-- Mobile hamburger (only under md) -->
+    <button id="menuToggle" class="menu-btn d-md-none">☰</button>
+  </div>
 </header>
 
 <!-- Mobile Menu -->
