@@ -34,7 +34,7 @@
   <button type="button" class="btn custom-reserve-btn rounded-0" data-bs-toggle="modal" data-bs-target="#reservationModal">
   <?php pll_e( 'Reserve' ); ?>
   </button>
-
+  </div>
   <?php 
 if ( function_exists( 'pll_the_languages' ) ) :
     $langs    = pll_the_languages( [
@@ -82,7 +82,7 @@ if ( function_exists( 'pll_the_languages' ) ) :
         </li>
       <?php endforeach; ?>
     </ul>
-  </div>
+  
 <?php 
     endif;
 endif;
