@@ -102,6 +102,39 @@ if( $hours = get_field('opening_hours') ): ?>
 </section>
 <!-- Footer End -->
 
+<?php
+if( function_exists('pll_get_the_languages') ) {
+  $langs = pll_get_the_languages( [ 'raw' => 1 ] );
+  if( $langs ):
+    // split current vs. others
+    $current = reset( array_filter( $langs, fn($l)=> $l['current_lang'] ) );
+    $others  = array_filter( $langs, fn($l)=> ! $l['current_lang'] );
+?>
+  <div class="lang-dropdown-stick">
+    <!-- always show current -->
+    <button class="lang-current">
+      <img src="<?php echo esc_url($current['flag']);?>" width="20" alt="">
+      <?php echo esc_html( strtoupper($current['slug']) );?>
+    </button>
+    <!-- hidden until hover -->
+    <ul class="lang-list">
+      <?php foreach( $others as $l ): ?>
+      <li>
+        <a href="<?php echo esc_url($l['url']);?>">
+          <img src="<?php echo esc_url($l['flag']);?>" width="18" alt="">
+          <?php echo esc_html( strtoupper($l['slug']) );?>
+        </a>
+      </li>
+      <?php endforeach;?>
+    </ul>
+  </div>
+<?php
+  endif;
+}
+?>
+<?php wp_footer(); ?>
+
+
 <?php wp_footer(); ?>
 </body>
 </html>
