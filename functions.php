@@ -37,6 +37,7 @@ add_action( 'init', function() {
         pll_register_string( 'Phone',  '📞 +45 75 16 64 64' );
         pll_register_string( 'Reservation info',  'Reservationsinfo' );
         pll_register_string( 'Reservation info text',  'Vi håndterer kun bordreservationer og madbestillinger via telefonopkald.' );
+        pll_register_string( 'Click',    'Click to see more' );
 
     }
 });
