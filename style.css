@@ -1593,7 +1593,7 @@ nav a {
 
 }
 
-.btn {
+.btn, .dropdown-toggle {
   color: white !important;
 }
 
