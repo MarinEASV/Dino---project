@@ -16,45 +16,44 @@
       </div>
 
      <!-- 2) KONTAKT -->
-          <div class="col-12 col-md-3 mb-3 text-center text-md-start">
-            <h4>Kontakt</h4>
-            <ul class="list-unstyled">
+        <div class="col-12 col-md-3 mb-3 text-center text-md-start">
+          <h4>Kontakt</h4>
+          <ul class="list-unstyled">
 
-              <!-- Address -->
-              <li>
-                <i class="fas fa-location-dot me-2"></i>
-                <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank" rel="noopener noreferrer">
-                  Strandvejen 8, 6720 Fanø
-                </a>
-              </li>
+            <!-- Name and CVR (no icons, plain text) -->
+            <li class="fw-bold">
+              Restaurant Dino
+            </li>
+            <li>
+              CVR: 25996682
+            </li>
 
-              <!-- Phone -->
-              <li>
-                <i class="fas fa-phone me-2"></i>
-                <a href="tel:+4575166464" rel="noopener noreferrer">
-                  +45 75 16 64 64
-                </a>
-              </li>
+            <!-- Address -->
+            <li class="mt-3">
+              <i class="fas fa-location-dot me-2"></i>
+              <a href="https://maps.app.goo.gl/oUaruKVvpiQsCJir5" target="_blank" rel="noopener noreferrer">
+                Strandvejen 8, 6720 Fanø
+              </a>
+            </li>
 
-              <!-- Email -->
-              <li>
-                <i class="fas fa-envelope me-2"></i>
-                <a href="mailto:ekarahusic@msn.com" target="_blank" rel="noopener noreferrer">
-                  ekarahusic@msn.com
-                </a>
-              </li>
+            <!-- Phone -->
+            <li>
+              <i class="fas fa-phone me-2"></i>
+              <a href="tel:+4575166464" rel="noopener noreferrer">
+                +45 75 16 64 64
+              </a>
+            </li>
 
-              <!-- Spacer (optional for separation) -->
-              <li class="mt-3 fw-bold">
-                Restaurant Dino
-              </li>
+            <!-- Email -->
+            <li>
+              <i class="fas fa-envelope me-2"></i>
+              <a href="mailto:ekarahusic@msn.com" target="_blank" rel="noopener noreferrer">
+                ekarahusic@msn.com
+              </a>
+            </li>
 
-              <li>
-                CVR: 25996682
-              </li>
-
-            </ul>
-          </div>
+          </ul>
+        </div>
 
 
       <!-- 3) ÅBNINGSTIDER -->
