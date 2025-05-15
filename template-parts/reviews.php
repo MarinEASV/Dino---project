@@ -5,7 +5,7 @@
  */
 ?>
 
-<section id="reviews-section" class="reviews-section" data-aos="fade-up-right">
+<section id="reviews-section" class="reviews-section" >
   <div class="container">
     <h2 class="reviews-section__title"><?php pll_e( 'Hvad vores kunder siger' ); ?></h2>
 
