@@ -1013,7 +1013,7 @@ nav a {
   
   /* Hide default cursor and show custom one on desktop */
   .bottle-container {
-    cursor: none;
+    cursor: default;
   }
 
   /* Features list */
@@ -1267,7 +1267,7 @@ nav a {
   
     .bottle-section::before,
     .custom-cursor {
-      display: none !important;
+      display: default !important;
     }
 
     .bottle-section.left-opened .left-text,
@@ -1309,13 +1309,13 @@ nav a {
   @media (min-width: 769px) {
      .bottle-section,
     .bottle-container {
-      cursor: none !important;
+      cursor: default !important;
     }
   }
   
   .bottle-section,
   .bottle-section * {
-    cursor: none !important;
+    cursor: default !important;
     color: #000 !important;
   }
 
