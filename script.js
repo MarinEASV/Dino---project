@@ -160,15 +160,22 @@ window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const logo = document.querySelector(".preloader-logo");
 
-  // Trigger final animation
+  // Start the logo zoom-out animation
   logo.classList.add("animate");
 
-  // Hide preloader after animation
+  // After the animation ends (1s), remove blur and hide preloader
   setTimeout(() => {
+    preloader.style.backdropFilter = "none";
+    preloader.style.backgroundColor = "transparent";
     preloader.style.opacity = "0";
     preloader.style.visibility = "hidden";
-  }, 2500); // longer duration to allow full smooth transition
+    preloader.style.pointerEvents = "none";
+    
+    // Optionally, remove from DOM entirely for performance
+    // preloader.remove();
+  }, 1000); // matches duration of bigFadeZoom
 });
+
 
 
 
