@@ -75,7 +75,7 @@
                         <h4 class="py-3"><?php echo esc_html( $tab['menu_type'] ); ?></h4>
                         <p><?php echo esc_html( $tab['menu_description'] ); ?></p>
                         <ul class="list-unstyled">
-                          <?php for ( $j = 1; $j <= 15; $j++ ):
+                          <?php for ( $j = 1; $j <= 16; $j++ ):
                             $name  = $tab['dishes_group']["dish_{$j}_name"];
                             if ( ! $name ) continue;
                             $desc  = $tab['dishes_group']["dish_{$j}_description"];
