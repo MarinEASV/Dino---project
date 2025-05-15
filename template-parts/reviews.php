@@ -14,3 +14,6 @@
 echo do_shortcode(
         '[trustindex no-registration=google]'
       );
+?>
+  </div>
+</section>
