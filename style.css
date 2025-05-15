@@ -1046,7 +1046,7 @@ nav a {
 
 /* Buy button */
 .bottle-buy-button {
-  cursor: pointer;
+  cursor: pointer !important;
   display: inline-block;
   padding: 0.75rem 1.5rem;
   background-color: #000;
