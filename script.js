@@ -160,15 +160,21 @@ window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   const logo = document.querySelector(".preloader-logo");
 
-  // Trigger final animation
+  // Start zoom out animation
   logo.classList.add("animate");
 
-  // Hide preloader after animation
+  // Remove blur effect early (so site content is visible while logo is animating)
+  preloader.style.backdropFilter = "none";
+  preloader.style.backgroundColor = "transparent";
+
+  // Hide preloader container after animation completes
   setTimeout(() => {
     preloader.style.opacity = "0";
     preloader.style.visibility = "hidden";
-  }, 2500); // longer duration to allow full smooth transition
+    preloader.style.pointerEvents = "none"; // prevent interaction blocking
+  }, 1000); // matches the bigFadeZoom duration
 });
+
 
 
 
