@@ -4,7 +4,7 @@
       <br><br>
 
       <!-- Video Section Title -->
-      <div class="container my-5 text-center" data-aos="fade-down">
+      <div class="container my-5 text-center">
         <h2><?php pll_e( 'Tag et kig og find ud af mere i vores video' ); ?></h2>
       </div>
 
