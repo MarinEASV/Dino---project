@@ -1571,6 +1571,11 @@ nav a {
   color: white;
 }
 
+img[src*="/polylang/"][src*="/flags/"] {
+  width: 32px !important;    
+  height: auto !important;   
+}
+
 @media screen and (max-width: 768px) {
 
   .btn, .dropdown-toggle {
