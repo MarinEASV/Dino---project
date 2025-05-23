@@ -423,7 +423,7 @@ nav a {
 /* Optional: hover effect */
 .custom-reserve-btn:hover {
   background-color: var(--c-light);
-  color: var(--c-red);
+  color: var(--c-red) !important;
 }
 
 /* Modal base */
@@ -1578,7 +1578,7 @@ img[src*="/polylang/"][src*="/flags/"] {
 
 @media screen and (max-width: 768px) {
 
-  .btn, .dropdown-toggle {
+  .dropdown-toggle {
     color: rgb(26, 26, 26) !important;
   }
 
