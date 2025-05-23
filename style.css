@@ -1592,7 +1592,7 @@ img[src*="/polylang/"][src*="/flags/"] {
   
 
   .hero-text {
-    font-size: 1.5rem !important;
+    font-size: 1rem !important;
   }
 
 .dropdown-menu.show {
@@ -1607,5 +1607,11 @@ img[src*="/polylang/"][src*="/flags/"] {
 @media (max-width: 767px) {
   .desktop-dropdown {
     display: none !important;
+  }
+}
+
+@media screen and (max-width: 458px) {
+  .hero-subtext .subtext {
+  font-size: 18px;
   }
 }
