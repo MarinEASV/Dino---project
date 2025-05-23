@@ -1612,6 +1612,10 @@ img[src*="/polylang/"][src*="/flags/"] {
 
 @media screen and (max-width: 458px) {
   .hero-subtext .subtext {
-  font-size: 18px;
+  font-size: 17px;
+  }
+
+  .hero-text {
+    font-size: 0.8rem !important;
   }
 }
